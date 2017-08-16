@@ -29,7 +29,7 @@ class VendorGroups
     private $vendorId;
 
     /**
-     * @ORM\OneToMany(targetEntity="PartyCravings\ClientAreaBundle\Entity\LiveParties", mappedBy="vendorGroupId")
+     * @ORM\OneToMany(targetEntity="LiveParties", mappedBy="vendorGroupId")
     */
     private $liveParties;
 

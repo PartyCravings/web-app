@@ -23,7 +23,7 @@ class Currency
     private $id;
 
     /**
-    * @ORM\OneToMany(targetEntity="PartyCravings\ClientAreaBundle\Entity\AsoEbi", mappedBy="currencyId")
+    * @ORM\OneToMany(targetEntity="AsoEbi", mappedBy="currencyId")
     */
     private $asoEbi;
 
@@ -35,7 +35,7 @@ class Currency
     private $isoCode;
 
     /**
-    * @ORM\OneToMany(targetEntity="PartyCravings\ClientAreaBundle\Entity\AffiliatesExtra", mappedBy="currencyId")
+    * @ORM\OneToMany(targetEntity="AffiliatesExtra", mappedBy="currencyId")
     */
     private $affiliatesExtra;
 

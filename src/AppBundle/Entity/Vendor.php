@@ -23,17 +23,17 @@ class Vendor
     private $id;
 
     /**
-    * @ORM\OneToMany(targetEntity="PartyCravings\ClientAreaBundle\Entity\AsoEbi", mappedBy="vendorId")
+    * @ORM\OneToMany(targetEntity="AsoEbi", mappedBy="vendorId")
     */
     private $asoEbi;
 
     /**
-     * @ORM\OneToMany(targetEntity="PartyCravings\ClientAreaBundle\Entity\LiveParties", mappedBy="vendorId")
+     * @ORM\OneToMany(targetEntity="LiveParties", mappedBy="vendorId")
     */
     private $liveParties;
 
     /**
-    * @ORM\OneToMany(targetEntity="PartyCravings\ClientAreaBundle\Entity\Party", mappedBy="vendorId")
+    * @ORM\OneToMany(targetEntity="Party", mappedBy="vendorId")
      */
     private $party;
 

@@ -24,7 +24,7 @@ class Customer
 
 
     /**
-     * @ORM\OneToMany(targetEntity="PartyCravings\ClientAreaBundle\Entity\LiveParties", mappedBy="customerId")
+     * @ORM\OneToMany(targetEntity="LiveParties", mappedBy="customerId")
      */
     private $liveParties;
 

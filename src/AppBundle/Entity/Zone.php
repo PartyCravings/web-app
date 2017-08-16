@@ -23,12 +23,12 @@ class Zone
     private $id;
 
     /**
-    * @ORM\OneToMany(targetEntity="PartyCravings\ClientAreaBundle\Entity\AsoEbi", mappedBy="zoneId")
+    * @ORM\OneToMany(targetEntity="AsoEbi", mappedBy="zoneId")
     */
     private $asoEbi;
 
     /**
-    * @ORM\OneToMany(targetEntity="PartyCravings\ClientAreaBundle\Entity\Party", mappedBy="zoneId")
+    * @ORM\OneToMany(targetEntity="Party", mappedBy="zoneId")
      */
     private $party;
 

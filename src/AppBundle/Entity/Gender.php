@@ -28,13 +28,6 @@ class Gender
      */
     private $type;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="lang", type="string", length=255)
-     */
-    private $lang;
-
 
     /**
      * Get id

@@ -23,19 +23,19 @@ class Country
     private $id;
 
     /**
-    * @ORM\OneToMany(targetEntity="PartyCravings\ClientAreaBundle\Entity\AsoEbi", mappedBy="countryId")
+    * @ORM\OneToMany(targetEntity="AsoEbi", mappedBy="countryId")
     */
     private $asoEbi;
 
     /**
-    * @ORM\OneToMany(targetEntity="PartyCravings\ClientAreaBundle\Entity\Party", mappedBy="countryId")
+    * @ORM\OneToMany(targetEntity="Party", mappedBy="countryId")
      */
     private $party;
 
     /**
      * @var string
      *
-     * @ORM\OneToMany(targetEntity="PartyCravings\ClientAreaBundle\Entity\Zones", mappedBy="countryId")
+     * @ORM\OneToMany(targetEntity="Zones", mappedBy="countryId")
      */
     private $idZone;
 
@@ -117,7 +117,7 @@ class Country
     private $vendor;
 
     /**
-    * @ORM\OneToMany(targetEntity="PartyCravings\ClientAreaBundle\Entity\Affiliates", mappedBy="countryId")
+    * @ORM\OneToMany(targetEntity="Affiliates", mappedBy="countryId")
     */
     private $affiliates;
 

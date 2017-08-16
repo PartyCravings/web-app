@@ -28,7 +28,7 @@ class PartyUrls
      */
     private $uri;
     /**
-     * @ORM\OneToMany(targetEntity="PartyCravings\ClientAreaBundle\Entity\LiveParties", mappedBy="partyUrlId")
+     * @ORM\OneToMany(targetEntity="LiveParties", mappedBy="partyUrlId")
     */
     private $liveParties;
 
