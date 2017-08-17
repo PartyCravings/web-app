@@ -17,3 +17,8 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret: ThisTokenIsNotSoSecretChangeIt
+
+    #Google, Facebook and other OAUTH Keys
+    google_app_id: MyOAUTHKeysHere
+    google_app_secret: MyOAUTHSecretHere
+    app_locales: en|fr|de|es|cs|nl|ru|uk|ro|pt_BR|pl|it|ja|id|ca|sl|hr|zh_CN

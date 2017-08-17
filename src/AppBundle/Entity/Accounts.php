@@ -3,20 +3,18 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Security\Core\Role\Role;
+use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\Common\Collections\ArrayCollection;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Accounts
  *
  * @ORM\Table(name="accounts")
- * @UniqueEntity(fields={"email"}, message="It looks like you already have an account!")
+ * @Gedmo\SoftDeleteable(fieldName="deletedAt", timeAware=false)
  * @ORM\Entity(repositoryClass="AppBundle\Repository\AccountsRepository")
  */
-class Accounts implements UserInterface
+class Accounts extends BaseUser
 {
     /**
      * @var int
@@ -25,42 +23,13 @@ class Accounts implements UserInterface
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="username", type="string", length=255, nullable=true)
+     * @Gedmo\Slug(fields={"username","id"})
+     * @ORM\Column(name="slug", type="string", length=255, nullable=true)
      */
-    private $username;
-
-    /**
-     * @var string
-     * @Assert\Email()
-     * @ORM\Column(name="email", type="string", length=255)
-     */
-    private $email;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="salt", type="string", length=255, nullable=true)
-     */
-    private $salt;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="plain_password", type="string", length=255, nullable=true)
-     */
-    private $plainPassword;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="password", type="string", length=255, nullable=true)
-     */
-    private $password;
+    private $slug;
 
     /**
      * @var \DateTime
@@ -68,34 +37,6 @@ class Accounts implements UserInterface
      * @ORM\Column(name="date_add", type="datetime", nullable=true)
      */
     private $dateAdd;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date_edited", type="datetime", nullable=true)
-     */
-    private $dateEdited;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="birthday", type="datetime", nullable=true)
-     */
-    private $birthday;
-
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="is_enabled", type="boolean", nullable=true)
-     */
-    private $isEnabled;
-
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="is_deleted", type="boolean", nullable=true)
-     */
-    private $isDeleted;
 
     /**
      * @var bool
@@ -110,11 +51,6 @@ class Accounts implements UserInterface
     private $affliates;
 
     /**
-     * @ORM\Column(type="json_array")
-     */
-    private $roles = [];
-
-    /**
     * @ORM\OneToMany(targetEntity="Agency", mappedBy="accountId")
     */
     private $agency;
@@ -124,6 +60,15 @@ class Accounts implements UserInterface
      * @ORM\JoinColumn(name="account_detail", referencedColumnName="id")
      **/
     private $accountDetail;
+
+     /** @ORM\Column(name="facebook_id", type="string", length=255, nullable=true) */
+    protected $facebook_id;
+    /** @ORM\Column(name="facebook_access_token", type="string", length=255, nullable=true) */
+    protected $facebook_access_token;
+    /** @ORM\Column(name="google_id", type="string", length=255, nullable=true) */
+    protected $google_id;
+    /** @ORM\Column(name="google_access_token", type="string", length=255, nullable=true) */
+    protected $google_access_token;
 
     public function __construct()
     {
@@ -143,288 +88,122 @@ class Accounts implements UserInterface
     }
 
     /**
-     * Set username
+     * Set slug
      *
-     * @param string $username
+     * @param string $slug
      *
      * @return Accounts
      */
-    public function setUsername($username)
+    public function setSlug($slug)
     {
-        $this->username = $username;
+        $this->slug = $slug;
 
         return $this;
     }
 
     /**
-     * Get username
+     * Get slug
      *
      * @return string
      */
-    public function getUsername()
+    public function getSlug()
     {
-        return $this->username;
+        return $this->slug;
     }
 
     /**
-     * Set email
+     * Set facebook_id
      *
-     * @param string $email
+     * @param string $facebook_id
      *
      * @return Accounts
      */
-    public function setEmail($email)
+    public function setFacebookId($facebook_id)
     {
-        $this->email = $email;
+        $this->facebook_id = $facebook_id;
 
         return $this;
     }
 
     /**
-     * Get email
+     * Get facebook_id
      *
      * @return string
      */
-    public function getEmail()
+    public function getFacebookId()
     {
-        return $this->email;
+        return $this->facebook_id;
     }
 
     /**
-     * Set plainPassword
+     * Set google_id
      *
-     * @param string $plainPassword
+     * @param string $google_id
      *
      * @return Accounts
      */
-    public function setPlainPassword($plainPassword)
+    public function setGoogleId($google_id)
     {
-        $this->plainPassword = $plainPassword;
+        $this->google_id = $google_id;
 
         return $this;
     }
 
     /**
-     * Get plainPassword
+     * Get google_id
      *
      * @return string
      */
-    public function getPlainPassword()
+    public function getGoogleId()
     {
-        return $this->plainPassword;
+        return $this->google_id;
     }
 
     /**
-     * Set password
+     * Set google_access_token
      *
-     * @param string $password
+     * @param string $google_access_token
      *
      * @return Accounts
      */
-    public function setPassword($password)
+    public function setGoogleAccessToken($google_access_token)
     {
-        $this->password = $password;
+        $this->google_access_token = $google_access_token;
 
         return $this;
     }
 
     /**
-     * Get password
+     * Get google_access_token
      *
      * @return string
      */
-    public function getPassword()
+    public function getGoogleAccessToken()
     {
-        return $this->password;
+        return $this->google_access_token;
     }
 
     /**
-     * Set dateAdd
+     * Set facebook_access_token
      *
-     * @param \DateTime $dateAdd
+     * @param string $facebook_access_token
      *
      * @return Accounts
      */
-    public function setDateAdd($dateAdd)
+    public function setFacebookAccessToken($facebook_access_token)
     {
-        $this->dateAdd = $dateAdd;
+        $this->facebook_access_token = $facebook_access_token;
 
         return $this;
     }
 
     /**
-     * Get dateAdd
-     *
-     * @return \DateTime
-     */
-    public function getDateAdd()
-    {
-        return $this->dateAdd;
-    }
-
-    /**
-     * Set dateEdited
-     *
-     * @param \DateTime $dateEdited
-     *
-     * @return Accounts
-     */
-    public function setDateEdited($dateEdited)
-    {
-        $this->dateEdited = $dateEdited;
-
-        return $this;
-    }
-
-    /**
-     * Get dateEdited
-     *
-     * @return \DateTime
-     */
-    public function getDateEdited()
-    {
-        return $this->dateEdited;
-    }
-
-    /**
-     * Set isEnabled
-     *
-     * @param boolean $isEnabled
-     *
-     * @return Accounts
-     */
-    public function setIsEnabled($isEnabled)
-    {
-        $this->isEnabled = $isEnabled;
-
-        return $this;
-    }
-
-    /**
-     * Get isEnabled
-     *
-     * @return bool
-     */
-    public function getIsEnabled()
-    {
-        return $this->isEnabled;
-    }
-
-    /**
-     * Set isDeleted
-     *
-     * @param boolean $isDeleted
-     *
-     * @return Accounts
-     */
-    public function setIsDeleted($isDeleted)
-    {
-        $this->isDeleted = $isDeleted;
-
-        return $this;
-    }
-
-    /**
-     * Get isDeleted
-     *
-     * @return bool
-     */
-    public function getIsDeleted()
-    {
-        return $this->isDeleted;
-    }
-
-    /**
-     * Set isSuspended
-     *
-     * @param boolean $isSuspended
-     *
-     * @return Accounts
-     */
-    public function setIsSuspended($isSuspended)
-    {
-        $this->isSuspended = $isSuspended;
-
-        return $this;
-    }
-
-    /**
-     * Get isSuspended
-     *
-     * @return bool
-     */
-    public function getIsSuspended()
-    {
-        return $this->isSuspended;
-    }
-
-    /**
-     * Set role
-     *
-     * @param string $role
-     *
-     * @return Accounts
-     */
-    public function setRole($role)
-    {
-        $this->role = $role;
-
-        return $this;
-    }
-
-    /**
-     * Get role
+     * Get facebook_access_token
      *
      * @return string
      */
-    public function getRole()
+    public function getFacebookAccessToken()
     {
-        return $this->role;
-    }
-
-    /**
-     * Set salt
-     *
-     * @param string $salt
-     *
-     * @return Users
-     */
-    public function setSalt($salt)
-    {
-        $this->salt = $salt;
-
-        return $this;
-    }
-
-    public function eraseCredentials()
-    {
-        $this->plainPassword = null;
-    }
-
-    public function getRoles()
-    {
-        $roles = $this->roles;
-
-        // give everyone ROLE_USER!
-        if (!in_array('ROLE_USER', $roles)) {
-            $roles[] = 'ROLE_USER';
-        }
-
-        return $roles;
-    }
-
-    public function setRoles(array $roles)
-    {
-        $this->roles = $roles;
-    }
-
-    /**
-     * Get salt
-     *
-     * @return string
-     */
-    public function getSalt()
-    {
-        return $this->salt;
+        return $this->facebook_access_token;
     }
 }

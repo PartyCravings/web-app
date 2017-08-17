@@ -22,11 +22,11 @@ class AccountDetails
     private $id;
 
     /**
-     * @var int
+     * @var \DateTime
      *
-     * @ORM\Column(name="account_id", type="integer")
+     * @ORM\Column(name="birthday", type="datetime", nullable=true)
      */
-    private $accountId;
+    private $birthday;
 
     /**
      * @var int
