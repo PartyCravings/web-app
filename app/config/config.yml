@@ -152,10 +152,58 @@ jms_translation:
 #JMS i8n Routing Bundle Configuration
 jms_i18n_routing:
     default_locale: en
-    locales: [de, en, uk, cn]
+    locales: [en, de]
     strategy: prefix_except_default
 
 #Stof Doctrine extensions Configuration
 stof_doctrine_extensions:
             class:
                 softdeleteable: Gedmo\SoftDeleteable\Filter\SoftDeleteableFilter
+
+# Web Socket Configuration
+gos_web_socket:
+    server:
+        port: 8080        #The port the socket server will listen on
+        host: 127.0.0.1   #The host ip to bind to
+    topics:
+        - '@AppBundle\Topic\NotificationTopic'
+
+#FOSOAUth 2 Server Bundle Configurations
+fos_oauth_server:
+    db_driver: orm       # Drivers available: orm, mongodb, or propel
+    client_class:        AppBundle\Entity\Client
+    access_token_class:  AppBundle\Entity\AccessToken
+    refresh_token_class: AppBundle\Entity\RefreshToken
+    auth_code_class:     AppBundle\Entity\AuthCode
+    service:
+        user_provider: AppBundle\Security\FOSUBUserProvider
+
+#KnpGaufrette Bundle Configurations
+knp_gaufrette:
+    adapters:
+        gallery:
+            local:
+                directory:  '%kernel.project_dir%/web/uploads'
+                create:     true
+    filesystems:
+        gallery:
+            adapter: gallery
+
+#Oneup Uploader Bundle Configurations
+oneup_uploader:
+    mappings:
+        gallery:
+            frontend: dropzone
+            storage:
+                type: gaufrette
+                filesystem: gaufrette.gallery_filesystem
+
+#Gravatar Bundle Configurations
+ornicar_gravatar:
+    rating: g
+    size: 80
+    default: mm
+
+#Noxlogic Rate Limit Bundle Configuration
+noxlogic_rate_limit:
+    enabled: false

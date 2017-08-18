@@ -12,12 +12,12 @@ parameters:
 
     mailer_transport: smtp
     mailer_host: 127.0.0.1
-    mailer_user: ~
+    mailer_user: support@partycravings.com
     mailer_password: ~
 
     # A secret key that's used to generate certain security-related tokens
     secret: ThisTokenIsNotSoSecretChangeIt
 
     #Google, Facebook and other OAUTH Keys
-    google_app_id: MyOAUTHKeysHere
-    google_app_secret: MyOAUTHSecretHere
+    google_app_id: 99524646330-55lkia8drehg45b6bctgmkmo8h2l1u12.apps.googleusercontent.com
+    google_app_secret: MihbaS8xfqFwycZE7BvNXBV-
