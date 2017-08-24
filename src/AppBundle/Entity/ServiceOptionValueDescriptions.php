@@ -187,4 +187,3 @@ class ServiceOptionValueDescriptions
         return $this->groupedAttributeNames;
     }
 }
-

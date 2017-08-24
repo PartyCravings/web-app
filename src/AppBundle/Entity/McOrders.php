@@ -311,4 +311,3 @@ class McOrders
         return $this->deleted;
     }
 }
-

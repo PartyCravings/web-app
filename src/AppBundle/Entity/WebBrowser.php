@@ -63,4 +63,3 @@ class WebBrowser
         return $this->name;
     }
 }
-

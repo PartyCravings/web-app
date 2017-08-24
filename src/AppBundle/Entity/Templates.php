@@ -187,4 +187,3 @@ class Templates
         return $this->isDefault;
     }
 }
-

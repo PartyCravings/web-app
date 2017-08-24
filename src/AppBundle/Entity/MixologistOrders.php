@@ -962,4 +962,3 @@ class MixologistOrders
         return $this->module;
     }
 }
-

@@ -146,4 +146,3 @@ class EventsData
         $this->eventId = $eventId;
     }
 }
-

@@ -130,8 +130,7 @@ class PartyUrls
     }/**
  * @return mixed
  */public function getLiveParties()
-{
-    return $this->liveParties;
+    {
+        return $this->liveParties;
+    }
 }
-}
-

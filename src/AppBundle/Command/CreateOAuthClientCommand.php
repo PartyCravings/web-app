@@ -46,9 +46,11 @@ class CreateOAuthClientCommand extends ContainerAwareCommand
         $client->setAllowedGrantTypes([$grantType]);
         $clientManager->updateClient($client);
 
-        $output->writeln(sprintf("<info>The client was created with <comment>%s</comment> as public id and <comment>%s</comment> as secret</info>",
+        $output->writeln(sprintf(
+            "<info>The client was created with <comment>%s</comment> as public id and <comment>%s</comment> as secret</info>",
             $client->getPublicId(),
-            $client->getSecret()));
+            $client->getSecret()
+        ));
 
         $accounts = $container->get('doctrine')->getRepository('AppBundle:Accounts')->findAll();
 
@@ -61,9 +63,11 @@ class CreateOAuthClientCommand extends ContainerAwareCommand
 
             $oauthServer->finishClientAuthorization(true, $account, $authRequest, $grantType);
 
-            $output->writeln(sprintf("<info>Account <comment>%s</comment> linked to client <comment>%s</comment></info>",
+            $output->writeln(sprintf(
+                "<info>Account <comment>%s</comment> linked to client <comment>%s</comment></info>",
                 $account->getId(),
-                $client->getPublicId()));
+                $client->getPublicId()
+            ));
         }
     }
 }

@@ -373,4 +373,3 @@ class Stock
         return $this->mvtReasonLang;
     }
 }
-

@@ -217,4 +217,3 @@ class VendorDescriptons
         return $this->metaKeywords;
     }
 }
-

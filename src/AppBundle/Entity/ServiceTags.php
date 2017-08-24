@@ -125,4 +125,3 @@ class ServiceTags
         return $this->langId;
     }
 }
-

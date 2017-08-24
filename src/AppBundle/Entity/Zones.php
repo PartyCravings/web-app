@@ -272,4 +272,3 @@ class Zones
         $this->zoneDescriptions = $zoneDescriptions;
     }
 }
-

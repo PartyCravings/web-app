@@ -435,4 +435,3 @@ class Trackers
         return $this->updated;
     }
 }
-

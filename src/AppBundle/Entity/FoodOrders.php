@@ -1210,4 +1210,3 @@ class FoodOrders
         return $this->foodPaid;
     }
 }
-

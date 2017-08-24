@@ -311,4 +311,3 @@ class CampaignAttachments
         return $this->isDeleted;
     }
 }
-

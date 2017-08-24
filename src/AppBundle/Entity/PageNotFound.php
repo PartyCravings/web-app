@@ -187,4 +187,3 @@ class PageNotFound
         return $this->dateAdd;
     }
 }
-

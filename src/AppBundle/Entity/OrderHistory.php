@@ -249,4 +249,3 @@ class OrderHistory
         return $this->dateUpd;
     }
 }
-

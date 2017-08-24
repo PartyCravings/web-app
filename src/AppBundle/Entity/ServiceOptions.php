@@ -341,4 +341,3 @@ class ServiceOptions
         return $this->settings;
     }
 }
-

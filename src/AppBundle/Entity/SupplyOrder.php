@@ -714,4 +714,3 @@ class SupplyOrder
         return $this->stateLang;
     }
 }
-

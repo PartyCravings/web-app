@@ -528,4 +528,3 @@ class Referrer
         return $this->service;
     }
 }
-

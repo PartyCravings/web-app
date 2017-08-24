@@ -32,4 +32,3 @@ class OperatingSystem
         return $this->id;
     }
 }
-

@@ -1128,4 +1128,3 @@ class Customer
         return $this->thread;
     }
 }
-

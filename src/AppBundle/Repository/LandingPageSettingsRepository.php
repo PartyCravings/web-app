@@ -1,6 +1,7 @@
 <?php
 
 namespace AppBundle\Repository;
+
 use AppBundle\Entity\LandingPageSettings;
 
 /**
@@ -17,6 +18,5 @@ class LandingPageSettingsRepository extends \Doctrine\ORM\EntityRepository
         $allsettings->setIdContactsettings(2);
         $allsettings->setIdLinksettings(2);
         $allsettings->setIdSeosettings(2);
-
     }
 }

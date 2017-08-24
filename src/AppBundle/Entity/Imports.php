@@ -249,4 +249,3 @@ class Imports
         return $this->isDeleted;
     }
 }
-

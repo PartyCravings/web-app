@@ -1,6 +1,7 @@
 <?php
 
 namespace AppBundle\Repository;
+
 use AppBundle\Entity\LinkSettings;
 
 /**
@@ -11,23 +12,22 @@ use AppBundle\Entity\LinkSettings;
  */
 class LinkSettingsRepository extends \Doctrine\ORM\EntityRepository
 {
-	public function getLinkSettings()
-	{
+    public function getLinkSettings()
+    {
         $em = $this->createQueryBuilder('p')
             ->select('p.serviceLink', 'p.serviceCategory', 'p.serviceName')
             ->where('p.serviceEnabled = 1')
             ->getQuery();
         return $em->execute();
-	}
+    }
     public function setLinkSettings($serviceLink, $serviceName, $serviceCategory, $serviceEnabled, $serviceEditedBy, $serviceLastEdited)
-	{
-    $linksettings = new LinkSettings();
-    $linksettings->setServiceLink($serviceLink);
-    $linksettings->setServiceName($serviceName);
-    $linksettings->setServiceCategory($serviceCategory);
-    $linksettings->setServiceEnabled($serviceEnabled);
-    $linksettings->setServiceEditedBy($serviceEditedBy);
-    $linksettings->setServiceLastEdited($serviceLastEdited);
-	}
+    {
+        $linksettings = new LinkSettings();
+        $linksettings->setServiceLink($serviceLink);
+        $linksettings->setServiceName($serviceName);
+        $linksettings->setServiceCategory($serviceCategory);
+        $linksettings->setServiceEnabled($serviceEnabled);
+        $linksettings->setServiceEditedBy($serviceEditedBy);
+        $linksettings->setServiceLastEdited($serviceLastEdited);
+    }
 }
-

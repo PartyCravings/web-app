@@ -178,4 +178,3 @@ class OrderData
         $this->orderDataType = $orderDataType;
     }
 }
-

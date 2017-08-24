@@ -125,4 +125,3 @@ class Timezone
         return $this->gmtDiff;
     }
 }
-

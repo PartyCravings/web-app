@@ -32,4 +32,3 @@ class Drinks
         return $this->id;
     }
 }
-

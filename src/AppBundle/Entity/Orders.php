@@ -1675,4 +1675,3 @@ class Orders
         return $this->isSuspended;
     }
 }
-

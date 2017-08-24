@@ -249,4 +249,3 @@ class ServiceDescriptions
         return $this->blurb;
     }
 }
-

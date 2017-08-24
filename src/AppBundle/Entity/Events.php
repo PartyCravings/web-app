@@ -597,4 +597,3 @@ class Events
         $this->eventMedia = $eventMedia;
     }
 }
-

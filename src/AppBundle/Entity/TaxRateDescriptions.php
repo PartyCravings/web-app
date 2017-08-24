@@ -125,4 +125,3 @@ class TaxRateDescriptions
         return $this->description;
     }
 }
-

@@ -280,4 +280,3 @@ class Newsletter
         return $this->deleted;
     }
 }
-

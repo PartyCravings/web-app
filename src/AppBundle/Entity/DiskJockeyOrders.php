@@ -249,4 +249,3 @@ class DiskJockeyOrders
         return $this->category;
     }
 }
-

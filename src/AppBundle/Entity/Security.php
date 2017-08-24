@@ -1024,4 +1024,3 @@ class Security
         return $this->metaDescription;
     }
 }
-

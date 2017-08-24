@@ -528,4 +528,3 @@ class Members
         return $this->dateUpd;
     }
 }
-

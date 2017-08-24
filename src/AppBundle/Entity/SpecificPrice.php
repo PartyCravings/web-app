@@ -497,4 +497,3 @@ class SpecificPrice
         return $this->reductionType;
     }
 }
-

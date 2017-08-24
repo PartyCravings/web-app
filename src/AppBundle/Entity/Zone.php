@@ -55,8 +55,8 @@ class Zone
 
     public function __construct()
     {
-      $this->asoEbi = new ArrayCollection();
-      $this->party = new ArrayCollection();
+        $this->asoEbi = new ArrayCollection();
+        $this->party = new ArrayCollection();
     }
 
     /**

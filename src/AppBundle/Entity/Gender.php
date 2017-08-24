@@ -87,4 +87,3 @@ class Gender
         return $this->lang;
     }
 }
-

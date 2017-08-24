@@ -311,4 +311,3 @@ class OrderOptions
         return $this->settings;
     }
 }
-

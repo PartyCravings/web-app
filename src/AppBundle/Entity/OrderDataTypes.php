@@ -187,4 +187,3 @@ class OrderDataTypes
         return $this->dateUpd;
     }
 }
-

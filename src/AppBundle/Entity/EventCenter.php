@@ -714,4 +714,3 @@ class EventCenter
         return $this->access;
     }
 }
-

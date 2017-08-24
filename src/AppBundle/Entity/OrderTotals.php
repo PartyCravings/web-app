@@ -249,4 +249,3 @@ class OrderTotals
         return $this->type;
     }
 }
-

@@ -59,7 +59,7 @@ class NotificationTopic implements TopicInterface
         */
 
         $topic->broadcast([
-        	'msg' => $event,
+            'msg' => $event,
         ]);
     }
 

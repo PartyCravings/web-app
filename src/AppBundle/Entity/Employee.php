@@ -714,4 +714,3 @@ class Employee
         return $this->vendor;
     }
 }
-

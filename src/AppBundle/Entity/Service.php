@@ -1830,4 +1830,3 @@ class Service
         return $this->products;
     }
 }
-

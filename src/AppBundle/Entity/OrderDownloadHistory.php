@@ -287,4 +287,3 @@ class OrderDownloadHistory
         return $this->time;
     }
 }
-

@@ -169,4 +169,3 @@ class VendorGroups
         return $this->liveParties;
     }
 }
-

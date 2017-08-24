@@ -63,4 +63,3 @@ class Profile
         return $this->lang;
     }
 }
-

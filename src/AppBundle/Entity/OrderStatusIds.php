@@ -94,4 +94,3 @@ class OrderStatusIds
         return $this->statusTextId;
     }
 }
-

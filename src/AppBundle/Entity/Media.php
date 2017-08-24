@@ -649,4 +649,3 @@ class Media
         return $this->id;
     }
 }
-

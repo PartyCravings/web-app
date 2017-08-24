@@ -156,4 +156,3 @@ class LoginHistory
         return $this->device;
     }
 }
-

@@ -187,4 +187,3 @@ class FailedLogins
         return $this->device;
     }
 }
-

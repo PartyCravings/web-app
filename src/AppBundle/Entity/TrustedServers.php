@@ -218,4 +218,3 @@ class TrustedServers
         return $this->syncToken;
     }
 }
-

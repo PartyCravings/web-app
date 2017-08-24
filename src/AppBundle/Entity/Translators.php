@@ -156,4 +156,3 @@ class Translators
         return $this->transWebsite;
     }
 }
-

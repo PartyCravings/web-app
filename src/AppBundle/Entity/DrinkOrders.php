@@ -1055,4 +1055,3 @@ class DrinkOrders
         return $this->dateUpd;
     }
 }
-

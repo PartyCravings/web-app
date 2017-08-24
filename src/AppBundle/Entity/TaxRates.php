@@ -390,4 +390,3 @@ class TaxRates
         $this->taxRateDescriptions = $taxRateDescriptions;
     }
 }
-

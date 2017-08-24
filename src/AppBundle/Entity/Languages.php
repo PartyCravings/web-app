@@ -203,4 +203,3 @@ class Languages
         return $this->translated;
     }
 }
-

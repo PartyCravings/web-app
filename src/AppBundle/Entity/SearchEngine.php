@@ -94,4 +94,3 @@ class SearchEngine
         return $this->getvar;
     }
 }
-

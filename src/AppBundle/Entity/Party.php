@@ -964,4 +964,3 @@ class Party
         return $this->vendorId;
     }
 }
-

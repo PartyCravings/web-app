@@ -240,4 +240,3 @@ class Vendors
         $this->vendorDescription = $vendorDescription;
     }
 }
-

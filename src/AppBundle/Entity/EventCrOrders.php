@@ -1086,4 +1086,3 @@ class EventCrOrders
         return $this->module;
     }
 }
-

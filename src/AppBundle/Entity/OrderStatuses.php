@@ -125,4 +125,3 @@ class OrderStatuses
         return $this->name;
     }
 }
-

@@ -435,4 +435,3 @@ class Notifications
         return $this->actions;
     }
 }
-

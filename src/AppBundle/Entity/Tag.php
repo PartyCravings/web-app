@@ -125,4 +125,3 @@ class Tag
         return $this->count;
     }
 }
-

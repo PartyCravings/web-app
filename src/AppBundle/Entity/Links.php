@@ -187,4 +187,3 @@ class Links
         return $this->visible;
     }
 }
-

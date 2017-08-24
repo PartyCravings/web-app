@@ -869,4 +869,3 @@ class Address
         return $this->format;
     }
 }
-

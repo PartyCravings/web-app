@@ -187,4 +187,3 @@ class ServiceFilterRanges
         return $this->sortOrder;
     }
 }
-

@@ -94,4 +94,3 @@ class Compare
         return $this->product;
     }
 }
-

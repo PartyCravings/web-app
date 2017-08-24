@@ -173,9 +173,9 @@ class Vendor
 
     public function __construct()
     {
-      $this->asoEbi = new ArrayCollection();
-      $this->party = new ArrayCollection();
-      $this->liveParties = new ArrayCollection();
+        $this->asoEbi = new ArrayCollection();
+        $this->party = new ArrayCollection();
+        $this->liveParties = new ArrayCollection();
     }
 
     /**

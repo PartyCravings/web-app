@@ -642,4 +642,3 @@ class OrderDownload
         $this->orderDownloadHistory = $orderDownloadHistory;
     }
 }
-

@@ -125,4 +125,3 @@ class ServiceFilterDiscriptions
         return $this->langId;
     }
 }
-

@@ -1055,4 +1055,3 @@ class JanitorialServicesOrders
         return $this->module;
     }
 }
-

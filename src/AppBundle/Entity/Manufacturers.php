@@ -106,7 +106,7 @@ class Manufacturers
 
     public function __construct()
     {
-      $this->asoEbi = new ArrayCollection();
+        $this->asoEbi = new ArrayCollection();
     }
 
     /**

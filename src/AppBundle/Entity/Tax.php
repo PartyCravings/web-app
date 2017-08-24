@@ -249,4 +249,3 @@ class Tax
         return $this->rulesGroupVendor;
     }
 }
-

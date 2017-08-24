@@ -249,4 +249,3 @@ class Mail
         return $this->deleted;
     }
 }
-

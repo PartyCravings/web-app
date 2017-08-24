@@ -218,4 +218,3 @@ class ServiceFilters
         return $this->status;
     }
 }
-

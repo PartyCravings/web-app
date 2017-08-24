@@ -249,4 +249,3 @@ class EventInvitations
         return $this->isSuspended;
     }
 }
-

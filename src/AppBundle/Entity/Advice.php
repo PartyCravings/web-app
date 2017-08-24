@@ -404,4 +404,3 @@ class Advice
         return $this->language;
     }
 }
-

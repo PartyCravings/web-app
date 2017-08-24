@@ -311,4 +311,3 @@ class ServiceSpecials
         return $this->dateModified;
     }
 }
-

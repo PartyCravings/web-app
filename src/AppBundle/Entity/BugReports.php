@@ -652,4 +652,3 @@ class BugReports
         return $this->bugReportId;
     }
 }
-

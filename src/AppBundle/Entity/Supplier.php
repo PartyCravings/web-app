@@ -249,4 +249,3 @@ class Supplier
         return $this->shop;
     }
 }
-

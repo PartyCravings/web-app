@@ -1179,4 +1179,3 @@ class BeautyAndMakeupOrders
         return $this->orderNote;
     }
 }
-

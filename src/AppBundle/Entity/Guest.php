@@ -311,4 +311,3 @@ class Guest
         return $this->mobileTheme;
     }
 }
-

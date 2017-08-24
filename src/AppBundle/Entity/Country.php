@@ -124,10 +124,10 @@ class Country
 
     public function __construct()
     {
-      $this->affiliates = new ArrayCollection();
-      $this->asoEbi = new ArrayCollection();
-      $this->party = new ArrayCollection();
-      $this->idZone = new ArrayCollection();
+        $this->affiliates = new ArrayCollection();
+        $this->asoEbi = new ArrayCollection();
+        $this->party = new ArrayCollection();
+        $this->idZone = new ArrayCollection();
     }
 
     /**

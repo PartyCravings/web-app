@@ -838,4 +838,3 @@ class Carrier
         return $this->zone;
     }
 }
-

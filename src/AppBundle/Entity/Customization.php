@@ -280,4 +280,3 @@ class Customization
         return $this->inPartyEditor;
     }
 }
-

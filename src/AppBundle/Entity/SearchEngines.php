@@ -497,4 +497,3 @@ class SearchEngines
         return $this->status;
     }
 }
-

@@ -347,4 +347,3 @@ class AccountDetails
         return $this->wishlistId;
     }
 }
-

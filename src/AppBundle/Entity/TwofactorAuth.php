@@ -218,4 +218,3 @@ class TwofactorAuth
         return $this->status;
     }
 }
-

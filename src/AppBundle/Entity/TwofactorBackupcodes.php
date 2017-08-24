@@ -125,4 +125,3 @@ class TwofactorBackupcodes
         return $this->used;
     }
 }
-

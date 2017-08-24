@@ -373,4 +373,3 @@ class Warehouse
         return $this->vendor;
     }
 }
-

@@ -249,4 +249,3 @@ class Delivery
         return $this->price;
     }
 }
-

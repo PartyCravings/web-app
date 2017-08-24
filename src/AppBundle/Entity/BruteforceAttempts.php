@@ -187,4 +187,3 @@ class BruteforceAttempts
         return $this->metadata;
     }
 }
-

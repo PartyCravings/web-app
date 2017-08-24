@@ -156,4 +156,3 @@ class TaxClassDescriptions
         return $this->description;
     }
 }
-

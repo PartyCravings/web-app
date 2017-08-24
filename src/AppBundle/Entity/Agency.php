@@ -77,7 +77,7 @@ class Agency
 
     public function __construct()
     {
-      $this->affliates = new ArrayCollection();
+        $this->affliates = new ArrayCollection();
     }
 
 

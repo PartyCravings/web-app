@@ -187,4 +187,3 @@ class Settings
         return $this->dateUpd;
     }
 }
-

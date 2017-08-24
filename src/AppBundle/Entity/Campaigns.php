@@ -924,4 +924,3 @@ class Campaigns
         $this->attachments = $attachments;
     }
 }
-

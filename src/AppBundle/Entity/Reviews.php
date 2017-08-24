@@ -311,4 +311,3 @@ class Reviews
         return $this->dateUpd;
     }
 }
-

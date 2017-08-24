@@ -218,4 +218,3 @@ class ServiceOptionDescriptions
         return $this->errorText;
     }
 }
-

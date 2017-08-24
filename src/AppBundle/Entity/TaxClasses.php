@@ -118,4 +118,3 @@ class TaxClasses
         $this->taxClassDescriptions = $taxClassDescriptions;
     }
 }
-

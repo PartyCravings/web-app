@@ -125,4 +125,3 @@ class SearchWord
         return $this->word;
     }
 }
-

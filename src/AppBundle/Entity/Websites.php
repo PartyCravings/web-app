@@ -621,4 +621,3 @@ class Websites
         return $this->status;
     }
 }
-
