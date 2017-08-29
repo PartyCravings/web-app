@@ -23,6 +23,15 @@ Encore
     // allow legacy applications to use $/jQuery as a global variable
     .autoProvidejQuery()
 
+    .enableReactPreset()
+
+    .configureBabel(function(babelConfig) {
+        // add additional presets
+        babelConfig.presets.push('es2017');
+
+        // no plugins are added by default, but you can add some
+        // babelConfig.plugins.push('styled-jsx/babel');
+    })
     .enableSourceMaps(!Encore.isProduction())
 
     // create hashed filenames (e.g. app.abc123.css)
