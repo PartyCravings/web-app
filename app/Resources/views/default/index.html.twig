@@ -1,76 +1,1441 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div id="wrapper">
-        <div id="container">
-            <div id="welcome">
-                <h1><span>Welcome to</span> Symfony {{ constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION') }}</h1>
+<body style="font-family: 'Quicksand', sans-serif; background-color: #edf3ff;">
+    <div class="nano">
+        <!--All the divs-->
+
+
+        <div class="ui center aligned grid" style="padding-top: 20px">
+            <!--All the top nav bar divs-->
+
+
+            <div class="row" id="top-bar">
+                <span style="font-size: 2em;"><b>PartyCravings Inc.</b></span>
             </div>
 
-            <div id="status">
-                <p>
-                    <svg id="icon-status" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z" fill="#759E1A"/></svg>
 
-                    Your application is now ready. You can start working on it at:
-                    <code>{{ base_dir }}</code>
-                </p>
+            <div class="row">
+                <!--All the stacked top categories with unknown number-->
+
+
+                <div class="ui equal width grid" style="font-size: 1.2em;">
+                    <a class="item" href="#">DRINKS</a> <a class="item" href="#">FOOD</a> <a class="item" href="#">M.Cs</a> <a class="item" href="#">COMEDIANS</a>
+                </div>
             </div>
 
-            <div id="next">
-                <h2>What's next?</h2>
-                <p>
-                    <svg id="icon-book" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="-12.5 9 64 64" enable-background="new -12.5 9 64 64" xml:space="preserve">
-                        <path fill="#AAA" d="M6.8,40.8c2.4,0.8,4.5-0.7,4.9-2.5c0.2-1.2-0.3-2.1-1.3-3.2l-0.8-0.8c-0.4-0.5-0.6-1.3-0.2-1.9
-                            c0.4-0.5,0.9-0.8,1.8-0.5c1.3,0.4,1.9,1.3,2.9,2.2c-0.4,1.4-0.7,2.9-0.9,4.2l-0.2,1c-0.7,4-1.3,6.2-2.7,7.5
-                            c-0.3,0.3-0.7,0.5-1.3,0.6c-0.3,0-0.4-0.3-0.4-0.3c0-0.3,0.2-0.3,0.3-0.4c0.2-0.1,0.5-0.3,0.4-0.8c0-0.7-0.6-1.3-1.3-1.3
-                            c-0.6,0-1.4,0.6-1.4,1.7s1,1.9,2.4,1.8c0.8,0,2.5-0.3,4.2-2.5c2-2.5,2.5-5.4,2.9-7.4l0.5-2.8c0.3,0,0.5,0.1,0.8,0.1
-                            c2.4,0.1,3.7-1.3,3.7-2.3c0-0.6-0.3-1.2-0.9-1.2c-0.4,0-0.8,0.3-1,0.8c-0.1,0.6,0.8,1.1,0.1,1.5c-0.5,0.3-1.4,0.6-2.7,0.4l0.3-1.3
-                            c0.5-2.6,1-5.7,3.2-5.8c0.2,0,0.8,0,0.8,0.4c0,0.2,0,0.2-0.2,0.5c-0.2,0.3-0.3,0.4-0.2,0.7c0,0.7,0.5,1.1,1.2,1.1
-                            c0.9,0,1.2-1,1.2-1.4c0-1.2-1.2-1.8-2.6-1.8c-1.5,0.1-2.8,0.9-3.7,2.1c-1.1,1.3-1.8,2.9-2.3,4.5c-0.9-0.8-1.6-1.8-3.1-2.3
-                            c-1.1-0.7-2.3-0.5-3.4,0.3c-0.5,0.4-0.8,1-1,1.6c-0.4,1.5,0.4,2.9,0.8,3.4l0.9,1c0.2,0.2,0.6,0.8,0.4,1.5c-0.3,0.8-1.2,1.3-2.1,1
-                            c-0.4-0.2-1-0.5-0.9-0.9c0.1-0.2,0.2-0.3,0.3-0.5s0.1-0.3,0.1-0.3c0.2-0.6-0.1-1.4-0.7-1.6c-0.6-0.2-1.2,0-1.3,0.8
-                            C4.3,38.4,4.7,40,6.8,40.8z M46.1,20.9c0-4.2-3.2-7.5-7.1-7.5h-3.8C34.8,10.8,32.7,9,30.2,9L-2.3,9.1c-2.8,0.1-4.9,2.4-4.9,5.4
-                            L-7,58.6c0,4.8,8.1,13.9,11.6,14.1l34.7-0.1c3.9,0,7-3.4,7-7.6L46.1,20.9z M-0.3,36.4c0-8.6,6.5-15.6,14.5-15.6
-                            c8,0,14.5,7,14.5,15.6S22.1,52,14.2,52C6.1,52-0.3,45-0.3,36.4z M42.1,65.1c0,1.8-1.5,3.1-3.1,3.1H4.6c-0.7,0-3-1.8-4.5-4.4h30.4
-                            c2.8,0,5-2.4,5-5.4V17.9h3.7c1.6,0,2.9,1.4,2.9,3.1V65.1L42.1,65.1z"/>
-                    </svg>
 
-                    Read the documentation to learn
-                    <a href="https://symfony.com/doc/{{ constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION')[:3] }}/page_creation.html">
-                        How to create your first page in Symfony
-                    </a>
-                </p>
+            <nav class="ui sticky row borderless menu" id="navigation" style="font-family: 'Quicksand', sans-serif;">
+                <div class="ui grid" style="background-color: #edf3ff;">
+                    <div class="three wide column" style="text-align: right;">
+                        <div class="ui center aligned">
+                            <div class="ui dropdown">
+                                <div class="text">
+                                    Need help?
+                                </div>
+                                <i class="dropdown icon"></i>
+
+                                <div class="menu">
+                                    <div class="item">
+                                        info@partycravings.com
+                                    </div>
+
+
+                                    <div class="item">
+                                        +2340123456
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="ui eight wide column">
+                        <div class="ui container action input">
+                            <input placeholder="What are you looking for?" style="font-family: 'Quicksand', sans-serif;" type="text"> <select class="ui selection dropdown">
+                                <option selected value="all">
+                                    All Categories
+                                </option>
+
+                                <option value="articles">
+                                    Foods
+                                </option>
+
+                                <option value="products">
+                                    M.Cs
+                                </option>
+                            </select>
+
+                            <div class="ui primary button">
+                                <i class="search icon"></i>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="ui three wide column">
+                        <button class="ui circular primary right labeled icon button" style="font-family: 'Quicksand', sans-serif;"><i class="right arrow icon"></i>PARTY NOW</button>
+                    </div>
+
+
+                    <div class="ui two wide column">
+                        <img class="ui avatar image" src="{{ asset('images/demo-4.jpg') }}"> <span>Login</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!--End-->
+
+
+        <div id="sticky">
+            <ul class="sticklr" id="example-1">
+                <li>
+                    <a class="icon-login" href="#" title="Site switcher"></a>
+
+                    <ul>
+                        <li class="sticklr-title">
+                            <a href="#">Show on hover</a>
+                        </li>
+
+
+                        <li>
+                            <a class="facebook icon" href="http://themeforest.net/?ref=amatyr4n">ActiveDen</a>
+                        </li>
+
+
+                        <li>
+                            <a class="icon-flickr" href="http://codecanyon.net/?ref=amatyr4n">AudioJungle</a>
+                        </li>
+
+
+                        <li>
+                            <a class="icon-facebook" href="http://themeforest.net/?ref=amatyr4n">ThemeForest</a>
+                        </li>
+
+
+                        <li>
+                            <a class="icon-google" href="http://codecanyon.net/?ref=amatyr4n">VideoHive</a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a class="icon-calendar" href="#" title="Site switcher"></a>
+
+                    <ul>
+                        <li class="sticklr-title">
+                            <a href="#">Right-side panel</a>
+                        </li>
+
+
+                        <li>
+                            <a class="icon-reddit" href="http://codecanyon.net/?ref=amatyr4n">GraphicRiver</a>
+                        </li>
+
+
+                        <li>
+                            <a class="icon-lastfm" href="http://themeforest.net/?ref=amatyr4n">3DOcean</a>
+                        </li>
+
+
+                        <li>
+                            <a class="icon-technorati" href="http://codecanyon.net/?ref=amatyr4n">CodeCanyon</a>
+                        </li>
+
+
+                        <li>
+                            <a class="icon-yahoo" href="http://themeforest.net/?ref=amatyr4n">Tuts+</a>
+                        </li>
+
+
+                        <li>
+                            <a class="icon-dribbble" href="http://themeforest.net/?ref=amatyr4n">PhotoDune</a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a class="icon-login" href="#" title="Search"></a>
+
+                    <ul>
+                        <li class="sticklr-title">
+                            <a href="#">Search</a>
+                        </li>
+
+
+                        <li>
+                            <form action="#" method="post">
+                                <input name="search" placeholder="Type then press Enter.." type="text" value="">
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a class="icon-twitter" href="#" title="Search"></a>
+
+                    <ul>
+                        <li>
+                            <a class="icon-tag" href="#">There's nothing here</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+
+            <ul class="sticklr" id="example-2">
+                <li>
+                    <a class="icon-tag" href="#" title="Site switcher"></a>
+
+                    <ul>
+                        <li class="sticklr-title">
+                            <a href="#">Site Switcher</a>
+                        </li>
+
+
+                        <li>
+                            <a class="icon-amazon" href="http://themeforest.net/?ref=amatyr4n">ActiveDen</a>
+                        </li>
+
+
+                        <li>
+                            <a class="icon-flickr" href="http://codecanyon.net/?ref=amatyr4n">AudioJungle</a>
+                        </li>
+
+
+                        <li>
+                            <a class="icon-facebook" href="http://themeforest.net/?ref=amatyr4n">ThemeForest</a>
+                        </li>
+
+
+                        <li>
+                            <a class="icon-google" href="http://codecanyon.net/?ref=amatyr4n">VideoHive</a>
+                        </li>
+                    </ul>
+
+
+                    <ul>
+                        <li>
+                            <a class="icon-reddit" href="http://codecanyon.net/?ref=amatyr4n">GraphicRiver</a>
+                        </li>
+
+
+                        <li>
+                            <a class="icon-lastfm" href="http://themeforest.net/?ref=amatyr4n">3DOcean</a>
+                        </li>
+
+
+                        <li>
+                            <a class="icon-technorati" href="http://codecanyon.net/?ref=amatyr4n">CodeCanyon</a>
+                        </li>
+
+
+                        <li>
+                            <a class="icon-yahoo" href="http://themeforest.net/?ref=amatyr4n">Tuts+</a>
+                        </li>
+
+
+                        <li>
+                            <a class="icon-dribbble" href="http://themeforest.net/?ref=amatyr4n">PhotoDune</a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a class="icon-zoom" href="#" title="Search"></a>
+
+                    <ul>
+                        <li>
+                            <form action="#" method="post">
+                                <input name="search" placeholder="Type then press Enter.." type="text" value="">
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a class="icon-sitemap" href="#" title="Multiple-column ready"></a>
+
+                    <ul>
+                        <li class="sticklr-title">
+                            <a href="#">Multiple-column ready</a>
+                        </li>
+
+
+                        <li>
+                            <a class="icon-amazon" href="http://themeforest.net/?ref=amatyr4n">ActiveDen</a>
+                        </li>
+                    </ul>
+
+
+                    <ul>
+                        <li>
+                            <a class="icon-flickr" href="http://codecanyon.net/?ref=amatyr4n">AudioJungle</a>
+                        </li>
+
+
+                        <li>
+                            <a class="icon-facebook" href="http://themeforest.net/?ref=amatyr4n">ThemeForest</a>
+                        </li>
+                    </ul>
+
+
+                    <ul>
+                        <li>
+                            <a class="icon-google" href="http://codecanyon.net/?ref=amatyr4n">VideoHive</a>
+                        </li>
+
+
+                        <li>
+                            <a class="icon-reddit" href="http://codecanyon.net/?ref=amatyr4n">GraphicRiver</a>
+                        </li>
+                    </ul>
+
+
+                    <ul>
+                        <li>
+                            <a class="icon-lastfm" href="http://themeforest.net/?ref=amatyr4n">3DOcean</a>
+                        </li>
+
+
+                        <li>
+                            <a class="icon-technorati" href="http://codecanyon.net/?ref=amatyr4n">CodeCanyon</a>
+                        </li>
+                    </ul>
+
+
+                    <ul>
+                        <li>
+                            <a class="icon-yahoo" href="http://themeforest.net/?ref=amatyr4n">Tuts+</a>
+                        </li>
+
+
+                        <li>
+                            <a class="icon-dribbble" href="http://themeforest.net/?ref=amatyr4n">PhotoDune</a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a class="icon-twitter" href="#" title="Sign-in"></a>
+
+                    <ul>
+                        <li class="sticklr-title">
+                            <a href="#">Form example</a>
+                        </li>
+
+
+                        <li>
+                            <form action="http://www.google.com/" method="post">
+                                <input name="username" placeholder="username" type="text" value=""> <input name="password" placeholder="password" type="password" value=""> <input name="submit" type="submit" value="Submit">
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a class="icon-twitter" href="#" title="Sharing"></a>
+
+                    <ul>
+                        <li class="sticklr-title">
+                            <a href="#">Sharing</a>
+                        </li>
+
+
+                        <li>
+                            <a class="icon-twitter" href="http://twitter.com/">Tweet this on Twitter</a>
+                        </li>
+
+
+                        <li>
+                            <a class="icon-delicious" href="http://facebook.com/">Share this on Facebook</a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a class="icon-twitter" href="#" title="Calendar"></a>
+
+                    <ul>
+                        <li class="sticklr-title">
+                            <a href="#">Example use</a>
+                        </li>
+
+
+                        <li>
+                            <table class="calendar">
+                                <tr>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                    <td>1</td>
+
+                                    <td>2</td>
+
+                                    <td>3</td>
+
+                                    <td>4</td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>5</td>
+
+                                    <td>6</td>
+
+                                    <td>7</td>
+
+                                    <td>8</td>
+
+                                    <td>9</td>
+
+                                    <td>10</td>
+
+                                    <td>11</td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>12</td>
+
+                                    <td>13</td>
+
+                                    <td>14</td>
+
+                                    <td>15</td>
+
+                                    <td>16</td>
+
+                                    <td>17</td>
+
+                                    <td>18</td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>19</td>
+
+                                    <td>20</td>
+
+                                    <td>21</td>
+
+                                    <td>22</td>
+
+                                    <td>23</td>
+
+                                    <td>24</td>
+
+                                    <td>25</td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>26</td>
+
+                                    <td>27</td>
+
+                                    <td>28</td>
+
+                                    <td>29</td>
+
+                                    <td>30</td>
+
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                    </td>
+                                </tr>
+                            </table>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a class="icon-twitter" href="#" title="Notification"><span class="notification-count">3</span></a>
+
+                    <ul>
+                        <li class="sticklr-title">
+                            <a href="#">Notification (3)</a>
+                        </li>
+
+
+                        <li>
+                            <form action="#" method="post">
+                                <input name="search" placeholder="Someone is typing.." type="text" value="">
+                            </form>
+                        </li>
+
+
+                        <li>
+                            <a class="icon-user" href="#">00:32 Hello!</a>
+                        </li>
+
+
+                        <li>
+                            <a class="icon-user" href="#">23:52 Not really works</a>
+                        </li>
+
+
+                        <li>
+                            <a class="icon-user" href="#">22:07 Just example use</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!--End Floating NavBar-->
+
+
+        <div id="slider-top" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:380px;overflow:hidden;visibility:hidden;">
+            <!-- Loading Screen -->
+
+
+            <div class="jssorl-009-spin" data-u="loading" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);"><img src="{{ asset('others/spin.svg') }}" style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;">
             </div>
 
+
+            <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:380px;overflow:hidden;">
+                <div><img data-u="image" src="{{ asset('images/001.jpg') }}">
+                </div>
+
+
+                <div><img data-u="image" src="{{ asset('images/005.jpg') }}">
+                </div>
+
+
+                <div><img data-u="image" src="{{ asset('images/006.jpg') }}">
+                </div>
+
+
+                <div><img data-u="image" src="{{ asset('images/007.jpg') }}">
+                </div>
+
+
+                <div><img data-u="image" src="{{ asset('images/008.jpg') }}">
+                </div>
+
+
+                <div><img data-u="image" src="{{ asset('images/009.jpg') }}">
+                </div>
+
+
+                <div><img data-u="image" src="{{ asset('images/010.jpg') }}">
+                </div>
+
+
+                <div><img data-u="image" src="{{ asset('images/011.jpg') }}">
+                </div>
+
+
+                <div><img data-u="image" src="{{ asset('images/024.jpg') }}">
+                </div>
+
+
+                <div><img data-u="image" src="{{ asset('images/025.jpg') }}">
+                </div>
+
+
+                <div><img data-u="image" src="{{ asset('images/026.jpg') }}">
+                </div>
+
+
+                <div><img data-u="image" src="{{ asset('images/027.jpg') }}">
+                </div>
+
+
+                <div style="background-color:#ff7c28;">
+                    <div style="position:absolute;top:50px;left:50px;width:450px;height:62px;z-index:0;font-size:16px;color:#000000;line-height:24px;text-align:left;padding:5px;box-sizing:border-box;">
+                        Photos in this slider are to demostrate jssor slider,<br>
+                        which are not licensed for any other purpose.
+                    </div>
+                </div>
+            </div>
+            <!-- Bullet Navigator -->
+
+
+            <div class="jssorb057" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75" data-u="navigator" style="position:absolute;bottom:12px;right:12px;">
+                <div class="i" data-u="prototype" style="width:16px;height:16px;">
+                    <svg style="position:absolute;top:0;left:0;width:100%;height:100%;" viewbox="0 0 16000 16000">
+                    <circle class="b" cx="8000" cy="8000" r="5000">
+                    </circle></svg>
+                </div>
+            </div>
+            <!-- Arrow Navigator -->
+
+
+            <div class="jssora073" data-autocenter="2" data-scale="0.75" data-scale-left="0.75" data-u="arrowleft" style="width:50px;height:50px;top:0px;left:30px;">
+                <svg style="position:absolute;top:0;left:0;width:100%;height:100%;" viewbox="0 0 16000 16000">
+                <path class="a" d="M4037.7,8357.3l5891.8,5891.8c100.6,100.6,219.7,150.9,357.3,150.9s256.7-50.3,357.3-150.9 l1318.1-1318.1c100.6-100.6,150.9-219.7,150.9-357.3c0-137.6-50.3-256.7-150.9-357.3L7745.9,8000l4216.4-4216.4 c100.6-100.6,150.9-219.7,150.9-357.3c0-137.6-50.3-256.7-150.9-357.3l-1318.1-1318.1c-100.6-100.6-219.7-150.9-357.3-150.9 s-256.7,50.3-357.3,150.9L4037.7,7642.7c-100.6,100.6-150.9,219.7-150.9,357.3C3886.8,8137.6,3937.1,8256.7,4037.7,8357.3 L4037.7,8357.3z">
+                </path></svg>
+            </div>
+
+
+            <div class="jssora073" data-autocenter="2" data-scale="0.75" data-scale-right="0.75" data-u="arrowright" style="width:50px;height:50px;top:0px;right:30px;">
+                <svg style="position:absolute;top:0;left:0;width:100%;height:100%;" viewbox="0 0 16000 16000">
+                <path class="a" d="M11962.3,8357.3l-5891.8,5891.8c-100.6,100.6-219.7,150.9-357.3,150.9s-256.7-50.3-357.3-150.9 L4037.7,12931c-100.6-100.6-150.9-219.7-150.9-357.3c0-137.6,50.3-256.7,150.9-357.3L8254.1,8000L4037.7,3783.6 c-100.6-100.6-150.9-219.7-150.9-357.3c0-137.6,50.3-256.7,150.9-357.3l1318.1-1318.1c100.6-100.6,219.7-150.9,357.3-150.9 s256.7,50.3,357.3,150.9l5891.8,5891.8c100.6,100.6,150.9,219.7,150.9,357.3C12113.2,8137.6,12062.9,8256.7,11962.3,8357.3 L11962.3,8357.3z">
+                </path></svg>
+            </div>
+        </div>
+        <!-- #endregion Jssor Slider End -->
+
+
+        <div class="ui container" id="slider-bottom" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:150px;overflow:hidden;visibility:hidden;">
+            <!-- Loading Screen -->
+
+
+            <div class="jssorl-009-spin" data-u="loading" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);"><img src="{{ asset('others/spin.svg') }}" style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;">
+            </div>
+
+
+            <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:150px;overflow:hidden;">
+                <div><img data-u="image" src="{{ asset('images/001.jpg') }}">
+                </div>
+
+
+                <div><img data-u="image" src="{{ asset('images/005.jpg') }}">
+                </div>
+
+
+                <div><img data-u="image" src="{{ asset('images/006.jpg') }}">
+                </div>
+
+
+                <div><img data-u="image" src="{{ asset('images/007.jpg') }}">
+                </div>
+
+
+                <div><img data-u="image" src="{{ asset('images/008.jpg') }}">
+                </div>
+
+
+                <div><img data-u="image" src="{{ asset('images/009.jpg') }}">
+                </div>
+
+
+                <div><img data-u="image" src="{{ asset('images/010.jpg') }}">
+                </div>
+
+
+                <div><img data-u="image" src="{{ asset('images/011.jpg') }}">
+                </div>
+
+
+                <div><img data-u="image" src="{{ asset('images/024.jpg') }}">
+                </div>
+
+
+                <div><img data-u="image" src="{{ asset('images/025.jpg') }}">
+                </div>
+
+
+                <div><img data-u="image" src="{{ asset('images/026.jpg') }}">
+                </div>
+
+
+                <div><img data-u="image" src="{{ asset('images/027.jpg') }}">
+                </div>
+
+
+                <div style="background-color:#ff7c28;">
+                    <div style="position:absolute;top:3px;left:16px;width:150px;height:62px;z-index:0;font-size:16px;color:#000000;line-height:24px;text-align:left;padding:5px;box-sizing:border-box;">
+                        Photos in this slider are to demostrate jssor slider,<br>
+                        which are not licensed for any other purpose.
+                    </div>
+                </div>
+                <a data-u="any" href="https://www.jssor.com" style="display:none">carousel html</a>
+            </div>
+            <!-- Bullet Navigator -->
+
+
+            <div class="jssorb057" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75" data-u="navigator" style="position:absolute;bottom:12px;right:12px;">
+                <div class="i" data-u="prototype" style="width:16px;height:16px;">
+                    <svg style="position:absolute;top:0;left:0;width:100%;height:100%;" viewbox="0 0 16000 16000">
+                    <circle class="b" cx="8000" cy="8000" r="5000">
+                    </circle></svg>
+                </div>
+            </div>
+            <!-- Arrow Navigator -->
+
+
+            <div class="jssora073" data-autocenter="2" data-scale="0.75" data-scale-left="0.75" data-u="arrowleft" style="width:50px;height:50px;top:0px;left:30px;">
+                <svg style="position:absolute;top:0;left:0;width:100%;height:100%;" viewbox="0 0 16000 16000">
+                <path class="a" d="M4037.7,8357.3l5891.8,5891.8c100.6,100.6,219.7,150.9,357.3,150.9s256.7-50.3,357.3-150.9 l1318.1-1318.1c100.6-100.6,150.9-219.7,150.9-357.3c0-137.6-50.3-256.7-150.9-357.3L7745.9,8000l4216.4-4216.4 c100.6-100.6,150.9-219.7,150.9-357.3c0-137.6-50.3-256.7-150.9-357.3l-1318.1-1318.1c-100.6-100.6-219.7-150.9-357.3-150.9 s-256.7,50.3-357.3,150.9L4037.7,7642.7c-100.6,100.6-150.9,219.7-150.9,357.3C3886.8,8137.6,3937.1,8256.7,4037.7,8357.3 L4037.7,8357.3z">
+                </path></svg>
+            </div>
+
+
+            <div class="jssora073" data-autocenter="2" data-scale="0.75" data-scale-right="0.75" data-u="arrowright" style="width:50px;height:50px;top:0px;right:30px;">
+                <svg style="position:absolute;top:0;left:0;width:100%;height:100%;" viewbox="0 0 16000 16000">
+                <path class="a" d="M11962.3,8357.3l-5891.8,5891.8c-100.6,100.6-219.7,150.9-357.3,150.9s-256.7-50.3-357.3-150.9 L4037.7,12931c-100.6-100.6-150.9-219.7-150.9-357.3c0-137.6,50.3-256.7,150.9-357.3L8254.1,8000L4037.7,3783.6 c-100.6-100.6-150.9-219.7-150.9-357.3c0-137.6,50.3-256.7,150.9-357.3l1318.1-1318.1c100.6-100.6,219.7-150.9,357.3-150.9 s256.7,50.3,357.3,150.9l5891.8,5891.8c100.6,100.6,150.9,219.7,150.9,357.3C12113.2,8137.6,12062.9,8256.7,11962.3,8357.3 L11962.3,8357.3z">
+                </path></svg>
+            </div>
+        </div>
+        <br>
+
+
+        <div class="ui fluid">
+            <div class="ui top attached tabular menu">
+                <a class="item active" data-tab="first" style="background-color: orange;">Featured</a> <a class="item" data-tab="second">Trending</a> <a class="item" data-tab="third">Crazy Deals</a>
+            </div>
+
+
+            <div class="ui bottom primary attached tab segment active" data-tab="first">
+                <div class="ui four cards fluid">
+                    <div class="card">
+                        <div class="image">
+                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
+                            </div>
+                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
+                        </div>
+
+
+                        <div class="extra aligned center">
+                            Lorel Ipsum Dolor
+
+                            <div class="ui star rating" data-rating="3">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="image">
+                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
+                            </div>
+                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
+                        </div>
+
+
+                        <div class="extra aligned center">
+                            Lorel Ipsum Dolor
+
+                            <div class="ui star rating" data-rating="3">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="image">
+                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
+                            </div>
+                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
+                        </div>
+
+
+                        <div class="extra aligned center">
+                            Lorel Ipsum Dolor
+
+                            <div class="ui star rating" data-rating="3">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="image">
+                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
+                            </div>
+                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
+                        </div>
+
+
+                        <div class="extra aligned center">
+                            Lorel Ipsum Dolor
+
+                            <div class="ui star rating" data-rating="3">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="ui four cards fluid">
+                    <div class="card">
+                        <div class="image">
+                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
+                            </div>
+                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
+                        </div>
+
+
+                        <div class="extra aligned center">
+                            Lorel Ipsum Dolor
+
+                            <div class="ui star rating" data-rating="3">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="image">
+                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
+                            </div>
+                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
+                        </div>
+
+
+                        <div class="extra aligned center">
+                            Lorel Ipsum Dolor
+
+                            <div class="ui star rating" data-rating="3">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="image">
+                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
+                            </div>
+                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
+                        </div>
+
+
+                        <div class="extra aligned center">
+                            Lorel Ipsum Dolor
+
+                            <div class="ui star rating" data-rating="3">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="image">
+                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
+                            </div>
+                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
+                        </div>
+
+
+                        <div class="extra aligned center">
+                            Lorel Ipsum Dolor
+
+                            <div class="ui star rating" data-rating="3">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="ui bottom attached tab segment" data-tab="second">
+                <div class="ui four cards fluid">
+                    <div class="card">
+                        <div class="image">
+                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
+                            </div>
+                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
+                        </div>
+
+
+                        <div class="extra aligned center">
+                            Lorel Ipsum Dolor
+
+                            <div class="ui star rating" data-rating="3">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="image">
+                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
+                            </div>
+                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
+                        </div>
+
+
+                        <div class="extra aligned center">
+                            Lorel Ipsum Dolor
+
+                            <div class="ui star rating" data-rating="3">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="image">
+                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
+                            </div>
+                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
+                        </div>
+
+
+                        <div class="extra aligned center">
+                            Lorel Ipsum Dolor
+
+                            <div class="ui star rating" data-rating="3">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="image">
+                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
+                            </div>
+                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
+                        </div>
+
+
+                        <div class="extra aligned center">
+                            Lorel Ipsum Dolor
+
+                            <div class="ui star rating" data-rating="3">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="ui four cards fluid">
+                    <div class="card">
+                        <div class="image">
+                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
+                            </div>
+                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
+                        </div>
+
+
+                        <div class="extra aligned center">
+                            Lorel Ipsum Dolor
+
+                            <div class="ui star rating" data-rating="3">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="image">
+                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
+                            </div>
+                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
+                        </div>
+
+
+                        <div class="extra aligned center">
+                            Lorel Ipsum Dolor
+
+                            <div class="ui star rating" data-rating="3">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="image">
+                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
+                            </div>
+                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
+                        </div>
+
+
+                        <div class="extra aligned center">
+                            Lorel Ipsum Dolor
+
+                            <div class="ui star rating" data-rating="3">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="image">
+                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
+                            </div>
+                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
+                        </div>
+
+
+                        <div class="extra aligned center">
+                            Lorel Ipsum Dolor
+
+                            <div class="ui star rating" data-rating="3">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="ui bottom attached tab segment" data-tab="third">
+                <div class="ui four cards fluid">
+                    <div class="card">
+                        <div class="image">
+                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
+                            </div>
+                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
+                        </div>
+
+
+                        <div class="extra aligned center">
+                            Lorel Ipsum Dolor
+
+                            <div class="ui star rating" data-rating="3">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="image">
+                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
+                            </div>
+                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
+                        </div>
+
+
+                        <div class="extra aligned center">
+                            Lorel Ipsum Dolor
+
+                            <div class="ui star rating" data-rating="3">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="image">
+                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
+                            </div>
+                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
+                        </div>
+
+
+                        <div class="extra aligned center">
+                            Lorel Ipsum Dolor
+
+                            <div class="ui star rating" data-rating="3">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="image">
+                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
+                            </div>
+                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
+                        </div>
+
+
+                        <div class="extra aligned center">
+                            Lorel Ipsum Dolor
+
+                            <div class="ui star rating" data-rating="3">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="ui four cards fluid">
+                    <div class="card">
+                        <div class="image">
+                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
+                            </div>
+                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
+                        </div>
+
+
+                        <div class="extra aligned center">
+                            Lorel Ipsum Dolor
+
+                            <div class="ui star rating" data-rating="3">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="image">
+                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
+                            </div>
+                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
+                        </div>
+
+
+                        <div class="extra aligned center">
+                            Lorel Ipsum Dolor
+
+                            <div class="ui star rating" data-rating="3">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="image">
+                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
+                            </div>
+                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
+                        </div>
+
+
+                        <div class="extra aligned center">
+                            Lorel Ipsum Dolor
+
+                            <div class="ui star rating" data-rating="3">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="image">
+                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
+                            </div>
+                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
+                        </div>
+
+
+                        <div class="extra aligned center">
+                            Lorel Ipsum Dolor
+
+                            <div class="ui star rating" data-rating="3">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <br>
+
+
+            <div style="text-align:center; font-size: 2em;">
+                <span><b>UPCOMING PARTIES</b></span>
+            </div>
+            <br>
+
+
+            <div class="ui three cards container">
+                <div class="card">
+                    <div class="image">
+                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400"> <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
+                    </div>
+
+
+                    <div class="extra aligned center">
+                        Lorel Ipsum Dolor
+
+                        <div class="ui star rating" data-rating="3">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <div class="image">
+                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400"> <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
+                    </div>
+
+
+                    <div class="extra aligned center">
+                        Lorel Ipsum Dolor
+
+                        <div class="ui star rating" data-rating="3">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <div class="image">
+                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400"> <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
+                    </div>
+
+
+                    <div class="extra aligned center">
+                        Lorel Ipsum Dolor
+
+                        <div class="ui star rating" data-rating="3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="ui three cards container">
+                <div class="card">
+                    <div class="image">
+                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400"> <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
+                    </div>
+
+
+                    <div class="extra aligned center">
+                        Lorel Ipsum Dolor
+
+                        <div class="ui star rating" data-rating="3">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <div class="image">
+                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400"> <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
+                    </div>
+
+
+                    <div class="extra aligned center">
+                        Lorel Ipsum Dolor
+
+                        <div class="ui star rating" data-rating="3">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <div class="image">
+                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400"> <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
+                    </div>
+
+
+                    <div class="extra aligned center">
+                        Lorel Ipsum Dolor
+
+                        <div class="ui star rating" data-rating="3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+
+        <div class="container">
+            <div style="text-align:center; font-size: 1.8em;">
+                <span><b>FROM THE BLOG</b></span>
+            </div>
+            <br>
+
+
+            <div class="ui three cards container">
+                <div class="card">
+                    <div class="image">
+                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400"> <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
+                    </div>
+
+
+                    <div class="extra aligned center">
+                        Lorel Ipsum Dolor
+
+                        <div class="ui star rating" data-rating="3">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <div class="image">
+                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400"> <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
+                    </div>
+
+
+                    <div class="extra aligned center">
+                        Lorel Ipsum Dolor
+
+                        <div class="ui star rating" data-rating="3">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <div class="image">
+                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400"> <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
+                    </div>
+
+
+                    <div class="extra aligned center">
+                        Lorel Ipsum Dolor
+
+                        <div class="ui star rating" data-rating="3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+
+        <div style="text-align:center; font-size: 1.8em;">
+            <span><b>OUR TOP BRANDS</b></span>
+        </div>
+        <br>
+
+
+        <div class="ui equal width grid" style="text-align: center;">
+            <div class="column"><img src="{{ asset('images/demo-4.jpg') }}" style="width: 100px; height: 40px;">
+            </div>
+
+
+            <div class="column"><img src="{{ asset('images/demo-4.jpg') }}" style="width: 100px; height: 40px;">
+            </div>
+
+
+            <div class="column"><img src="{{ asset('images/demo-4.jpg') }}" style="width: 100px; height: 40px;">
+            </div>
+        </div>
+
+
+        <div class="ui grid">
+            <div class="one wide column">
+            </div>
+
+
+            <div class="fourteen wide column" style="background-color: #DDDEE3;">
+                <div>
+                    <span style="font-size:1.5em;"><b>Why choose PartyCravings?</b></span>
+
+                    <p>Lorel ipsum dolo...</p>
+                </div>
+            </div>
+
+
+            <div class="one wide column">
+            </div>
+        </div>
+        <br>
+        <br>
+
+
+        <div id="context">
+        </div>
+
+
+        <div class="ui grid" id="footer" style="text-align: center; background-color: #A0A1A4;">
+            <div class="four wide column">
+                <span style="font-size:1.3em;"><b>OTHER COUNTRIES</b></span>
+
+                <div class="row">
+                    Nigeria
+                </div>
+
+
+                <div class="row">
+                    Kenya
+                </div>
+
+
+                <div class="row">
+                    Djibouti
+                </div>
+                <br>
+                <br>
+
+
+                <div class="row">
+                    <div class="row">
+                        <span style="font-size:1.2em;"><b>PartyCravings Inc.</b></span>
+                    </div>
+
+
+                    <div class="row">
+                        Yaba, Lagos Nigeria
+                    </div>
+
+
+                    <div class="row">
+                        info@partycravings.com
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="four wide column">
+                <span style="font-size:1.3em;"><b>CUSTOMER SERVICES</b></span>
+
+                <div class="row">
+                    Financing
+                </div>
+
+
+                <div class="row">
+                    Call us
+                </div>
+
+
+                <div class="row">
+                    Need help
+                </div>
+            </div>
+
+
+            <div class="four wide column">
+                <span style="font-size:1.3em;"><b>CUSTOMER SERVICES</b></span>
+
+                <div class="row">
+                    Financing
+                </div>
+
+
+                <div class="row">
+                    Call us
+                </div>
+
+
+                <div class="row">
+                    Need help
+                </div>
+            </div>
+
+
+            <div class="four wide column">
+                <div style="text-align:center; font-size: 1.3em;">
+                    <span><b>NEWSLETTER</b></span>
+                </div>
+                <br>
+
+
+                <div class="row">
+                    Subscribe to our newsletter
+                </div>
+                <br>
+
+
+                <div class="row">
+                    <div class="ui icon input">
+                        <input placeholder="Your email address..." type="text"> <i class="right arrow icon"></i>
+                    </div>
+                </div>
+                <br>
+
+
+                <div class="row">
+                    <button class="ui circular facebook icon button"><i class="facebook icon"></i></button> <button class="ui circular twitter icon button"><i class="twitter icon"></i></button> <button class="ui circular linkedin icon button"><i class="linkedin icon"></i></button> <button class="ui circular google plus icon button"><i class="google plus icon"></i></button>
+                </div>
+
+
+                <div class="row">
+                </div>
+            </div>
         </div>
     </div>
-{% endblock %}
-
-{% block stylesheets %}
-<style>
-    body { background: #F5F5F5; font: 18px/1.5 sans-serif; }
-    h1, h2 { line-height: 1.2; margin: 0 0 .5em; }
-    h1 { font-size: 36px; }
-    h2 { font-size: 21px; margin-bottom: 1em; }
-    p { margin: 0 0 1em 0; }
-    a { color: #0000F0; }
-    a:hover { text-decoration: none; }
-    code { background: #F5F5F5; max-width: 100px; padding: 2px 6px; word-wrap: break-word; }
-    #wrapper { background: #FFF; margin: 1em auto; max-width: 800px; width: 95%; }
-    #container { padding: 2em; }
-    #welcome, #status { margin-bottom: 2em; }
-    #welcome h1 span { display: block; font-size: 75%; }
-    #icon-status, #icon-book { float: left; height: 64px; margin-right: 1em; margin-top: -4px; width: 64px; }
-    #icon-book { display: none; }
-
-    @media (min-width: 768px) {
-        #wrapper { width: 80%; margin: 2em auto; }
-        #icon-book { display: inline-block; }
-        #status a, #next a { display: block; }
-
-        @-webkit-keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
-        @keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
-        .sf-toolbar { opacity: 0; -webkit-animation: fade-in 1s .2s forwards; animation: fade-in 1s .2s forwards;}
-    }
-</style>
+</body>
 {% endblock %}
