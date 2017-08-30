@@ -20,6 +20,19 @@ fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
 
+#My Default Routes
+root:
+    path: /login/
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /login
+        permanent: true
+app:
+    resource: '@AppBundle/Controller/'
+    type:     annotation
+    options: 
+        i18n: true
+
 #HWIOAuthBundle routes
 hwi_oauth_security:
     resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
@@ -35,12 +48,6 @@ hwi_oauth_redirect:
 
 google_login:
     path: /login/check-google
-
-app:
-    resource: '@AppBundle/Controller/'
-    type:     annotation
-    options: 
-        i18n: true
 
 #JMS Translation Bundle routes
 JMSTranslationBundle_ui:

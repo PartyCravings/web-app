@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %} {% block body %}
+
+<body style="font-family: 'Quicksand', sans-serif; background-color: #edf3ff;">
+    <div class="ui content">
+        <div class="row" style="padding-left:100px; padding-top:50px; font-size:2em;">
+            <span><b>PartyCravings Inc.</b></span>
+        </div>
+
+        <div class="row" style="text-align: center; padding-top: 90px; font-size: 4em;">
+            <span>{{ 'security.login'|trans({}, 'FOSUserBundle') }}</span>
+        </div>
+        <br>
+        <br>
+
+        <div class="row" style="text-align: center; font-size:1.3em;">
+            <span>{{ 'security.login.new'|trans({}, 'FOSUserBundle') }} <a href="signup1.html">{{ 'security.login.signup'|trans({}, 'FOSUserBundle') }}</a></span>
+        </div>
+        <br>
+        <br>
+
+        <div class="row">
+            <div class="ui container grid">
+                <div class="ui two wide column">
+                </div>
+
+                <div class="ui five wide column">
+                    {% block fos_user_content %} {% if error %}
+                    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+                    <form action="{{ path("fos_user_security_check") }}" class="ui form" method="post">
+                        {% if csrf_token %}
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" /> {% endif %}
+                        <div class="field">
+                            <label for="username" style="text-align: left; font-size: 1.3em;">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
+                            <input id="username" name="_username" placeholder="{{ last_username }}" type="text" required="required">
+                        </div>
+
+                        <div class="field">
+                            <label for="password" style="text-align: left; font-size: 1.3em;">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+                            <input id="password" name="_password" placeholder="" type="password">
+                        </div>
+
+                        <div class="field">
+                            <div class="ui toggle checkbox">
+                                <input class="hidden" id="remember_me" name="_remember_me" tabindex="0" type="checkbox" value="on">
+                                <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+                            </div>
+                        </div>
+                        <a href="#">{{ 'security.login.forgot'|trans({}, 'FOSUserBundle') }}</a>&nbsp;&nbsp;
+                        <button class="ui circular primary button" style="font-size:1.5em; text-align:left; font-family: 'Quicksand', sans-serif;" type="submit">{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}</button>
+                    </form>
+                    {% endblock fos_user_content %}
+                </div>
+
+                <div class="ui two wide column">
+                    <div class="ui vertical divider">
+                        {{ 'security.login.or'|trans({}, 'FOSUserBundle') }}
+                    </div>
+                </div>
+
+                <div class="ui left aligned five wide column" style="font-size:5em;">
+                    {% block hwi_oauth_content %}
+                    <br>
+
+                    <div class="ui labeled button" style="font-family: 'Quicksand', sans-serif;" tabindex="0">
+                        <div class="big ui blue button">
+                            <i class="facebook icon" style="font-size: 1.3em;"></i>
+                        </div>
+                        <a class="ui basic blue label" href="{{ hwi_oauth_login_url('google') }}">{{ 'security.login.withfacebook'|trans({}, 'FOSUserBundle') }}</a>
+                    </div>
+                    <br>
+                    <br>
+
+                    <div class="ui labeled button" style="font-family: 'Quicksand', sans-serif;" tabindex="0">
+                        <div class="big ui red button">
+                            <i class="google icon" style="font-size: 1.3em;"></i>
+                        </div>
+                        <a class="ui basic red label" href="{{ hwi_oauth_login_url('google') }}">{{ 'security.login.withgoogle'|trans({}, 'FOSUserBundle') }}&nbsp;</a>
+                    </div>
+                    {% endblock hwi_oauth_content %}
+                </div>
+
+                <div class="ui two wide column">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}

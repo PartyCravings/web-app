@@ -1,29 +1,23 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.html.twig' %} {% block body %}
 
-{% block body %}
 <body style="font-family: 'Quicksand', sans-serif; background-color: #edf3ff;">
     <div class="nano">
         <!--All the divs-->
 
-
         <div class="ui center aligned grid" style="padding-top: 20px">
             <!--All the top nav bar divs-->
-
 
             <div class="row" id="top-bar">
                 <span style="font-size: 2em;"><b>PartyCravings Inc.</b></span>
             </div>
 
-
             <div class="row">
                 <!--All the stacked top categories with unknown number-->
-
 
                 <div class="ui equal width grid" style="font-size: 1.2em;">
                     <a class="item" href="#">DRINKS</a> <a class="item" href="#">FOOD</a> <a class="item" href="#">M.Cs</a> <a class="item" href="#">COMEDIANS</a>
                 </div>
             </div>
-
 
             <nav class="ui sticky row borderless menu" id="navigation" style="font-family: 'Quicksand', sans-serif;">
                 <div class="ui grid" style="background-color: #edf3ff;">
@@ -40,7 +34,6 @@
                                         info@partycravings.com
                                     </div>
 
-
                                     <div class="item">
                                         +2340123456
                                     </div>
@@ -49,10 +42,10 @@
                         </div>
                     </div>
 
-
                     <div class="ui eight wide column">
                         <div class="ui container action input">
-                            <input placeholder="What are you looking for?" style="font-family: 'Quicksand', sans-serif;" type="text"> <select class="ui selection dropdown">
+                            <input placeholder="What are you looking for?" style="font-family: 'Quicksand', sans-serif;" type="text">
+                            <select class="ui selection dropdown">
                                 <option selected value="all">
                                     All Categories
                                 </option>
@@ -72,11 +65,9 @@
                         </div>
                     </div>
 
-
                     <div class="ui three wide column">
                         <button class="ui circular primary right labeled icon button" style="font-family: 'Quicksand', sans-serif;"><i class="right arrow icon"></i>PARTY NOW</button>
                     </div>
-
 
                     <div class="ui two wide column">
                         <img class="ui avatar image" src="{{ asset('images/demo-4.jpg') }}"> <span>Login</span>
@@ -85,7 +76,6 @@
             </nav>
         </div>
         <!--End-->
-
 
         <div id="sticky">
             <ul class="sticklr" id="example-1">
@@ -97,28 +87,23 @@
                             <a href="#">Show on hover</a>
                         </li>
 
-
                         <li>
                             <a class="facebook icon" href="http://themeforest.net/?ref=amatyr4n">ActiveDen</a>
                         </li>
-
 
                         <li>
                             <a class="icon-flickr" href="http://codecanyon.net/?ref=amatyr4n">AudioJungle</a>
                         </li>
 
-
                         <li>
                             <a class="icon-facebook" href="http://themeforest.net/?ref=amatyr4n">ThemeForest</a>
                         </li>
-
 
                         <li>
                             <a class="icon-google" href="http://codecanyon.net/?ref=amatyr4n">VideoHive</a>
                         </li>
                     </ul>
                 </li>
-
 
                 <li>
                     <a class="icon-calendar" href="#" title="Site switcher"></a>
@@ -128,33 +113,27 @@
                             <a href="#">Right-side panel</a>
                         </li>
 
-
                         <li>
                             <a class="icon-reddit" href="http://codecanyon.net/?ref=amatyr4n">GraphicRiver</a>
                         </li>
-
 
                         <li>
                             <a class="icon-lastfm" href="http://themeforest.net/?ref=amatyr4n">3DOcean</a>
                         </li>
 
-
                         <li>
                             <a class="icon-technorati" href="http://codecanyon.net/?ref=amatyr4n">CodeCanyon</a>
                         </li>
 
-
                         <li>
                             <a class="icon-yahoo" href="http://themeforest.net/?ref=amatyr4n">Tuts+</a>
                         </li>
-
 
                         <li>
                             <a class="icon-dribbble" href="http://themeforest.net/?ref=amatyr4n">PhotoDune</a>
                         </li>
                     </ul>
                 </li>
-
 
                 <li>
                     <a class="icon-login" href="#" title="Search"></a>
@@ -164,7 +143,6 @@
                             <a href="#">Search</a>
                         </li>
 
-
                         <li>
                             <form action="#" method="post">
                                 <input name="search" placeholder="Type then press Enter.." type="text" value="">
@@ -172,7 +150,6 @@
                         </li>
                     </ul>
                 </li>
-
 
                 <li>
                     <a class="icon-twitter" href="#" title="Search"></a>
@@ -185,7 +162,6 @@
                 </li>
             </ul>
 
-
             <ul class="sticklr" id="example-2">
                 <li>
                     <a class="icon-tag" href="#" title="Site switcher"></a>
@@ -195,55 +171,45 @@
                             <a href="#">Site Switcher</a>
                         </li>
 
-
                         <li>
                             <a class="icon-amazon" href="http://themeforest.net/?ref=amatyr4n">ActiveDen</a>
                         </li>
-
 
                         <li>
                             <a class="icon-flickr" href="http://codecanyon.net/?ref=amatyr4n">AudioJungle</a>
                         </li>
 
-
                         <li>
                             <a class="icon-facebook" href="http://themeforest.net/?ref=amatyr4n">ThemeForest</a>
                         </li>
-
 
                         <li>
                             <a class="icon-google" href="http://codecanyon.net/?ref=amatyr4n">VideoHive</a>
                         </li>
                     </ul>
 
-
                     <ul>
                         <li>
                             <a class="icon-reddit" href="http://codecanyon.net/?ref=amatyr4n">GraphicRiver</a>
                         </li>
 
-
                         <li>
                             <a class="icon-lastfm" href="http://themeforest.net/?ref=amatyr4n">3DOcean</a>
                         </li>
-
 
                         <li>
                             <a class="icon-technorati" href="http://codecanyon.net/?ref=amatyr4n">CodeCanyon</a>
                         </li>
 
-
                         <li>
                             <a class="icon-yahoo" href="http://themeforest.net/?ref=amatyr4n">Tuts+</a>
                         </li>
-
 
                         <li>
                             <a class="icon-dribbble" href="http://themeforest.net/?ref=amatyr4n">PhotoDune</a>
                         </li>
                     </ul>
                 </li>
-
 
                 <li>
                     <a class="icon-zoom" href="#" title="Search"></a>
@@ -257,7 +223,6 @@
                     </ul>
                 </li>
 
-
                 <li>
                     <a class="icon-sitemap" href="#" title="Multiple-column ready"></a>
 
@@ -266,61 +231,51 @@
                             <a href="#">Multiple-column ready</a>
                         </li>
 
-
                         <li>
                             <a class="icon-amazon" href="http://themeforest.net/?ref=amatyr4n">ActiveDen</a>
                         </li>
                     </ul>
-
 
                     <ul>
                         <li>
                             <a class="icon-flickr" href="http://codecanyon.net/?ref=amatyr4n">AudioJungle</a>
                         </li>
 
-
                         <li>
                             <a class="icon-facebook" href="http://themeforest.net/?ref=amatyr4n">ThemeForest</a>
                         </li>
                     </ul>
-
 
                     <ul>
                         <li>
                             <a class="icon-google" href="http://codecanyon.net/?ref=amatyr4n">VideoHive</a>
                         </li>
 
-
                         <li>
                             <a class="icon-reddit" href="http://codecanyon.net/?ref=amatyr4n">GraphicRiver</a>
                         </li>
                     </ul>
-
 
                     <ul>
                         <li>
                             <a class="icon-lastfm" href="http://themeforest.net/?ref=amatyr4n">3DOcean</a>
                         </li>
 
-
                         <li>
                             <a class="icon-technorati" href="http://codecanyon.net/?ref=amatyr4n">CodeCanyon</a>
                         </li>
                     </ul>
-
 
                     <ul>
                         <li>
                             <a class="icon-yahoo" href="http://themeforest.net/?ref=amatyr4n">Tuts+</a>
                         </li>
 
-
                         <li>
                             <a class="icon-dribbble" href="http://themeforest.net/?ref=amatyr4n">PhotoDune</a>
                         </li>
                     </ul>
                 </li>
-
 
                 <li>
                     <a class="icon-twitter" href="#" title="Sign-in"></a>
@@ -330,15 +285,15 @@
                             <a href="#">Form example</a>
                         </li>
 
-
                         <li>
                             <form action="http://www.google.com/" method="post">
-                                <input name="username" placeholder="username" type="text" value=""> <input name="password" placeholder="password" type="password" value=""> <input name="submit" type="submit" value="Submit">
+                                <input name="username" placeholder="username" type="text" value="">
+                                <input name="password" placeholder="password" type="password" value="">
+                                <input name="submit" type="submit" value="Submit">
                             </form>
                         </li>
                     </ul>
                 </li>
-
 
                 <li>
                     <a class="icon-twitter" href="#" title="Sharing"></a>
@@ -348,18 +303,15 @@
                             <a href="#">Sharing</a>
                         </li>
 
-
                         <li>
                             <a class="icon-twitter" href="http://twitter.com/">Tweet this on Twitter</a>
                         </li>
-
 
                         <li>
                             <a class="icon-delicious" href="http://facebook.com/">Share this on Facebook</a>
                         </li>
                     </ul>
                 </li>
-
 
                 <li>
                     <a class="icon-twitter" href="#" title="Calendar"></a>
@@ -368,7 +320,6 @@
                         <li class="sticklr-title">
                             <a href="#">Example use</a>
                         </li>
-
 
                         <li>
                             <table class="calendar">
@@ -391,7 +342,6 @@
                                     <td>4</td>
                                 </tr>
 
-
                                 <tr>
                                     <td>5</td>
 
@@ -407,7 +357,6 @@
 
                                     <td>11</td>
                                 </tr>
-
 
                                 <tr>
                                     <td>12</td>
@@ -425,7 +374,6 @@
                                     <td>18</td>
                                 </tr>
 
-
                                 <tr>
                                     <td>19</td>
 
@@ -441,7 +389,6 @@
 
                                     <td>25</td>
                                 </tr>
-
 
                                 <tr>
                                     <td>26</td>
@@ -465,7 +412,6 @@
                     </ul>
                 </li>
 
-
                 <li>
                     <a class="icon-twitter" href="#" title="Notification"><span class="notification-count">3</span></a>
 
@@ -474,23 +420,19 @@
                             <a href="#">Notification (3)</a>
                         </li>
 
-
                         <li>
                             <form action="#" method="post">
                                 <input name="search" placeholder="Someone is typing.." type="text" value="">
                             </form>
                         </li>
 
-
                         <li>
                             <a class="icon-user" href="#">00:32 Hello!</a>
                         </li>
 
-
                         <li>
                             <a class="icon-user" href="#">23:52 Not really works</a>
                         </li>
-
 
                         <li>
                             <a class="icon-user" href="#">22:07 Just example use</a>
@@ -501,199 +443,167 @@
         </div>
         <!--End Floating NavBar-->
 
-
         <div id="slider-top" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:380px;overflow:hidden;visibility:hidden;">
             <!-- Loading Screen -->
 
-
             <div class="jssorl-009-spin" data-u="loading" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);"><img src="{{ asset('others/spin.svg') }}" style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;">
             </div>
-
 
             <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:380px;overflow:hidden;">
                 <div><img data-u="image" src="{{ asset('images/001.jpg') }}">
                 </div>
 
-
                 <div><img data-u="image" src="{{ asset('images/005.jpg') }}">
                 </div>
-
 
                 <div><img data-u="image" src="{{ asset('images/006.jpg') }}">
                 </div>
 
-
                 <div><img data-u="image" src="{{ asset('images/007.jpg') }}">
                 </div>
-
 
                 <div><img data-u="image" src="{{ asset('images/008.jpg') }}">
                 </div>
 
-
                 <div><img data-u="image" src="{{ asset('images/009.jpg') }}">
                 </div>
-
 
                 <div><img data-u="image" src="{{ asset('images/010.jpg') }}">
                 </div>
 
-
                 <div><img data-u="image" src="{{ asset('images/011.jpg') }}">
                 </div>
-
 
                 <div><img data-u="image" src="{{ asset('images/024.jpg') }}">
                 </div>
 
-
                 <div><img data-u="image" src="{{ asset('images/025.jpg') }}">
                 </div>
-
 
                 <div><img data-u="image" src="{{ asset('images/026.jpg') }}">
                 </div>
 
-
                 <div><img data-u="image" src="{{ asset('images/027.jpg') }}">
                 </div>
 
-
                 <div style="background-color:#ff7c28;">
                     <div style="position:absolute;top:50px;left:50px;width:450px;height:62px;z-index:0;font-size:16px;color:#000000;line-height:24px;text-align:left;padding:5px;box-sizing:border-box;">
-                        Photos in this slider are to demostrate jssor slider,<br>
-                        which are not licensed for any other purpose.
+                        Photos in this slider are to demostrate jssor slider,
+                        <br> which are not licensed for any other purpose.
                     </div>
                 </div>
             </div>
             <!-- Bullet Navigator -->
 
-
             <div class="jssorb057" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75" data-u="navigator" style="position:absolute;bottom:12px;right:12px;">
                 <div class="i" data-u="prototype" style="width:16px;height:16px;">
                     <svg style="position:absolute;top:0;left:0;width:100%;height:100%;" viewbox="0 0 16000 16000">
-                    <circle class="b" cx="8000" cy="8000" r="5000">
-                    </circle></svg>
+                        <circle class="b" cx="8000" cy="8000" r="5000">
+                        </circle>
+                    </svg>
                 </div>
             </div>
             <!-- Arrow Navigator -->
 
-
             <div class="jssora073" data-autocenter="2" data-scale="0.75" data-scale-left="0.75" data-u="arrowleft" style="width:50px;height:50px;top:0px;left:30px;">
                 <svg style="position:absolute;top:0;left:0;width:100%;height:100%;" viewbox="0 0 16000 16000">
-                <path class="a" d="M4037.7,8357.3l5891.8,5891.8c100.6,100.6,219.7,150.9,357.3,150.9s256.7-50.3,357.3-150.9 l1318.1-1318.1c100.6-100.6,150.9-219.7,150.9-357.3c0-137.6-50.3-256.7-150.9-357.3L7745.9,8000l4216.4-4216.4 c100.6-100.6,150.9-219.7,150.9-357.3c0-137.6-50.3-256.7-150.9-357.3l-1318.1-1318.1c-100.6-100.6-219.7-150.9-357.3-150.9 s-256.7,50.3-357.3,150.9L4037.7,7642.7c-100.6,100.6-150.9,219.7-150.9,357.3C3886.8,8137.6,3937.1,8256.7,4037.7,8357.3 L4037.7,8357.3z">
-                </path></svg>
+                    <path class="a" d="M4037.7,8357.3l5891.8,5891.8c100.6,100.6,219.7,150.9,357.3,150.9s256.7-50.3,357.3-150.9 l1318.1-1318.1c100.6-100.6,150.9-219.7,150.9-357.3c0-137.6-50.3-256.7-150.9-357.3L7745.9,8000l4216.4-4216.4 c100.6-100.6,150.9-219.7,150.9-357.3c0-137.6-50.3-256.7-150.9-357.3l-1318.1-1318.1c-100.6-100.6-219.7-150.9-357.3-150.9 s-256.7,50.3-357.3,150.9L4037.7,7642.7c-100.6,100.6-150.9,219.7-150.9,357.3C3886.8,8137.6,3937.1,8256.7,4037.7,8357.3 L4037.7,8357.3z">
+                    </path>
+                </svg>
             </div>
-
 
             <div class="jssora073" data-autocenter="2" data-scale="0.75" data-scale-right="0.75" data-u="arrowright" style="width:50px;height:50px;top:0px;right:30px;">
                 <svg style="position:absolute;top:0;left:0;width:100%;height:100%;" viewbox="0 0 16000 16000">
-                <path class="a" d="M11962.3,8357.3l-5891.8,5891.8c-100.6,100.6-219.7,150.9-357.3,150.9s-256.7-50.3-357.3-150.9 L4037.7,12931c-100.6-100.6-150.9-219.7-150.9-357.3c0-137.6,50.3-256.7,150.9-357.3L8254.1,8000L4037.7,3783.6 c-100.6-100.6-150.9-219.7-150.9-357.3c0-137.6,50.3-256.7,150.9-357.3l1318.1-1318.1c100.6-100.6,219.7-150.9,357.3-150.9 s256.7,50.3,357.3,150.9l5891.8,5891.8c100.6,100.6,150.9,219.7,150.9,357.3C12113.2,8137.6,12062.9,8256.7,11962.3,8357.3 L11962.3,8357.3z">
-                </path></svg>
+                    <path class="a" d="M11962.3,8357.3l-5891.8,5891.8c-100.6,100.6-219.7,150.9-357.3,150.9s-256.7-50.3-357.3-150.9 L4037.7,12931c-100.6-100.6-150.9-219.7-150.9-357.3c0-137.6,50.3-256.7,150.9-357.3L8254.1,8000L4037.7,3783.6 c-100.6-100.6-150.9-219.7-150.9-357.3c0-137.6,50.3-256.7,150.9-357.3l1318.1-1318.1c100.6-100.6,219.7-150.9,357.3-150.9 s256.7,50.3,357.3,150.9l5891.8,5891.8c100.6,100.6,150.9,219.7,150.9,357.3C12113.2,8137.6,12062.9,8256.7,11962.3,8357.3 L11962.3,8357.3z">
+                    </path>
+                </svg>
             </div>
         </div>
         <!-- #endregion Jssor Slider End -->
 
-
         <div class="ui container" id="slider-bottom" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:150px;overflow:hidden;visibility:hidden;">
             <!-- Loading Screen -->
 
-
             <div class="jssorl-009-spin" data-u="loading" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);"><img src="{{ asset('others/spin.svg') }}" style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;">
             </div>
-
 
             <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:150px;overflow:hidden;">
                 <div><img data-u="image" src="{{ asset('images/001.jpg') }}">
                 </div>
 
-
                 <div><img data-u="image" src="{{ asset('images/005.jpg') }}">
                 </div>
-
 
                 <div><img data-u="image" src="{{ asset('images/006.jpg') }}">
                 </div>
 
-
                 <div><img data-u="image" src="{{ asset('images/007.jpg') }}">
                 </div>
-
 
                 <div><img data-u="image" src="{{ asset('images/008.jpg') }}">
                 </div>
 
-
                 <div><img data-u="image" src="{{ asset('images/009.jpg') }}">
                 </div>
-
 
                 <div><img data-u="image" src="{{ asset('images/010.jpg') }}">
                 </div>
 
-
                 <div><img data-u="image" src="{{ asset('images/011.jpg') }}">
                 </div>
-
 
                 <div><img data-u="image" src="{{ asset('images/024.jpg') }}">
                 </div>
 
-
                 <div><img data-u="image" src="{{ asset('images/025.jpg') }}">
                 </div>
-
 
                 <div><img data-u="image" src="{{ asset('images/026.jpg') }}">
                 </div>
 
-
                 <div><img data-u="image" src="{{ asset('images/027.jpg') }}">
                 </div>
 
-
                 <div style="background-color:#ff7c28;">
                     <div style="position:absolute;top:3px;left:16px;width:150px;height:62px;z-index:0;font-size:16px;color:#000000;line-height:24px;text-align:left;padding:5px;box-sizing:border-box;">
-                        Photos in this slider are to demostrate jssor slider,<br>
-                        which are not licensed for any other purpose.
+                        Photos in this slider are to demostrate jssor slider,
+                        <br> which are not licensed for any other purpose.
                     </div>
                 </div>
                 <a data-u="any" href="https://www.jssor.com" style="display:none">carousel html</a>
             </div>
             <!-- Bullet Navigator -->
 
-
             <div class="jssorb057" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75" data-u="navigator" style="position:absolute;bottom:12px;right:12px;">
                 <div class="i" data-u="prototype" style="width:16px;height:16px;">
                     <svg style="position:absolute;top:0;left:0;width:100%;height:100%;" viewbox="0 0 16000 16000">
-                    <circle class="b" cx="8000" cy="8000" r="5000">
-                    </circle></svg>
+                        <circle class="b" cx="8000" cy="8000" r="5000">
+                        </circle>
+                    </svg>
                 </div>
             </div>
             <!-- Arrow Navigator -->
 
-
             <div class="jssora073" data-autocenter="2" data-scale="0.75" data-scale-left="0.75" data-u="arrowleft" style="width:50px;height:50px;top:0px;left:30px;">
                 <svg style="position:absolute;top:0;left:0;width:100%;height:100%;" viewbox="0 0 16000 16000">
-                <path class="a" d="M4037.7,8357.3l5891.8,5891.8c100.6,100.6,219.7,150.9,357.3,150.9s256.7-50.3,357.3-150.9 l1318.1-1318.1c100.6-100.6,150.9-219.7,150.9-357.3c0-137.6-50.3-256.7-150.9-357.3L7745.9,8000l4216.4-4216.4 c100.6-100.6,150.9-219.7,150.9-357.3c0-137.6-50.3-256.7-150.9-357.3l-1318.1-1318.1c-100.6-100.6-219.7-150.9-357.3-150.9 s-256.7,50.3-357.3,150.9L4037.7,7642.7c-100.6,100.6-150.9,219.7-150.9,357.3C3886.8,8137.6,3937.1,8256.7,4037.7,8357.3 L4037.7,8357.3z">
-                </path></svg>
+                    <path class="a" d="M4037.7,8357.3l5891.8,5891.8c100.6,100.6,219.7,150.9,357.3,150.9s256.7-50.3,357.3-150.9 l1318.1-1318.1c100.6-100.6,150.9-219.7,150.9-357.3c0-137.6-50.3-256.7-150.9-357.3L7745.9,8000l4216.4-4216.4 c100.6-100.6,150.9-219.7,150.9-357.3c0-137.6-50.3-256.7-150.9-357.3l-1318.1-1318.1c-100.6-100.6-219.7-150.9-357.3-150.9 s-256.7,50.3-357.3,150.9L4037.7,7642.7c-100.6,100.6-150.9,219.7-150.9,357.3C3886.8,8137.6,3937.1,8256.7,4037.7,8357.3 L4037.7,8357.3z">
+                    </path>
+                </svg>
             </div>
-
 
             <div class="jssora073" data-autocenter="2" data-scale="0.75" data-scale-right="0.75" data-u="arrowright" style="width:50px;height:50px;top:0px;right:30px;">
                 <svg style="position:absolute;top:0;left:0;width:100%;height:100%;" viewbox="0 0 16000 16000">
-                <path class="a" d="M11962.3,8357.3l-5891.8,5891.8c-100.6,100.6-219.7,150.9-357.3,150.9s-256.7-50.3-357.3-150.9 L4037.7,12931c-100.6-100.6-150.9-219.7-150.9-357.3c0-137.6,50.3-256.7,150.9-357.3L8254.1,8000L4037.7,3783.6 c-100.6-100.6-150.9-219.7-150.9-357.3c0-137.6,50.3-256.7,150.9-357.3l1318.1-1318.1c100.6-100.6,219.7-150.9,357.3-150.9 s256.7,50.3,357.3,150.9l5891.8,5891.8c100.6,100.6,150.9,219.7,150.9,357.3C12113.2,8137.6,12062.9,8256.7,11962.3,8357.3 L11962.3,8357.3z">
-                </path></svg>
+                    <path class="a" d="M11962.3,8357.3l-5891.8,5891.8c-100.6,100.6-219.7,150.9-357.3,150.9s-256.7-50.3-357.3-150.9 L4037.7,12931c-100.6-100.6-150.9-219.7-150.9-357.3c0-137.6,50.3-256.7,150.9-357.3L8254.1,8000L4037.7,3783.6 c-100.6-100.6-150.9-219.7-150.9-357.3c0-137.6,50.3-256.7,150.9-357.3l1318.1-1318.1c100.6-100.6,219.7-150.9,357.3-150.9 s256.7,50.3,357.3,150.9l5891.8,5891.8c100.6,100.6,150.9,219.7,150.9,357.3C12113.2,8137.6,12062.9,8256.7,11962.3,8357.3 L11962.3,8357.3z">
+                    </path>
+                </svg>
             </div>
         </div>
         <br>
-
 
         <div class="ui fluid">
             <div class="ui top attached tabular menu">
                 <a class="item active" data-tab="first" style="background-color: orange;">Featured</a> <a class="item" data-tab="second">Trending</a> <a class="item" data-tab="third">Crazy Deals</a>
             </div>
-
 
             <div class="ui bottom primary attached tab segment active" data-tab="first">
                 <div class="ui four cards fluid">
@@ -704,6 +614,20 @@
                             <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
                         </div>
 
+                        <div class="extra aligned center">
+                            Lorel Ipsum Dolor
+
+                            <div class="ui star rating" data-rating="3">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="image">
+                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
+                            </div>
+                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
+                        </div>
 
                         <div class="extra aligned center">
                             Lorel Ipsum Dolor
@@ -713,14 +637,12 @@
                         </div>
                     </div>
 
-
                     <div class="card">
                         <div class="image">
                             <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
                             </div>
                             <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
                         </div>
-
 
                         <div class="extra aligned center">
                             Lorel Ipsum Dolor
@@ -730,31 +652,12 @@
                         </div>
                     </div>
 
-
                     <div class="card">
                         <div class="image">
                             <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
                             </div>
                             <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
                         </div>
-
-
-                        <div class="extra aligned center">
-                            Lorel Ipsum Dolor
-
-                            <div class="ui star rating" data-rating="3">
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="card">
-                        <div class="image">
-                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
-                            </div>
-                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
-                        </div>
-
 
                         <div class="extra aligned center">
                             Lorel Ipsum Dolor
@@ -765,7 +668,6 @@
                     </div>
                 </div>
 
-
                 <div class="ui four cards fluid">
                     <div class="card">
                         <div class="image">
@@ -774,6 +676,20 @@
                             <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
                         </div>
 
+                        <div class="extra aligned center">
+                            Lorel Ipsum Dolor
+
+                            <div class="ui star rating" data-rating="3">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="image">
+                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
+                            </div>
+                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
+                        </div>
 
                         <div class="extra aligned center">
                             Lorel Ipsum Dolor
@@ -783,14 +699,12 @@
                         </div>
                     </div>
 
-
                     <div class="card">
                         <div class="image">
                             <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
                             </div>
                             <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
                         </div>
-
 
                         <div class="extra aligned center">
                             Lorel Ipsum Dolor
@@ -800,31 +714,12 @@
                         </div>
                     </div>
 
-
                     <div class="card">
                         <div class="image">
                             <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
                             </div>
                             <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
                         </div>
-
-
-                        <div class="extra aligned center">
-                            Lorel Ipsum Dolor
-
-                            <div class="ui star rating" data-rating="3">
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="card">
-                        <div class="image">
-                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
-                            </div>
-                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
-                        </div>
-
 
                         <div class="extra aligned center">
                             Lorel Ipsum Dolor
@@ -835,7 +730,6 @@
                     </div>
                 </div>
             </div>
-
 
             <div class="ui bottom attached tab segment" data-tab="second">
                 <div class="ui four cards fluid">
@@ -846,6 +740,20 @@
                             <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
                         </div>
 
+                        <div class="extra aligned center">
+                            Lorel Ipsum Dolor
+
+                            <div class="ui star rating" data-rating="3">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="image">
+                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
+                            </div>
+                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
+                        </div>
 
                         <div class="extra aligned center">
                             Lorel Ipsum Dolor
@@ -855,14 +763,12 @@
                         </div>
                     </div>
 
-
                     <div class="card">
                         <div class="image">
                             <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
                             </div>
                             <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
                         </div>
-
 
                         <div class="extra aligned center">
                             Lorel Ipsum Dolor
@@ -872,31 +778,12 @@
                         </div>
                     </div>
 
-
                     <div class="card">
                         <div class="image">
                             <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
                             </div>
                             <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
                         </div>
-
-
-                        <div class="extra aligned center">
-                            Lorel Ipsum Dolor
-
-                            <div class="ui star rating" data-rating="3">
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="card">
-                        <div class="image">
-                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
-                            </div>
-                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
-                        </div>
-
 
                         <div class="extra aligned center">
                             Lorel Ipsum Dolor
@@ -907,7 +794,6 @@
                     </div>
                 </div>
 
-
                 <div class="ui four cards fluid">
                     <div class="card">
                         <div class="image">
@@ -916,6 +802,20 @@
                             <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
                         </div>
 
+                        <div class="extra aligned center">
+                            Lorel Ipsum Dolor
+
+                            <div class="ui star rating" data-rating="3">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="image">
+                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
+                            </div>
+                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
+                        </div>
 
                         <div class="extra aligned center">
                             Lorel Ipsum Dolor
@@ -925,14 +825,12 @@
                         </div>
                     </div>
 
-
                     <div class="card">
                         <div class="image">
                             <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
                             </div>
                             <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
                         </div>
-
 
                         <div class="extra aligned center">
                             Lorel Ipsum Dolor
@@ -942,31 +840,12 @@
                         </div>
                     </div>
 
-
                     <div class="card">
                         <div class="image">
                             <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
                             </div>
                             <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
                         </div>
-
-
-                        <div class="extra aligned center">
-                            Lorel Ipsum Dolor
-
-                            <div class="ui star rating" data-rating="3">
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="card">
-                        <div class="image">
-                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
-                            </div>
-                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
-                        </div>
-
 
                         <div class="extra aligned center">
                             Lorel Ipsum Dolor
@@ -977,7 +856,6 @@
                     </div>
                 </div>
             </div>
-
 
             <div class="ui bottom attached tab segment" data-tab="third">
                 <div class="ui four cards fluid">
@@ -988,6 +866,20 @@
                             <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
                         </div>
 
+                        <div class="extra aligned center">
+                            Lorel Ipsum Dolor
+
+                            <div class="ui star rating" data-rating="3">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="image">
+                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
+                            </div>
+                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
+                        </div>
 
                         <div class="extra aligned center">
                             Lorel Ipsum Dolor
@@ -997,14 +889,12 @@
                         </div>
                     </div>
 
-
                     <div class="card">
                         <div class="image">
                             <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
                             </div>
                             <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
                         </div>
-
 
                         <div class="extra aligned center">
                             Lorel Ipsum Dolor
@@ -1014,31 +904,12 @@
                         </div>
                     </div>
 
-
                     <div class="card">
                         <div class="image">
                             <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
                             </div>
                             <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
                         </div>
-
-
-                        <div class="extra aligned center">
-                            Lorel Ipsum Dolor
-
-                            <div class="ui star rating" data-rating="3">
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="card">
-                        <div class="image">
-                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
-                            </div>
-                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
-                        </div>
-
 
                         <div class="extra aligned center">
                             Lorel Ipsum Dolor
@@ -1048,7 +919,6 @@
                         </div>
                     </div>
                 </div>
-
 
                 <div class="ui four cards fluid">
                     <div class="card">
@@ -1058,6 +928,20 @@
                             <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
                         </div>
 
+                        <div class="extra aligned center">
+                            Lorel Ipsum Dolor
+
+                            <div class="ui star rating" data-rating="3">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="image">
+                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
+                            </div>
+                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
+                        </div>
 
                         <div class="extra aligned center">
                             Lorel Ipsum Dolor
@@ -1067,14 +951,12 @@
                         </div>
                     </div>
 
-
                     <div class="card">
                         <div class="image">
                             <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
                             </div>
                             <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
                         </div>
-
 
                         <div class="extra aligned center">
                             Lorel Ipsum Dolor
@@ -1084,31 +966,12 @@
                         </div>
                     </div>
 
-
                     <div class="card">
                         <div class="image">
                             <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
                             </div>
                             <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
                         </div>
-
-
-                        <div class="extra aligned center">
-                            Lorel Ipsum Dolor
-
-                            <div class="ui star rating" data-rating="3">
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="card">
-                        <div class="image">
-                            <div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="https://www.youtube.com/embed/O6Xo21L0ybE">
-                            </div>
-                            <noscript><img height="400" src="{{ asset('images/demo-4.jpg') }}" width="600"></noscript>
-                        </div>
-
 
                         <div class="extra aligned center">
                             Lorel Ipsum Dolor
@@ -1121,23 +984,20 @@
             </div>
         </div>
 
-
         <div class="container">
             <br>
-
 
             <div style="text-align:center; font-size: 2em;">
                 <span><b>UPCOMING PARTIES</b></span>
             </div>
             <br>
 
-
             <div class="ui three cards container">
                 <div class="card">
                     <div class="image">
-                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400"> <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
+                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400">
+                        <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
                     </div>
-
 
                     <div class="extra aligned center">
                         Lorel Ipsum Dolor
@@ -1147,12 +1007,11 @@
                     </div>
                 </div>
 
-
                 <div class="card">
                     <div class="image">
-                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400"> <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
+                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400">
+                        <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
                     </div>
-
 
                     <div class="extra aligned center">
                         Lorel Ipsum Dolor
@@ -1162,12 +1021,11 @@
                     </div>
                 </div>
 
-
                 <div class="card">
                     <div class="image">
-                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400"> <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
+                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400">
+                        <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
                     </div>
-
 
                     <div class="extra aligned center">
                         Lorel Ipsum Dolor
@@ -1178,13 +1036,12 @@
                 </div>
             </div>
 
-
             <div class="ui three cards container">
                 <div class="card">
                     <div class="image">
-                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400"> <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
+                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400">
+                        <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
                     </div>
-
 
                     <div class="extra aligned center">
                         Lorel Ipsum Dolor
@@ -1194,12 +1051,11 @@
                     </div>
                 </div>
 
-
                 <div class="card">
                     <div class="image">
-                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400"> <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
+                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400">
+                        <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
                     </div>
-
 
                     <div class="extra aligned center">
                         Lorel Ipsum Dolor
@@ -1209,12 +1065,11 @@
                     </div>
                 </div>
 
-
                 <div class="card">
                     <div class="image">
-                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400"> <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
+                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400">
+                        <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
                     </div>
-
 
                     <div class="extra aligned center">
                         Lorel Ipsum Dolor
@@ -1226,7 +1081,6 @@
             </div>
         </div>
         <br>
-
 
         <div class="container">
             <div style="text-align:center; font-size: 1.8em;">
@@ -1234,13 +1088,12 @@
             </div>
             <br>
 
-
             <div class="ui three cards container">
                 <div class="card">
                     <div class="image">
-                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400"> <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
+                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400">
+                        <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
                     </div>
-
 
                     <div class="extra aligned center">
                         Lorel Ipsum Dolor
@@ -1250,12 +1103,11 @@
                     </div>
                 </div>
 
-
                 <div class="card">
                     <div class="image">
-                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400"> <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
+                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400">
+                        <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
                     </div>
-
 
                     <div class="extra aligned center">
                         Lorel Ipsum Dolor
@@ -1265,12 +1117,11 @@
                     </div>
                 </div>
 
-
                 <div class="card">
                     <div class="image">
-                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400"> <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
+                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400">
+                        <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
                     </div>
-
 
                     <div class="extra aligned center">
                         Lorel Ipsum Dolor
@@ -1282,32 +1133,26 @@
             </div>
         </div>
         <br>
-
 
         <div style="text-align:center; font-size: 1.8em;">
             <span><b>OUR TOP BRANDS</b></span>
         </div>
         <br>
 
-
         <div class="ui equal width grid" style="text-align: center;">
             <div class="column"><img src="{{ asset('images/demo-4.jpg') }}" style="width: 100px; height: 40px;">
             </div>
 
-
             <div class="column"><img src="{{ asset('images/demo-4.jpg') }}" style="width: 100px; height: 40px;">
             </div>
-
 
             <div class="column"><img src="{{ asset('images/demo-4.jpg') }}" style="width: 100px; height: 40px;">
             </div>
         </div>
 
-
         <div class="ui grid">
             <div class="one wide column">
             </div>
-
 
             <div class="fourteen wide column" style="background-color: #DDDEE3;">
                 <div>
@@ -1317,17 +1162,14 @@
                 </div>
             </div>
 
-
             <div class="one wide column">
             </div>
         </div>
         <br>
         <br>
 
-
         <div id="context">
         </div>
-
 
         <div class="ui grid" id="footer" style="text-align: center; background-color: #A0A1A4;">
             <div class="four wide column">
@@ -1337,11 +1179,9 @@
                     Nigeria
                 </div>
 
-
                 <div class="row">
                     Kenya
                 </div>
-
 
                 <div class="row">
                     Djibouti
@@ -1349,17 +1189,14 @@
                 <br>
                 <br>
 
-
                 <div class="row">
                     <div class="row">
                         <span style="font-size:1.2em;"><b>PartyCravings Inc.</b></span>
                     </div>
 
-
                     <div class="row">
                         Yaba, Lagos Nigeria
                     </div>
-
 
                     <div class="row">
                         info@partycravings.com
@@ -1367,6 +1204,21 @@
                 </div>
             </div>
 
+            <div class="four wide column">
+                <span style="font-size:1.3em;"><b>CUSTOMER SERVICES</b></span>
+
+                <div class="row">
+                    Financing
+                </div>
+
+                <div class="row">
+                    Call us
+                </div>
+
+                <div class="row">
+                    Need help
+                </div>
+            </div>
 
             <div class="four wide column">
                 <span style="font-size:1.3em;"><b>CUSTOMER SERVICES</b></span>
@@ -1375,36 +1227,14 @@
                     Financing
                 </div>
 
-
                 <div class="row">
                     Call us
                 </div>
-
 
                 <div class="row">
                     Need help
                 </div>
             </div>
-
-
-            <div class="four wide column">
-                <span style="font-size:1.3em;"><b>CUSTOMER SERVICES</b></span>
-
-                <div class="row">
-                    Financing
-                </div>
-
-
-                <div class="row">
-                    Call us
-                </div>
-
-
-                <div class="row">
-                    Need help
-                </div>
-            </div>
-
 
             <div class="four wide column">
                 <div style="text-align:center; font-size: 1.3em;">
@@ -1412,12 +1242,10 @@
                 </div>
                 <br>
 
-
                 <div class="row">
                     Subscribe to our newsletter
                 </div>
                 <br>
-
 
                 <div class="row">
                     <div class="ui icon input">
@@ -1426,11 +1254,12 @@
                 </div>
                 <br>
 
-
                 <div class="row">
-                    <button class="ui circular facebook icon button"><i class="facebook icon"></i></button> <button class="ui circular twitter icon button"><i class="twitter icon"></i></button> <button class="ui circular linkedin icon button"><i class="linkedin icon"></i></button> <button class="ui circular google plus icon button"><i class="google plus icon"></i></button>
+                    <button class="ui circular facebook icon button"><i class="facebook icon"></i></button>
+                    <button class="ui circular twitter icon button"><i class="twitter icon"></i></button>
+                    <button class="ui circular linkedin icon button"><i class="linkedin icon"></i></button>
+                    <button class="ui circular google plus icon button"><i class="google plus icon"></i></button>
                 </div>
-
 
                 <div class="row">
                 </div>
