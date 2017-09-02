@@ -22,7 +22,7 @@ security:
 
             oauth:
                 resource_owners:
-                    google:             "/login/check-google"
+                    google:             google_login
                 login_path:        fos_user_security_login
                 failure_path:      fos_user_security_login
 
