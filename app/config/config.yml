@@ -152,8 +152,8 @@ jms_translation:
 
 #JMS i8n Routing Bundle Configuration
 jms_i18n_routing:
-    default_locale: en
-    locales: [en, de]
+    default_locale: '%locale%'
+    locales: [en, de, zh]
     strategy: prefix_except_default
 
 #Stof Doctrine extensions Configuration
