@@ -13,58 +13,76 @@ class FOSUBUserProvider extends BaseClass
      */
     public function connect(UserInterface $user, UserResponseInterface $response)
     {
-        $property = $this->getProperty($response);
-        $email = $response->getEmail();
-        //on connect - get the access token and the user ID
+        $username = $response->getUsername();
+
         $service = $response->getResourceOwner()->getName();
-        $setter = 'set'.ucfirst($service);
-        $setter_id = $setter.'Id';
-        $setter_token = $setter.'AccessToken';
-        //we "disconnect" previously connected users
-        if (null !== $previousUser = $this->userManager->findUserBy(array($property => $email))) {
-            $previousUser->$setter_id(null);
-            $previousUser->$setter_token(null);
+        $setter = 'set' . ucfirst($service);
+        $setterId = $setter . 'Id';
+        $setterToken = $setter . 'AccessToken';
+
+        //disconnect previously connected user
+        if (null !== $previousUser = $this->userManager->findUserBy(array($this->getProperty($response) => $username))) {
+            $previousUser->$setterId(null);
+            $previousUser->$setterToken(null);
             $this->userManager->updateUser($previousUser);
         }
-        //we connect current user
-        $user->$setter_id($response->getUsername());
-        $user->$setter_token($response->getAccessToken());
+
+        //connect current user
+        $user->$setterId($username);
+        $user->$setterToken($response->getAccessToken());
+
         $this->userManager->updateUser($user);
     }
+
     /**
      * {@inheritdoc}
      */
     public function loadUserByOAuthUserResponse(UserResponseInterface $response)
     {
+        $username = $response->getUsername();
         $email = $response->getEmail();
-        $user = $this->userManager->findUserBy(array('email' => $email));
-        //when the user is registrating
+
+        $user = $this->userManager->findUserBy(array($this->getProperty($response) => $username));
         if (null === $user) {
+            $user = $this->userManager->findUserByEmail($email);
+
             $service = $response->getResourceOwner()->getName();
-            $setter = 'set'.ucfirst($service);
-            $setter_id = $setter.'Id';
-            $setter_token = $setter.'AccessToken';
-            // create new user here
-            $user = $this->userManager->createUser();
-            $user->$setter_id($response->getUsername());
-            $user->$setter_token($response->getAccessToken());
-            //I have set all requested data with the user's username
-            //modify here with relevant data
-            $user->setUsername($response->getRealName());
-            $user->setEmail($email);
-            $user->setPassword($response->getUsername());
-            $user->setEnabled(true);
-            $this->userManager->updateUser($user);
-            return $user;
+            $setter = 'set' . ucfirst($service);
+            $setterId = $setter . 'Id';
+            $setterToken = $setter . 'AccessToken';
+
+            if (null === $user) {
+                //when the user is registering
+                $user = $this->userManager->createUser();
+                $user->$setterId($username);
+                $user->$setterToken($response->getAccessToken());
+                //I have set all requested data with the user's username
+                //modify here with relevant data
+                $user->setUsername($response->getRealName());
+                $user->setEmail($email);
+                $user->setPassword($response->getUsername());
+                $user->setEnabled(true);
+                $this->userManager->updateUser($user);
+                return $user;
+            } else {
+                $user->$setterId($username);
+                $user->$setterToken($response->getAccessToken());
+
+                $this->userManager->updateUser($user);
+
+                return $user;
+            }
         }
+
         //if user exists - go with the HWIOAuth way
-        //$user = parent::loadUserByOAuthUserResponse($response);
+        $user = parent::loadUserByOAuthUserResponse($response);
+
         $serviceName = $response->getResourceOwner()->getName();
-        $setterId = 'set' . ucfirst($serviceName) . 'Id';
-        $setterToken = 'set' . ucfirst($serviceName) . 'AccessToken';
-        //update access token && Id
-        $user->$setterId($response->getUsername());
-        $user->$setterToken($response->getAccessToken());
+        $setter = 'set' . ucfirst($serviceName) . 'AccessToken';
+
+        //update access token
+        $user->$setter($response->getAccessToken());
+
         return $user;
     }
 }

@@ -26,6 +26,8 @@ class Accounts extends BaseUser
     protected $id;
 
     /**
+     * @var string
+     *
      * @Gedmo\Slug(fields={"username","id"})
      * @ORM\Column(name="slug", type="string", length=255, nullable=true)
      */
@@ -62,21 +64,28 @@ class Accounts extends BaseUser
     private $accountDetail;
 
     /**
+     * @var string
      * @ORM\Column(name="facebook_id", type="string", length=255, nullable=true)
      */
     protected $facebook_id;
 
     /**
+     * @var string
+     *
      * @ORM\Column(name="facebook_access_token", type="string", length=255, nullable=true)
      */
     protected $facebook_access_token;
 
     /**
+     * @var string
+     *
      * @ORM\Column(name="google_id", type="string", length=255, nullable=true)
      */
     protected $google_id;
 
     /**
+     * @var string
+     *
      * @ORM\Column(name="google_access_token", type="string", length=255, nullable=true)
      */
     protected $google_access_token;

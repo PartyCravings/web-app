@@ -22,7 +22,7 @@ security:
 
             oauth:
                 resource_owners:
-                    google:             google_login
+                    google:             google_login 
                 login_path:        fos_user_security_login
                 failure_path:      fos_user_security_login
 
@@ -31,7 +31,9 @@ security:
                     #automatic user registration on your site, with data from the provider (facebook. google, etc.)
                     service: AppBundle\Security\FOSUBUserProvider
 
-            logout:       true
+            logout:
+                path:           fos_user_security_logout
+                target:         fos_user_security_login #Path to redirect to, after logging out
             anonymous:    true
 
         oauth_token:

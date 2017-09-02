@@ -1,43 +1,39 @@
-#FosUserBundle Routes
+#FOSUserBundle Routes
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
     options:
         utf8: true
 
 #My Default Routes
-root:
-    path: /login/
-    defaults:
-        _controller: FrameworkBundle:Redirect:urlRedirect
-        path: /login
-        permanent: true
+google_login:
+    path: /login/check-google
+    options:
+        i18n: false
+
 app:
     resource: '@AppBundle/Controller/'
     type:     annotation
-    options: 
-        i18n: true
+    options:
+        utf8: true
 
 #HWIOAuthBundle routes
 hwi_oauth_security:
     resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
     prefix: /login
+    options:
+        utf8: true
 
 hwi_oauth_connect:
     resource: "@HWIOAuthBundle/Resources/config/routing/connect.xml"
     prefix: /login
+    options:
+        utf8: true
 
 hwi_oauth_redirect:
     resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
     prefix:   /login
-
-google_login:
-    path: /login/check-google
-
-#JMS Translation Bundle routes
-JMSTranslationBundle_ui:
-    resource: "@JMSTranslationBundle/Controller/"
-    type:     annotation
-    prefix:   /_trans
+    options:
+        utf8: true
 
 #FOSOAuth Server Bundle Routes
 fos_oauth_server_token:
