@@ -8,7 +8,7 @@ fos_user:
 google_login:
     path: /login/check-google
     options:
-        i18n: false
+        i18n: true
 
 app:
     resource: '@AppBundle/Controller/'
