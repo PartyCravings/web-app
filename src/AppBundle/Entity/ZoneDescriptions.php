@@ -24,7 +24,7 @@ class ZoneDescriptions
     /**
      * @var int
      *
-     * @ORM\OneToOne(targetEntity="Zones", mappedBy="zoneDescriptions")
+     * @ORM\OneToOne(targetEntity="Zone", mappedBy="zoneDescriptions")
      */
     private $zoneId;
 

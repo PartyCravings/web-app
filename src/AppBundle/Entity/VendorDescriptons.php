@@ -23,7 +23,7 @@ class VendorDescriptons
 
     /**
      * @var int
-     * @ORM\OneToOne(targetEntity="Vendors", mappedBy="vendorDescription")
+     * @ORM\OneToOne(targetEntity="Vendor", mappedBy="vendorDescription")
      */
     private $vendorId;
 

@@ -28,21 +28,21 @@ class Vendor
     private $asoEbi;
 
     /**
+     * @ORM\OneToOne(targetEntity="VendorDescriptons", inversedBy="vendorId")
+     * @ORM\JoinColumn(name="vendorDescriptions", referencedColumnName="id")
+    */
+    private $vendorDescription;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Accounts", inversedBy="vendor")
+     * @ORM\JoinColumn(name="account_id", referencedColumnName="id", nullable=false)
+     */
+    private $account;
+
+    /**
      * @ORM\OneToMany(targetEntity="LiveParties", mappedBy="vendorId")
     */
     private $liveParties;
-
-    /**
-    * @ORM\OneToMany(targetEntity="Party", mappedBy="vendorId")
-     */
-    private $party;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="id_country", type="string", length=255)
-     */
-    private $idCountry;
 
     /**
      * @var string
@@ -174,7 +174,6 @@ class Vendor
     public function __construct()
     {
         $this->asoEbi = new ArrayCollection();
-        $this->party = new ArrayCollection();
         $this->liveParties = new ArrayCollection();
     }
 

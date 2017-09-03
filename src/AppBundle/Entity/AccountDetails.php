@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\IpTraceable\Traits\IpTraceableEntity;
 
 /**
  * AccountDetails
@@ -12,6 +13,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class AccountDetails
 {
+    /**
+     * Hook ip-traceable behavior
+     * updates createdFromIp, updatedFromIp fields
+     */
+    use IpTraceableEntity;
+
     /**
      * @var int
      *

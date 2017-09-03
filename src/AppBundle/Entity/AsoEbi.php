@@ -95,22 +95,6 @@ class AsoEbi
     private $currencyId;
 
     /**
-     * @var int
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Country", inversedBy="asoEbi")
-     * @ORM\JoinColumn(name="country_id", referencedColumnName="id")
-     */
-    private $countryId;
-
-    /**
-     * @var int
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Languages", inversedBy="asoEbi")
-     * @ORM\JoinColumn(name="language_id", referencedColumnName="id")
-     */
-    private $langId;
-
-    /**
      * @var bool
      *
      * @ORM\Column(name="featured_image", type="boolean")

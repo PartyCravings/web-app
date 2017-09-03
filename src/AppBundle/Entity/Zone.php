@@ -53,6 +53,12 @@ class Zone
      */
     private $deleted;
 
+    /**
+    * @ORM\OneToOne(targetEntity="ZoneDescriptions", inversedBy="zoneId")
+     * @ORM\JoinColumn(name="zoneDescriptions", referencedColumnName="id")
+     */
+    private $zoneDescriptions;
+
     public function __construct()
     {
         $this->asoEbi = new ArrayCollection();

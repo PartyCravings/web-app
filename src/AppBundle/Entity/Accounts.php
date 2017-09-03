@@ -36,9 +36,9 @@ class Accounts extends BaseUser
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_add", type="datetime", nullable=true)
+     * @ORM\Column(name="deleted_at", type="datetime", nullable=true)
      */
-    private $dateAdd;
+    private $deletedAt;
 
     /**
      * @var bool
@@ -56,6 +56,16 @@ class Accounts extends BaseUser
     * @ORM\OneToMany(targetEntity="Agency", mappedBy="accountId")
     */
     private $agency;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Vendor", mappedBy="account")
+     */
+    private $vendor;
+
+    /**
+     * @ORM\OneToMany(targetEntity="LiveParties", mappedBy="account")
+     */
+    private $liveParties;
 
     /**
      * @ORM\OneToOne(targetEntity="AccountDetails", inversedBy="account")
@@ -94,6 +104,7 @@ class Accounts extends BaseUser
     {
         $this->agency = new ArrayCollection();
         $this->affliates = new ArrayCollection();
+        $this->liveParties = new ArrayCollection();
     }
 
 

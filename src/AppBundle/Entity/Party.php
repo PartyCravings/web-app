@@ -143,14 +143,6 @@ class Party
     /**
      * @var int
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Country", inversedBy="party")
-     * @ORM\JoinColumn(name="country_id", referencedColumnName="id")
-     */
-    private $countryId;
-
-    /**
-     * @var int
-     *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Zone", inversedBy="party")
      */
     private $zoneId;
@@ -224,14 +216,6 @@ class Party
      * @ORM\Column(name="total_cost", type="decimal", precision=10, scale=0)
      */
     private $totalCost;
-
-    /**
-     * @var int
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Vendor", inversedBy="party")
-     * @ORM\JoinColumn(name="vendor_id", referencedColumnName="id")
-     */
-    private $vendorId;
 
 
     /**

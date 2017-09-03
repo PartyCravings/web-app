@@ -31,10 +31,10 @@ class LiveParties
     /**
      * @var int
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Customer", inversedBy="liveParties")
-     * @ORM\JoinColumn(name="customer_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Accounts", inversedBy="liveParties")
+     * @ORM\JoinColumn(name="account_id", referencedColumnName="id")
      */
-    private $customerId;
+    private $account;
 
     /**
      * @var int
@@ -51,14 +51,6 @@ class LiveParties
      * @ORM\JoinColumn(name="vendorGroup_id", referencedColumnName="id")
      */
     private $vendorGroupId;
-
-    /**
-     * @var int
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PartyUrls", inversedBy="liveParties")
-     * @ORM\JoinColumn(name="partyUrl_id", referencedColumnName="id")
-     */
-    private $partyUrlId;
 
     /**
      * @var string

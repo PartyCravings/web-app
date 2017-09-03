@@ -81,13 +81,6 @@ class Affiliates
     /**
      * @var int
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Country", inversedBy="affiliates")
-     */
-    private $countryId;
-
-    /**
-     * @var int
-     *
      * @ORM\Column(name="oac_category_id", type="integer")
      */
     private $affliateCategoryId;

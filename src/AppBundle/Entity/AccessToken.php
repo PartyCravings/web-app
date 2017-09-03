@@ -1,5 +1,4 @@
 <?php
-// src/Acme/ApiBundle/Entity/AccessToken.php
 
 namespace AppBundle\Entity;
 

@@ -1,5 +1,4 @@
 <?php
-// src/Acme/ApiBundle/Entity/Client.php
 
 namespace AppBundle\Entity;
 
