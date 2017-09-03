@@ -24,23 +24,17 @@ class Address
     /**
      * @var string
      *
-     * @ORM\Column(name="id_country", type="string", length=255)
-     */
-    private $idCountry;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="id_state", type="string", length=255)
      */
     private $idState;
 
     /**
-     * @var string
+     * @var AccountDetails
      *
-     * @ORM\Column(name="id_customer", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="AccountDetails", inversedBy="addresses")
+     * @ORM\JoinColumn(name="account_id", referencedColumnName="id")
      */
-    private $idCustomer;
+    private $accountDetail;
 
     /**
      * @var string
@@ -66,20 +60,6 @@ class Address
     /**
      * @var string
      *
-     * @ORM\Column(name="id_staff", type="string", length=255)
-     */
-    private $idStaff;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="id_vendor", type="string", length=255)
-     */
-    private $idVendor;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="alias", type="string", length=255)
      */
     private $alias;
@@ -90,28 +70,6 @@ class Address
      * @ORM\Column(name="company", type="string", length=255)
      */
     private $company;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="vendor_name", type="string", length=255)
-     */
-    private $vendorName;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="last_name", type="string", length=255)
-     */
-    private $lastName;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="first_name", type="string", length=255)
-     */
-    private $firstName;
-
     /**
      * @var string
      *

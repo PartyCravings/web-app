@@ -104,20 +104,6 @@ class AffiliatesExtra
     private $modeOfPayment;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="currency", type="string", length=255)
-     */
-    private $currency;
-
-    /**
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Currency", inversedBy="affiliatesExtra")
-     * @ORM\JoinColumn(name="currency_id", referencedColumnName="id")
-     */
-    private $currencyId;
-
-    /**
      * @var int
      *
      * @ORM\Column(name="unique_users", type="integer")

@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\IpTraceable\Traits\IpTraceableEntity;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * AccountDetails
@@ -36,11 +37,11 @@ class AccountDetails
     private $birthday;
 
     /**
-     * @var int
+     * @var Address
      *
-     * @ORM\Column(name="address_id", type="integer")
+     * @ORM\OneToMany(targetEntity="Address", mappedBy="accountDetail")
      */
-    private $addressId;
+    private $addresses;
 
     /**
      * @var int
@@ -78,13 +79,6 @@ class AccountDetails
     private $financialId;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="ip", type="string", length=255)
-     */
-    private $ip;
-
-    /**
      * @var int
      *
      * @ORM\Column(name="newsletter_id", type="integer")
@@ -103,6 +97,11 @@ class AccountDetails
      */
     private $account;
 
+
+    public function __construct()
+    {
+        $this->addresses = new ArrayCollection();
+    }
 
     /**
      * Get id

@@ -85,15 +85,7 @@ class AsoEbi
      * @ORM\Column(name="taxable", type="boolean")
      */
     private $taxable;
-
-    /**
-     * @var int
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Currency", inversedBy="asoEbi")
-     * @ORM\JoinColumn(name="currency_id", referencedColumnName="id")
-     */
-    private $currencyId;
-
+    
     /**
      * @var bool
      *
