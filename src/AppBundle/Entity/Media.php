@@ -636,7 +636,7 @@ class Media
      *
      * @return bool
      */
-    public function getIsDeleted() : bool
+    public function getIsDeleted()
     {
         return $this->isDeleted;
     }
@@ -644,7 +644,7 @@ class Media
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }

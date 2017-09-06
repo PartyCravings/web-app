@@ -10,12 +10,4 @@ namespace AppBundle\Repository;
  */
 class EventCenterRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function getAllEventCenter()
-    {
-        $em = $this->createQueryBuilder('p')
-            ->select('p.id', 'p.name, p.documentaries')
-            ->where('p.language = 1')
-            ->getQuery();
-        return $em->execute();
-    }
 }

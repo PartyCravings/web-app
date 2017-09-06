@@ -120,30 +120,6 @@ class Manufacturers
     }
 
     /**
-     * Set manufacturerId
-     *
-     * @param integer $manufacturerId
-     *
-     * @return Manufacturers
-     */
-    public function setManufacturerId($manufacturerId)
-    {
-        $this->manufacturerId = $manufacturerId;
-
-        return $this;
-    }
-
-    /**
-     * Get manufacturerId
-     *
-     * @return int
-     */
-    public function getManufacturerId()
-    {
-        return $this->manufacturerId;
-    }
-
-    /**
      * Set name
      *
      * @param string $name
@@ -405,5 +381,39 @@ class Manufacturers
     public function getCredRating()
     {
         return $this->credRating;
+    }
+
+    /**
+     * Add asoEbi
+     *
+     * @param \AppBundle\Entity\AsoEbi $asoEbi
+     *
+     * @return Manufacturers
+     */
+    public function addAsoEbi(\AppBundle\Entity\AsoEbi $asoEbi)
+    {
+        $this->asoEbi[] = $asoEbi;
+
+        return $this;
+    }
+
+    /**
+     * Remove asoEbi
+     *
+     * @param \AppBundle\Entity\AsoEbi $asoEbi
+     */
+    public function removeAsoEbi(\AppBundle\Entity\AsoEbi $asoEbi)
+    {
+        $this->asoEbi->removeElement($asoEbi);
+    }
+
+    /**
+     * Get asoEbi
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAsoEbi()
+    {
+        return $this->asoEbi;
     }
 }

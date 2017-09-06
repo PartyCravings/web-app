@@ -14,8 +14,10 @@
             <div class="row">
                 <!--All the stacked top categories with unknown number-->
 
-                <div class="ui equal width grid" style="font-size: 1.2em;">
+                <div class="ui secondary  menu" style="font-family: 'Quicksand', sans-serif; font-size: 1.2em;">
                     <a class="item" href="#">DRINKS</a> <a class="item" href="#">FOOD</a> <a class="item" href="#">M.Cs</a> <a class="item" href="#">COMEDIANS</a>
+                    <a class="item" href="#">CLOTHES</a> <a class="item" href="#">OTHERS</a>
+
                 </div>
             </div>
 
@@ -70,7 +72,7 @@
                     </div>
 
                     <div class="ui two wide column">
-                        <img class="ui avatar image" src="{{ asset('images/demo-4.jpg') }}"> <span>Login</span>
+                        <img class="ui avatar image" src="{{ asset('images/demo-4.jpg') }}"> <a href="{{ url('fos_user_security_login') }}">Login</a>
                     </div>
                 </div>
             </nav>
@@ -446,7 +448,7 @@
         <div id="slider-top" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:380px;overflow:hidden;visibility:hidden;">
             <!-- Loading Screen -->
 
-            <div class="jssorl-009-spin" data-u="loading" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);"><img src="{{ asset('others/spin.svg') }}" style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;">
+            <div class="jssorl-009-spin" data-u="loading" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);"><img src="{{ asset('build/images/spin.72062698.svg') }}" style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;">
             </div>
 
             <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:380px;overflow:hidden;">
@@ -524,7 +526,7 @@
         <div class="ui container" id="slider-bottom" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:150px;overflow:hidden;visibility:hidden;">
             <!-- Loading Screen -->
 
-            <div class="jssorl-009-spin" data-u="loading" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);"><img src="{{ asset('others/spin.svg') }}" style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;">
+            <div class="jssorl-009-spin" data-u="loading" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);"><img src="{{ asset('build/images/spin.72062698.svg') }}" style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;">
             </div>
 
             <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:150px;overflow:hidden;">
@@ -600,9 +602,11 @@
         </div>
         <br>
 
-        <div class="ui fluid" style="padding-left:10px; padding-right:10px;">
-            <div class="ui top attached inverted pointing tabular menu segment" style="font-family: 'Quicksand', sans-serif; background-color: #edf3ff;">
+        <div class="ui fluid" style="padding-left:30px; padding-right:30px;">
+            <div class="ui orange dividing header">
+            <div class="ui top attached inverted tabular menu" style="font-family: 'Quicksand', sans-serif; background-color: #edf3ff;">
                 <a class="active orange item" data-tab="first"><p style="color: black;">Featured</p></a> <a class="orange item" data-tab="second"><p style="color: black;">Trending</p></a> <a class="orange item" data-tab="third"><p style="color: black;">Crazy Deals</p></a>
+                </div>
                 
             </div>
             
@@ -996,7 +1000,7 @@
             <div class="ui three cards fluid">
                 <div class="card">
                     <div class="image">
-                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400">
+                        <img src="#" class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400">
                         <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
                     </div>
 
@@ -1010,7 +1014,7 @@
 
                 <div class="card">
                     <div class="image">
-                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400">
+                        <img src="#" class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400">
                         <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
                     </div>
 
@@ -1024,7 +1028,7 @@
 
                 <div class="card">
                     <div class="image">
-                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400">
+                        <img class="lazy" src="#" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400">
                         <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
                     </div>
 
@@ -1040,7 +1044,7 @@
             <div class="ui three cards fluid">
                 <div class="card">
                     <div class="image">
-                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400">
+                        <img src="#" class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400">
                         <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
                     </div>
 
@@ -1054,7 +1058,7 @@
 
                 <div class="card">
                     <div class="image">
-                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400">
+                        <img src="#" class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400">
                         <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
                     </div>
 
@@ -1068,7 +1072,7 @@
 
                 <div class="card">
                     <div class="image">
-                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400">
+                        <img src="#" class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400">
                         <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
                     </div>
 
@@ -1093,7 +1097,7 @@
             <div class="ui three cards fluid">
                 <div class="card">
                     <div class="image">
-                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400">
+                        <img src="#" class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400">
                         <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
                     </div>
 
@@ -1107,7 +1111,7 @@
 
                 <div class="card">
                     <div class="image">
-                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400">
+                        <img src="#" class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400">
                         <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
                     </div>
 
@@ -1121,7 +1125,7 @@
 
                 <div class="card">
                     <div class="image">
-                        <img class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400">
+                        <img src="#" class="lazy" data-original="{{ asset('images/demo-2.jpg') }}" height="267" width="400">
                         <noscript><img height="267" src="{{ asset('images/demo-2.jpg') }}" width="400"></noscript>
                     </div>
 
@@ -1251,7 +1255,7 @@
 
                 <div class="row">
                     <div class="ui icon input">
-                        <input placeholder="Your email address..." type="text"> <i class="right arrow icon"></i>
+                        <input placeholder="Your email address..." type="text" style="font-family: 'Quicksand', sans-serif;"> <i class="right arrow icon"></i>
                     </div>
                 </div>
                 <br>

@@ -1,6 +1,6 @@
 <?php
 
-namespace PartyCravings\AccountsBundle\Repository;
+namespace AppBundle\Repository;
 
 /**
  * AccountDetailsRepository

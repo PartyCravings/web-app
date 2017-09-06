@@ -45,9 +45,9 @@ class Party
     /**
      * @var int
      *
-     * @ORM\Column(name="vendors_id", type="integer")
+     * @ORM\Column(name="vendor_id", type="integer")
      */
-    private $vendorsId;
+    private $vendorId;
 
     /**
      * @var int
@@ -132,13 +132,6 @@ class Party
      * @ORM\Column(name="preregistration_number", type="integer")
      */
     private $preregistrationNumber;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id_lang", type="integer")
-     */
-    private $idLang;
 
     /**
      * @var int
@@ -298,30 +291,6 @@ class Party
     public function getIsPreregistered()
     {
         return $this->isPreregistered;
-    }
-
-    /**
-     * Set vendorsId
-     *
-     * @param integer $vendorsId
-     *
-     * @return Party
-     */
-    public function setVendorsId($vendorsId)
-    {
-        $this->vendorsId = $vendorsId;
-
-        return $this;
-    }
-
-    /**
-     * Get vendorsId
-     *
-     * @return int
-     */
-    public function getVendorsId()
-    {
-        return $this->vendorsId;
     }
 
     /**
@@ -610,54 +579,6 @@ class Party
     public function getPreregistrationNumber()
     {
         return $this->preregistrationNumber;
-    }
-
-    /**
-     * Set idLang
-     *
-     * @param integer $idLang
-     *
-     * @return Party
-     */
-    public function setIdLang($idLang)
-    {
-        $this->idLang = $idLang;
-
-        return $this;
-    }
-
-    /**
-     * Get idLang
-     *
-     * @return int
-     */
-    public function getIdLang()
-    {
-        return $this->idLang;
-    }
-
-    /**
-     * Set countryId
-     *
-     * @param integer $countryId
-     *
-     * @return Party
-     */
-    public function setCountryId($countryId)
-    {
-        $this->countryId = $countryId;
-
-        return $this;
-    }
-
-    /**
-     * Get countryId
-     *
-     * @return int
-     */
-    public function getCountryId()
-    {
-        return $this->countryId;
     }
 
     /**

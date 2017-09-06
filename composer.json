@@ -38,6 +38,7 @@
         "noxlogic/ratelimit-bundle": "^1.7",
         "oneup/uploader-bundle": "^1.7",
         "ornicar/gravatar-bundle": "^1.1",
+        "phpunit/phpunit": "^6.3",
         "sensio/distribution-bundle": "^5.0.19",
         "sensio/framework-extra-bundle": "^3.0.2",
         "stof/doctrine-extensions-bundle": "^1.2",

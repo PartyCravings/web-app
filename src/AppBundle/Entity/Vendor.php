@@ -188,30 +188,6 @@ class Vendor
     }
 
     /**
-     * Set idCountry
-     *
-     * @param string $idCountry
-     *
-     * @return Vendor
-     */
-    public function setIdCountry($idCountry)
-    {
-        $this->idCountry = $idCountry;
-
-        return $this;
-    }
-
-    /**
-     * Get idCountry
-     *
-     * @return string
-     */
-    public function getIdCountry()
-    {
-        return $this->idCountry;
-    }
-
-    /**
      * Set idState
      *
      * @param string $idState
@@ -657,5 +633,111 @@ class Vendor
     public function setLiveParties($liveParties)
     {
         $this->liveParties = $liveParties;
+    }
+
+    /**
+     * Add asoEbi
+     *
+     * @param \AppBundle\Entity\AsoEbi $asoEbi
+     *
+     * @return Vendor
+     */
+    public function addAsoEbi(\AppBundle\Entity\AsoEbi $asoEbi)
+    {
+        $this->asoEbi[] = $asoEbi;
+
+        return $this;
+    }
+
+    /**
+     * Remove asoEbi
+     *
+     * @param \AppBundle\Entity\AsoEbi $asoEbi
+     */
+    public function removeAsoEbi(\AppBundle\Entity\AsoEbi $asoEbi)
+    {
+        $this->asoEbi->removeElement($asoEbi);
+    }
+
+    /**
+     * Get asoEbi
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAsoEbi()
+    {
+        return $this->asoEbi;
+    }
+
+    /**
+     * Set vendorDescription
+     *
+     * @param \AppBundle\Entity\VendorDescriptons $vendorDescription
+     *
+     * @return Vendor
+     */
+    public function setVendorDescription(\AppBundle\Entity\VendorDescriptons $vendorDescription = null)
+    {
+        $this->vendorDescription = $vendorDescription;
+
+        return $this;
+    }
+
+    /**
+     * Get vendorDescription
+     *
+     * @return \AppBundle\Entity\VendorDescriptons
+     */
+    public function getVendorDescription()
+    {
+        return $this->vendorDescription;
+    }
+
+    /**
+     * Set account
+     *
+     * @param \AppBundle\Entity\Accounts $account
+     *
+     * @return Vendor
+     */
+    public function setAccount(\AppBundle\Entity\Accounts $account)
+    {
+        $this->account = $account;
+
+        return $this;
+    }
+
+    /**
+     * Get account
+     *
+     * @return \AppBundle\Entity\Accounts
+     */
+    public function getAccount()
+    {
+        return $this->account;
+    }
+
+    /**
+     * Add liveParty
+     *
+     * @param \AppBundle\Entity\LiveParties $liveParty
+     *
+     * @return Vendor
+     */
+    public function addLiveParty(\AppBundle\Entity\LiveParties $liveParty)
+    {
+        $this->liveParties[] = $liveParty;
+
+        return $this;
+    }
+
+    /**
+     * Remove liveParty
+     *
+     * @param \AppBundle\Entity\LiveParties $liveParty
+     */
+    public function removeLiveParty(\AppBundle\Entity\LiveParties $liveParty)
+    {
+        $this->liveParties->removeElement($liveParty);
     }
 }

@@ -1,8 +1,13 @@
 <!DOCTYPE html>
-<html>
+
+{%  block appcache %}
+<html manifest="{{ asset('build/appcache/manifest.appcache') }}">
+{% endblock %}
     <head>
         <meta charset="UTF-8" />
+        <meta name="theme-color" content="#2196F3">
         <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block manifest %}<link rel="manifest" href="{{ asset('build/manifest.json') }}">{% endblock %}
         {% block stylesheets %}<link href="{{ asset('build/app.css') }}" rel="stylesheet" type="text/css">{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>

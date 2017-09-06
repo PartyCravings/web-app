@@ -629,7 +629,7 @@ class OrderDownload
     /**
      * @return string
      */
-    public function getOrderDownloadHistory(): string
+    public function getOrderDownloadHistory()
     {
         return $this->orderDownloadHistory;
     }
@@ -637,8 +637,39 @@ class OrderDownload
     /**
      * @param string $orderDownloadHistory
      */
-    public function setOrderDownloadHistory(string $orderDownloadHistory)
+    public function setOrderDownloadHistory($orderDownloadHistory)
     {
         $this->orderDownloadHistory = $orderDownloadHistory;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->orderDownloadHistory = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add orderDownloadHistory
+     *
+     * @param \AppBundle\Entity\OrderDownloadHistory $orderDownloadHistory
+     *
+     * @return OrderDownload
+     */
+    public function addOrderDownloadHistory(\AppBundle\Entity\OrderDownloadHistory $orderDownloadHistory)
+    {
+        $this->orderDownloadHistory[] = $orderDownloadHistory;
+
+        return $this;
+    }
+
+    /**
+     * Remove orderDownloadHistory
+     *
+     * @param \AppBundle\Entity\OrderDownloadHistory $orderDownloadHistory
+     */
+    public function removeOrderDownloadHistory(\AppBundle\Entity\OrderDownloadHistory $orderDownloadHistory)
+    {
+        $this->orderDownloadHistory->removeElement($orderDownloadHistory);
     }
 }

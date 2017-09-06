@@ -1,12 +1,16 @@
 import $ from 'jquery';
+import runtime from 'offline-plugin/runtime';
 import 'semantic-ui/dist/semantic.js';
 import 'semantic-ui/dist/semantic.css';
 import './jquery.sticklr.dark.css';
 import './font.quicksand.css';
 import './jquery.jssor.css';
+import './spin.svg';
 import './jquery.lazyload.js';
 import './jquery.jssor.min.js';
 import './jquery.sticklr.js';
+
+runtime.install();
 
 $(document).ready( function() { $('iframe').remove(); });
 $(document).ready(function($) {

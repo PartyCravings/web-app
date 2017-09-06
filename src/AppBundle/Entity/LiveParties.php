@@ -29,7 +29,7 @@ class LiveParties
     private $partyId;
 
     /**
-     * @var int
+     * @var \AppBundle\Entity\Accounts
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Accounts", inversedBy="liveParties")
      * @ORM\JoinColumn(name="account_id", referencedColumnName="id")
@@ -186,30 +186,6 @@ class LiveParties
     }
 
     /**
-     * Set customerId
-     *
-     * @param integer $customerId
-     *
-     * @return LiveParties
-     */
-    public function setCustomerId($customerId)
-    {
-        $this->customerId = $customerId;
-
-        return $this;
-    }
-
-    /**
-     * Get customerId
-     *
-     * @return int
-     */
-    public function getCustomerId()
-    {
-        return $this->customerId;
-    }
-
-    /**
      * Set vendorId
      *
      * @param integer $vendorId
@@ -255,30 +231,6 @@ class LiveParties
     public function getVendorGroupId()
     {
         return $this->vendorGroupId;
-    }
-
-    /**
-     * Set partyUrlId
-     *
-     * @param integer $partyUrlId
-     *
-     * @return LiveParties
-     */
-    public function setPartyUrlId($partyUrlId)
-    {
-        $this->partyUrlId = $partyUrlId;
-
-        return $this;
-    }
-
-    /**
-     * Get partyUrlId
-     *
-     * @return int
-     */
-    public function getPartyUrlId()
-    {
-        return $this->partyUrlId;
     }
 
     /**
@@ -615,5 +567,29 @@ class LiveParties
     public function getFeaturedImg()
     {
         return $this->featuredImg;
+    }
+
+    /**
+     * Set account
+     *
+     * @param \AppBundle\Entity\Accounts $account
+     *
+     * @return LiveParties
+     */
+    public function setAccount(\AppBundle\Entity\Accounts $account = null)
+    {
+        $this->account = $account;
+
+        return $this;
+    }
+
+    /**
+     * Get account
+     *
+     * @return \AppBundle\Entity\Accounts
+     */
+    public function getAccount()
+    {
+        return $this->account;
     }
 }

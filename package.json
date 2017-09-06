@@ -7,11 +7,14 @@
     "babel-preset-react": "^6.24.1",
     "jquery": "^3.2.1",
     "node-sass": "^4.5.3",
+    "offline-plugin": "^4.8.3",
+    "path": "^0.12.7",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "sass-loader": "^6.0.6",
     "semantic-ui-css": "^2.2.12",
-    "semantic-ui-react": "^0.72.0"
+    "semantic-ui-react": "^0.72.0",
+    "webpack-manifest-plugin": "^1.3.1"
   },
   "name": "partycravings-webapp",
   "description": "web-app-upgrade\r ===============",
@@ -609,7 +612,9 @@
     "yargs-parser": "^7.0.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "./node_modules/.bin/encore dev",
+    "prod": "./node_modules/.bin/encore production"
   },
   "repository": {
     "type": "git",
