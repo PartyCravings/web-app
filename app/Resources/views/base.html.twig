@@ -1,16 +1,23 @@
-<!DOCTYPE html>
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
-{%  block appcache %}
-<html manifest="{{ asset('build/appcache/manifest.appcache') }}">
-{% endblock %}
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="theme-color" content="#2196F3">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block manifest %}<link rel="manifest" href="{{ asset('build/manifest.json') }}">{% endblock %}
-        {% block stylesheets %}<link href="{{ asset('build/app.css') }}" rel="stylesheet" type="text/css">{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=0" />
+    <title>PartyCravings Inc. | {% block title %}Manage that party you love{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="PartyCravings Inc." />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="description" content="PartyCravings helps manage that beloved party. All it takes to create that massive party today. All we do is connect you with people that matter the most" />
+    <meta name="keywords" content="party, events, birthday, wedding, vendor, meeting, venue, comedian, mc, artiste, musician, singer, celebration" />
+    <meta name="author" content="PartyCravings Inc." />
+    <meta name="theme-color" content="#2196F3"/>
+    {% block manifest %}<link rel="manifest" href="{{ asset('build/manifest.json') }}"/>{% endblock %}
+    {% block stylesheets %}<link href="{{ asset('build/app.css') }}" rel="stylesheet" type="text/css"/>{% endblock %}        
+  </head>
         {% block body %}{% endblock %}
         {% block javascripts %}<script src="{{ asset('build/app.js') }}" type="text/javascript"></script>{% endblock %}
 </html>

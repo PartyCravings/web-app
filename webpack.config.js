@@ -55,7 +55,7 @@ config.plugins.push(new ManifestPlugin({
     fileName: 'manifest.json',
     basePath: '/build/',
     seed: {
-        "short_name": "PartyCravings",
+        "short_name": "PartyCraving",
         "name": "PartyCravings Inc.",
         "start_url": "/",
         "icons": [{

@@ -2,7 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d297df7-d894-4624-b28f-23c3a1e97b1d" name="Default" comment="Made important entity changes plus major modifications to model repositories">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/js/jquery.lazyload.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/js/spin.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/build/images/spin.72062698.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/others/spin.svg" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/jquery.jssor.css" afterPath="$PROJECT_DIR$/assets/js/jquery.jssor.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/jquery.jssor.min.js" afterPath="$PROJECT_DIR$/assets/js/jquery.jssor.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/main.js" afterPath="$PROJECT_DIR$/assets/js/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/build/app.css" afterPath="$PROJECT_DIR$/web/build/app.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/build/app.js" afterPath="$PROJECT_DIR$/web/build/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/build/appcache/manifest.appcache" afterPath="$PROJECT_DIR$/web/build/appcache/manifest.appcache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/build/global.css" afterPath="$PROJECT_DIR$/web/build/global.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/build/manifest.json" afterPath="$PROJECT_DIR$/web/build/manifest.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/sw.js" afterPath="$PROJECT_DIR$/web/sw.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,19 +34,70 @@
       <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="7" lean-forward="false" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+            <state relative-caret-position="85">
+              <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.html.twig" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/security/login.html.twig">
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/default/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="39" column="41" lean-forward="true" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
-              <folding />
+            <state relative-caret-position="200">
+              <caret line="452" column="104" lean-forward="false" selection-start-line="452" selection-start-column="104" selection-end-line="452" selection-end-column="104" />
+              <folding>
+                <element signature="e#7517#7562#0#HTML" expanded="true" />
+                <element signature="e#7853#7874#0#HTML" expanded="true" />
+                <element signature="e#8089#8095#1#HTML" expanded="true" />
+                <element signature="e#8153#8159#0#HTML" expanded="true" />
+                <element signature="e#8305#8350#0#HTML" expanded="true" />
+                <element signature="e#8476#8482#0#HTML" expanded="true" />
+                <element signature="e#8714#8780#0#HTML" expanded="true" />
+                <element signature="e#18508#18537#0#HTML" expanded="true" />
+                <element signature="e#18605#18721#0#HTML" expanded="true" />
+                <element signature="e#18784#18883#0#HTML" expanded="true" />
+                <element signature="e#20832#20865#0#HTML" expanded="true" />
+                <element signature="e#20884#21059#0#HTML" expanded="true" />
+                <element signature="e#21392#21441#0#HTML" expanded="true" />
+                <element signature="e#21487#21518#0#HTML" expanded="true" />
+                <element signature="e#21537#21599#0#HTML" expanded="true" />
+                <element signature="e#21893#21942#0#HTML" expanded="true" />
+                <element signature="e#21959#22021#0#HTML" expanded="true" />
+                <element signature="e#22684#22734#0#HTML" expanded="true" />
+                <element signature="e#22751#22813#0#HTML" expanded="true" />
+                <element signature="e#23454#23570#0#HTML" expanded="true" />
+                <element signature="e#23633#23732#0#HTML" expanded="true" />
+                <element signature="e#25827#25876#0#HTML" expanded="true" />
+                <element signature="e#25922#25953#0#HTML" expanded="true" />
+                <element signature="e#25972#26034#0#HTML" expanded="true" />
+                <element signature="e#26328#26377#0#HTML" expanded="true" />
+                <element signature="e#26394#26456#0#HTML" expanded="true" />
+                <element signature="e#27119#27169#0#HTML" expanded="true" />
+                <element signature="e#27186#27248#0#HTML" expanded="true" />
+                <element signature="e#27844#27864#0#HTML" expanded="true" />
+                <element signature="e#27975#28047#0#HTML" expanded="true" />
+                <element signature="e#28108#28129#0#HTML" expanded="true" />
+                <element signature="e#28224#28245#0#HTML" expanded="true" />
+                <element signature="e#28339#28360#0#HTML" expanded="true" />
+                <element signature="e#41940#41946#0#HTML" expanded="true" />
+                <element signature="e#41992#42073#0#HTML" expanded="true" />
+                <element signature="e#45439#45445#0#HTML" expanded="true" />
+                <element signature="e#45491#45572#0#HTML" expanded="true" />
+                <element signature="e#47074#47155#0#HTML" expanded="true" />
+                <element signature="e#47228#47255#0#HTML" expanded="true" />
+                <element signature="e#47342#47377#0#HTML" expanded="true" />
+                <element signature="e#47472#47507#0#HTML" expanded="true" />
+                <marker date="1505648568817" expanded="false" signature="47781:47807" ph="..." />
+                <marker date="1505648568817" expanded="false" signature="47831:47885" ph="..." />
+                <marker date="1505648568817" expanded="false" signature="48107:48153" ph="..." />
+                <marker date="1505648568817" expanded="false" signature="48216:48270" ph="..." />
+                <marker date="1505648568817" expanded="false" signature="48586:48640" ph="..." />
+                <marker date="1505648568817" expanded="false" signature="48946:49000" ph="..." />
+                <marker date="1505648568817" expanded="false" signature="49299:49353" ph="..." />
+                <marker date="1505648568817" expanded="false" signature="49652:49725" ph="..." />
+                <marker date="1505648568817" expanded="false" signature="50012:50049" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -73,10 +139,10 @@
         <option value="$PROJECT_DIR$/tests/AppBundle/Controller/DefaultControllerTest.php" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/assets/js/main.js" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
         <option value="$PROJECT_DIR$/webpack.config.js" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/security/login.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
       </list>
     </option>
   </component>
@@ -211,7 +277,7 @@
       <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="20" />
     <option name="y" value="12" />
     <option name="width" value="1346" />
@@ -232,6 +298,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -316,8 +384,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -374,6 +440,7 @@
       <workItem from="1504643246193" duration="532000" />
       <workItem from="1505273186800" duration="706000" />
       <workItem from="1505299170804" duration="124000" />
+      <workItem from="1505647759976" duration="779000" />
     </task>
     <servers />
   </component>
@@ -410,22 +477,23 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30006000" />
+    <option name="totallyTimeSpent" value="30785000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="20" y="12" width="1346" height="688" extended-state="1" />
+    <frame x="20" y="12" width="1346" height="688" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24962406" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298611" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298611" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298611" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39930555" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39930555" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298611" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -767,13 +835,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="453" column="133" lean-forward="false" selection-start-line="453" selection-start-column="133" selection-end-line="453" selection-end-column="133" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/var/cache/prod/appProdProjectContainerUrlMatcher.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
@@ -788,19 +849,78 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
+    <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/security/login.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="7" lean-forward="false" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+        <state relative-caret-position="204">
+          <caret line="42" column="18" lean-forward="false" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/security/login.html.twig">
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="39" column="41" lean-forward="true" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
+        <state relative-caret-position="85">
+          <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="452" column="104" lean-forward="false" selection-start-line="452" selection-start-column="104" selection-end-line="452" selection-end-column="104" />
+          <folding>
+            <element signature="e#7517#7562#0#HTML" expanded="true" />
+            <element signature="e#7853#7874#0#HTML" expanded="true" />
+            <element signature="e#8089#8095#1#HTML" expanded="true" />
+            <element signature="e#8153#8159#0#HTML" expanded="true" />
+            <element signature="e#8305#8350#0#HTML" expanded="true" />
+            <element signature="e#8476#8482#0#HTML" expanded="true" />
+            <element signature="e#8714#8780#0#HTML" expanded="true" />
+            <element signature="e#18508#18537#0#HTML" expanded="true" />
+            <element signature="e#18605#18721#0#HTML" expanded="true" />
+            <element signature="e#18784#18883#0#HTML" expanded="true" />
+            <element signature="e#20832#20865#0#HTML" expanded="true" />
+            <element signature="e#20884#21059#0#HTML" expanded="true" />
+            <element signature="e#21392#21441#0#HTML" expanded="true" />
+            <element signature="e#21487#21518#0#HTML" expanded="true" />
+            <element signature="e#21537#21599#0#HTML" expanded="true" />
+            <element signature="e#21893#21942#0#HTML" expanded="true" />
+            <element signature="e#21959#22021#0#HTML" expanded="true" />
+            <element signature="e#22684#22734#0#HTML" expanded="true" />
+            <element signature="e#22751#22813#0#HTML" expanded="true" />
+            <element signature="e#23454#23570#0#HTML" expanded="true" />
+            <element signature="e#23633#23732#0#HTML" expanded="true" />
+            <element signature="e#25827#25876#0#HTML" expanded="true" />
+            <element signature="e#25922#25953#0#HTML" expanded="true" />
+            <element signature="e#25972#26034#0#HTML" expanded="true" />
+            <element signature="e#26328#26377#0#HTML" expanded="true" />
+            <element signature="e#26394#26456#0#HTML" expanded="true" />
+            <element signature="e#27119#27169#0#HTML" expanded="true" />
+            <element signature="e#27186#27248#0#HTML" expanded="true" />
+            <element signature="e#27844#27864#0#HTML" expanded="true" />
+            <element signature="e#27975#28047#0#HTML" expanded="true" />
+            <element signature="e#28108#28129#0#HTML" expanded="true" />
+            <element signature="e#28224#28245#0#HTML" expanded="true" />
+            <element signature="e#28339#28360#0#HTML" expanded="true" />
+            <element signature="e#41940#41946#0#HTML" expanded="true" />
+            <element signature="e#41992#42073#0#HTML" expanded="true" />
+            <element signature="e#45439#45445#0#HTML" expanded="true" />
+            <element signature="e#45491#45572#0#HTML" expanded="true" />
+            <element signature="e#47074#47155#0#HTML" expanded="true" />
+            <element signature="e#47228#47255#0#HTML" expanded="true" />
+            <element signature="e#47342#47377#0#HTML" expanded="true" />
+            <element signature="e#47472#47507#0#HTML" expanded="true" />
+            <marker date="1505648568817" expanded="false" signature="47781:47807" ph="..." />
+            <marker date="1505648568817" expanded="false" signature="47831:47885" ph="..." />
+            <marker date="1505648568817" expanded="false" signature="48107:48153" ph="..." />
+            <marker date="1505648568817" expanded="false" signature="48216:48270" ph="..." />
+            <marker date="1505648568817" expanded="false" signature="48586:48640" ph="..." />
+            <marker date="1505648568817" expanded="false" signature="48946:49000" ph="..." />
+            <marker date="1505648568817" expanded="false" signature="49299:49353" ph="..." />
+            <marker date="1505648568817" expanded="false" signature="49652:49725" ph="..." />
+            <marker date="1505648568817" expanded="false" signature="50012:50049" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

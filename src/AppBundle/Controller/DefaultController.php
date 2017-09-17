@@ -13,7 +13,7 @@ class DefaultController extends AbstractController
      */
     public function indexAction(Request $request)
     {
-        $this->denyAccessUnlessGranted('ROLE_USER');
+        //$this->denyAccessUnlessGranted('ROLE_USER');
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', [
             'base_dir' => 'ss',
