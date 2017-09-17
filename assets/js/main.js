@@ -92,6 +92,7 @@ $(window).bind("orientationchange", ScaleSlider);
 
 $(".ui.embed").embed();
 $('.menu .item').tab();
+$('.ui.checkbox').checkbox();
 $('.ui.rating').rating('disable');
 $('.ui.dropdown').dropdown({
   on: 'hover'

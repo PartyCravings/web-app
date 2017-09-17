@@ -97,6 +97,7 @@ config.plugins.push(new OfflinePlugin({
         "entry": "./assets/js/sw.js",
         "cacheName": "partycravings",
         "navigateFallbackURL": '/',
+        "navigateFallbackForRedirects": false,
         "minify": Encore.isProduction(),
         "output": "./../sw.js",
         "scope": "/"
