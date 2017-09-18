@@ -6,7 +6,7 @@
             <span>{{ 'security.login'|trans({}, 'FOSUserBundle') }}</span>
         </div><br/><br/>
         <div class="row" style="text-align: center; font-size:1.3em;">
-            <span>{{ 'security.login.new'|trans({}, 'FOSUserBundle') }} <a href="{{ url('fos_user_registration_register') }}">{{ 'security.login.signup'|trans({}, 'FOSUserBundle') }}</a></span>
+            <span>{{ 'security.login.new'|trans({}, 'FOSUserBundle') }} <a href="{{ url('fos_user_registration_register') }}" style="color: orange;">{{ 'security.login.signup'|trans({}, 'FOSUserBundle') }}</a></span>
         </div><br/><br/>
         <div class="ui grid">
             <div class="ui two wide computer only column"></div>
@@ -33,7 +33,7 @@
                                 <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
                             </div>
                         </div>&nbsp;
-                        <a href="{{ url('fos_user_resetting_request') }}">{{ 'security.login.forgot'|trans({}, 'FOSUserBundle') }}</a>&nbsp;&nbsp;
+                        <a href="{{ url('fos_user_resetting_request') }}" style="color: orange;">{{ 'security.login.forgot'|trans({}, 'FOSUserBundle') }}</a>&nbsp;&nbsp;
                         <button class="ui circular orange button" style="font-size:1.5em; font-family: 'Quicksand', sans-serif;" type="submit">{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}</button>
                     </form>
                     {% endblock fos_user_content %}

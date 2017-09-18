@@ -54,7 +54,7 @@ var __wpo = {
   "navigateFallbackForRedirects": false,
   "strategy": "changed",
   "responseStrategy": "cache-first",
-  "version": "9/17/2017, 11:34:01 PM",
+  "version": "9/18/2017, 11:03:57 AM",
   "name": "webpack-offline:partycravings",
   "pluginVersion": "4.8.3",
   "relativePaths": false

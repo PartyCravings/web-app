@@ -38,3 +38,7 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+
+    AppBundle\EventSubscriber\RedirectToPreferredLocaleSubscriber:
+        $locales: '%app_locales%'
+        $defaultLocale: '%locale%'
