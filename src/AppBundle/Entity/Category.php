@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Category
@@ -24,16 +25,45 @@ class Category
     /**
      * @var string
      *
-     * @ORM\Column(name="id_parent", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255)
      */
-    private $idParent;
+    private $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="id_vendor_default", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Category", inversedBy="child")
+     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
      */
-    private $idVendorDefault;
+    private $idParent;
+
+    /**
+     * @var $this
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Category", mappedBy="idParent")
+     * @ORM\JoinColumn(name="child", referencedColumnName="id_parent")
+     */
+    private $child;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="is_enabled", type="boolean")
+     */
+    private $isEnabled;
+
+    /**
+     * @var datetime_immutable
+     *
+     * @ORM\Column(name="date_add", type="datetime_immutable")
+     */
+    private $dateAdd;
+
+
+    public function __construct()
+    {
+        $this->child = new ArrayCollection();
+    }
 
 
     /**
@@ -71,26 +101,66 @@ class Category
     }
 
     /**
-     * Set idVendorDefault
-     *
-     * @param string $idVendorDefault
-     *
-     * @return Category
+     * @return mixed
      */
-    public function setIdVendorDefault($idVendorDefault)
+    public function getName()
     {
-        $this->idVendorDefault = $idVendorDefault;
-
-        return $this;
+        return $this->name;
     }
 
     /**
-     * Get idVendorDefault
-     *
-     * @return string
+     * @param mixed $name
      */
-    public function getIdVendorDefault()
+    public function setName($name)
     {
-        return $this->idVendorDefault;
+        $this->name = $name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateAdd()
+    {
+        return $this->dateAdd;
+    }
+
+    /**
+     * @param mixed $dateAdd
+     */
+    public function setDateAdd($dateAdd)
+    {
+        $this->dateAdd = $dateAdd;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getChild()
+    {
+        return $this->child;
+    }
+
+    /**
+     * @param mixed $child
+     */
+    public function setChild($child)
+    {
+        $this->child = $child;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getisEnabled()
+    {
+        return $this->isEnabled;
+    }
+
+    /**
+     * @param mixed $isEnabled
+     */
+    public function setIsEnabled($isEnabled)
+    {
+        $this->isEnabled = $isEnabled;
     }
 }

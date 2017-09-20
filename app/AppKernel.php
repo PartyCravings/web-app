@@ -29,10 +29,12 @@ class AppKernel extends Kernel
             new Ornicar\GravatarBundle\OrnicarGravatarBundle(),
             new Ivory\GoogleMapBundle\IvoryGoogleMapBundle(),
             new Noxlogic\RateLimitBundle\NoxlogicRateLimitBundle(),
+            new FOS\HttpCacheBundle\FOSHttpCacheBundle(),
             new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
             new JMS\TranslationBundle\JMSTranslationBundle(),
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\AopBundle\JMSAopBundle(),
+            new PHPFastCGI\SpeedfonyBundle\PHPFastCGISpeedfonyBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

@@ -1,0 +1,90 @@
+{% block footer %}
+
+    <h2 style="font-family: 'Quicksand', sans-serif; text-align:center; font-size:1.9em;">OUR TOP BRANDS</h2>
+    <div id="context" class="ui equal width grid" style="text-align: center;">
+        <div class="column"><img alt="brand1" src="{{ asset('images/demo-4.jpg') }}" style="width: 100px; height: 40px;" /></div>
+        <div class="column"><img alt="brand2" src="{{ asset('images/demo-4.jpg') }}" style="width: 100px; height: 40px;" /></div>
+        <div class="column"><img alt="brand3" src="{{ asset('images/demo-4.jpg') }}" style="width: 100px; height: 40px;" /></div>
+    </div>
+    <div class="ui grid">
+        <div class="one wide column"></div>
+        <div class="fourteen wide column" style="background-color: #DDDEE3;">
+            <h3 style="font-family: 'Quicksand', sans-serif; font-size:1.5em;">Why choose PartyCravings?</h3>
+            <p>Lorel ipsum dolo...</p>
+        </div>
+        <div class="one wide column"></div>
+    </div>
+    <br/>
+    <br/>
+    <div class="ui stackable grid" id="footer" style="text-align: center; background-color: #A0A1A4;">
+        <div class="four wide column">
+            <h3 style="font-family: 'Quicksand', sans-serif; font-size:1.3em;">OTHER COUNTRIES</h3>
+            <div class="row">
+                Nigeria
+            </div>
+            <div class="row">
+                Kenya
+            </div>
+            <div class="row">
+                Djibouti
+            </div>
+            <br/>
+            <div class="row">
+                <div class="row">
+                    <h3 style="font-family: 'Quicksand', sans-serif; font-size:1.2em;">PartyCravings Inc.</h3>
+                </div>
+                <div class="row">
+                    Yaba, Lagos Nigeria
+                </div>
+                <div class="row">
+                    info@partycravings.com
+                </div>
+            </div>
+        </div>
+        <div class="four wide column">
+            <h3 style="font-family: 'Quicksand', sans-serif; font-size:1.3em;">CUSTOMER SERVICES</h3>
+            <div class="row">
+                Financing
+            </div>
+            <div class="row">
+                Call us
+            </div>
+            <div class="row">
+                Need help
+            </div>
+        </div>
+        <div class="four wide column">
+            <h3 style="font-family: 'Quicksand', sans-serif; font-size:1.3em;">CUSTOMER SERVICES</h3>
+            <div class="row">
+                Financing
+            </div>
+            <div class="row">
+                Call us
+            </div>
+            <div class="row">
+                Need help
+            </div>
+        </div>
+        <div class="four wide column">
+            <h3 style="font-family: 'Quicksand', sans-serif; font-size:1.3em; text-align:center;">NEWSLETTER</h3>
+            <div class="row">
+                Subscribe to our newsletter
+            </div>
+            <br/>
+            <div class="row">
+                <form>
+                    <div class="ui icon input">
+                        <input name="email" placeholder="Your email address..." style="font-family: 'Quicksand', sans-serif;" type="text" /> <i class="right arrow icon"></i>
+                    </div>
+                </form>
+            </div>
+            <br/>
+            <div class="row">
+                <button name="facebook" class="ui circular facebook icon button"><i class="facebook icon"></i></button>
+                <button class="ui circular twitter icon button" name="twitter"><i class="twitter icon"></i></button>
+                <button class="ui circular linkedin icon button" name="linkedin"><i class="linkedin icon"></i></button>
+                <button class="ui circular google plus icon button" name="google plus"><i class="google plus icon"></i></button>
+            </div>
+        </div>
+    </div>
+{% endblock footer %}

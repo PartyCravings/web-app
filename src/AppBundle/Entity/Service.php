@@ -22,6 +22,14 @@ class Service
     private $id;
 
     /**
+     * @var Campaigns
+     *
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Campaigns", inversedBy="services")
+     * @ORM\JoinColumn(name="campaigns", referencedColumnName="id")
+     */
+    private $campaigns;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="vendor_id", type="integer")
@@ -1828,5 +1836,21 @@ class Service
     public function getProducts()
     {
         return $this->products;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCampaigns()
+    {
+        return $this->campaigns;
+    }
+
+    /**
+     * @param mixed $campaigns
+     */
+    public function setCampaigns($campaigns)
+    {
+        $this->campaigns = $campaigns;
     }
 }

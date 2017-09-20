@@ -16,8 +16,16 @@
     <meta name="author" content="PartyCravings Inc." />
     <meta name="theme-color" content="#2196F3"/>
     {% block manifest %}<link rel="manifest" href="{{ asset('build/manifest.json') }}"/>{% endblock %}
-    {% block stylesheets %}<link href="{{ asset('build/app.css') }}" rel="stylesheet" type="text/css"/>{% endblock %}        
+    {% block stylesheets %}<link href="{{ asset('build/app.css') }}" rel="stylesheet" type="text/css"/>{% endblock %}
   </head>
-        {% block body %}{% endblock %}
+        {% block body %}
+            <body>
+                <div class="ui vertical inverted orange sidebar menu" style="font-family: 'Quicksand', sans-serif;">
+                    {{ render_esi(controller('AppBundle:Default:header')) }}
+                        {% block content %}{% endblock %}
+                    {{ render_esi(controller('AppBundle:Default:footer')) }}
+                </div>
+            </body>
+        {% endblock %}
         {% block javascripts %}<script src="{{ asset('build/app.js') }}" type="text/javascript"></script>{% endblock %}
 </html>

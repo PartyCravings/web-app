@@ -4,7 +4,8 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "AppBundle\\": "src/AppBundle"
+            "AppBundle\\": "src/AppBundle",
+            "Elcodi\\": "src/PartyCravings"
         },
         "classmap": [
             "app/AppKernel.php",
@@ -25,9 +26,11 @@
         "doctrine/doctrine-migrations-bundle": "^1.2",
         "doctrine/orm": "^2.5",
         "egeloen/google-map-bundle": "^3.0",
+        "friendsofsymfony/http-cache-bundle": "^2.1",
         "friendsofsymfony/oauth-server-bundle": "^1.5",
         "friendsofsymfony/user-bundle": "^2.0",
         "gos/web-socket-bundle": "^1.8",
+        "guzzlehttp/psr7": "^1.4",
         "hwi/oauth-bundle": "^0.5.3",
         "incenteev/composer-parameter-handler": "^2.0",
         "jms/di-extra-bundle": "^1.8",
@@ -38,6 +41,8 @@
         "noxlogic/ratelimit-bundle": "^1.7",
         "oneup/uploader-bundle": "^1.7",
         "ornicar/gravatar-bundle": "^1.1",
+        "php-http/guzzle6-adapter": "^1.1",
+        "phpfastcgi/speedfony-bundle": "^0.9.0",
         "phpunit/phpunit": "^6.3",
         "sensio/distribution-bundle": "^5.0.19",
         "sensio/framework-extra-bundle": "^3.0.2",
@@ -63,7 +68,10 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
         ],
         "post-install-cmd": [
-            "@symfony-scripts"
+            "@symfony-scripts",
+            "php bin/console doctrine:migrations:diff --no-interaction",
+            "php bin/console doctrine:migrations:generate --no-interaction",
+            "php bin/console doctrine:migrations:migrate --no-interaction"
         ],
         "post-update-cmd": [
             "@symfony-scripts"

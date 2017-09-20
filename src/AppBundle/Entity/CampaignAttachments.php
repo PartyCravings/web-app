@@ -24,7 +24,8 @@ class CampaignAttachments
     /**
      * @var int
      *
-     * @ORM\OneToMany(targetEntity="Campaigns", mappedBy="attachments")
+     * @ORM\ManyToOne(targetEntity="Campaigns", inversedBy="attachments")
+     * @ORM\JoinColumn(name="campaign_id", referencedColumnName="id")
      */
     private $campaignId;
 

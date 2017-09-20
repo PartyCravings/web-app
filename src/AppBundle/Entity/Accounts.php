@@ -26,6 +26,14 @@ class Accounts extends BaseUser
     protected $id;
 
     /**
+     * @var AccessToken
+     *
+     * @ORM\OneToMany(targetEntity="AccessToken", mappedBy="user")
+     * @ORM\JoinColumn(name="access_tokens", referencedColumnName="id")
+     */
+    private $accessTokens;
+
+    /**
      * @var string
      *
      * @Gedmo\Slug(fields={"username","id"})

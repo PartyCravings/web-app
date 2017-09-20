@@ -5,6 +5,12 @@ namespace AppBundle\Entity;
 use FOS\OAuthServerBundle\Entity\AccessToken as BaseAccessToken;
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * AccessToken
+ *
+ * @ORM\Table(name="access_token")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\AccessTokenRepository")
+ */
 class AccessToken extends BaseAccessToken
 {
     /**
@@ -21,7 +27,8 @@ class AccessToken extends BaseAccessToken
     protected $client;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Accounts")
+     * @ORM\ManyToOne(targetEntity="Accounts", inversedBy="accessTokens")
+     * @ORM\JoinColumn(name="account_id", referencedColumnName="id")
      */
     protected $user;
 }

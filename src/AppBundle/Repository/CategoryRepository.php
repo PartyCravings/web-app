@@ -10,4 +10,17 @@ namespace AppBundle\Repository;
  */
 class CategoryRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getHeaderCategories() :array
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.idParent = false')
+            ->andWhere('l = true')
+            ->andWhere('p.isEnabled = true')
+            ->innerJoin('p.child', 'l')
+            ->orderBy('p.name', 'DESC')
+            ->getQuery()
+            ->useQueryCache(true)
+            ->useResultCache(true)
+            ->getResult();
+    }
 }

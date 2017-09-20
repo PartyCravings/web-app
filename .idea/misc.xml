@@ -3,4 +3,7 @@
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="JSX" />
   </component>
+  <component name="ProjectResources">
+    <resource url="http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd" location="$PROJECT_DIR$" />
+  </component>
 </project>

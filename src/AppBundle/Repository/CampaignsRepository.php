@@ -10,4 +10,19 @@ namespace AppBundle\Repository;
  */
 class CampaignsRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getHomeCampaigns() :array
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.isEnabled = true')
+            ->andWhere('p.launchDate >= :currentDate')
+            ->setParameter('currentDate', new \DateTime('now', new  \DateTimeZone('Africa/Lagos')))
+            ->andWhere('p.dateEnd >= :currentDate')
+            ->setParameter('currentDate', new \DateTime('now', new  \DateTimeZone('Africa/Lagos')))
+            ->orderBy('p.dateEnd', 'DESC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->useQueryCache(true)
+            ->useResultCache(true)
+            ->getResult();
+    }
 }

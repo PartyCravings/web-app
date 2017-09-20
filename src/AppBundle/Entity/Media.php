@@ -22,6 +22,14 @@ class Media
     private $id;
 
     /**
+     * @var Campaigns
+     *
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Campaigns", mappedBy="imageUrl")
+     * @ORM\JoinColumn(name="campaign_id", referencedColumnName="id")
+     */
+    private $campaign;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="association_type", type="string", length=255)
@@ -647,5 +655,21 @@ class Media
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCampaign()
+    {
+        return $this->campaign;
+    }
+
+    /**
+     * @param mixed $campaign
+     */
+    public function setCampaign($campaign)
+    {
+        $this->campaign = $campaign;
     }
 }

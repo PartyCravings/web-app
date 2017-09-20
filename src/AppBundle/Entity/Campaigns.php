@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Campaigns
@@ -22,6 +23,29 @@ class Campaigns
     private $id;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="slug", type="string", length=255)
+     */
+    private $slug;
+
+    /**
+     * @var Service
+     *
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Service", mappedBy="campaigns")
+     * @ORM\JoinColumn(name="services", referencedColumnName="id")
+     */
+    private $services;
+
+    /**
+     * @var Media
+     *
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Media", inversedBy="campaign")
+     * @ORM\JoinColumn(name="image_url", referencedColumnName="id")
+     */
+    private $imageUrl;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="master_id", type="integer")
@@ -34,13 +58,6 @@ class Campaigns
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="name_id", type="integer")
-     */
-    private $nameId;
 
     /**
      * @var string
@@ -78,9 +95,9 @@ class Campaigns
     private $type;
 
     /**
-     * @var string
+     * @var CampaignAttachments
      *
-     * @ORM\ManyToOne(targetEntity="CampaignAttachments", inversedBy="campaignId")
+     * @ORM\OneToMany(targetEntity="CampaignAttachments", mappedBy="campaignId")
      * @ORM\JoinColumn(name="campaignAttachments",referencedColumnName="id")
      */
     private $attachments;
@@ -140,6 +157,13 @@ class Campaigns
      * @ORM\Column(name="date_add", type="datetime")
      */
     private $dateAdd;
+
+    /**
+     * @ var \DateTime
+     *
+     * @ORM\Column(name="date_end", type="datetime")
+     */
+    private $dateEnd;
 
     /**
      * @var \DateTime
@@ -227,6 +251,16 @@ class Campaigns
 
 
     /**
+     * Campaigns constructor.
+     */
+    public function __construct()
+    {
+        $this->services = new ArrayCollection();
+        $this->attachments = new ArrayCollection();
+    }
+
+
+    /**
      * Get id
      *
      * @return int
@@ -283,31 +317,6 @@ class Campaigns
     {
         return $this->name;
     }
-
-    /**
-     * Set nameId
-     *
-     * @param integer $nameId
-     *
-     * @return Campaigns
-     */
-    public function setNameId($nameId)
-    {
-        $this->nameId = $nameId;
-
-        return $this;
-    }
-
-    /**
-     * Get nameId
-     *
-     * @return int
-     */
-    public function getNameId()
-    {
-        return $this->nameId;
-    }
-
     /**
      * Set assignedTo
      *
@@ -922,5 +931,69 @@ class Campaigns
     public function setAttachments(string $attachments)
     {
         $this->attachments = $attachments;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImageUrl()
+    {
+        return $this->imageUrl;
+    }
+
+    /**
+     * @param mixed $imageUrl
+     */
+    public function setImageUrl($imageUrl)
+    {
+        $this->imageUrl = $imageUrl;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getServices()
+    {
+        return $this->services;
+    }
+
+    /**
+     * @param mixed $services
+     */
+    public function setServices($services)
+    {
+        $this->services = $services;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateEnd()
+    {
+        return $this->dateEnd;
+    }
+
+    /**
+     * @param mixed $dateEnd
+     */
+    public function setDateEnd($dateEnd)
+    {
+        $this->dateEnd = $dateEnd;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param mixed $slug
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
     }
 }
