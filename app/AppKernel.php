@@ -34,7 +34,7 @@ class AppKernel extends Kernel
             new JMS\TranslationBundle\JMSTranslationBundle(),
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\AopBundle\JMSAopBundle(),
-            new PHPFastCGI\SpeedfonyBundle\PHPFastCGISpeedfonyBundle(),
+            new Terminal42\HeaderReplay\HeaderReplayBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

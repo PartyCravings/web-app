@@ -1,21 +1,22 @@
 CACHE MANIFEST
-#ver:9/22/2017, 9:00:29 AM
+#ver:9/24/2017, 7:05:54 PM
 #plugin:4.8.3
 
 CACHE:
 /build/manifest.json
-/build/app.css
-/build/global.css
-/build/app.js
-/build/fonts/icons.674f50d2.eot
+/build/manifest-main.json
+/build/app.fc9492564c4565347f8565fe26219d35.css
+/build/global.9e32157d666b5033022f98127c63b243.css
+/build/app.a1bfbb9a262d7797d27d.js
 /build/fonts/icons.b06871f2.ttf
-/build/fonts/icons.af7ae505.woff2
 /build/fonts/icons.fee66e71.woff
+/build/fonts/icons.af7ae505.woff2
+/build/fonts/icons.674f50d2.eot
 /build/fonts/sKd0EMYPAh5PYCRKSryvW1tXRa8TVwTICgirnJhmVJw.12df3041.woff2
 /build/fonts/NUrn2XQrRfyGZp5MknntaRJtnKITppOI_IvcXXDNrsc.c378fcec.woff2
 /build/fonts/s2PXW4WrV3VLrOUpHiqsfRJtnKITppOI_IvcXXDNrsc.49cd7a04.woff2
-/build/images/flags.9c74e172.png
 /build/images/icons.912ec66d.svg
+/build/images/flags.9c74e172.png
 /build/images/twitter.0f05d8dc.png
 /build/images/google.e2289369.png
 /build/images/addthis.7dc87287.png
@@ -27,6 +28,10 @@ CACHE:
 /build/images/tag.8a24dcfc.png
 /build/images/demo-5.00db1207.jpg
 /build/images/demo-2.474d12e3.jpg
+/
 
 NETWORK:
 *
+
+FALLBACK:
+/ /

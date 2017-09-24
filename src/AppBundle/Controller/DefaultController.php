@@ -2,14 +2,14 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Category;
-use AppBundle\Entity\Posts;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Doctrine\ORM\EntityManagerInterface;
 use AppBundle\Entity\Campaigns;
+use AppBundle\Entity\Category;
+use AppBundle\Entity\Posts;
 
 /**
  * Class DefaultController
@@ -19,7 +19,7 @@ class DefaultController extends AbstractController
 {
     /**
      * @Route("/", name="homepage")
-     * @Cache(smaxage=100)
+     * @Cache(smaxage=1000)
      * @Template(":default:index.html.twig")
      * @param EntityManagerInterface $em
      * @return array
@@ -29,11 +29,12 @@ class DefaultController extends AbstractController
         $campaigns = $em->getRepository(Campaigns::class)->getHomeCampaigns();
         $posts = $em->getRepository(Posts::class)->findBy(['isApproved'=> true], ["publishedAt" => "DESC"], 6);
         return array('campaigns' => $campaigns, 'posts'=> $posts);
+        //Don't forget chinese home =>家
     }
 
     /**
-     * @Template(":default:_header.html.twig")
-     * @Cache(smaxage=300, vary={"Cookie"})
+     * @Template(":fragments:_header.html.twig")
+     * @Cache(smaxage=3600, vary={"PHPSESSID"})
      * @param EntityManagerInterface $em
      * @return array
      */
@@ -44,8 +45,8 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Template(":default:_footer.html.twig")
-     * @Cache(smaxage=10)
+     * @Template(":fragments:_footer.html.twig")
+     * @Cache(smaxage=3600)
      * @param EntityManagerInterface $em
      * @return array
      */

@@ -1,4 +1,3 @@
-var path = require('path');
 var Encore = require('@symfony/webpack-encore');
 // require offline-plugin
 var OfflinePlugin = require('offline-plugin');
@@ -41,21 +40,16 @@ Encore
     })
     .enableSourceMaps(!Encore.isProduction())
 
-    // create hashed filenames (e.g. app.abc123.css)
-    //.enableVersioning()
-;
-
-// fetch webpack config, then modify it!
-var config = Encore.getWebpackConfig();
-config.plugins.push(new commonChunk({
+    .addPlugin(new commonChunk({
     name: 'chunck',
     async: true
-}));
-config.plugins.push(new ManifestPlugin({
-    fileName: 'manifest.json',
+    }))
+
+    .addPlugin(new ManifestPlugin({
+    fileName: 'manifest-main.json',
     basePath: '/build/',
     seed: {
-        "short_name": "PartyCraving",
+        "short_name": "PartyCravings",
         "name": "PartyCravings Inc.",
         "start_url": "/",
         "icons": [{
@@ -69,15 +63,15 @@ config.plugins.push(new ManifestPlugin({
                 "type": "image/png"
             }
         ],
-        "background_color": "#2196F3",
-        "theme_color": "#2196F3",
+        "background_color": "#FF8300",
+        "theme_color": "#FF8300",
         "display": "standalone",
         "orientation": "portrait",
         "gcm_sender_id": "314804067424"
     }
-}));
-// push offline-plugin it must be the last one to use
-config.plugins.push(new OfflinePlugin({
+    }))
+    // push offline-plugin it must be the last one to use
+    .addPlugin(new OfflinePlugin({
     "strategy": "changed",
     "responseStrategy": "cache-first",
     "publicPath": "/build/",
@@ -91,7 +85,17 @@ config.plugins.push(new OfflinePlugin({
                 'fonts/*',
                 'images/*'
             ],
+            "additional": [
+                ':externals:'
+            ],
+            "optional": [
+                ':rest:'
+            ],
         },
+        "externals": [
+            '/',
+            'https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin',
+            ],
     "ServiceWorker": {
         "events": Encore.isProduction(),
         "entry": "./assets/js/sw.js",
@@ -103,9 +107,15 @@ config.plugins.push(new OfflinePlugin({
         "scope": "/"
     },
     "AppCache": {
-        "caches": ["main"]
+        "caches": ["main", "additional"],
+        "FALLBACK": {
+                '/': '/'
+        }
     }
-}));
+    }))
+    // create hashed filenames (e.g. app.abc123.css)
+    .enableVersioning()
+;
 
 // export the final and modified configuration
-module.exports = config;
+module.exports = Encore.getWebpackConfig();

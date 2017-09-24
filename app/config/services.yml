@@ -39,6 +39,10 @@ services:
     #     arguments:
     #         $someArgument: 'some_value'
 
-    AppBundle\EventSubscriber\RedirectToPreferredLocaleSubscriber:
+    AppBundle\EventSubscriber\Locale\RedirectToPreferredLocaleSubscriber:
         $locales: '%app_locales%'
         $defaultLocale: '%locale%'
+
+    AppBundle\EventSubscriber\HeaderReplay\SessionIdListener:
+        tags:
+            - { name: kernel.event_listener, event: terminal42.header_replay, method: onReplay }

@@ -1,6 +1,7 @@
+{% set locale = app.request.attributes.get('_locale') %}
 <?xml version="1.0" encoding="UTF-8"?>
   <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
-  <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{{ locale }}" lang="{{ locale }}">
 
   <head>
     <meta charset="UTF-8" />
@@ -14,9 +15,12 @@
     <meta name="description" content="PartyCravings helps manage that beloved party. All it takes to create that massive party today. All we do is connect you with people that matter the most" />
     <meta name="keywords" content="party, events, birthday, wedding, vendor, meeting, venue, comedian, mc, artiste, musician, singer, celebration" />
     <meta name="author" content="PartyCravings Inc." />
-    <meta name="theme-color" content="#2196F3"/>
-    {% block manifest %}<link rel="manifest" href="{{ asset('build/manifest.json') }}"/>{% endblock %}
-    {% block stylesheets %}<link href="{{ asset('build/app.css') }}" rel="stylesheet" type="text/css"/>{% endblock %}
+    <meta name="theme-color" content="#FF8300"/>
+    {% block manifest %}<link rel="manifest" href="{{ asset('build/manifest-main.json') }}"/>{% endblock %}
+    {% block stylesheets %}
+        <link href="{{ asset('build/app.css') }}" rel="stylesheet" type="text/css"/>
+        <link href="{{ asset('build/global.css') }}" rel="stylesheet" type="text/css"/>
+    {% endblock %}
   </head>
         {% block body %}
             <body>

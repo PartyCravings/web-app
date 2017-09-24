@@ -141,7 +141,7 @@ jms_translation:
 jms_i18n_routing:
     default_locale: '%locale%'
     locales: [en, de, zh]
-    strategy: prefix_except_default
+    strategy: custom
 
 #Stof Doctrine extensions Configuration
 stof_doctrine_extensions:

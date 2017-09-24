@@ -76,7 +76,7 @@
       </trans-unit>
       <trans-unit id="568be0fa2023d1a447e7bd150dda7068ece26898" resname="homepage">
         <source>/</source>
-        <target>/家</target>
+        <target>/</target>
       </trans-unit>
       <trans-unit id="855c7d8229e4fe685d8ebdadd1e5a47e87c276fe" resname="hwi_oauth_connect">
         <source>/login/</source>
