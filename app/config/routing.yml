@@ -8,7 +8,7 @@ fos_user:
 google_login:
     path: /login/check-google
     options:
-        i18n: true
+        i18n: false
 
 app:
     resource: '@AppBundle/Controller/'
@@ -38,6 +38,10 @@ hwi_oauth_redirect:
 #FOSOAuth Server Bundle Routes
 fos_oauth_server_token:
     resource: "@FOSOAuthServerBundle/Resources/config/routing/token.xml"
+    options:
+        utf8: true
 
 fos_oauth_server_authorize:
     resource: "@FOSOAuthServerBundle/Resources/config/routing/authorize.xml"
+    options:
+        utf8: true

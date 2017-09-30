@@ -1,3 +1,0 @@
-StoreUserBundle:
-    resource: "@StoreUserBundle/Controller"
-    type:     annotation

@@ -1,3 +1,0 @@
-AdminCurrencyBundle:
-    resource: "@AdminCurrencyBundle/Controller/"
-    type:     annotation

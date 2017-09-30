@@ -1,3 +1,0 @@
-StoreCartCouponBundle:
-    resource: "@StoreCartCouponBundle/Controller/"
-    type:     annotation

@@ -1,3 +1,0 @@
-AdminMediaBundle:
-    resource: "@AdminMediaBundle/Controller/"
-    type:     annotation

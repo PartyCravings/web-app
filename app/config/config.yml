@@ -7,7 +7,7 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
-    app_locales: en|de|zh
+    app_locales: [en, de, zh]
 
 framework:
     esi: { enabled: true }
@@ -17,7 +17,7 @@ framework:
         resource: '%kernel.project_dir%/app/config/routing.yml'
         strict_requirements: ~
     form: ~
-    csrf_protection: ~
+    csrf_protection: { enabled: true }
     validation: { enable_annotations: true }
     #serializer: { enable_annotations: true }
     templating:
@@ -32,6 +32,19 @@ framework:
     http_method_override: true
     assets:
         json_manifest_path: '%kernel.project_dir%/web/build/manifest.json'
+
+    cache:
+        # this value is used as part of the "namespace" generated for the cache item keys
+        # to avoid collisions when multiple apps share the same cache backend (e.g. a Redis server)
+        # See https://symfony.com/doc/current/reference/configuration/framework.html#prefix-seed
+        prefix_seed: symfony-cravings
+
+    # The 'ide' option turns all of the file paths in an exception page
+    # into clickable links that open the given file using your favorite IDE.
+    # When 'ide' is set to null the file is opened in your web browser.
+    # See https://symfony.com/doc/current/reference/configuration/framework.html#ide
+    ide: ~
+
     php_errors:
         log: true
 
@@ -49,7 +62,10 @@ doctrine:
         dbname: '%database_name%'
         user: '%database_user%'
         password: '%database_password%'
-        charset: UTF8
+        charset: utf8mb4
+        default_table_options:
+            charset: utf8mb4
+            collate: utf8mb4_unicode_ci
         # if using pdo_sqlite as your database driver:
         #   1. add the path in parameters.yml
         #     e.g. database_path: "%kernel.root_dir%/../var/data/data.sqlite"
@@ -97,8 +113,8 @@ fos_user:
 
 #Doctrine Migrations Configuration
 doctrine_migrations:
-    dir_name: "%kernel.root_dir%/../src/AppBundle/DoctrineMigrations"
-    namespace: AppBundle\DoctrineMigrations
+    dir_name: "%kernel.root_dir%/../src/AppBundle/Doctrine/Migrations"
+    namespace: AppBundle\Doctrine\Migrations
     table_name: migration_versions
     name: Application Migrations
 
@@ -140,7 +156,7 @@ jms_translation:
 #JMS i8n Routing Bundle Configuration
 jms_i18n_routing:
     default_locale: '%locale%'
-    locales: [en, de, zh]
+    locales: '%app_locales%'
     strategy: custom
 
 #Stof Doctrine extensions Configuration

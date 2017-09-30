@@ -1,3 +1,0 @@
-AdminBannerBundle:
-    resource: "@AdminBannerBundle/Controller/"
-    type:     annotation

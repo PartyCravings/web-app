@@ -1,4 +1,0 @@
-ElcodiCustomShippingBundle:
-    resource: "@ElcodiCustomShippingBundle/Controller/"
-    type:     annotation
-    prefix: /%bamboo_admin_prefix%

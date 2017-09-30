@@ -12,7 +12,6 @@ class DefaultControllerTest extends WebTestCase
 
         $crawler = $client->request('GET', '/');
 
-        $this->assertEquals(302, $client->getResponse()->getStatusCode());
-        $this->assertContains('Log In', $crawler->selectButton('Log in')->text());
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
 }

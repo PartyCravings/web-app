@@ -1,7 +1,0 @@
-elcodi_plugin:
-    pinterest:
-        description: 'Pinterest Integration für Ihren Shop'
-        field:
-            asynchronous:
-                label: 'Verwenden Pinterest asynchron'
-        name: Pinterest

@@ -1,3 +1,0 @@
-AdminPageBundle:
-    resource: "@AdminPageBundle/Controller/"
-    type:     annotation

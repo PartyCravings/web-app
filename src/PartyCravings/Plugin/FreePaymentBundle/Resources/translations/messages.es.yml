@@ -1,4 +1,0 @@
-elcodi_plugin:
-    free_payment:
-        description: 'Soporte para el pago gratuito para tu tienda'
-        name: 'Pago gratuito'

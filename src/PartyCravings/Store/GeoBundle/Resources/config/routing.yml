@@ -1,3 +1,0 @@
-StoreGeoBundle:
-    resource: "@StoreGeoBundle/Controller"
-    type:     annotation

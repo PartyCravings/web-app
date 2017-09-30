@@ -1,8 +1,0 @@
-elcodi_plugin:
-    facebook:
-        description: 'Integración da tenda con Facebook'
-        field:
-            facebook_account:
-                label: 'Conta de Facebook'
-                placeholder: 'p.ex. xoanalonso'
-        name: Facebook

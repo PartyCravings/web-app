@@ -1,3 +1,0 @@
-AdminStoreBundle:
-    resource: "@AdminStoreBundle/Controller/"
-    type:     annotation

@@ -1,3 +1,0 @@
-AdminTemplateBundle:
-    resource: "@AdminTemplateBundle/Controller/"
-    type:     annotation

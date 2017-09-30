@@ -1,3 +1,0 @@
-AdminMetricBundle:
-    resource: "@AdminMetricBundle/Controller/"
-    type:     annotation

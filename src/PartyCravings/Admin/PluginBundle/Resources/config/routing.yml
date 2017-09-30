@@ -1,3 +1,0 @@
-AdminPluginBundle:
-    resource: "@AdminPluginBundle/Controller/"
-    type:     annotation

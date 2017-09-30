@@ -1,4 +1,0 @@
-plugin:
-    type: template
-    name: Default Template
-    enabled_by_default: true

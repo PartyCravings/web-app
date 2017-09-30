@@ -1,3 +1,0 @@
-StoreLanguageBundle:
-    resource: "@StoreLanguageBundle/Controller/"
-    type:     annotation

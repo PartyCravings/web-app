@@ -1,4 +1,0 @@
-admin_store_setup_wizard:
-    path: /%bamboo_admin_prefix%/store-setup-wizard
-    defaults: { _controller: ElcodiStoreSetupWizardBundle:Wizard:view }
-    methods: ['GET']
