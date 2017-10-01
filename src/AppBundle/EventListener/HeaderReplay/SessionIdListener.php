@@ -11,8 +11,8 @@ class SessionIdListener
         $request = $event->getRequest();
         
         if (null !== $request->cookies) {
-             $headers = $event->getHeaders();
-             $headers->set('PHPSESSID', $request->cookies->get('PHPSESSID'));
+            $headers = $event->getHeaders();
+            $headers->set('PHPSESSID', $request->cookies->get('PHPSESSID'));
         }
     }
 }

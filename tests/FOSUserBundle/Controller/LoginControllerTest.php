@@ -34,7 +34,7 @@ class LoginControllerTest extends WebTestCase
                     )
                 );
         $this->_client->submit($form);
-        
+
         $this->assertTrue($this->_client->getResponse()->isRedirect($this->_loginUrl), "Submit ok");
         // Assign the redirect to the crawler
         $crawler = $this->_client->followRedirect();
