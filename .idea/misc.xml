@@ -4,6 +4,7 @@
     <option name="languageLevel" value="JSX" />
   </component>
   <component name="ProjectResources">
+    <resource url="C:\Users\Odusanya\Downloads\xhtml-rdfa-1.dtd" location="$PROJECT_DIR$" />
     <resource url="http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd" location="$PROJECT_DIR$" />
   </component>
 </project>

@@ -10,7 +10,6 @@ use Doctrine\ORM\EntityManagerInterface;
 use AppBundle\Entity\Campaigns;
 use AppBundle\Entity\Category;
 use AppBundle\Entity\Posts;
-use AppBundle\Entity\Service;
 
 /**
  * Class DefaultController
