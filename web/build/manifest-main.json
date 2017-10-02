@@ -1,5 +1,5 @@
 {
-  "short_name": "PartyCravings",
+  "short_name": "PartyCraving",
   "name": "PartyCravings Inc.",
   "start_url": "/",
   "icons": [
@@ -20,7 +20,7 @@
   "orientation": "portrait",
   "gcm_sender_id": "314804067424",
   "/build/app.css": "/build/app.cc7089ad90e54ffb5dbc50334bf5dc23.css",
-  "/build/app.js": "/build/app.bc1af257dd0f730c7147.js",
+  "/build/app.js": "/build/app.c7d9ce8afa0a60baa043.js",
   "/build/fonts\\NUrn2XQrRfyGZp5MknntaRJtnKITppOI_IvcXXDNrsc.woff2": "/build/fonts/NUrn2XQrRfyGZp5MknntaRJtnKITppOI_IvcXXDNrsc.c378fcec.woff2",
   "/build/fonts\\icons.eot": "/build/fonts/icons.674f50d2.eot",
   "/build/fonts\\icons.ttf": "/build/fonts/icons.b06871f2.ttf",
@@ -41,5 +41,6 @@
   "/build/images\\twitter.png": "/build/images/twitter.0f05d8dc.png",
   "/build/images\\user.png": "/build/images/user.53fe7479.png",
   "/build/images\\wordpress-2.png": "/build/images/wordpress-2.5a0c6595.png",
-  "/build/images\\zoom.png": "/build/images/zoom.37ba8a0c.png"
+  "/build/images\\zoom.png": "/build/images/zoom.37ba8a0c.png",
+  "/build/img.js": "/build/img.70c74d82bfe3a3d6b2b8.js"
 }

@@ -1,13 +1,14 @@
 CACHE MANIFEST
-#ver:10/1/2017, 10:36:50 AM
-#plugin:4.8.3
+#ver:10/2/2017, 12:53:41 AM
+#plugin:4.8.4
 
 CACHE:
 /build/manifest.json
 /build/manifest-main.json
 /build/app.cc7089ad90e54ffb5dbc50334bf5dc23.css
 /build/global.9e32157d666b5033022f98127c63b243.css
-/build/app.bc1af257dd0f730c7147.js
+/build/app.c7d9ce8afa0a60baa043.js
+/build/img.70c74d82bfe3a3d6b2b8.js
 /build/fonts/icons.b06871f2.ttf
 /build/fonts/icons.fee66e71.woff
 /build/fonts/icons.af7ae505.woff2
@@ -17,15 +18,15 @@ CACHE:
 /build/fonts/s2PXW4WrV3VLrOUpHiqsfRJtnKITppOI_IvcXXDNrsc.49cd7a04.woff2
 /build/images/icons.912ec66d.svg
 /build/images/flags.9c74e172.png
+/build/images/zoom.37ba8a0c.png
+/build/images/sitemap.243dcf45.png
 /build/images/twitter.0f05d8dc.png
 /build/images/google.e2289369.png
-/build/images/addthis.7dc87287.png
 /build/images/facebook.a88781c0.png
-/build/images/wordpress-2.5a0c6595.png
-/build/images/sitemap.243dcf45.png
-/build/images/zoom.37ba8a0c.png
-/build/images/user.53fe7479.png
 /build/images/tag.8a24dcfc.png
+/build/images/addthis.7dc87287.png
+/build/images/user.53fe7479.png
+/build/images/wordpress-2.5a0c6595.png
 /build/images/demo-5.00db1207.jpg
 /build/images/demo-2.474d12e3.jpg
 /

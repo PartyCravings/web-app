@@ -303,37 +303,37 @@
 /* icons */
 
 .icon-zoom {
-    background-image: url('img/pc.de-16/zoom.png');
+    background-image: url('icons/pc.de-16/zoom.png');
 }
 
 .icon-tag {
-    background-image: url('img/pc.de-16/tag.png');
+    background-image: url('icons/pc.de-16/tag.png');
 }
 
 .icon-sitemap {
-    background-image: url('img/pc.de-16/sitemap.png');
+    background-image: url('icons/pc.de-16/sitemap.png');
 }
 
 .icon-twitter {
-    background-image: url('img/pc.de-16/twitter.png');
+    background-image: url('icons/pc.de-16/twitter.png');
 }
 
 .icon-user {
-    background-image: url('img/pc.de-16/user.png');
+    background-image: url('icons/pc.de-16/user.png');
 }
 
 .icon-addthis {
-    background-image: url('img/icondock-16/addthis.png');
+    background-image: url('icons/icondock-16/addthis.png');
 }
 
 .icon-wordpress {
-    background-image: url('img/icondock-16/wordpress-2.png');
+    background-image: url('icons/icondock-16/wordpress-2.png');
 }
 
 .icon-facebook {
-    background-image: url('img/icondock-16/facebook.png');
+    background-image: url('icons/icondock-16/facebook.png');
 }
 
 .icon-google {
-    background-image: url('img/icondock-16/google.png');
+    background-image: url('icons/icondock-16/google.png');
 }

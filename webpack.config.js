@@ -20,8 +20,11 @@ Encore
     // will output as web/build/app.js
     .addEntry('app', './assets/js/main.js')
 
+    // will output as web/build/img.js
+    .addEntry('img', './assets/img/images.js')
+
     // will output as web/build/global.css
-    .addStyleEntry('global', './assets/css/global.scss')
+    .addStyleEntry('global', './assets/css/global.css')
 
     // allow sass/scss files to be processed
     .enableSassLoader()
@@ -29,15 +32,15 @@ Encore
     // allow legacy applications to use $/jQuery as a global variable
     .autoProvidejQuery()
 
-    .enableReactPreset()
+    /*.enableReactPreset()
 
     .configureBabel(function(babelConfig) {
         // add additional presets
         babelConfig.presets.push('es2017');
 
         // no plugins are added by default, but you can add some
-        // babelConfig.plugins.push('styled-jsx/babel');
-    })
+        babelConfig.plugins.push('styled-jsx/babel');
+    })*/
     .enableSourceMaps(!Encore.isProduction())
 
     .addPlugin(new commonChunk({
@@ -49,7 +52,7 @@ Encore
     fileName: 'manifest-main.json',
     basePath: '/build/',
     seed: {
-        "short_name": "PartyCravings",
+        "short_name": "PartyCraving",
         "name": "PartyCravings Inc.",
         "start_url": "/",
         "icons": [{

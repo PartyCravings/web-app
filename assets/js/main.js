@@ -1,11 +1,8 @@
-import $ from 'jquery';
 import runtime from 'offline-plugin/runtime';
 import './semantic-ui/dist/semantic.min.js';
 import './semantic-ui/dist/semantic.min.css';
 import './jquery.jssor.min.js';
 import './jquery.sticklr.js';
-import './img/demo-2.jpg';
-import './img/demo-5.jpg';
 
 runtime.install();
 
