@@ -94,13 +94,11 @@ $('.ui.dropdown').dropdown({
 $('.image img').visibility({
   type: 'image',
   transition: 'fade in',
-  duration: 1000
+  duration: 500
 });
-$('nav').sticky({
-  offset: 0,
-  context: '#context',
-  silent: true
-});
+$('nav').visibility({
+        type: 'fixed'
+      });
 if (/Android|BlackBerry|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent) === false) {
   $('#example-1').sticklr({
     showOn: 'hover',
