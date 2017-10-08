@@ -19,7 +19,7 @@ class DefaultController extends AbstractController
 {
     /**
      * @Route("/", name="homepage")
-     * @Cache(smaxage=1000)
+     * @Cache(smaxage=0)
      * @Template(":default:index.html.twig")
      * @param EntityManagerInterface $em
      * @return array
