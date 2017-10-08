@@ -86,14 +86,14 @@
         height: initial !important;
       }
       
-      @media screen and (max-width: 600px) {
+      @media screen and (max-width: 767px) {
         #sticky {
           visibility: hidden;
           display: none;
         }
       }
 
-      @media screen and (max-width: 806px) {
+      @media screen and (max-width: 767px) {
       #sitename{
         text-align: center !important;
         padding-left: 0px !important;
