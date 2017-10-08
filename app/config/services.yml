@@ -31,9 +31,6 @@ services:
 
     AppBundle\Security\FOSUBUserProvider: ["@fos_user.user_manager", { google: google_id }]
 
-    FOS\UserBundle\Model\UserManagerInterface:
-        public: false
-
     # add more services, or override services that need manual wiring
     # AppBundle\Service\ExampleService:
     #     arguments:
