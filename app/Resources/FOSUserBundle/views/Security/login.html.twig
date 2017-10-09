@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block title %}{{ 'security.login'|trans({}, 'FOSUserBundle') }}{% endblock %}
 {% block body %}
-    <body style="font-family: 'Quicksand', sans-serif; background-color: #fff7e9;">
         <br/>
         <h1 id="sitename" style="padding-left:100px;font-size:2.4em;font-family: 'Quicksand', sans-serif;">PartyCravings Inc.</h1><br/>
         <div class="row" style="text-align: center; padding-top: 60px; font-size: 4em;">
@@ -34,7 +33,7 @@
                                 <input class="hidden" id="remember_me" name="_remember_me" tabindex="0" type="checkbox" checked="checked"/>
                                 <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
                             </div>
-                        </div>&nbsp;
+                        </div>
                         <a href="{{ url('fos_user_resetting_request') }}" style="color: orange;">{{ 'security.login.forgot'|trans({}, 'FOSUserBundle') }}</a>
                         <div style="text-align: center;">
                         <button id="submit" class="ui circular orange button" style="font-size:1.5em; font-family: 'Quicksand', sans-serif;" type="submit">{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}</button>
@@ -59,11 +58,10 @@
                 <div class="ui labeled button" style="font-family: 'Quicksand', sans-serif;" tabindex="0">
                     <div class="big ui red button">
                         <i class="google icon" style="font-size: 1.3em;"></i>
-                    </div><a class="ui basic red label"  href="{{ hwi_oauth_login_url('google') }}">{{ 'security.login.withgoogle'|trans({}, 'FOSUserBundle') }}&nbsp;</a>
+                    </div><a class="ui basic red label"  href="{{ hwi_oauth_login_url('google') }}">{{ 'security.login.withgoogle'|trans({}, 'FOSUserBundle') }}   </a>
                 </div>
                 {% endblock hwi_oauth_content %}
             </div>
             <div class="ui two wide computer only column"></div>
         </div>
-    </body>
 {% endblock %}
