@@ -94,7 +94,7 @@ $('.ui.dropdown').dropdown({
 $('.image img').visibility({
   type: 'image',
   transition: 'fade in',
-  duration: 500
+  duration: 300
 });
 $('nav').visibility({
         type: 'fixed'
