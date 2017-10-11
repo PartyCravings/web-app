@@ -3,7 +3,7 @@
 *******************************/
 @primaryColor   : @orange;
 @secondaryColor : @grey;
-@red            : #DB4437;
+@red            : #DB4438;
 @orange         : #FF8300;
 @yellow         : #FFD700;
 @olive          : #32CD32;
@@ -18,3 +18,22 @@
 @black          : #000000;/*******************************
      User Global Variables
 *******************************/
+
+/*-------------------
+       Fonts
+--------------------*/
+
+@fontName          : 'Quicksand';
+@fontSmoothing     : antialiased;
+
+@headerFont        : @fontName, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+@pageFont          : @fontName, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+
+@googleFontName    : @fontName;
+@importGoogleFonts : true;
+@googleFontSizes   : '400,700,400italic,700italic';
+@googleSubset      : 'latin';
+
+@googleProtocol    : 'https://';
+@googleFontRequest : '@{googleFontName}:@{googleFontSizes}&subset=@{googleSubset}';
+

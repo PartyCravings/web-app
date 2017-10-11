@@ -34,7 +34,7 @@ class DefaultController extends AbstractController
 
     /**
      * @Template(":fragments:_header.html.twig")
-     * @Cache(smaxage=3600, vary={"PHPSESSID"})
+     * @Cache(smaxage=0, vary={"PHPSESSID"})
      * @param EntityManagerInterface $em
      * @return array
      */
@@ -46,7 +46,7 @@ class DefaultController extends AbstractController
 
     /**
      * @Template(":fragments:_footer.html.twig")
-     * @Cache(smaxage=3600)
+     * @Cache(smaxage=0)
      * @param EntityManagerInterface $em
      * @return array
      */

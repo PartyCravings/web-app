@@ -19,7 +19,7 @@
   border: none;
   margin: calc(2rem -  0.14285714em ) 0em 1rem;
   padding: 0em 0em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Quicksand', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
   line-height: 1.28571429em;
   text-transform: none;
@@ -327,13 +327,13 @@ h5.ui.header .sub.header {
 /*--- Red ---*/
 
 .ui.red.header {
-  color: #DB4437 !important;
+  color: #DB4438 !important;
 }
 a.ui.red.header:hover {
-  color: #db2c1d !important;
+  color: #dc2c1e !important;
 }
 .ui.red.dividing.header {
-  border-bottom: 2px solid #DB4437;
+  border-bottom: 2px solid #DB4438;
 }
 
 /* Inverted */

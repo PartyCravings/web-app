@@ -96,7 +96,7 @@ $('.image img').visibility({
   transition: 'fade in',
   duration: 300
 });
-$('nav').visibility({
+$('header').visibility({
         type: 'fixed'
       });
 if (/Android|BlackBerry|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent) === false) {

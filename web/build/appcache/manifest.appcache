@@ -1,21 +1,18 @@
 CACHE MANIFEST
-#ver:2017-10-10 23:23:23
+#ver:2017-10-11 01:41:32
 #plugin:4.8.4
 
 CACHE:
 /build/manifest.json
 /build/manifest-main.json
-/build/app.cc7089ad90e54ffb5dbc50334bf5dc23.css
-/build/global.ad089f44b1ab3795a7d5c12ff7ad1bce.css
-/build/app.d13dfd3801218e54601f.js
+/build/app.21c16eea51f15f80e0182a63d76dba89.css
+/build/global.0235e6c5c42d541a0839b1b19ad6f93e.css
+/build/app.dd9d2742ca099bd2415f.js
 /build/img.70c74d82bfe3a3d6b2b8.js
 /build/fonts/icons.b06871f2.ttf
 /build/fonts/icons.fee66e71.woff
 /build/fonts/icons.af7ae505.woff2
 /build/fonts/icons.674f50d2.eot
-/build/fonts/sKd0EMYPAh5PYCRKSryvW1tXRa8TVwTICgirnJhmVJw.12df3041.woff2
-/build/fonts/NUrn2XQrRfyGZp5MknntaRJtnKITppOI_IvcXXDNrsc.c378fcec.woff2
-/build/fonts/s2PXW4WrV3VLrOUpHiqsfRJtnKITppOI_IvcXXDNrsc.49cd7a04.woff2
 /build/images/icons.912ec66d.svg
 /build/images/flags.9c74e172.png
 /build/images/zoom.37ba8a0c.png

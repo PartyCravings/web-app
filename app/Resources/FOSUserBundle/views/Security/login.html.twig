@@ -2,7 +2,7 @@
 {% block title %}{{ 'security.login'|trans({}, 'FOSUserBundle') }}{% endblock %}
 {% block body %}
         <br/>
-        <h1 id="sitename" style="padding-left:100px;font-size:2.4em;font-family: 'Quicksand', sans-serif;">PartyCravings Inc.</h1><br/>
+        <h1 id="sitename" style="padding-left:100px;font-size:2.4em;">PartyCravings Inc.</h1><br/>
         <div class="row" style="text-align: center; padding-top: 60px; font-size: 4em;">
             <span>{{ 'security.login'|trans({}, 'FOSUserBundle') }}</span>
         </div><br/><br/>
@@ -20,7 +20,7 @@
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" /> {% endif %}
                         <div class="field">
                             <label for="username" style="font-size: 1.3em;">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
-                            <input id="username" name="_username" placeholder="" value="{{ last_username }}" type="text" required="required" style="font-family: 'Quicksand', sans-serif;"/>
+                            <input id="username" name="_username" placeholder="" value="{{ last_username }}" type="text" required="required" style=""/>
                         </div>
 
                         <div class="field">
@@ -36,7 +36,7 @@
                         </div>
                         <a href="{{ url('fos_user_resetting_request') }}" style="color: orange;">{{ 'security.login.forgot'|trans({}, 'FOSUserBundle') }}</a>
                         <div style="text-align: center;">
-                        <button id="submit" class="ui circular orange button" style="font-size:1.5em; font-family: 'Quicksand', sans-serif;" type="submit">{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}</button>
+                        <button id="submit" class="ui circular orange button" style="font-size:1.5em; " type="submit">{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}</button>
                         </div>
                     </form>
                     {% endblock fos_user_content %}
@@ -49,13 +49,13 @@
             <div class="ui five wide computer center aligned sixteen wide tablet mobile column">
                 {% block hwi_oauth_content %}
                 <br/>
-                <div class="ui center aligned labeled button" style="font-family: 'Quicksand', sans-serif;" tabindex="0">
+                <div class="ui center aligned labeled button" tabindex="0">
                     <div class="big ui blue button">
                         <i class="facebook icon" style="font-size: 1.3em;"></i>
                     </div><a class="ui basic blue label" href="{{ hwi_oauth_login_url('google') }}">{{ 'security.login.withfacebook'|trans({}, 'FOSUserBundle') }}</a>
                 </div><br/>
                 <br/>
-                <div class="ui labeled button" style="font-family: 'Quicksand', sans-serif;" tabindex="0">
+                <div class="ui labeled button" tabindex="0">
                     <div class="big ui red button">
                         <i class="google icon" style="font-size: 1.3em;"></i>
                     </div><a class="ui basic red label"  href="{{ hwi_oauth_login_url('google') }}">{{ 'security.login.withgoogle'|trans({}, 'FOSUserBundle') }}   </a>

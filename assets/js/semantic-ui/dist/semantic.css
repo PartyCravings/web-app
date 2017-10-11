@@ -8,7 +8,7 @@
  * http://opensource.org/licenses/MIT
  *
  */
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin');
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700,400italic,700italic&subset=latin');
 /*!
  * # Semantic UI 2.2.13 - Reset
  * http://github.com/semantic-org/semantic-ui/
@@ -577,7 +577,7 @@ body {
   overflow-x: hidden;
   min-width: 320px;
   background: #FFFFFF;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Quicksand', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 14px;
   line-height: 1.4285em;
   color: rgba(0, 0, 0, 0.87);
@@ -593,7 +593,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Quicksand', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   line-height: 1.28571429em;
   margin: calc(2rem -  0.14285714em ) 0em 1rem;
   font-weight: bold;
@@ -793,7 +793,7 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
   vertical-align: baseline;
   background: #E0E1E2 none;
   color: rgba(0, 0, 0, 0.6);
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Quicksand', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   margin: 0em 0.25em 0em 0em;
   padding: 0.78571429em 1.5em 0.78571429em;
   text-transform: none;
@@ -3786,7 +3786,7 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 
 .ui.red.buttons .button,
 .ui.red.button {
-  background-color: #DB4437;
+  background-color: #DB4438;
   color: #FFFFFF;
   text-shadow: none;
   background-image: none;
@@ -3799,21 +3799,21 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 
 .ui.red.buttons .button:hover,
 .ui.red.button:hover {
-  background-color: #db2c1d;
+  background-color: #dc2c1e;
   color: #FFFFFF;
   text-shadow: none;
 }
 
 .ui.red.buttons .button:focus,
 .ui.red.button:focus {
-  background-color: #d62313;
+  background-color: #d72214;
   color: #FFFFFF;
   text-shadow: none;
 }
 
 .ui.red.buttons .button:active,
 .ui.red.button:active {
-  background-color: #bd2e22;
+  background-color: #be2e22;
   color: #FFFFFF;
   text-shadow: none;
 }
@@ -3822,7 +3822,7 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 .ui.red.buttons .active.button:active,
 .ui.red.active.button,
 .ui.red.button .active.button:active {
-  background-color: #e02919;
+  background-color: #e02819;
   color: #FFFFFF;
   text-shadow: none;
 }
@@ -3831,40 +3831,40 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 
 .ui.basic.red.buttons .button,
 .ui.basic.red.button {
-  -webkit-box-shadow: 0px 0px 0px 1px #DB4437 inset !important;
-  box-shadow: 0px 0px 0px 1px #DB4437 inset !important;
-  color: #DB4437 !important;
+  -webkit-box-shadow: 0px 0px 0px 1px #DB4438 inset !important;
+  box-shadow: 0px 0px 0px 1px #DB4438 inset !important;
+  color: #DB4438 !important;
 }
 
 .ui.basic.red.buttons .button:hover,
 .ui.basic.red.button:hover {
   background: transparent !important;
-  -webkit-box-shadow: 0px 0px 0px 1px #db2c1d inset !important;
-  box-shadow: 0px 0px 0px 1px #db2c1d inset !important;
-  color: #db2c1d !important;
+  -webkit-box-shadow: 0px 0px 0px 1px #dc2c1e inset !important;
+  box-shadow: 0px 0px 0px 1px #dc2c1e inset !important;
+  color: #dc2c1e !important;
 }
 
 .ui.basic.red.buttons .button:focus,
 .ui.basic.red.button:focus {
   background: transparent !important;
-  -webkit-box-shadow: 0px 0px 0px 1px #d62313 inset !important;
-  box-shadow: 0px 0px 0px 1px #d62313 inset !important;
-  color: #db2c1d !important;
+  -webkit-box-shadow: 0px 0px 0px 1px #d72214 inset !important;
+  box-shadow: 0px 0px 0px 1px #d72214 inset !important;
+  color: #dc2c1e !important;
 }
 
 .ui.basic.red.buttons .active.button,
 .ui.basic.red.active.button {
   background: transparent !important;
-  -webkit-box-shadow: 0px 0px 0px 1px #e02919 inset !important;
-  box-shadow: 0px 0px 0px 1px #e02919 inset !important;
-  color: #bd2e22 !important;
+  -webkit-box-shadow: 0px 0px 0px 1px #e02819 inset !important;
+  box-shadow: 0px 0px 0px 1px #e02819 inset !important;
+  color: #be2e22 !important;
 }
 
 .ui.basic.red.buttons .button:active,
 .ui.basic.red.button:active {
-  -webkit-box-shadow: 0px 0px 0px 1px #bd2e22 inset !important;
-  box-shadow: 0px 0px 0px 1px #bd2e22 inset !important;
-  color: #bd2e22 !important;
+  -webkit-box-shadow: 0px 0px 0px 1px #be2e22 inset !important;
+  box-shadow: 0px 0px 0px 1px #be2e22 inset !important;
+  color: #be2e22 !important;
 }
 
 .ui.buttons:not(.vertical) > .basic.red.button:not(:first-child) {
@@ -4769,7 +4769,7 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 
 .ui.negative.buttons .button,
 .ui.negative.button {
-  background-color: #DB4437;
+  background-color: #DB4438;
   color: #FFFFFF;
   text-shadow: none;
   background-image: none;
@@ -4782,21 +4782,21 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 
 .ui.negative.buttons .button:hover,
 .ui.negative.button:hover {
-  background-color: #db2c1d;
+  background-color: #dc2c1e;
   color: #FFFFFF;
   text-shadow: none;
 }
 
 .ui.negative.buttons .button:focus,
 .ui.negative.button:focus {
-  background-color: #d62313;
+  background-color: #d72214;
   color: #FFFFFF;
   text-shadow: none;
 }
 
 .ui.negative.buttons .button:active,
 .ui.negative.button:active {
-  background-color: #bd2e22;
+  background-color: #be2e22;
   color: #FFFFFF;
   text-shadow: none;
 }
@@ -4805,7 +4805,7 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 .ui.negative.buttons .active.button:active,
 .ui.negative.active.button,
 .ui.negative.button .active.button:active {
-  background-color: #e02919;
+  background-color: #e02819;
   color: #FFFFFF;
   text-shadow: none;
 }
@@ -4814,40 +4814,40 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 
 .ui.basic.negative.buttons .button,
 .ui.basic.negative.button {
-  -webkit-box-shadow: 0px 0px 0px 1px #DB4437 inset !important;
-  box-shadow: 0px 0px 0px 1px #DB4437 inset !important;
-  color: #DB4437 !important;
+  -webkit-box-shadow: 0px 0px 0px 1px #DB4438 inset !important;
+  box-shadow: 0px 0px 0px 1px #DB4438 inset !important;
+  color: #DB4438 !important;
 }
 
 .ui.basic.negative.buttons .button:hover,
 .ui.basic.negative.button:hover {
   background: transparent !important;
-  -webkit-box-shadow: 0px 0px 0px 1px #db2c1d inset !important;
-  box-shadow: 0px 0px 0px 1px #db2c1d inset !important;
-  color: #db2c1d !important;
+  -webkit-box-shadow: 0px 0px 0px 1px #dc2c1e inset !important;
+  box-shadow: 0px 0px 0px 1px #dc2c1e inset !important;
+  color: #dc2c1e !important;
 }
 
 .ui.basic.negative.buttons .button:focus,
 .ui.basic.negative.button:focus {
   background: transparent !important;
-  -webkit-box-shadow: 0px 0px 0px 1px #d62313 inset !important;
-  box-shadow: 0px 0px 0px 1px #d62313 inset !important;
-  color: #db2c1d !important;
+  -webkit-box-shadow: 0px 0px 0px 1px #d72214 inset !important;
+  box-shadow: 0px 0px 0px 1px #d72214 inset !important;
+  color: #dc2c1e !important;
 }
 
 .ui.basic.negative.buttons .active.button,
 .ui.basic.negative.active.button {
   background: transparent !important;
-  -webkit-box-shadow: 0px 0px 0px 1px #e02919 inset !important;
-  box-shadow: 0px 0px 0px 1px #e02919 inset !important;
-  color: #bd2e22 !important;
+  -webkit-box-shadow: 0px 0px 0px 1px #e02819 inset !important;
+  box-shadow: 0px 0px 0px 1px #e02819 inset !important;
+  color: #be2e22 !important;
 }
 
 .ui.basic.negative.buttons .button:active,
 .ui.basic.negative.button:active {
-  -webkit-box-shadow: 0px 0px 0px 1px #bd2e22 inset !important;
-  box-shadow: 0px 0px 0px 1px #bd2e22 inset !important;
-  color: #bd2e22 !important;
+  -webkit-box-shadow: 0px 0px 0px 1px #be2e22 inset !important;
+  box-shadow: 0px 0px 0px 1px #be2e22 inset !important;
+  color: #be2e22 !important;
 }
 
 .ui.buttons:not(.vertical) > .basic.primary.button:not(:first-child) {
@@ -5075,7 +5075,7 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 /* Text Container */
 
 .ui.text.container {
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Quicksand', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   max-width: 700px !important;
   line-height: 1.5;
 }
@@ -6678,7 +6678,7 @@ i.flag.zimbabwe:before {
   border: none;
   margin: calc(2rem -  0.14285714em ) 0em 1rem;
   padding: 0em 0em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Quicksand', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
   line-height: 1.28571429em;
   text-transform: none;
@@ -7021,15 +7021,15 @@ h5.ui.header .sub.header {
 /*--- Red ---*/
 
 .ui.red.header {
-  color: #DB4437 !important;
+  color: #DB4438 !important;
 }
 
 a.ui.red.header:hover {
-  color: #db2c1d !important;
+  color: #dc2c1e !important;
 }
 
 .ui.red.dividing.header {
-  border-bottom: 2px solid #DB4437;
+  border-bottom: 2px solid #DB4438;
 }
 
 /* Inverted */
@@ -7717,7 +7717,7 @@ i.inverted.icon {
 /* Red */
 
 i.red.icon {
-  color: #DB4437 !important;
+  color: #DB4438 !important;
 }
 
 i.inverted.red.icon {
@@ -7726,7 +7726,7 @@ i.inverted.red.icon {
 
 i.inverted.bordered.red.icon,
 i.inverted.circular.red.icon {
-  background-color: #DB4437 !important;
+  background-color: #DB4438 !important;
   color: #FFFFFF !important;
 }
 
@@ -12122,7 +12122,7 @@ img.ui.bordered.image {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   text-align: left;
   line-height: 1.21428571em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Quicksand', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   padding: 0.67857143em 1em;
   background: #FFFFFF;
   border: 1px solid rgba(34, 36, 38, 0.15);
@@ -13208,8 +13208,8 @@ a.ui.active.label:ActiveHover:before {
 
 .ui.red.labels .label,
 .ui.red.label {
-  background-color: #DB4437 !important;
-  border-color: #DB4437 !important;
+  background-color: #DB4438 !important;
+  border-color: #DB4438 !important;
   color: #FFFFFF !important;
 }
 
@@ -13217,8 +13217,8 @@ a.ui.active.label:ActiveHover:before {
 
 .ui.red.labels .label:hover,
 a.ui.red.label:hover {
-  background-color: #db2c1d !important;
-  border-color: #db2c1d !important;
+  background-color: #dc2c1e !important;
+  border-color: #dc2c1e !important;
   color: #FFFFFF !important;
 }
 
@@ -13232,22 +13232,22 @@ a.ui.red.label:hover {
 /* Ribbon */
 
 .ui.red.ribbon.label {
-  border-color: #bd2e22 !important;
+  border-color: #be2e22 !important;
 }
 
 /* Basic */
 
 .ui.basic.red.label {
   background-color: #FFFFFF !important;
-  color: #DB4437 !important;
-  border-color: #DB4437 !important;
+  color: #DB4438 !important;
+  border-color: #DB4438 !important;
 }
 
 .ui.basic.red.labels a.label:hover,
 a.ui.basic.red.label:hover {
   background-color: #FFFFFF !important;
-  color: #db2c1d !important;
-  border-color: #db2c1d !important;
+  color: #dc2c1e !important;
+  border-color: #dc2c1e !important;
 }
 
 /*--- Orange ---*/
@@ -14264,7 +14264,7 @@ ol.ui.list ol li,
 .ui.list > .item .header {
   display: block;
   margin: 0em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Quicksand', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.87);
 }
@@ -16572,11 +16572,11 @@ ol.ui.horizontal.list li:before,
 /* Red */
 
 .ui.red.segment:not(.inverted) {
-  border-top: 2px solid #DB4437 !important;
+  border-top: 2px solid #DB4438 !important;
 }
 
 .ui.inverted.red.segment {
-  background-color: #DB4437 !important;
+  background-color: #DB4438 !important;
   color: #FFFFFF !important;
 }
 
@@ -17051,7 +17051,7 @@ ol.ui.horizontal.list li:before,
 /* Title */
 
 .ui.steps .step .title {
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Quicksand', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 1.14285714em;
   font-weight: bold;
 }
@@ -17834,7 +17834,7 @@ ol.ui.horizontal.list li:before,
 .ui.form input[type="text"],
 .ui.form input[type="file"],
 .ui.form input[type="url"] {
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Quicksand', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   margin: 0em;
   outline: none;
   -webkit-appearance: none;
@@ -18466,7 +18466,7 @@ ol.ui.horizontal.list li:before,
 .ui.form .required.field > .checkbox:after {
   margin: -0.2em 0em 0em 0.2em;
   content: '*';
-  color: #DB4437;
+  color: #DB4438;
 }
 
 .ui.form .required.fields:not(.grouped) > .field > label:after,
@@ -20443,7 +20443,7 @@ ol.ui.horizontal.list li:before,
 .ui.grid > .red.row,
 .ui.grid > .red.column,
 .ui.grid > .row > .red.column {
-  background-color: #DB4437 !important;
+  background-color: #DB4438 !important;
   color: #FFFFFF;
 }
 
@@ -21243,7 +21243,7 @@ ol.ui.horizontal.list li:before,
   display: -ms-flexbox;
   display: flex;
   margin: 1rem 0em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Quicksand', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   background: #FFFFFF;
   font-weight: normal;
   border: 1px solid rgba(34, 36, 38, 0.15);
@@ -21393,8 +21393,8 @@ ol.ui.horizontal.list li:before,
   -webkit-box-align: inherit;
   -ms-flex-align: inherit;
   align-items: inherit;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
+  -webkit-box-orient: inherit;
+  -webkit-box-direction: inherit;
   -ms-flex-direction: inherit;
   flex-direction: inherit;
 }
@@ -22657,8 +22657,8 @@ Floated Menu / Item
 
 .ui.menu .red.active.item,
 .ui.red.menu .active.item {
-  border-color: #DB4437 !important;
-  color: #DB4437 !important;
+  border-color: #DB4438 !important;
+  color: #DB4438 !important;
 }
 
 .ui.menu .orange.active.item,
@@ -22864,7 +22864,7 @@ Floated Menu / Item
 
 .ui.inverted.menu .red.active.item,
 .ui.inverted.red.menu {
-  background-color: #DB4437;
+  background-color: #DB4438;
 }
 
 .ui.inverted.red.menu .item:before {
@@ -23551,7 +23551,7 @@ Floated Menu / Item
 
 .ui.message .header {
   display: block;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Quicksand', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
   margin: -0.14285714em 0em 0rem 0em;
 }
@@ -23912,13 +23912,13 @@ Floated Menu / Item
 
 .ui.red.message {
   background-color: #FFE8E6;
-  color: #DB4437;
-  -webkit-box-shadow: 0px 0px 0px 1px #DB4437 inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
-  box-shadow: 0px 0px 0px 1px #DB4437 inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  color: #DB4438;
+  -webkit-box-shadow: 0px 0px 0px 1px #DB4438 inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  box-shadow: 0px 0px 0px 1px #DB4438 inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
 }
 
 .ui.red.message .header {
-  color: #d33426;
+  color: #d33326;
 }
 
 .ui.orange.message {
@@ -24779,11 +24779,11 @@ Floated Menu / Item
 /* Red */
 
 .ui.red.table {
-  border-top: 0.2em solid #DB4437;
+  border-top: 0.2em solid #DB4438;
 }
 
 .ui.inverted.red.table {
-  background-color: #DB4437 !important;
+  background-color: #DB4438 !important;
   color: #FFFFFF !important;
 }
 
@@ -25834,7 +25834,7 @@ Floated Menu / Item
 .ui.card > .content > .header {
   display: block;
   margin: '';
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Quicksand', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   color: rgba(0, 0, 0, 0.85);
 }
 
@@ -26195,15 +26195,15 @@ a.ui.card:hover,
 .ui.red.cards > .card,
 .ui.cards > .red.card,
 .ui.red.card {
-  -webkit-box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #DB4437, 0px 1px 3px 0px #D4D4D5;
-  box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #DB4437, 0px 1px 3px 0px #D4D4D5;
+  -webkit-box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #DB4438, 0px 1px 3px 0px #D4D4D5;
+  box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #DB4438, 0px 1px 3px 0px #D4D4D5;
 }
 
 .ui.red.cards > .card:hover,
 .ui.cards > .red.card:hover,
 .ui.red.card:hover {
-  -webkit-box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #db2c1d, 0px 1px 3px 0px #BCBDBD;
-  box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #db2c1d, 0px 1px 3px 0px #BCBDBD;
+  -webkit-box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #dc2c1e, 0px 1px 3px 0px #BCBDBD;
+  box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #dc2c1e, 0px 1px 3px 0px #BCBDBD;
 }
 
 /* Orange */
@@ -27508,7 +27508,7 @@ a.ui.card:hover,
 .ui.items > .item > .content > .header {
   display: inline-block;
   margin: -0.21425em 0em 0em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Quicksand', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.85);
 }
@@ -27987,7 +27987,7 @@ a.ui.card:hover,
 
 .ui.statistics .statistic > .value,
 .ui.statistic > .value {
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Quicksand', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 4rem;
   font-weight: normal;
   line-height: 1em;
@@ -28002,7 +28002,7 @@ a.ui.card:hover,
 
 .ui.statistics .statistic > .label,
 .ui.statistic > .label {
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Quicksand', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 1em;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.87);
@@ -28229,7 +28229,7 @@ a.ui.card:hover,
 .ui.red.statistics .statistic > .value,
 .ui.statistics .red.statistic > .value,
 .ui.red.statistic > .value {
-  color: #DB4437;
+  color: #DB4438;
 }
 
 .ui.orange.statistics .statistic > .value,
@@ -28550,7 +28550,7 @@ a.ui.card:hover,
 
 .ui.accordion .title:not(.ui) {
   padding: 0.5em 0em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Quicksand', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 1em;
   color: rgba(0, 0, 0, 0.87);
 }
@@ -31569,7 +31569,7 @@ select.ui.dropdown {
 
 .ui.modal > .header {
   display: block;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Quicksand', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   background: #FFFFFF;
   margin: 0em;
   padding: 1.25rem 1.5rem;
@@ -32326,7 +32326,7 @@ a.ui.nag {
 
 .ui.popup > .header {
   padding: 0em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Quicksand', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 1.14285714em;
   line-height: 1.2;
   font-weight: bold;
@@ -33348,7 +33348,7 @@ a.ui.nag {
 ---------------*/
 
 .ui.progress.error .bar {
-  background-color: #DB4437 !important;
+  background-color: #DB4438 !important;
 }
 
 .ui.progress.error .bar,
@@ -33456,7 +33456,7 @@ a.ui.nag {
 }
 
 .ui.inverted.progress.error > .label {
-  color: #DB4437;
+  color: #DB4438;
 }
 
 /*--------------
@@ -33521,7 +33521,7 @@ a.ui.nag {
 /* Red */
 
 .ui.red.progress .bar {
-  background-color: #DB4437;
+  background-color: #DB4438;
 }
 
 .ui.red.inverted.progress .bar {
@@ -34104,7 +34104,7 @@ a.ui.nag {
 
 .ui.search > .results .result .title {
   margin: -0.14285714em 0em 0em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Quicksand', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 1em;
   color: rgba(0, 0, 0, 0.85);
@@ -34130,7 +34130,7 @@ a.ui.nag {
 }
 
 .ui.search > .results > .message .header {
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Quicksand', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 1rem;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.87);
@@ -34284,7 +34284,7 @@ a.ui.nag {
 
 .ui.search.selection > .icon.input > .remove.icon:hover {
   opacity: 1;
-  color: #DB4437;
+  color: #DB4438;
 }
 
 /*--------------
@@ -34343,7 +34343,7 @@ a.ui.nag {
 .ui.category.search > .results .category > .name {
   width: 100px;
   background: transparent;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Quicksand', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 1em;
   float: 1em;
   float: left;
