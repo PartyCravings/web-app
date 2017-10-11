@@ -77,8 +77,25 @@
     @import url('jquery.sticklr.dark.css');
 
     header {
+    background-color: #fff7e9 !important;
     transition:
       box-shadow 0.5s ease,
       padding 0.5s ease !important
     ;
   }
+
+    body{
+      background-color: #fff7e9;
+    }
+
+    #footer{
+    text-align: center; 
+    background-color: #FFB74D;
+    }
+
+    #context{
+    text-align: center;
+    }
+      #content{
+      background-color: #fff7e9 !important;
+      }

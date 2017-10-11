@@ -536,18 +536,6 @@ template {
 [hidden] {
   display: none;
 }
-
-/*******************************
-     User Global Variables
-*******************************/
-
-/*******************************
-     User Global Variables
-*******************************/
-
-/*******************************
-         Site Overrides
-*******************************/
 /*!
  * # Semantic UI 2.2.13 - Site
  * http://github.com/semantic-org/semantic-ui/
@@ -761,14 +749,6 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 
 /*******************************
         Global Overrides
-*******************************/
-
-/*******************************
-     User Global Variables
-*******************************/
-
-/*******************************
-     User Global Variables
 *******************************/
 /*!
  * # Semantic UI 2.2.13 - Button

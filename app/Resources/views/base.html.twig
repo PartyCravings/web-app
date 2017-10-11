@@ -3,7 +3,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{{ locale }}" lang="{{ locale }}">
 
   <head>
-    <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=0" />
     <title>{% block title %}Manage that party you love{% endblock %} • PartyCravings℠</title>
@@ -21,9 +20,9 @@
         <link href="{{ asset('build/global.css') }}" rel="stylesheet" type="text/css" />
     {% endblock %}
   </head>
-        <body style="background-color: #fff7e9;">
+        <body>
             {% block body %}
-                <div class="ui vertical inverted orange sidebar menu" style="font-family: 'Quicksand', sans-serif;">
+                <div class="ui vertical inverted orange sidebar menu">
                     {{ render_esi(controller('AppBundle:Default:header')) }}
                         {% block content %}{% endblock %}
                     {{ render_esi(controller('AppBundle:Default:footer')) }}
