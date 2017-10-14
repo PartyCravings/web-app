@@ -1,10 +1,12 @@
-var Encore = require('@symfony/webpack-encore');
+const Encore = require('@symfony/webpack-encore');
 // require offline-plugin
-var OfflinePlugin = require('offline-plugin');
+const OfflinePlugin = require('offline-plugin');
 // manifest plugin
-var ManifestPlugin = require('webpack-manifest-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
 
-var commonChunk = require("webpack/lib/optimize/CommonsChunkPlugin");
+const commonChunk = require("webpack/lib/optimize/CommonsChunkPlugin");
+
+const HtmlCriticalPlugin = require("html-critical-webpack-plugin");
 
 
 Encore
@@ -52,69 +54,84 @@ Encore
     fileName: 'manifest-main.json',
     basePath: '/build/',
     seed: {
-        "short_name": "PartyCraving",
-        "name": "PartyCravings Inc.",
-        "start_url": "/",
-        "icons": [{
-            "src": "/build/images/256.png",
-            "sizes": "256x256",
-            "type": "image/png"
+        short_name: "PartyCraving",
+        name: "PartyCravings Inc.",
+        start_url: "/",
+        icons: [{
+            src: "/build/images/256.png",
+            sizes: "256x256",
+            type: "image/png"
         },
             {
-                "src": "/build/images/512.png",
-                "sizes": "512x512",
-                "type": "image/png"
+                src: "/build/images/512.png",
+                sizes: "512x512",
+                type: "image/png"
             }
         ],
-        "background_color": "#FF8300",
-        "theme_color": "#FF8300",
-        "display": "standalone",
-        "orientation": "portrait",
-        "gcm_sender_id": "314804067424"
+        background_color: "#FF8300",
+        theme_color: "#FF8300",
+        display: "standalone",
+        orientation: "portrait",
+        gcm_sender_id: "314804067424"
     }
     }))
     // push offline-plugin it must be the last one to use
     .addPlugin(new OfflinePlugin({
-    "strategy": "changed",
-    "responseStrategy": "cache-first",
-    "publicPath": "/build/",
-        "caches": {
+    strategy: "changed",
+    responseStrategy: "cache-first",
+    publicPath: "/build/",
+        caches: {
             // offline plugin doesn't know about build folder
             // if I added build in it , it will show something like : OfflinePlugin: Cache pattern [build/images/*] did not match any assets
-            "main": [
+            main: [
                 '*.json',
                 '*.css',
                 '*.js',
                 'fonts/*',
                 'images/*'
             ],
-            "additional": [
+            additional: [
                 ':externals:'
             ],
-            "optional": [
+            optional: [
                 ':rest:'
             ],
         },
-        "externals": [
+        externals: [
             '/',
             'https://fonts.googleapis.com/css?family=Quicksand:400,700,400italic,700italic&subset=latin',
             ],
-    "ServiceWorker": {
-        "events": Encore.isProduction(),
-        "entry": "./assets/js/sw.js",
-        "cacheName": "partycravings",
-        "navigateFallbackURL": '/',
-        "navigateFallbackForRedirects": false,
-        "minify": Encore.isProduction(),
-        "output": "./../sw.js",
-        "scope": "/"
+    ServiceWorker: {
+        events: Encore.isProduction(),
+        entry: "./assets/js/sw.js",
+        cacheName: "partycravings",
+        navigateFallbackURL: '/',
+        navigateFallbackForRedirects: false,
+        minify: Encore.isProduction(),
+        output: "./../sw.js",
+        scope: "/"
     },
-    "AppCache": {
-        "caches": ["main", "additional"],
-        "FALLBACK": {
+    AppCache: {
+        caches: ["main", "additional"],
+        FALLBACK: {
                 '/': '/'
         }
     }
+    }))
+
+    .addPlugin(
+        new HtmlCriticalPlugin({
+      base: 'web',
+      src: 'styles.html',
+      dest: 'compiled-styles.html',
+      inline: true,
+      minify: true,
+      extract: true,
+      width: 375,
+      height: 565,
+      penthouse: {
+        blockJSRequests: false,
+      }
     }))
     // create hashed filenames (e.g. app.abc123.css)
     .enableVersioning()
