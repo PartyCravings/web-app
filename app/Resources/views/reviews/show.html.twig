@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Review</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ review.id }}</td>
+            </tr>
+            <tr>
+                <th>Reviewid</th>
+                <td>{{ review.reviewId }}</td>
+            </tr>
+            <tr>
+                <th>Serviceid</th>
+                <td>{{ review.serviceId }}</td>
+            </tr>
+            <tr>
+                <th>Customerid</th>
+                <td>{{ review.customerId }}</td>
+            </tr>
+            <tr>
+                <th>Author</th>
+                <td>{{ review.author }}</td>
+            </tr>
+            <tr>
+                <th>Text</th>
+                <td>{{ review.text }}</td>
+            </tr>
+            <tr>
+                <th>Rating</th>
+                <td>{{ review.rating }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{% if review.status %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Dateadd</th>
+                <td>{% if review.dateAdd %}{{ review.dateAdd|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Dateupd</th>
+                <td>{% if review.dateUpd %}{{ review.dateUpd|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('reviews_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('reviews_edit', { 'id': review.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

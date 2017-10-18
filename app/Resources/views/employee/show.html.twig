@@ -1,0 +1,116 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Employee</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ employee.id }}</td>
+            </tr>
+            <tr>
+                <th>Idprofile</th>
+                <td>{{ employee.idProfile }}</td>
+            </tr>
+            <tr>
+                <th>Idlang</th>
+                <td>{{ employee.idLang }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ employee.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ employee.firstname }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ employee.email }}</td>
+            </tr>
+            <tr>
+                <th>Passwd</th>
+                <td>{{ employee.passwd }}</td>
+            </tr>
+            <tr>
+                <th>Plainpwd</th>
+                <td>{{ employee.plainPwd }}</td>
+            </tr>
+            <tr>
+                <th>Lastpwdgen</th>
+                <td>{{ employee.lastPwdGen }}</td>
+            </tr>
+            <tr>
+                <th>Statsdatefrom</th>
+                <td>{{ employee.statsDateFrom }}</td>
+            </tr>
+            <tr>
+                <th>Statsdateto</th>
+                <td>{{ employee.statsDateTo }}</td>
+            </tr>
+            <tr>
+                <th>Statscomparefrom</th>
+                <td>{{ employee.statsCompareFrom }}</td>
+            </tr>
+            <tr>
+                <th>Statscompareto</th>
+                <td>{{ employee.statsCompareTo }}</td>
+            </tr>
+            <tr>
+                <th>Statscompareoption</th>
+                <td>{{ employee.statsCompareOption }}</td>
+            </tr>
+            <tr>
+                <th>Preselectdaterange</th>
+                <td>{{ employee.preselectDateRange }}</td>
+            </tr>
+            <tr>
+                <th>Bocolor</th>
+                <td>{{ employee.boColor }}</td>
+            </tr>
+            <tr>
+                <th>Active</th>
+                <td>{{ employee.active }}</td>
+            </tr>
+            <tr>
+                <th>Optin</th>
+                <td>{{ employee.optin }}</td>
+            </tr>
+            <tr>
+                <th>Idlastorder</th>
+                <td>{{ employee.idLastOrder }}</td>
+            </tr>
+            <tr>
+                <th>Idlastcustomermessage</th>
+                <td>{{ employee.idLastCustomerMessage }}</td>
+            </tr>
+            <tr>
+                <th>Idlastcustomer</th>
+                <td>{{ employee.idLastCustomer }}</td>
+            </tr>
+            <tr>
+                <th>Lastconnectiondate</th>
+                <td>{{ employee.lastConnectionDate }}</td>
+            </tr>
+            <tr>
+                <th>Vendor</th>
+                <td>{{ employee.vendor }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('employee_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('employee_edit', { 'id': employee.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

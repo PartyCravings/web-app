@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Parties list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Partyeditorid</th>
+                <th>Link</th>
+                <th>Ispreregistered</th>
+                <th>Vendorid</th>
+                <th>Vendorsgroupsid</th>
+                <th>Customerid</th>
+                <th>Issecured</th>
+                <th>Securityregid</th>
+                <th>Coordinateslat</th>
+                <th>Coordinateslong</th>
+                <th>Rating</th>
+                <th>Partyrating</th>
+                <th>Class</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Preregistrationnumber</th>
+                <th>Metatitle</th>
+                <th>Metadescription</th>
+                <th>Rsvp</th>
+                <th>Dateadd</th>
+                <th>Dateupd</th>
+                <th>Deleted</th>
+                <th>Suspended</th>
+                <th>Enabled</th>
+                <th>Totalguest</th>
+                <th>Totalcost</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for party in parties %}
+            <tr>
+                <td><a href="{{ path('party_show', { 'id': party.id }) }}">{{ party.id }}</a></td>
+                <td>{{ party.partyeditorId }}</td>
+                <td>{{ party.link }}</td>
+                <td>{% if party.isPreregistered %}Yes{% else %}No{% endif %}</td>
+                <td>{{ party.vendorId }}</td>
+                <td>{{ party.vendorsGroupsId }}</td>
+                <td>{{ party.customerId }}</td>
+                <td>{% if party.isSecured %}Yes{% else %}No{% endif %}</td>
+                <td>{{ party.securityRegId }}</td>
+                <td>{{ party.coordinatesLat }}</td>
+                <td>{{ party.coordinatesLong }}</td>
+                <td>{{ party.rating }}</td>
+                <td>{{ party.partyRating }}</td>
+                <td>{{ party.class }}</td>
+                <td>{{ party.category }}</td>
+                <td>{{ party.description }}</td>
+                <td>{{ party.preregistrationNumber }}</td>
+                <td>{{ party.metaTitle }}</td>
+                <td>{{ party.metaDescription }}</td>
+                <td>{{ party.rsvp }}</td>
+                <td>{% if party.dateAdd %}{{ party.dateAdd|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if party.dateUpd %}{{ party.dateUpd|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if party.deleted %}Yes{% else %}No{% endif %}</td>
+                <td>{% if party.suspended %}Yes{% else %}No{% endif %}</td>
+                <td>{% if party.enabled %}Yes{% else %}No{% endif %}</td>
+                <td>{{ party.totalGuest }}</td>
+                <td>{{ party.totalCost }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('party_show', { 'id': party.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('party_edit', { 'id': party.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('party_new') }}">Create a new party</a>
+        </li>
+    </ul>
+{% endblock %}

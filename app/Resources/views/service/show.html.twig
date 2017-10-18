@@ -1,0 +1,260 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Service</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ service.id }}</td>
+            </tr>
+            <tr>
+                <th>Vendorid</th>
+                <td>{{ service.vendorId }}</td>
+            </tr>
+            <tr>
+                <th>Manufacturerid</th>
+                <td>{{ service.manufacturerId }}</td>
+            </tr>
+            <tr>
+                <th>Categorydefaultid</th>
+                <td>{{ service.categoryDefaultId }}</td>
+            </tr>
+            <tr>
+                <th>Vendordefaultid</th>
+                <td>{{ service.vendorDefaultId }}</td>
+            </tr>
+            <tr>
+                <th>Taxrulesid</th>
+                <td>{{ service.taxRulesId }}</td>
+            </tr>
+            <tr>
+                <th>Onsale</th>
+                <td>{{ service.onSale }}</td>
+            </tr>
+            <tr>
+                <th>Approved</th>
+                <td>{{ service.approved }}</td>
+            </tr>
+            <tr>
+                <th>Deleted</th>
+                <td>{{ service.deleted }}</td>
+            </tr>
+            <tr>
+                <th>Suspended</th>
+                <td>{{ service.suspended }}</td>
+            </tr>
+            <tr>
+                <th>Quantity</th>
+                <td>{{ service.quantity }}</td>
+            </tr>
+            <tr>
+                <th>Minimalquantiy</th>
+                <td>{{ service.minimalQuantiy }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ service.price }}</td>
+            </tr>
+            <tr>
+                <th>Wholesaleprice</th>
+                <td>{{ service.wholesalePrice }}</td>
+            </tr>
+            <tr>
+                <th>Wholesalethreshold</th>
+                <td>{{ service.wholesaleThreshold }}</td>
+            </tr>
+            <tr>
+                <th>Unitpriceratio</th>
+                <td>{{ service.unitPriceRatio }}</td>
+            </tr>
+            <tr>
+                <th>Additionalshippingcost</th>
+                <td>{{ service.additionalShippingCost }}</td>
+            </tr>
+            <tr>
+                <th>Reference</th>
+                <td>{{ service.reference }}</td>
+            </tr>
+            <tr>
+                <th>Location</th>
+                <td>{{ service.location }}</td>
+            </tr>
+            <tr>
+                <th>Loccoordinates</th>
+                <td>{{ service.locCoordinates }}</td>
+            </tr>
+            <tr>
+                <th>Width</th>
+                <td>{{ service.width }}</td>
+            </tr>
+            <tr>
+                <th>Height</th>
+                <td>{{ service.height }}</td>
+            </tr>
+            <tr>
+                <th>Weight</th>
+                <td>{{ service.weight }}</td>
+            </tr>
+            <tr>
+                <th>Lenght</th>
+                <td>{{ service.lenght }}</td>
+            </tr>
+            <tr>
+                <th>Outofstock</th>
+                <td>{{ service.outOfStock }}</td>
+            </tr>
+            <tr>
+                <th>Quantitydiscount</th>
+                <td>{{ service.quantityDiscount }}</td>
+            </tr>
+            <tr>
+                <th>Customizable</th>
+                <td>{{ service.customizable }}</td>
+            </tr>
+            <tr>
+                <th>Uploadedfiles</th>
+                <td>{{ service.uploadedFiles }}</td>
+            </tr>
+            <tr>
+                <th>Textfields</th>
+                <td>{{ service.textFields }}</td>
+            </tr>
+            <tr>
+                <th>Active</th>
+                <td>{{ service.active }}</td>
+            </tr>
+            <tr>
+                <th>Redirecttype</th>
+                <td>{{ service.redirectType }}</td>
+            </tr>
+            <tr>
+                <th>Idproductredirected</th>
+                <td>{{ service.idProductRedirected }}</td>
+            </tr>
+            <tr>
+                <th>Availablefororder</th>
+                <td>{{ service.availableForOrder }}</td>
+            </tr>
+            <tr>
+                <th>Availabledate</th>
+                <td>{{ service.availableDate }}</td>
+            </tr>
+            <tr>
+                <th>Servicecondition</th>
+                <td>{{ service.serviceCondition }}</td>
+            </tr>
+            <tr>
+                <th>Showprice</th>
+                <td>{{ service.showPrice }}</td>
+            </tr>
+            <tr>
+                <th>Indexed</th>
+                <td>{{ service.indexed }}</td>
+            </tr>
+            <tr>
+                <th>Visibility</th>
+                <td>{{ service.visibility }}</td>
+            </tr>
+            <tr>
+                <th>Dateadd</th>
+                <td>{{ service.dateAdd }}</td>
+            </tr>
+            <tr>
+                <th>Dateupd</th>
+                <td>{{ service.dateUpd }}</td>
+            </tr>
+            <tr>
+                <th>Advancedstockmanagementt</th>
+                <td>{{ service.advancedStockManagementt }}</td>
+            </tr>
+            <tr>
+                <th>Packstocktype</th>
+                <td>{{ service.packStockType }}</td>
+            </tr>
+            <tr>
+                <th>Attachments</th>
+                <td>{{ service.attachments }}</td>
+            </tr>
+            <tr>
+                <th>Attribute</th>
+                <td>{{ service.attribute }}</td>
+            </tr>
+            <tr>
+                <th>Attributecombination</th>
+                <td>{{ service.attributeCombination }}</td>
+            </tr>
+            <tr>
+                <th>Attributeimage</th>
+                <td>{{ service.attributeImage }}</td>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <td>{{ service.category }}</td>
+            </tr>
+            <tr>
+                <th>Class</th>
+                <td>{{ service.class }}</td>
+            </tr>
+            <tr>
+                <th>Attributevendor</th>
+                <td>{{ service.attributeVendor }}</td>
+            </tr>
+            <tr>
+                <th>Carrier</th>
+                <td>{{ service.carrier }}</td>
+            </tr>
+            <tr>
+                <th>Countrytax</th>
+                <td>{{ service.countryTax }}</td>
+            </tr>
+            <tr>
+                <th>Download</th>
+                <td>{{ service.download }}</td>
+            </tr>
+            <tr>
+                <th>Vendorreductioncache</th>
+                <td>{{ service.vendorReductionCache }}</td>
+            </tr>
+            <tr>
+                <th>Language</th>
+                <td>{{ service.language }}</td>
+            </tr>
+            <tr>
+                <th>Sale</th>
+                <td>{{ service.sale }}</td>
+            </tr>
+            <tr>
+                <th>Vendor</th>
+                <td>{{ service.vendor }}</td>
+            </tr>
+            <tr>
+                <th>Supplier</th>
+                <td>{{ service.supplier }}</td>
+            </tr>
+            <tr>
+                <th>Tag</th>
+                <td>{{ service.tag }}</td>
+            </tr>
+            <tr>
+                <th>Products</th>
+                <td>{{ service.products }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('service_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('service_edit', { 'id': service.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

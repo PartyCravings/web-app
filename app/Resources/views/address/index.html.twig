@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Addresses list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Idstate</th>
+                <th>Idmanufacturer</th>
+                <th>Idsupplier</th>
+                <th>Idwarehouse</th>
+                <th>Alias</th>
+                <th>Company</th>
+                <th>Address1</th>
+                <th>Address2</th>
+                <th>Postcode</th>
+                <th>City</th>
+                <th>Other</th>
+                <th>Phone</th>
+                <th>Phonenumber</th>
+                <th>Vatnumber</th>
+                <th>Dateadd</th>
+                <th>Dateupd</th>
+                <th>Active</th>
+                <th>Deleted</th>
+                <th>Suspende</th>
+                <th>Format</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for address in addresses %}
+            <tr>
+                <td><a href="{{ path('address_show', { 'id': address.id }) }}">{{ address.id }}</a></td>
+                <td>{{ address.idState }}</td>
+                <td>{{ address.idManufacturer }}</td>
+                <td>{{ address.idSupplier }}</td>
+                <td>{{ address.idWarehouse }}</td>
+                <td>{{ address.alias }}</td>
+                <td>{{ address.company }}</td>
+                <td>{{ address.address1 }}</td>
+                <td>{{ address.address2 }}</td>
+                <td>{{ address.postcode }}</td>
+                <td>{{ address.city }}</td>
+                <td>{{ address.other }}</td>
+                <td>{{ address.phone }}</td>
+                <td>{{ address.phoneNumber }}</td>
+                <td>{{ address.vatNumber }}</td>
+                <td>{{ address.dateAdd }}</td>
+                <td>{{ address.dateUpd }}</td>
+                <td>{{ address.active }}</td>
+                <td>{{ address.deleted }}</td>
+                <td>{{ address.suspende }}</td>
+                <td>{{ address.format }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('address_show', { 'id': address.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('address_edit', { 'id': address.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('address_new') }}">Create a new address</a>
+        </li>
+    </ul>
+{% endblock %}

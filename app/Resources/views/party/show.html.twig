@@ -1,0 +1,132 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Party</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ party.id }}</td>
+            </tr>
+            <tr>
+                <th>Partyeditorid</th>
+                <td>{{ party.partyeditorId }}</td>
+            </tr>
+            <tr>
+                <th>Link</th>
+                <td>{{ party.link }}</td>
+            </tr>
+            <tr>
+                <th>Ispreregistered</th>
+                <td>{% if party.isPreregistered %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Vendorid</th>
+                <td>{{ party.vendorId }}</td>
+            </tr>
+            <tr>
+                <th>Vendorsgroupsid</th>
+                <td>{{ party.vendorsGroupsId }}</td>
+            </tr>
+            <tr>
+                <th>Customerid</th>
+                <td>{{ party.customerId }}</td>
+            </tr>
+            <tr>
+                <th>Issecured</th>
+                <td>{% if party.isSecured %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Securityregid</th>
+                <td>{{ party.securityRegId }}</td>
+            </tr>
+            <tr>
+                <th>Coordinateslat</th>
+                <td>{{ party.coordinatesLat }}</td>
+            </tr>
+            <tr>
+                <th>Coordinateslong</th>
+                <td>{{ party.coordinatesLong }}</td>
+            </tr>
+            <tr>
+                <th>Rating</th>
+                <td>{{ party.rating }}</td>
+            </tr>
+            <tr>
+                <th>Partyrating</th>
+                <td>{{ party.partyRating }}</td>
+            </tr>
+            <tr>
+                <th>Class</th>
+                <td>{{ party.class }}</td>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <td>{{ party.category }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ party.description }}</td>
+            </tr>
+            <tr>
+                <th>Preregistrationnumber</th>
+                <td>{{ party.preregistrationNumber }}</td>
+            </tr>
+            <tr>
+                <th>Metatitle</th>
+                <td>{{ party.metaTitle }}</td>
+            </tr>
+            <tr>
+                <th>Metadescription</th>
+                <td>{{ party.metaDescription }}</td>
+            </tr>
+            <tr>
+                <th>Rsvp</th>
+                <td>{{ party.rsvp }}</td>
+            </tr>
+            <tr>
+                <th>Dateadd</th>
+                <td>{% if party.dateAdd %}{{ party.dateAdd|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Dateupd</th>
+                <td>{% if party.dateUpd %}{{ party.dateUpd|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Deleted</th>
+                <td>{% if party.deleted %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Suspended</th>
+                <td>{% if party.suspended %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Enabled</th>
+                <td>{% if party.enabled %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Totalguest</th>
+                <td>{{ party.totalGuest }}</td>
+            </tr>
+            <tr>
+                <th>Totalcost</th>
+                <td>{{ party.totalCost }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('party_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('party_edit', { 'id': party.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

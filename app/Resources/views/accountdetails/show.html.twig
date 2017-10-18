@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Accountdetail</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ accountDetail.id }}</td>
+            </tr>
+            <tr>
+                <th>Birthday</th>
+                <td>{% if accountDetail.birthday %}{{ accountDetail.birthday|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Accountgroupid</th>
+                <td>{{ accountDetail.accountGroupId }}</td>
+            </tr>
+            <tr>
+                <th>Countryid</th>
+                <td>{{ accountDetail.countryId }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ accountDetail.firstname }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ accountDetail.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Financialid</th>
+                <td>{{ accountDetail.financialId }}</td>
+            </tr>
+            <tr>
+                <th>Newsletterid</th>
+                <td>{{ accountDetail.newsletterId }}</td>
+            </tr>
+            <tr>
+                <th>Wishlistid</th>
+                <td>{{ accountDetail.wishlistId }}</td>
+            </tr>
+            <tr>
+                <th>Createdfromip</th>
+                <td>{{ accountDetail.createdFromIp }}</td>
+            </tr>
+            <tr>
+                <th>Updatedfromip</th>
+                <td>{{ accountDetail.updatedFromIp }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('accountdetails_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('accountdetails_edit', { 'id': accountDetail.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Preregistration</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ preRegistration.id }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ preRegistration.firstname }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ preRegistration.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Phonenumber</th>
+                <td>{{ preRegistration.phoneNumber }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ preRegistration.email }}</td>
+            </tr>
+            <tr>
+                <th>Location</th>
+                <td>{{ preRegistration.location }}</td>
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <td>{{ preRegistration.gender }}</td>
+            </tr>
+            <tr>
+                <th>Agerangeid</th>
+                <td>{{ preRegistration.ageRangeId }}</td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td>{{ preRegistration.age }}</td>
+            </tr>
+            <tr>
+                <th>Servicecategoryidisinterested</th>
+                <td>{{ preRegistration.serviceCategoryIdIsInterested }}</td>
+            </tr>
+            <tr>
+                <th>Guestid</th>
+                <td>{{ preRegistration.guestId }}</td>
+            </tr>
+            <tr>
+                <th>Customerid</th>
+                <td>{{ preRegistration.customerId }}</td>
+            </tr>
+            <tr>
+                <th>Metatitle</th>
+                <td>{{ preRegistration.metaTitle }}</td>
+            </tr>
+            <tr>
+                <th>Isenabled</th>
+                <td>{% if preRegistration.isEnabled %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Isdeleted</th>
+                <td>{% if preRegistration.isDeleted %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Metadescription</th>
+                <td>{{ preRegistration.metaDescription }}</td>
+            </tr>
+            <tr>
+                <th>Dateadd</th>
+                <td>{% if preRegistration.dateAdd %}{{ preRegistration.dateAdd|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Dateupd</th>
+                <td>{% if preRegistration.dateUpd %}{{ preRegistration.dateUpd|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('preregistration_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('preregistration_edit', { 'id': preRegistration.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

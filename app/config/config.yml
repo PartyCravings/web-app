@@ -62,10 +62,10 @@ doctrine:
         dbname: '%database_name%'
         user: '%database_user%'
         password: '%database_password%'
-        charset: utf8mb4
-        default_table_options:
-            charset: utf8mb4
-            collate: utf8mb4_unicode_ci
+        charset: UTF8
+        #default_table_options:
+        #    charset: utf8
+        #    collate: utf8_unicode_ci
         # if using pdo_sqlite as your database driver:
         #   1. add the path in parameters.yml
         #     e.g. database_path: "%kernel.root_dir%/../var/data/data.sqlite"
@@ -161,6 +161,7 @@ jms_i18n_routing:
 
 #Stof Doctrine extensions Configuration
 stof_doctrine_extensions:
+    default_locale: '%locale%'
     orm:
         default:
             tree:           true
@@ -187,6 +188,8 @@ fos_oauth_server:
     auth_code_class:     AppBundle\Entity\AuthCode
     service:
         user_provider: AppBundle\Security\FOSUBUserProvider
+        options:
+            supported_scopes: scope1 scope2
 
 #KnpGaufrette Bundle Configurations
 knp_gaufrette:
@@ -195,18 +198,65 @@ knp_gaufrette:
             local:
                 directory:  '%kernel.project_dir%/web/uploads'
                 create:     true
+
+        gallery_database:
+            doctrine_dbal:
+                connection_name: default
+                table: media
+                columns:
+                    key: id
+                    content: name
+                    mtime: dateAdd
+                    checksum: filesize
+
+        gallery_apc:
+            apc:
+                prefix: APC_party_gallery.
+                ttl: 0
+        gallery_cache:
+            cache:
+                source: gallery
+                cache: gallery_database
+                ttl: 7200
     filesystems:
         gallery:
-            adapter: gallery
+            adapter: gallery_cache
+    stream_wrapper: ~
 
 #Oneup Uploader Bundle Configurations
 oneup_uploader:
+    orphanage:
+        maxage: 86400
+        directory: ~
+
     mappings:
         gallery:
-            frontend: dropzone
+            frontend: blueimp
             storage:
                 type: gaufrette
                 filesystem: gaufrette.gallery_filesystem
+                sync_buffer_size: 10M
+                stream_wrapper: gaufrette://gallery/
+
+            allowed_mimetypes:     []
+            disallowed_mimetypes:  []
+            error_handler:        oneup_uploader.error_handler.noop
+            max_size:             9223372036854775807
+            use_orphanage:        true
+            enable_progress:      true
+            enable_cancelation:   true
+            namer:                oneup_uploader.namer.uniqid
+
+    chunks:
+        maxage: 86400
+        storage:
+            type: gaufrette
+            filesystem: gaufrette.gallery_filesystem
+            prefix: chunks
+            stream_wrapper: gaufrette://gallery/
+            sync_buffer_size:   10M
+
+        load_distribution:    true
 
 #Gravatar Bundle Configurations
 ornicar_gravatar:
@@ -216,4 +266,4 @@ ornicar_gravatar:
 
 #Noxlogic Rate Limit Bundle Configuration
 noxlogic_rate_limit:
-    enabled: false
+    enabled: true

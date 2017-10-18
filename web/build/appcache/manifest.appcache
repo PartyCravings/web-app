@@ -1,12 +1,12 @@
 CACHE MANIFEST
-#ver:2017-10-14 19:58:17
+#ver:2017-10-16 21:23:21
 #plugin:4.8.4
 
 CACHE:
 /build/manifest.json
 /build/manifest-main.json
 /build/app.21c16eea51f15f80e0182a63d76dba89.css
-/build/global.2dc54313e02e6ac6e02f4dd28eef2de5.css
+/build/global.37d1445d3215713e590aea10d78e38f1.css
 /build/app.dd9d2742ca099bd2415f.js
 /build/img.70c74d82bfe3a3d6b2b8.js
 /build/fonts/icons.b06871f2.ttf

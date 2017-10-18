@@ -119,7 +119,7 @@ Encore
     }
     }))
 
-    .addPlugin(
+    /*.addPlugin(
         new HtmlCriticalPlugin({
       base: 'web',
       src: 'styles.html',
@@ -132,7 +132,7 @@ Encore
       penthouse: {
         blockJSRequests: false,
       }
-    }))
+    }))*/
     // create hashed filenames (e.g. app.abc123.css)
     .enableVersioning()
 ;

@@ -45,3 +45,7 @@ fos_oauth_server_authorize:
     resource: "@FOSOAuthServerBundle/Resources/config/routing/authorize.xml"
     options:
         utf8: true
+#OneUp Uploader Bundle Routes
+oneup_uploader:
+    resource: .
+    type: uploader

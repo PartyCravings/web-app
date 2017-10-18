@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Account</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ account.id }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ account.slug }}</td>
+            </tr>
+            <tr>
+                <th>Deletedat</th>
+                <td>{% if account.deletedAt %}{{ account.deletedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Issuspended</th>
+                <td>{% if account.isSuspended %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Facebook_id</th>
+                <td>{{ account.facebookid }}</td>
+            </tr>
+            <tr>
+                <th>Facebook_access_token</th>
+                <td>{{ account.facebookaccesstoken }}</td>
+            </tr>
+            <tr>
+                <th>Google_id</th>
+                <td>{{ account.googleid }}</td>
+            </tr>
+            <tr>
+                <th>Google_access_token</th>
+                <td>{{ account.googleaccesstoken }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('accounts_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('accounts_edit', { 'id': account.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

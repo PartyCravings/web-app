@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Preregistrations list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Phonenumber</th>
+                <th>Email</th>
+                <th>Location</th>
+                <th>Gender</th>
+                <th>Agerangeid</th>
+                <th>Age</th>
+                <th>Servicecategoryidisinterested</th>
+                <th>Guestid</th>
+                <th>Customerid</th>
+                <th>Metatitle</th>
+                <th>Isenabled</th>
+                <th>Isdeleted</th>
+                <th>Metadescription</th>
+                <th>Dateadd</th>
+                <th>Dateupd</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for preRegistration in preRegistrations %}
+            <tr>
+                <td><a href="{{ path('preregistration_show', { 'id': preRegistration.id }) }}">{{ preRegistration.id }}</a></td>
+                <td>{{ preRegistration.firstname }}</td>
+                <td>{{ preRegistration.lastname }}</td>
+                <td>{{ preRegistration.phoneNumber }}</td>
+                <td>{{ preRegistration.email }}</td>
+                <td>{{ preRegistration.location }}</td>
+                <td>{{ preRegistration.gender }}</td>
+                <td>{{ preRegistration.ageRangeId }}</td>
+                <td>{{ preRegistration.age }}</td>
+                <td>{{ preRegistration.serviceCategoryIdIsInterested }}</td>
+                <td>{{ preRegistration.guestId }}</td>
+                <td>{{ preRegistration.customerId }}</td>
+                <td>{{ preRegistration.metaTitle }}</td>
+                <td>{% if preRegistration.isEnabled %}Yes{% else %}No{% endif %}</td>
+                <td>{% if preRegistration.isDeleted %}Yes{% else %}No{% endif %}</td>
+                <td>{{ preRegistration.metaDescription }}</td>
+                <td>{% if preRegistration.dateAdd %}{{ preRegistration.dateAdd|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if preRegistration.dateUpd %}{{ preRegistration.dateUpd|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('preregistration_show', { 'id': preRegistration.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('preregistration_edit', { 'id': preRegistration.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('preregistration_new') }}">Create a new preRegistration</a>
+        </li>
+    </ul>
+{% endblock %}

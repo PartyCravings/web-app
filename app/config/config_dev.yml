@@ -30,12 +30,41 @@ monolog:
             host: 127.0.0.1:9911
         # uncomment to get logging in your browser
         # you may have to allow bigger header sizes in your Web server configuration
-        firephp:
-            type: firephp
-            level: info
-        chromephp:
-            type: chromephp
-            level: info
+        #firephp:
+        #    type: firephp
+        #    level: info
+        #chromephp:
+        #    type: chromephp
+        #    level: info
 
 #swiftmailer:
 #    delivery_addresses: ['me@example.com']
+
+#Noxlogic Rate Limit Bundle Configuration
+noxlogic_rate_limit:
+    enabled: false
+
+#HWIOAuth Bundle Configuration
+hwi_oauth:
+    #this is my custom user provider, created from FOSUBUserProvider - will manage the 
+    #automatic user registration on your site, with data from the provider (facebook. google, etc.)
+    #and also, the connecting part (get the token and the user_id)
+    connect:
+        account_connector: AppBundle\Security\FOSUBUserProvider
+    # name of the firewall in which this bundle is active, this setting MUST be set
+    firewall_names: [main]
+    fosub:
+        username_iterations: 30
+        properties:
+            # these properties will be used/redefined later in the custom FOSUBUserProvider service.
+            google: google_id
+    #Peer Certificate Verification
+    http_client:
+        verify_peer: false
+
+    resource_owners:
+        google:
+            type:                google
+            client_id:           "%google_app_id%"
+            client_secret:       "%google_app_secret%"
+            scope:               "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"

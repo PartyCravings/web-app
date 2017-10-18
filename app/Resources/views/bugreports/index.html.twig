@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Bugreports list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Errorcode</th>
+                <th>Visibility</th>
+                <th>Type</th>
+                <th>Subject</th>
+                <th>Status</th>
+                <th>Severity</th>
+                <th>Phpversion</th>
+                <th>Line</th>
+                <th>File</th>
+                <th>Dupliacte</th>
+                <th>Blocks</th>
+                <th>Updatedby</th>
+                <th>Dateupd</th>
+                <th>Lastactivity</th>
+                <th>Dateadd</th>
+                <th>Description</th>
+                <th>Nameid</th>
+                <th>Name</th>
+                <th>Assignedto</th>
+                <th>Bugreportid</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for bugReport in bugReports %}
+            <tr>
+                <td><a href="{{ path('bugreports_show', { 'id': bugReport.id }) }}">{{ bugReport.id }}</a></td>
+                <td>{{ bugReport.errorCode }}</td>
+                <td>{{ bugReport.visibility }}</td>
+                <td>{{ bugReport.type }}</td>
+                <td>{{ bugReport.subject }}</td>
+                <td>{{ bugReport.status }}</td>
+                <td>{{ bugReport.severity }}</td>
+                <td>{{ bugReport.phpVersion }}</td>
+                <td>{{ bugReport.line }}</td>
+                <td>{{ bugReport.file }}</td>
+                <td>{% if bugReport.dupliacte %}Yes{% else %}No{% endif %}</td>
+                <td>{{ bugReport.blocks }}</td>
+                <td>{{ bugReport.updatedBy }}</td>
+                <td>{% if bugReport.dateUpd %}{{ bugReport.dateUpd|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if bugReport.lastActivity %}{{ bugReport.lastActivity|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if bugReport.dateAdd %}{{ bugReport.dateAdd|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ bugReport.description }}</td>
+                <td>{{ bugReport.nameId }}</td>
+                <td>{{ bugReport.name }}</td>
+                <td>{{ bugReport.assignedTo }}</td>
+                <td>{{ bugReport.bugReportId }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('bugreports_show', { 'id': bugReport.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('bugreports_edit', { 'id': bugReport.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('bugreports_new') }}">Create a new bugReport</a>
+        </li>
+    </ul>
+{% endblock %}

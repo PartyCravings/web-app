@@ -89,8 +89,9 @@
     }
 
     #footer{
-    text-align: center; 
+    text-align: center;
     background-color: #FFB74D;
+    padding-top: 20px;
     }
 
     #context{
@@ -99,3 +100,17 @@
       #content{
       background-color: #fff7e9 !important;
       }
+
+    a{
+      color: black;
+    }
+
+    .brand-image{
+    width: 100px;
+    height: 40px;
+    text-align: center; 
+    }
+
+    #site-statement{
+    background-color: #ffe6b5;
+    }

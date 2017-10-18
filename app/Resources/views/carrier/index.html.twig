@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Carriers list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Idreference</th>
+                <th>Idtaxrulesgroup</th>
+                <th>Name</th>
+                <th>Url</th>
+                <th>Active</th>
+                <th>Deleted</th>
+                <th>Suspended</th>
+                <th>Shippinghandling</th>
+                <th>Rangebehavior</th>
+                <th>Ismodule</th>
+                <th>Isfree</th>
+                <th>Shippingexternal</th>
+                <th>Needrange</th>
+                <th>Externalmodulename</th>
+                <th>Shippingmethod</th>
+                <th>Position</th>
+                <th>Maxwidth</th>
+                <th>Maxheight</th>
+                <th>Maxdepth</th>
+                <th>Maxweight</th>
+                <th>Grade</th>
+                <th>Group</th>
+                <th>Language</th>
+                <th>Vendor</th>
+                <th>Taxrulesgroupvendor</th>
+                <th>Zone</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for carrier in carriers %}
+            <tr>
+                <td><a href="{{ path('carrier_show', { 'id': carrier.id }) }}">{{ carrier.id }}</a></td>
+                <td>{{ carrier.idReference }}</td>
+                <td>{{ carrier.idTaxRulesGroup }}</td>
+                <td>{{ carrier.name }}</td>
+                <td>{{ carrier.url }}</td>
+                <td>{{ carrier.active }}</td>
+                <td>{{ carrier.deleted }}</td>
+                <td>{{ carrier.suspended }}</td>
+                <td>{{ carrier.shippingHandling }}</td>
+                <td>{{ carrier.rangeBehavior }}</td>
+                <td>{% if carrier.isModule %}Yes{% else %}No{% endif %}</td>
+                <td>{% if carrier.isFree %}Yes{% else %}No{% endif %}</td>
+                <td>{{ carrier.shippingExternal }}</td>
+                <td>{{ carrier.needRange }}</td>
+                <td>{{ carrier.externalModuleName }}</td>
+                <td>{{ carrier.shippingMethod }}</td>
+                <td>{{ carrier.position }}</td>
+                <td>{{ carrier.maxWidth }}</td>
+                <td>{{ carrier.maxHeight }}</td>
+                <td>{{ carrier.maxDepth }}</td>
+                <td>{{ carrier.maxWeight }}</td>
+                <td>{{ carrier.grade }}</td>
+                <td>{{ carrier.group }}</td>
+                <td>{{ carrier.language }}</td>
+                <td>{{ carrier.vendor }}</td>
+                <td>{{ carrier.taxRulesGroupVendor }}</td>
+                <td>{{ carrier.zone }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('carrier_show', { 'id': carrier.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('carrier_edit', { 'id': carrier.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('carrier_new') }}">Create a new carrier</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Accountdetails list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Birthday</th>
+                <th>Accountgroupid</th>
+                <th>Countryid</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Financialid</th>
+                <th>Newsletterid</th>
+                <th>Wishlistid</th>
+                <th>Createdfromip</th>
+                <th>Updatedfromip</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for accountDetail in accountDetails %}
+            <tr>
+                <td><a href="{{ path('accountdetails_show', { 'id': accountDetail.id }) }}">{{ accountDetail.id }}</a></td>
+                <td>{% if accountDetail.birthday %}{{ accountDetail.birthday|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ accountDetail.accountGroupId }}</td>
+                <td>{{ accountDetail.countryId }}</td>
+                <td>{{ accountDetail.firstname }}</td>
+                <td>{{ accountDetail.lastname }}</td>
+                <td>{{ accountDetail.financialId }}</td>
+                <td>{{ accountDetail.newsletterId }}</td>
+                <td>{{ accountDetail.wishlistId }}</td>
+                <td>{{ accountDetail.createdFromIp }}</td>
+                <td>{{ accountDetail.updatedFromIp }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('accountdetails_show', { 'id': accountDetail.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('accountdetails_edit', { 'id': accountDetail.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('accountdetails_new') }}">Create a new accountDetail</a>
+        </li>
+    </ul>
+{% endblock %}
