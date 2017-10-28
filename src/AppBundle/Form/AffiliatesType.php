@@ -33,6 +33,4 @@ class AffiliatesType extends AbstractType
     {
         return 'appbundle_affiliates';
     }
-
-
 }

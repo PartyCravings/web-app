@@ -33,6 +33,4 @@ class CarrierType extends AbstractType
     {
         return 'appbundle_carrier';
     }
-
-
 }

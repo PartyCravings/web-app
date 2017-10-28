@@ -33,6 +33,4 @@ class BugReportsType extends AbstractType
     {
         return 'appbundle_bugreports';
     }
-
-
 }

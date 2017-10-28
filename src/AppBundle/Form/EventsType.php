@@ -33,6 +33,4 @@ class EventsType extends AbstractType
     {
         return 'appbundle_events';
     }
-
-
 }

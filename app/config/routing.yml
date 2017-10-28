@@ -13,6 +13,7 @@ google_login:
 app:
     resource: '@AppBundle/Controller/'
     type:     annotation
+    host: "{_country}.%hostname%"
     options:
         utf8: true
 

@@ -1,11 +1,259 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2017-10-15T13:21:24Z" source-language="en" target-language="de" datatype="plaintext" original="not.available">
+  <file date="2017-10-23T15:18:03Z" source-language="en" target-language="de" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
     </header>
     <body>
+      <trans-unit id="8ea921c751f24cba3540043cfd05760a792a0cfb" resname="accesstoken_delete">
+        <source>/{_country}/accesstoken/{id}</source>
+        <target state="new">/{_country}/accesstoken/{id}</target>
+      </trans-unit>
+      <trans-unit id="ec566ed25e44cb13e479cce8e0770dfaf40627e8" resname="accesstoken_edit">
+        <source>/{_country}/accesstoken/{id}/edit</source>
+        <target state="new">/{_country}/accesstoken/{id}/edit</target>
+      </trans-unit>
+      <trans-unit id="46e0ad56597004e60bb9dec170c250cd4dd26955" resname="accesstoken_index">
+        <source>/{_country}/accesstoken/</source>
+        <target state="new">/{_country}/accesstoken/</target>
+      </trans-unit>
+      <trans-unit id="cd528d4f0943e980b1b3468c8db12925babf709b" resname="accesstoken_new">
+        <source>/{_country}/accesstoken/new</source>
+        <target state="new">/{_country}/accesstoken/new</target>
+      </trans-unit>
+      <trans-unit id="ccbd2411aed969cb3fb66f711f92d6d0f816ade9" resname="accesstoken_show">
+        <source>/{_country}/accesstoken/{id}</source>
+        <target state="new">/{_country}/accesstoken/{id}</target>
+      </trans-unit>
+      <trans-unit id="2e4cfed30ae99e4fbc7578c586fe38326f48279c" resname="accountdetails_delete">
+        <source>/{_country}/accountdetails/{id}</source>
+        <target state="new">/{_country}/accountdetails/{id}</target>
+      </trans-unit>
+      <trans-unit id="f0997e5a51da29bb9011713172bf1a09e5feda3b" resname="accountdetails_edit">
+        <source>/{_country}/accountdetails/{id}/edit</source>
+        <target state="new">/{_country}/accountdetails/{id}/edit</target>
+      </trans-unit>
+      <trans-unit id="c81fe3f0ba209af58313d5ae9b6790432580c6c8" resname="accountdetails_index">
+        <source>/{_country}/accountdetails/</source>
+        <target state="new">/{_country}/accountdetails/</target>
+      </trans-unit>
+      <trans-unit id="30df8328060f880c8bfe402e6df9593ac6cd4d68" resname="accountdetails_new">
+        <source>/{_country}/accountdetails/new</source>
+        <target state="new">/{_country}/accountdetails/new</target>
+      </trans-unit>
+      <trans-unit id="8f768aa4821e6c6119dd041486a868fe11e4b4d6" resname="accountdetails_show">
+        <source>/{_country}/accountdetails/{id}</source>
+        <target state="new">/{_country}/accountdetails/{id}</target>
+      </trans-unit>
+      <trans-unit id="13b25b9d11c35ceb898d2bb1ac44802d826980bc" resname="accounts_delete">
+        <source>/{_country}/accounts/{id}</source>
+        <target state="new">/{_country}/accounts/{id}</target>
+      </trans-unit>
+      <trans-unit id="fd4c6d381f1f0c692a1383fb7c714a37cbfd52d3" resname="accounts_edit">
+        <source>/{_country}/accounts/{id}/edit</source>
+        <target state="new">/{_country}/accounts/{id}/edit</target>
+      </trans-unit>
+      <trans-unit id="d2292ca5d2b04cd555eade978590ba2457bda8b2" resname="accounts_index">
+        <source>/{_country}/accounts/</source>
+        <target state="new">/{_country}/accounts/</target>
+      </trans-unit>
+      <trans-unit id="d17726ff83659dcde19cdaeb9491a83cf436d97b" resname="accounts_new">
+        <source>/{_country}/accounts/new</source>
+        <target state="new">/{_country}/accounts/new</target>
+      </trans-unit>
+      <trans-unit id="30bab432823e8f8318615328ada3a5be8db23fc1" resname="accounts_show">
+        <source>/{_country}/accounts/{id}</source>
+        <target state="new">/{_country}/accounts/{id}</target>
+      </trans-unit>
+      <trans-unit id="1b738dcf8b49c562064fd6fcc5907eb54912b5ef" resname="address_delete">
+        <source>/{_country}/address/{id}</source>
+        <target state="new">/{_country}/address/{id}</target>
+      </trans-unit>
+      <trans-unit id="462e7760dca5e1261c08365909c6f502e228e6e6" resname="address_edit">
+        <source>/{_country}/address/{id}/edit</source>
+        <target state="new">/{_country}/address/{id}/edit</target>
+      </trans-unit>
+      <trans-unit id="a311096f5b9bc8cc2306a61882cdd540c50ac413" resname="address_index">
+        <source>/{_country}/address/</source>
+        <target state="new">/{_country}/address/</target>
+      </trans-unit>
+      <trans-unit id="eb787201c47500722c6d34a0d4259f5951bbd0b4" resname="address_new">
+        <source>/{_country}/address/new</source>
+        <target state="new">/{_country}/address/new</target>
+      </trans-unit>
+      <trans-unit id="a232d9fe996f093d4f526a114de762fee14b41d5" resname="address_show">
+        <source>/{_country}/address/{id}</source>
+        <target state="new">/{_country}/address/{id}</target>
+      </trans-unit>
+      <trans-unit id="305f203163b932df681e176b417af9a0ba1c4125" resname="affiliates_delete">
+        <source>/{_country}/affiliates/{id}</source>
+        <target state="new">/{_country}/affiliates/{id}</target>
+      </trans-unit>
+      <trans-unit id="b0acc4b4cb4bb7186afbd2a29a5c604d1d2ce968" resname="affiliates_edit">
+        <source>/{_country}/affiliates/{id}/edit</source>
+        <target state="new">/{_country}/affiliates/{id}/edit</target>
+      </trans-unit>
+      <trans-unit id="109363d5f39584bfc3df736630c769489a297ef3" resname="affiliates_index">
+        <source>/{_country}/affiliates/</source>
+        <target state="new">/{_country}/affiliates/</target>
+      </trans-unit>
+      <trans-unit id="f5b9fbc8733bfa89fa98b19448bfed643fe14395" resname="affiliates_new">
+        <source>/{_country}/affiliates/new</source>
+        <target state="new">/{_country}/affiliates/new</target>
+      </trans-unit>
+      <trans-unit id="b7c91f40ba6dd00d651265d32cf0d2a782ef7aa2" resname="affiliates_show">
+        <source>/{_country}/affiliates/{id}</source>
+        <target state="new">/{_country}/affiliates/{id}</target>
+      </trans-unit>
+      <trans-unit id="bceea77a8678e3e15715599b866f2f05ffc8be44" resname="bugreports_delete">
+        <source>/{_country}/bugreports/{id}</source>
+        <target state="new">/{_country}/bugreports/{id}</target>
+      </trans-unit>
+      <trans-unit id="35e48670d526e8d40f8975b98d3e66ba4d97b18f" resname="bugreports_edit">
+        <source>/{_country}/bugreports/{id}/edit</source>
+        <target state="new">/{_country}/bugreports/{id}/edit</target>
+      </trans-unit>
+      <trans-unit id="88c018b712f361d96fe03cc1a35a901c78d03f32" resname="bugreports_index">
+        <source>/{_country}/bugreports/</source>
+        <target state="new">/{_country}/bugreports/</target>
+      </trans-unit>
+      <trans-unit id="e381051698bc5b77e057214aa45eb26b41869caa" resname="bugreports_new">
+        <source>/{_country}/bugreports/new</source>
+        <target state="new">/{_country}/bugreports/new</target>
+      </trans-unit>
+      <trans-unit id="c29a33b396d54296a39cc9751aa7225b7ea20462" resname="bugreports_show">
+        <source>/{_country}/bugreports/{id}</source>
+        <target state="new">/{_country}/bugreports/{id}</target>
+      </trans-unit>
+      <trans-unit id="21f908259ae42b1d2a793550b456cb1ee690a702" resname="campaigns_delete">
+        <source>/{_country}/campaigns/{id}</source>
+        <target state="new">/{_country}/campaigns/{id}</target>
+      </trans-unit>
+      <trans-unit id="d6b107b03b4207b91967a954de1a9a2a199503dd" resname="campaigns_edit">
+        <source>/{_country}/campaigns/{id}/edit</source>
+        <target state="new">/{_country}/campaigns/{id}/edit</target>
+      </trans-unit>
+      <trans-unit id="f4b47ac810a7eb4bfb00f5cd6932f67d4ee9d20e" resname="campaigns_index">
+        <source>/{_country}/campaigns/</source>
+        <target state="new">/{_country}/campaigns/</target>
+      </trans-unit>
+      <trans-unit id="8e547ece9f8648e0d0ecae84ef2be03a3de1a02c" resname="campaigns_new">
+        <source>/{_country}/campaigns/new</source>
+        <target state="new">/{_country}/campaigns/new</target>
+      </trans-unit>
+      <trans-unit id="aefeee1a1ed95e44797a35b314b8d38ed12f01be" resname="campaigns_show">
+        <source>/{_country}/campaigns/{id}</source>
+        <target state="new">/{_country}/campaigns/{id}</target>
+      </trans-unit>
+      <trans-unit id="b6ab01322b8058730f20987ed94e98a55544d405" resname="carrier_delete">
+        <source>/{_country}/carrier/{id}</source>
+        <target state="new">/{_country}/carrier/{id}</target>
+      </trans-unit>
+      <trans-unit id="c10e2a4828a2750427aea8b372ff14fc529bf0d9" resname="carrier_edit">
+        <source>/{_country}/carrier/{id}/edit</source>
+        <target state="new">/{_country}/carrier/{id}/edit</target>
+      </trans-unit>
+      <trans-unit id="e353a5914a6f2747633094c8eb43b8711f3ca231" resname="carrier_index">
+        <source>/{_country}/carrier/</source>
+        <target state="new">/{_country}/carrier/</target>
+      </trans-unit>
+      <trans-unit id="758e3506561b3b25c12b2501f2f3a31d65387414" resname="carrier_new">
+        <source>/{_country}/carrier/new</source>
+        <target state="new">/{_country}/carrier/new</target>
+      </trans-unit>
+      <trans-unit id="9e6bd4533a1be764b6adead949ddc0999c5db4d7" resname="carrier_show">
+        <source>/{_country}/carrier/{id}</source>
+        <target state="new">/{_country}/carrier/{id}</target>
+      </trans-unit>
+      <trans-unit id="0a16b489f5e8008c80e0b5c42e377b7e88631d04" resname="category_index">
+        <source>/{_country}/category/</source>
+        <target state="new">/{_country}/category/</target>
+      </trans-unit>
+      <trans-unit id="a6bb81d764284df9503cece57c0cf50d6f1d9fe2" resname="category_show">
+        <source>/{_country}/category/{id}</source>
+        <target state="new">/{_country}/category/{id}</target>
+      </trans-unit>
+      <trans-unit id="c72cdee919ba6ca2b905f83c20fce95c3cff0458" resname="client_delete">
+        <source>/{_country}/client/{id}</source>
+        <target state="new">/{_country}/client/{id}</target>
+      </trans-unit>
+      <trans-unit id="badbc24e436b2a27ed1a8f6e178fa2164e8e7a24" resname="client_edit">
+        <source>/{_country}/client/{id}/edit</source>
+        <target state="new">/{_country}/client/{id}/edit</target>
+      </trans-unit>
+      <trans-unit id="7814765bd4506fdd31f19c908b7345e77aab9ef9" resname="client_index">
+        <source>/{_country}/client/</source>
+        <target state="new">/{_country}/client/</target>
+      </trans-unit>
+      <trans-unit id="33935153c00457e9c63319f44c8c4c6573b43196" resname="client_new">
+        <source>/{_country}/client/new</source>
+        <target state="new">/{_country}/client/new</target>
+      </trans-unit>
+      <trans-unit id="5ee7882f57135611e2b5f0e80a89312fad83dd94" resname="client_show">
+        <source>/{_country}/client/{id}</source>
+        <target state="new">/{_country}/client/{id}</target>
+      </trans-unit>
+      <trans-unit id="980fa510d4fe90c660e84da9f4e84da7ab5ac1ce" resname="delivery_delete">
+        <source>/{_country}/delivery/{id}</source>
+        <target state="new">/{_country}/delivery/{id}</target>
+      </trans-unit>
+      <trans-unit id="512f2c0b02471ad2055bf9314c505b4d6839f4d2" resname="delivery_edit">
+        <source>/{_country}/delivery/{id}/edit</source>
+        <target state="new">/{_country}/delivery/{id}/edit</target>
+      </trans-unit>
+      <trans-unit id="b5d122a9bc1c253a26bd6ea37a507f37ed628fb4" resname="delivery_index">
+        <source>/{_country}/delivery/</source>
+        <target state="new">/{_country}/delivery/</target>
+      </trans-unit>
+      <trans-unit id="0b5ebcdc4c2a08630c53d618973278886f7cf933" resname="delivery_new">
+        <source>/{_country}/delivery/new</source>
+        <target state="new">/{_country}/delivery/new</target>
+      </trans-unit>
+      <trans-unit id="a2b47320df50d585efe786640af96c14a76d7f39" resname="delivery_show">
+        <source>/{_country}/delivery/{id}</source>
+        <target state="new">/{_country}/delivery/{id}</target>
+      </trans-unit>
+      <trans-unit id="c2861312242da754948367e3cb3c111e3e88b98f" resname="employee_delete">
+        <source>/{_country}/employee/{id}</source>
+        <target state="new">/{_country}/employee/{id}</target>
+      </trans-unit>
+      <trans-unit id="caeb206274ef1e504fc362c5edc0c3764da8f3ae" resname="employee_edit">
+        <source>/{_country}/employee/{id}/edit</source>
+        <target state="new">/{_country}/employee/{id}/edit</target>
+      </trans-unit>
+      <trans-unit id="cd55876daa9d0a840d7dc80b015bd60aaf947296" resname="employee_index">
+        <source>/{_country}/employee/</source>
+        <target state="new">/{_country}/employee/</target>
+      </trans-unit>
+      <trans-unit id="3ba03068156baf74a601267c280d3748b93a9a87" resname="employee_new">
+        <source>/{_country}/employee/new</source>
+        <target state="new">/{_country}/employee/new</target>
+      </trans-unit>
+      <trans-unit id="215786647f0a7dd668d25f4d7ef30f72f9afb4c4" resname="employee_show">
+        <source>/{_country}/employee/{id}</source>
+        <target state="new">/{_country}/employee/{id}</target>
+      </trans-unit>
+      <trans-unit id="62e6523992b2fff89f019b3509bad53237422364" resname="events_delete">
+        <source>/{_country}/events/{id}</source>
+        <target state="new">/{_country}/events/{id}</target>
+      </trans-unit>
+      <trans-unit id="91fc87b8df361f1ab50a996464efff052559bd0e" resname="events_edit">
+        <source>/{_country}/events/{id}/edit</source>
+        <target state="new">/{_country}/events/{id}/edit</target>
+      </trans-unit>
+      <trans-unit id="ddcf654fbd195d33982c5814d162aac6be24e03f" resname="events_index">
+        <source>/{_country}/events/</source>
+        <target state="new">/{_country}/events/</target>
+      </trans-unit>
+      <trans-unit id="631b110c5b8170f03b7b887736099eb9fe577b9b" resname="events_new">
+        <source>/{_country}/events/new</source>
+        <target state="new">/{_country}/events/new</target>
+      </trans-unit>
+      <trans-unit id="7b885c78571128e6ec833f7e515d38d9283d1663" resname="events_show">
+        <source>/{_country}/events/{id}</source>
+        <target state="new">/{_country}/events/{id}</target>
+      </trans-unit>
       <trans-unit id="bcbfde1786968dd342a9c571d698c1f0b41ac29c" resname="fos_oauth_server_authorize">
         <source>/oauth/v2/auth</source>
         <target state="new">/oauth/v2/auth</target>
@@ -89,6 +337,146 @@
       <trans-unit id="945048f8639ae57e9f75e5d00155770118fa15da" resname="hwi_oauth_service_redirect">
         <source>/login/{service}</source>
         <target state="new">/login/{service}</target>
+      </trans-unit>
+      <trans-unit id="50eb41f69c2168312037c6a64e2d057c82e59d10" resname="manufacturers_delete">
+        <source>/{_country}/manufacturers/{id}</source>
+        <target state="new">/{_country}/manufacturers/{id}</target>
+      </trans-unit>
+      <trans-unit id="7d9e3f955b2070041755224f2723a9f3c3c35f49" resname="manufacturers_edit">
+        <source>/{_country}/manufacturers/{id}/edit</source>
+        <target state="new">/{_country}/manufacturers/{id}/edit</target>
+      </trans-unit>
+      <trans-unit id="d5ae7f2336ce4fc00d30c09e1f358aa7cbf01f16" resname="manufacturers_index">
+        <source>/{_country}/manufacturers/</source>
+        <target state="new">/{_country}/manufacturers/</target>
+      </trans-unit>
+      <trans-unit id="bb4a2c5647784471eda4c46e1a6a203c2a5c1f65" resname="manufacturers_new">
+        <source>/{_country}/manufacturers/new</source>
+        <target state="new">/{_country}/manufacturers/new</target>
+      </trans-unit>
+      <trans-unit id="17bde783babf45d6190156c0510ef1e96dd78234" resname="manufacturers_show">
+        <source>/{_country}/manufacturers/{id}</source>
+        <target state="new">/{_country}/manufacturers/{id}</target>
+      </trans-unit>
+      <trans-unit id="6f6c1755a1f7a40834800404809c0b7cb2459813" resname="media_delete">
+        <source>/{_country}/media/{id}</source>
+        <target state="new">/{_country}/media/{id}</target>
+      </trans-unit>
+      <trans-unit id="93d3beca8118691f6941e454a61a09b125ad43fb" resname="media_edit">
+        <source>/{_country}/media/{id}/edit</source>
+        <target state="new">/{_country}/media/{id}/edit</target>
+      </trans-unit>
+      <trans-unit id="b29d2bd353833f4bb55ab51503b0c73ac34d2ee2" resname="media_index">
+        <source>/{_country}/media/</source>
+        <target state="new">/{_country}/media/</target>
+      </trans-unit>
+      <trans-unit id="77aa264cfc17e7edccec19666d9f864af4ff8c40" resname="media_new">
+        <source>/{_country}/media/new</source>
+        <target state="new">/{_country}/media/new</target>
+      </trans-unit>
+      <trans-unit id="c280009a9aa8c602c7b8c4a3bd28ef34013e1e75" resname="media_show">
+        <source>/{_country}/media/{id}</source>
+        <target state="new">/{_country}/media/{id}</target>
+      </trans-unit>
+      <trans-unit id="78ea0bc8dcdf6991c6dbf5dd082ed63733ff24c6" resname="party_delete">
+        <source>/{_country}/party/{id}</source>
+        <target state="new">/{_country}/party/{id}</target>
+      </trans-unit>
+      <trans-unit id="661028ca1ba6094054a2999fde79eae8a8b3db15" resname="party_edit">
+        <source>/{_country}/party/{id}/edit</source>
+        <target state="new">/{_country}/party/{id}/edit</target>
+      </trans-unit>
+      <trans-unit id="4f4b2266c13a03dabc86c08d966a3d8efacde117" resname="party_index">
+        <source>/{_country}/party/</source>
+        <target state="new">/{_country}/party/</target>
+      </trans-unit>
+      <trans-unit id="97854a06a281b53026c6018a627765d0a807e016" resname="party_new">
+        <source>/{_country}/party/new</source>
+        <target state="new">/{_country}/party/new</target>
+      </trans-unit>
+      <trans-unit id="087235d79e604ce93f270a77cd85e0fbd6d3bdde" resname="party_show">
+        <source>/{_country}/party/{id}</source>
+        <target state="new">/{_country}/party/{id}</target>
+      </trans-unit>
+      <trans-unit id="0f0976a1961dd09fd1f7f97b277a9f389a6c4ab3" resname="posts_delete">
+        <source>/{_country}/posts/{id}</source>
+        <target state="new">/{_country}/posts/{id}</target>
+      </trans-unit>
+      <trans-unit id="ddd123e5c63eaa0e211b0a48bf7b36b996f0861a" resname="posts_edit">
+        <source>/{_country}/posts/{id}/edit</source>
+        <target state="new">/{_country}/posts/{id}/edit</target>
+      </trans-unit>
+      <trans-unit id="30529cebbe83139b966d29a2b608504826ce121c" resname="posts_index">
+        <source>/{_country}/posts/</source>
+        <target state="new">/{_country}/posts/</target>
+      </trans-unit>
+      <trans-unit id="a0d5dcbf3c77e41a3e4a35131e4b339583783a5f" resname="posts_new">
+        <source>/{_country}/posts/new</source>
+        <target state="new">/{_country}/posts/new</target>
+      </trans-unit>
+      <trans-unit id="4fab12407d5ec7fbdbb156a5f4797be0ffb199d7" resname="posts_show">
+        <source>/{_country}/posts/{id}</source>
+        <target state="new">/{_country}/posts/{id}</target>
+      </trans-unit>
+      <trans-unit id="65e438d00eab2df4aa013e06dcf6b98f03911003" resname="preregistration_delete">
+        <source>/{_country}/preregistration/{id}</source>
+        <target state="new">/{_country}/preregistration/{id}</target>
+      </trans-unit>
+      <trans-unit id="2bf41e950e19814f682a2f9f455c56a555775ec3" resname="preregistration_edit">
+        <source>/{_country}/preregistration/{id}/edit</source>
+        <target state="new">/{_country}/preregistration/{id}/edit</target>
+      </trans-unit>
+      <trans-unit id="c28c31042b45ba6e52660d54e9925d72e6b3ce60" resname="preregistration_index">
+        <source>/{_country}/preregistration/</source>
+        <target state="new">/{_country}/preregistration/</target>
+      </trans-unit>
+      <trans-unit id="de9f906d2598922f9fb1f5fb723119ed1c0fb66f" resname="preregistration_new">
+        <source>/{_country}/preregistration/new</source>
+        <target state="new">/{_country}/preregistration/new</target>
+      </trans-unit>
+      <trans-unit id="e5fbea688949a0664348da9aa2f3e32aff80bc97" resname="preregistration_show">
+        <source>/{_country}/preregistration/{id}</source>
+        <target state="new">/{_country}/preregistration/{id}</target>
+      </trans-unit>
+      <trans-unit id="dc7dcc063b4fc95d8cd78fd9dab93a408add9dd0" resname="reviews_delete">
+        <source>/{_country}/reviews/{id}</source>
+        <target state="new">/{_country}/reviews/{id}</target>
+      </trans-unit>
+      <trans-unit id="102d72164af5a32640d588985e498dd603a0e8f7" resname="reviews_edit">
+        <source>/{_country}/reviews/{id}/edit</source>
+        <target state="new">/{_country}/reviews/{id}/edit</target>
+      </trans-unit>
+      <trans-unit id="1d634a42037736676fcd6a3854ab7b7ed77164b2" resname="reviews_index">
+        <source>/{_country}/reviews/</source>
+        <target state="new">/{_country}/reviews/</target>
+      </trans-unit>
+      <trans-unit id="2177108accb47a6394e5875c2a303917fd72ca70" resname="reviews_new">
+        <source>/{_country}/reviews/new</source>
+        <target state="new">/{_country}/reviews/new</target>
+      </trans-unit>
+      <trans-unit id="d638469b80c5f6c8e02b331d23e59855785ff615" resname="reviews_show">
+        <source>/{_country}/reviews/{id}</source>
+        <target state="new">/{_country}/reviews/{id}</target>
+      </trans-unit>
+      <trans-unit id="51fdaa465ee397517ebcab9395185e80951db9ce" resname="service_delete">
+        <source>/{_country}/service/{id}</source>
+        <target state="new">/{_country}/service/{id}</target>
+      </trans-unit>
+      <trans-unit id="9d81a7887f40cfc36fe7616dc8d7b0cdfacbde76" resname="service_edit">
+        <source>/{_country}/service/{id}/edit</source>
+        <target state="new">/{_country}/service/{id}/edit</target>
+      </trans-unit>
+      <trans-unit id="8ba23bc7d359f9d1b1d542c8ad67a425c54bd473" resname="service_index">
+        <source>/{_country}/service/</source>
+        <target state="new">/{_country}/service/</target>
+      </trans-unit>
+      <trans-unit id="d4b123cecf1bb96d471296695e197f16256a0883" resname="service_new">
+        <source>/{_country}/service/new</source>
+        <target state="new">/{_country}/service/new</target>
+      </trans-unit>
+      <trans-unit id="2af90c510004d399b14737e9266a58f1572485cc" resname="service_show">
+        <source>/{_country}/service/{id}</source>
+        <target state="new">/{_country}/service/{id}</target>
       </trans-unit>
     </body>
   </file>

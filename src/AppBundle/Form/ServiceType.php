@@ -33,6 +33,4 @@ class ServiceType extends AbstractType
     {
         return 'appbundle_service';
     }
-
-
 }

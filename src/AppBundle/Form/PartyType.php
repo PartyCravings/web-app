@@ -33,6 +33,4 @@ class PartyType extends AbstractType
     {
         return 'appbundle_party';
     }
-
-
 }

@@ -33,6 +33,4 @@ class PreRegistrationType extends AbstractType
     {
         return 'appbundle_preregistration';
     }
-
-
 }

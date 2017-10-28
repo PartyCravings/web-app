@@ -33,6 +33,4 @@ class AddressType extends AbstractType
     {
         return 'appbundle_address';
     }
-
-
 }

@@ -170,11 +170,20 @@ class Vendor
      */
     private $deleted;
 
+    /**
+     * @var Service
+     *
+     * @ORM\OneToMany(targetEntity="Service", mappedBy="vendor")
+     * @ORM\JoinColumn(name="services", referencedColumnName="id")
+     */
+    private $services;
+
 
     public function __construct()
     {
         $this->asoEbi = new ArrayCollection();
         $this->liveParties = new ArrayCollection();
+        $this->services = new ArrayCollection();
     }
 
     /**
@@ -739,5 +748,39 @@ class Vendor
     public function removeLiveParty(\AppBundle\Entity\LiveParties $liveParty)
     {
         $this->liveParties->removeElement($liveParty);
+    }
+
+    /**
+     * Add service
+     *
+     * @param \AppBundle\Entity\Service $service
+     *
+     * @return Vendor
+     */
+    public function addService(\AppBundle\Entity\Service $service)
+    {
+        $this->services[] = $service;
+
+        return $this;
+    }
+
+    /**
+     * Remove service
+     *
+     * @param \AppBundle\Entity\Service $service
+     */
+    public function removeService(\AppBundle\Entity\Service $service)
+    {
+        $this->services->removeElement($service);
+    }
+
+    /**
+     * Get services
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getServices()
+    {
+        return $this->services;
     }
 }

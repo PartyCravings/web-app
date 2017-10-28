@@ -33,6 +33,4 @@ class ReviewsType extends AbstractType
     {
         return 'appbundle_reviews';
     }
-
-
 }

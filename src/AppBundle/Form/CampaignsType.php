@@ -33,6 +33,4 @@ class CampaignsType extends AbstractType
     {
         return 'appbundle_campaigns';
     }
-
-
 }

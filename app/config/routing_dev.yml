@@ -18,3 +18,12 @@ JMSTranslationBundle_ui:
 
 _main:
     resource: routing.yml
+
+app:
+    resource: '@AppBundle/Controller/'
+    type:     annotation
+    prefix:   /{_country}
+    defaults: 
+        _country: "nigeria"
+    options:
+        utf8: true

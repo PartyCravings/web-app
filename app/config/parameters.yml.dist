@@ -21,3 +21,4 @@ parameters:
     #Google, Facebook and other OAUTH Keys
     google_app_id: 99524646330-55lkia8drehg45b6bctgmkmo8h2l1u12.apps.googleusercontent.com
     google_app_secret: MihbaS8xfqFwycZE7BvNXBV-
+    hostname: partycravings.com

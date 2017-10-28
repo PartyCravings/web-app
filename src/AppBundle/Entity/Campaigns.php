@@ -996,4 +996,52 @@ class Campaigns
     {
         $this->slug = $slug;
     }
+
+    /**
+     * Add service
+     *
+     * @param \AppBundle\Entity\Service $service
+     *
+     * @return Campaigns
+     */
+    public function addService(\AppBundle\Entity\Service $service)
+    {
+        $this->services[] = $service;
+
+        return $this;
+    }
+
+    /**
+     * Remove service
+     *
+     * @param \AppBundle\Entity\Service $service
+     */
+    public function removeService(\AppBundle\Entity\Service $service)
+    {
+        $this->services->removeElement($service);
+    }
+
+    /**
+     * Add attachment
+     *
+     * @param \AppBundle\Entity\CampaignAttachments $attachment
+     *
+     * @return Campaigns
+     */
+    public function addAttachment(\AppBundle\Entity\CampaignAttachments $attachment)
+    {
+        $this->attachments[] = $attachment;
+
+        return $this;
+    }
+
+    /**
+     * Remove attachment
+     *
+     * @param \AppBundle\Entity\CampaignAttachments $attachment
+     */
+    public function removeAttachment(\AppBundle\Entity\CampaignAttachments $attachment)
+    {
+        $this->attachments->removeElement($attachment);
+    }
 }

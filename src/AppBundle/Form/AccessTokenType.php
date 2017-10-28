@@ -33,6 +33,4 @@ class AccessTokenType extends AbstractType
     {
         return 'appbundle_accesstoken';
     }
-
-
 }

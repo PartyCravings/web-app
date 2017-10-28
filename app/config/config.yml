@@ -266,4 +266,4 @@ ornicar_gravatar:
 
 #Noxlogic Rate Limit Bundle Configuration
 noxlogic_rate_limit:
-    enabled: true
+    enabled: false

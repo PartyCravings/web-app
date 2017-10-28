@@ -431,4 +431,38 @@ class Accounts extends BaseUser
     {
         return $this->liveParties;
     }
+
+    /**
+     * Add accessToken
+     *
+     * @param \AppBundle\Entity\AccessToken $accessToken
+     *
+     * @return Accounts
+     */
+    public function addAccessToken(\AppBundle\Entity\AccessToken $accessToken)
+    {
+        $this->accessTokens[] = $accessToken;
+
+        return $this;
+    }
+
+    /**
+     * Remove accessToken
+     *
+     * @param \AppBundle\Entity\AccessToken $accessToken
+     */
+    public function removeAccessToken(\AppBundle\Entity\AccessToken $accessToken)
+    {
+        $this->accessTokens->removeElement($accessToken);
+    }
+
+    /**
+     * Get accessTokens
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAccessTokens()
+    {
+        return $this->accessTokens;
+    }
 }

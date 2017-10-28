@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2017-10-15T13:21:24Z" source-language="en" target-language="de" datatype="plaintext" original="not.available">
+  <file date="2017-10-23T15:18:03Z" source-language="en" target-language="de" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -9,64 +9,64 @@
       <trans-unit id="96db66047fa3c65e3da15476cda3055150f4f208" resname="security.login">
         <source>security.login</source>
         <target>Ein loggen</target>
+        <jms:reference-file line="13">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
         <jms:reference-file line="2">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
-        <jms:reference-file line="7">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
         <jms:reference-file line="130">/Resources/views/fragments/_header.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="8382dbe5697785768e635f737f51a8ad8e2ee1f5" resname="security.login.forgot">
         <source>security.login.forgot</source>
         <target state="new">Passwort vergessen?</target>
-        <jms:reference-file line="37">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
+        <jms:reference-file line="43">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="b8c582e89ccd74559fa6988d8deef0058f8e243b" resname="security.login.new">
         <source>security.login.new</source>
         <target state="new">Neu bei PartyCravings?</target>
-        <jms:reference-file line="10">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
+        <jms:reference-file line="16">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="84c74da90e8ad699931ced5c703165fde1aeeec9" resname="security.login.or">
         <source>security.login.or</source>
         <target state="new">ODER</target>
-        <jms:reference-file line="46">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
+        <jms:reference-file line="52">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="62d5564c383b885ff0de25abd24a41080499970b" resname="security.login.password">
         <source>security.login.password</source>
         <target state="new">Passwort</target>
-        <jms:reference-file line="27">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
+        <jms:reference-file line="33">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="d074ed9a0eb75b7f17ef2274c21d4c3d12d91634" resname="security.login.remember_me">
         <source>security.login.remember_me</source>
         <target state="new">An mich erinnern</target>
-        <jms:reference-file line="34">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
+        <jms:reference-file line="40">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="7844ea9899b333798ba135aa70abf6de484adaf6" resname="security.login.signup">
         <source>security.login.signup</source>
         <target state="new">Anheuern</target>
-        <jms:reference-file line="10">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
+        <jms:reference-file line="16">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="79c180ac5e987e195d1dfeda857a114ed692d07f" resname="security.login.submit">
         <source>security.login.submit</source>
         <target state="new">Einloggen</target>
-        <jms:reference-file line="39">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
+        <jms:reference-file line="45">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="64e1b2aaf6156a7e34a13fbc38801e89478efff8" resname="security.login.username">
         <source>security.login.username</source>
         <target state="new">Email</target>
-        <jms:reference-file line="22">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
+        <jms:reference-file line="28">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="b1e53e02c007e924bf00db715a77a11d8c47d0bd" resname="security.login.withfacebook">
         <source>security.login.withfacebook</source>
         <target state="new">Weiter mit Facebook</target>
-        <jms:reference-file line="55">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
+        <jms:reference-file line="61">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="ad45591622ebb5ae776a54abfa3fea40c774ef88" resname="security.login.withgoogle">
         <source>security.login.withgoogle</source>
         <target state="new">Weiter mit Google +</target>
-        <jms:reference-file line="61">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
+        <jms:reference-file line="67">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="e74d0dc858316ac2ab8b35ad598975fff1a8d9a1" resname="security.logout">
         <source>security.logout</source>
         <target state="new">Ausloggen</target>
-        <jms:reference-file line="132">/Resources/views/fragments/_header.html.twig</jms:reference-file>
+        <jms:reference-file line="133">/Resources/views/fragments/_header.html.twig</jms:reference-file>
       </trans-unit>
     </body>
   </file>

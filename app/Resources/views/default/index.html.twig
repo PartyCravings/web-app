@@ -1,8 +1,8 @@
 {% extends 'base.html.twig' %}
     
 {% block manifest %}
-    <link rel="preconnect" href="https://secure.gravatar.com" crossorigin="crossorigin" />
-    <meta name="robots" content="index, follow" />
+    <link rel="preconnect" href="{{ preconnect('https://secure.gravatar.com', { crossorigin: true}) }}" crossorigin="crossorigin" />
+    <meta name="robots" content="index, follow, all" />
     {{ parent() }}
 {% endblock manifest %}
 

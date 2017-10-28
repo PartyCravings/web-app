@@ -33,6 +33,4 @@ class DeliveryType extends AbstractType
     {
         return 'appbundle_delivery';
     }
-
-
 }

@@ -33,6 +33,4 @@ class ManufacturersType extends AbstractType
     {
         return 'appbundle_manufacturers';
     }
-
-
 }

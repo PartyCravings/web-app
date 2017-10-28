@@ -2,6 +2,11 @@
 
 namespace AppBundle\Repository;
 
+
+use Doctrine\ORM\Query;
+use Pagerfanta\Adapter\DoctrineORMAdapter;
+use Pagerfanta\Pagerfanta;
+
 /**
  * ServiceRepository
  *
@@ -10,4 +15,63 @@ namespace AppBundle\Repository;
  */
 class ServiceRepository extends \Doctrine\ORM\EntityRepository
 {
+    const NUM_ITEMS = 20;
+
+    public function findBySearchQuery(
+        string $rawQuery,
+        string $category,
+        \AppBundle\Entity\Country $country,
+        int $page
+    ): Pagerfanta {
+        $searchTerms = $this->extractSearchTerms(
+            $this->sanitizeSearchQuery(
+                $rawQuery
+                )
+            );
+        $queryBuilder = $this->createQueryBuilder('p')
+                ->where('f.name = :category')
+                ->setParameter('category', $category)
+                ->andWhere('f.country = :country')
+                ->setParameter('country', $country);
+
+        foreach ($searchTerms as $key => $term) {
+            $queryBuilder
+                ->orWhere('p.name LIKE :t_'.$key)
+                ->setParameter('t_'.$key, '%'.$term.'%');
+        }
+        $query = $queryBuilder
+                ->innerJoin('p.category', 'f')
+                ->setMaxResults(self::NUM_ITEMS)
+                ->getQuery()
+                ->useQueryCache(true)
+                ->useResultCache(true);
+
+        return $this->createPaginator($query, $page);
+    }
+
+    private function createPaginator(Query $query, int $page): Pagerfanta
+    {
+        $paginator = new Pagerfanta(new DoctrineORMAdapter($query));
+        $paginator->setMaxPerPage(self::NUM_ITEMS);
+        $paginator->setCurrentPage($page);
+        return $paginator;
+    }
+
+    /**
+     * Removes all non-alphanumeric characters except whitespaces.
+     */
+    private function sanitizeSearchQuery(string $query): string
+    {
+        return preg_replace('/[^[:alnum:] ]/', '', trim(preg_replace('/[[:space:]]+/', ' ', $query)));
+    }
+    /**
+     * Splits the search query into terms and removes the ones which are irrelevant.
+     */
+    private function extractSearchTerms(string $searchQuery): array
+    {
+        $terms = array_unique(explode(' ', mb_strtolower($searchQuery)));
+        return array_filter($terms, function ($term) {
+            return 2 <= mb_strlen($term);
+        });
+    }
 }

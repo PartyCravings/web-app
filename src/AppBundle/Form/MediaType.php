@@ -33,6 +33,4 @@ class MediaType extends AbstractType
     {
         return 'appbundle_media';
     }
-
-
 }

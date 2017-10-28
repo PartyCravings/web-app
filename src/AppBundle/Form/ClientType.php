@@ -26,6 +26,4 @@ class ClientType extends AbstractType
     {
         return 'appbundle_client';
     }
-
-
 }

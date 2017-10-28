@@ -6,53 +6,108 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Doctrine\ORM\EntityManagerInterface;
-use AppBundle\Entity\Campaigns;
-use AppBundle\Entity\Category;
-use AppBundle\Entity\Posts;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 /**
  * Class DefaultController
  * @package AppBundle\Controller
+ *
+ * @ParamConverter(
+                    "country",
+                    class="AppBundle:Country",
+                    options=
+                    {
+                        "id" = "_country",
+                        "repository_method" = "findByName"
+                    }
+                )
  */
 class DefaultController extends AbstractController
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route(
+                "/",
+                name="homepage"
+            )
+     * @ParamConverter(
+                    "campaigns",
+                    class="AppBundle:Campaigns",
+                    options=
+                    {
+                        "id" = "country",
+                        "repository_method" = "getHomeCampaigns"
+                    }
+                )
+     * @ParamConverter(
+                    "posts",
+                    class="AppBundle:Posts",
+                    options=
+                    {
+                        "id" = "country",
+                        "repository_method" = "findHomePosts"
+                    }
+                )
      * @Cache(smaxage=0)
-     * @Template(":default:index.html.twig")
-     * @param EntityManagerInterface $em
-     * @return array
+     * @Template(
+                    ":default:index.html.twig",
+                    vars= {
+                            "campaigns",
+                            "posts"
+                        }
+            )
+     * @param array $campaigns
+     * @param array $posts
      */
-    public function indexAction(EntityManagerInterface $em) :array
+    public function indexAction(array $campaigns, array $posts) :void
     {
-        $campaigns = $em->getRepository(Campaigns::class)->getHomeCampaigns();
-        $posts = $em->getRepository(Posts::class)->findBy(['isApproved'=> true], ["publishedAt" => "DESC"], 6);
-        return array('campaigns' => $campaigns, 'posts'=> $posts);
-        //Don't forget chinese home =>家
     }
 
     /**
-     * @Template(":fragments:_header.html.twig")
-     * @Cache(smaxage=0, vary={"PHPSESSID"})
+     * @Route(
+                "/header",
+                name="sitewide_header"
+            )
+     * @ParamConverter(
+                    "categories",
+                    class="AppBundle:Category",
+                    options=
+                    {
+                        "repository_method" = "findHeaderCategories"
+                    }
+                )
+     * @Template(
+                    ":fragments:_header.html.twig",
+                     vars={"categories"}
+            )
+     * @Cache(
+                smaxage=0,
+                vary={"PHPSESSID"}
+            )
      * @param EntityManagerInterface $em
      * @return array
      */
-    public function headerAction(EntityManagerInterface $em) :array
+    public function headerAction(array $categories) :void
     {
-        $categories = $em->getRepository(Category::class)->getHeaderCategories();
-        return array('categories' => $categories);
     }
 
     /**
-     * @Template(":fragments:_footer.html.twig")
-     * @Cache(smaxage=0)
-     * @param EntityManagerInterface $em
+     * @Route(
+                "/footer" ,
+                name="sitewide_footer"
+            )
+     * @Template(
+                    ":fragments:_footer.html.twig",
+                    vars={"country"}
+            )
+     * @Cache(
+                smaxage=0,
+                lastmodified="country.getUpdatedAt()",
+                etag="'Country' ~ country.getId() ~ country.getUpdatedAt().format('Y-m-d')"
+            )
+     * @param \AppBundle\Entity\Country $country
      * @return array
      */
-    public function footerAction(EntityManagerInterface $em) :array
+    public function footerAction(\AppBundle\Entity\Country $country) :void
     {
-        //$siteInfo = $em->getRepository()
-        return array();
     }
 }

@@ -4,7 +4,7 @@ import './semantic-ui/dist/semantic.min.css';
 import './jquery.jssor.min.js';
 import './jquery.sticklr.js';
 
-runtime.install();
+//runtime.install();
 
 $('iframe').remove();
 var sliderOptions = {

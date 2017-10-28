@@ -33,6 +33,4 @@ class AccountDetailsType extends AbstractType
     {
         return 'appbundle_accountdetails';
     }
-
-
 }
