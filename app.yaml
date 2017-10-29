@@ -1,0 +1,36 @@
+service: default
+runtime: php
+env: flex
+
+# [START entrypoint]
+entrypoint: php-pm/bin/ppm start --bootstrap=symfony --app-env=prod --debug=0 --concurrent-requests=1
+# [END entrypoint]
+
+runtime_config:
+  document_root: web
+  nginx_conf_include: nginx-app.conf
+  php_ini_override: php.prod.ini
+
+# [START overrides]
+env_variables:
+  PORT: 8080
+# [END overrides]
+
+automatic_scaling:
+  min_num_instances: 1
+  max_num_instances: 1000
+  cool_down_period_sec: 120 # default value
+  cpu_utilization:
+    target_utilization: 0.8
+
+resources:
+  cpu: 0.5
+  memory_gb: 0.5
+  disk_size_gb: 10
+
+health_check:
+  enable_health_check: True
+  check_interval_sec: 5
+  timeout_sec: 4
+  unhealthy_threshold: 2
+  healthy_threshold: 2

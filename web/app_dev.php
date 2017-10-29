@@ -27,6 +27,8 @@ if (PHP_VERSION_ID < 70000) {
 }
 $kernel = new AppCache($kernel);
 Request::enableHttpMethodParameterOverride();
+Request::setTrustedProxies(array('127.0.0.1'));
+
 $request = Request::createFromGlobals();
 $response = $kernel->handle($request);
 $response->send();

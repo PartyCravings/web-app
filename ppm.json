@@ -9,7 +9,7 @@
     "static": true,
     "bootstrap": "symfony",
     "max-requests": 1000,
-    "concurrent-requests": false,
+    "concurrent-requests": true,
     "socket-path": ".ppm\/run\/",
     "pidfile": ".ppm\/ppm.pid",
     "cgi-path": "\/opt\/lampp\/bin\/php-cgi-7.1.9"
