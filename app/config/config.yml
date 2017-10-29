@@ -171,14 +171,6 @@ stof_doctrine_extensions:
             loggable:       true
             softdeleteable: true
 
-# Web Socket Configuration
-gos_web_socket:
-    server:
-        port: 8080        #The port the socket server will listen on
-        host: 127.0.0.1   #The host ip to bind to
-    topics:
-        - '@AppBundle\Topic\NotificationTopic'
-
 #FOSOAUth 2 Server Bundle Configurations
 fos_oauth_server:
     db_driver: orm       # Drivers available: orm, mongodb, or propel

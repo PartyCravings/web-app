@@ -5,7 +5,12 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "AppBundle\\": "src/AppBundle"
+            "AppBundle\\": "src/AppBundle",
+            "WhiteOctober\\PagerfantaBundle\\": "vendor/WhiteOctoberPagerfantaBundle"
+
+        },
+        "psr-0": {
+            "Pagerfanta\\": "vendor/Pagerfanta/src/" 
         },
         "classmap": [
             "app/AppKernel.php",
@@ -20,6 +25,18 @@
             "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php"
         ]
     },
+    "repositories": [
+        {
+            "url": "https://github.com/whiteoctober/WhiteOctoberPagerfantaBundle.git",
+            "type": "git",
+            "tags-path": "/tree/v1.0.8"
+        },
+        {
+            "url": "https://github.com/whiteoctober/Pagerfanta.git",
+            "type": "git",
+            "tags-path": "/tree/v1.0.5"
+        }
+    ],
     "require": {
         "php": ">=5.5.9",
         "doctrine/doctrine-bundle": "^1.6",
@@ -29,7 +46,6 @@
         "friendsofsymfony/http-cache-bundle": "^2.1",
         "friendsofsymfony/oauth-server-bundle": "^1.5",
         "friendsofsymfony/user-bundle": "^2.0",
-        "gos/web-socket-bundle": "^1.8",
         "guzzlehttp/psr7": "^1.4",
         "hwi/oauth-bundle": "^0.5.3",
         "incenteev/composer-parameter-handler": "^2.0",
@@ -45,7 +61,6 @@
         "sensio/distribution-bundle": "^5.0.19",
         "sensio/framework-extra-bundle": "^3.0.2",
         "stof/doctrine-extensions-bundle": "^1.2",
-        "suncat/mobile-detect-bundle": "^1.0",
         "symfony/monolog-bundle": "^3.1.0",
         "symfony/polyfill-apcu": "^1.0",
         "symfony/swiftmailer-bundle": "^2.3.10",
@@ -70,8 +85,8 @@
         ],
         "post-install-cmd": [
             "@symfony-scripts",
+            "cd php-pm/ && composer install && cd ..",
             "php bin/console doctrine:migrations:diff --no-interaction",
-            "php bin/console doctrine:migrations:generate --no-interaction",
             "php bin/console doctrine:migrations:migrate --no-interaction"
         ],
         "post-update-cmd": [

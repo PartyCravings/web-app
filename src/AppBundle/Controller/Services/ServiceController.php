@@ -47,7 +47,7 @@ class ServiceController extends AbstractController
      * @Cache(
                 smaxage=0,
                 lastmodified="service.getUpdatedAt()",
-                etag="'Service' ~ service.getId() ~ service.getUpdatedAt().format('Y-m-d')"
+                etag="'Service' ~ service.id ~ service.serviceDescriptions.dateUpd.format('Y-m-d')"
             )
      */
     public function showAction(\AppBundle\Entity\Service $service) :void
@@ -74,9 +74,9 @@ class ServiceController extends AbstractController
                     $country,
                     $request->get('page', 1)
         );
-        return $request->isXmlHttpRequest() ? $this->json(
+        return !$request->isXmlHttpRequest() ? $this->json(
             function () use ($services) {
-                $results = array();
+                $results = array('HHHHHH');
                 foreach ($services as $service) {
                     $results[] = array(
                     'name' => htmlspecialchars($service->getName()),
@@ -88,6 +88,8 @@ class ServiceController extends AbstractController
                 }
                 return $results;
             }
-        ) : $services;
+        ) : array(
+            'services' => $services
+            );
     }
 }
