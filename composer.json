@@ -85,12 +85,17 @@
         ],
         "post-install-cmd": [
             "@symfony-scripts",
-            "cd php-pm/ && composer install && cd ..",
-            "php bin/console doctrine:migrations:diff --no-interaction",
-            "php bin/console doctrine:migrations:migrate --no-interaction"
+            "cd php-pm/ && composer install && cd .."
         ],
         "post-update-cmd": [
             "@symfony-scripts"
+            "cd php-pm/ && composer update && cd .."
+        ],
+        "post-deploy-cmd": [
+            "chmod -R ug+w $APP_DIR/var",
+            "php bin/console doctrine:migrations:diff --no-interaction",
+            "php bin/console doctrine:migrations:migrate --no-interaction"
+
         ]
     },
     "config": {
