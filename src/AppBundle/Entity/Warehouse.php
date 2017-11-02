@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Warehouse
@@ -22,25 +23,18 @@ class Warehouse
     private $id;
 
     /**
-     * @var string
+     * @var Address
      *
-     * @ORM\Column(name="id_currency", type="string", length=255)
+     * @ORM\OneToOne(targetEntity="Address")
      */
-    private $idCurrency;
+    private $address;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="id_address", type="string", length=255)
+     * @ORM\ManyToMany(targetEntity="Accounts")
      */
-    private $idAddress;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="id_employee", type="string", length=255)
-     */
-    private $idEmployee;
+    private $employees;
 
     /**
      * @var string
@@ -66,37 +60,21 @@ class Warehouse
     /**
      * @var string
      *
-     * @ORM\Column(name="deleted", type="string", length=255)
-     */
-    private $deleted;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="active", type="string", length=255)
      */
-    private $active;
+    private $isEnabled;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="carrier", type="string", length=255)
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime")
      */
-    private $carrier;
+    private $created;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="product_location", type="string", length=255)
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(type="datetime")
      */
-    private $productLocation;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="vendor", type="string", length=255)
-     */
-    private $vendor;
+    private $updated;
 
 
     /**
@@ -371,5 +349,142 @@ class Warehouse
     public function getVendor()
     {
         return $this->vendor;
+    }
+
+    /**
+     * Set address
+     *
+     * @param \AppBundle\Entity\Address $address
+     *
+     * @return Warehouse
+     */
+    public function setAddress(\AppBundle\Entity\Address $address = null)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * Get address
+     *
+     * @return \AppBundle\Entity\Address
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->employees = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set isEnabled
+     *
+     * @param string $isEnabled
+     *
+     * @return Warehouse
+     */
+    public function setIsEnabled($isEnabled)
+    {
+        $this->isEnabled = $isEnabled;
+
+        return $this;
+    }
+
+    /**
+     * Get isEnabled
+     *
+     * @return string
+     */
+    public function getIsEnabled()
+    {
+        return $this->isEnabled;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     *
+     * @return Warehouse
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     *
+     * @return Warehouse
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * Add employee
+     *
+     * @param \AppBundle\Entity\Accounts $employee
+     *
+     * @return Warehouse
+     */
+    public function addEmployee(\AppBundle\Entity\Accounts $employee)
+    {
+        $this->employees[] = $employee;
+
+        return $this;
+    }
+
+    /**
+     * Remove employee
+     *
+     * @param \AppBundle\Entity\Accounts $employee
+     */
+    public function removeEmployee(\AppBundle\Entity\Accounts $employee)
+    {
+        $this->employees->removeElement($employee);
+    }
+
+    /**
+     * Get employees
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEmployees()
+    {
+        return $this->employees;
     }
 }

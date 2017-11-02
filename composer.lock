@@ -4,8 +4,52 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1fbb529e3fe77484db525a0ec1f50c94",
+    "content-hash": "9e3151c776fc863408a7f05011917c0f",
     "packages": [
+        {
+            "name": "aferrandini/urlizer",
+            "version": "1.0.0",
+            "target-dir": "Ferrandini",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aferrandini/Urlizer.git",
+                "reference": "9223a883ac24981385cf3ea41bff526c95a3547a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aferrandini/Urlizer/zipball/9223a883ac24981385cf3ea41bff526c95a3547a",
+                "reference": "9223a883ac24981385cf3ea41bff526c95a3547a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Ferrandini": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ariel Ferrandini",
+                    "email": "arielferrandini@gmail.com",
+                    "homepage": "http://www.ferrandini.com/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Library for urlizer",
+            "homepage": "https://github.com/aferrandini/urlizer",
+            "keywords": [
+                "url",
+                "urlizer"
+            ],
+            "time": "2012-11-15T19:49:27+00:00"
+        },
         {
             "name": "behat/transliterator",
             "version": "v1.2.0",
@@ -160,6 +204,54 @@
                 "tls"
             ],
             "time": "2017-09-11T07:24:36+00:00"
+        },
+        {
+            "name": "digitalkaoz/gaufrette-browser-bundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/digitalkaoz/GaufretteBrowserBundle.git",
+                "reference": "77b8aeaebf7552a3d6b41ebe9300ac45749dae12"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/digitalkaoz/GaufretteBrowserBundle/zipball/77b8aeaebf7552a3d6b41ebe9300ac45749dae12",
+                "reference": "77b8aeaebf7552a3d6b41ebe9300ac45749dae12",
+                "shasum": ""
+            },
+            "require": {
+                "aferrandini/urlizer": "1.0.0",
+                "knplabs/knp-gaufrette-bundle": "~0.1"
+            },
+            "require-dev": {
+                "sensio/framework-extra-bundle": "~3.0"
+            },
+            "suggest": {
+                "sensio/framework-extra-bundle": "for using the param-converters for file and directory"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "rs\\GaufretteBrowserBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Robert Schönthal",
+                    "homepage": "http://digitalkaoz.net"
+                }
+            ],
+            "description": "This bundle provides an integration of the KnpMenu library",
+            "keywords": [
+                "browser",
+                "filesystem",
+                "gaufrette"
+            ],
+            "time": "2015-02-05T11:25:49+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -6763,8 +6855,10 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "digitalkaoz/gaufrette-browser-bundle": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

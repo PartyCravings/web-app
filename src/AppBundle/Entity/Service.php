@@ -37,28 +37,7 @@ class Service
     private $vendor;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="manufacturer_id", type="integer")
-     */
-    private $manufacturerId;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="vendor_default_id", type="integer")
-     */
-    private $vendorDefaultId;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="tax_rules_id", type="integer")
-     */
-    private $taxRulesId;
-
-    /**
-     * @ORM\OneToOne(targetEntity="ServiceDescriptions", inversedBy="serviceId")
+     * @ORM\OneToOne(targetEntity="ServiceDescriptions")
     */
     private $serviceDescriptions;
 

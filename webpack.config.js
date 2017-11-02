@@ -22,8 +22,16 @@ Encore
     // will output as web/build/app.js
     .addEntry('app', './assets/js/main.js')
 
+    .addEntry('home', './assets/js/home.js')
+
+    .addEntry('login', './assets/js/login.js')
+
     // will output as web/build/img.js
     .addEntry('img', './assets/img/images.js')
+
+    .addEntry('slider', './assets/js/jquery.jssor.js')
+
+    .addEntry('sticklr', './assets/js/jquery.sticklr.js')
 
     // will output as web/build/global.css
     .addStyleEntry('global', './assets/css/global.scss')
@@ -32,7 +40,7 @@ Encore
     .enableSassLoader()
 
     // allow legacy applications to use $/jQuery as a global variable
-    .autoProvidejQuery()
+    //.autoProvidejQuery()
 
     /*.enableReactPreset()
 

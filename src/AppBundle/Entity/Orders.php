@@ -24,6 +24,244 @@ class Orders
     /**
      * @var int
      *
+     * @ORM\Column(name="vendor_id", type="integer")
+     */
+    private $vendorId;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="party_id", type="integer")
+     */
+    private $partyId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="clients_number", type="string", length=255)
+     */
+    private $clientsNumber;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sex", type="string", length=255)
+     */
+    private $sex;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="category", type="string", length=255)
+     */
+    private $category;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="class", type="string", length=255)
+     */
+    private $class;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="beauty_notes", type="string", length=255)
+     */
+    private $beautyNotes;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="reservation_date", type="string", length=255)
+     */
+    private $reservationDate;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="special_requirements", type="string", length=255)
+     */
+    private $specialRequirements;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="reference", type="string", length=255)
+     */
+    private $reference;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="id_currency", type="string", length=255)
+     */
+    private $idCurrency;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="current_state", type="string", length=255)
+     */
+    private $currentState;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="conversion_rate", type="string", length=255)
+     */
+    private $conversionRate;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="recyclable", type="string", length=255)
+     */
+    private $recyclable;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="gift", type="string", length=255)
+     */
+    private $gift;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="gift_message", type="string", length=255)
+     */
+    private $giftMessage;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tracking_number", type="string", length=255)
+     */
+    private $trackingNumber;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="total_discounts", type="string", length=255)
+     */
+    private $totalDiscounts;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="total_discounts_tax_incl", type="string", length=255)
+     */
+    private $totalDiscountsTaxIncl;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="total_discounts_tax_excl", type="string", length=255)
+     */
+    private $totalDiscountsTaxExcl;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="total_paid", type="string", length=255)
+     */
+    private $totalPaid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="total_paid_tax_incl", type="string", length=255)
+     */
+    private $totalPaidTaxIncl;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="total_paid_tax_excl", type="string", length=255)
+     */
+    private $totalPaidTaxExcl;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="total_paid_real", type="string", length=255)
+     */
+    private $totalPaidReal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="total_cost", type="string", length=255)
+     */
+    private $totalCost;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="valid", type="integer")
+     */
+    private $valid;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="deleted", type="integer")
+     */
+    private $deleted;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="reservation_no", type="string", length=255)
+     */
+    private $reservationNo;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="reservation_approved", type="integer")
+     */
+    private $reservationApproved;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="deployment_status", type="integer")
+     */
+    private $deploymentStatus;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="beaty_notes", type="string", length=255)
+     */
+    private $beatyNotes;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="payment", type="string", length=255)
+     */
+    private $payment;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="module", type="string", length=255)
+     */
+    private $module;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="order_note", type="string", length=255)
+     */
+    private $orderNote;
+
+    /**
+     * @var int
+     *
      * @ORM\Column(name="invoice_id", type="integer")
      */
     private $invoiceId;
@@ -38,149 +276,16 @@ class Orders
     /**
      * @var int
      *
-     * @ORM\Column(name="store_id", type="integer")
-     */
-    private $storeId;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="store_name", type="string", length=255)
-     */
-    private $storeName;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="store_url", type="string", length=255)
-     */
-    private $storeUrl;
-
-    /**
-     * @var int
-     *
      * @ORM\Column(name="customer_id", type="integer")
      */
     private $customerId;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="customer_group_id", type="integer")
-     */
-    private $customerGroupId;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="firstname", type="string", length=255)
-     */
-    private $firstname;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="lastname", type="string", length=255)
-     */
-    private $lastname;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="phone_number", type="integer")
-     */
-    private $phoneNumber;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="email", type="string", length=255)
-     */
-    private $email;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="shipping_firstname", type="string", length=255)
-     */
-    private $shippingFirstname;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="shipping_lastname", type="string", length=255)
-     */
-    private $shippingLastname;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="shipping_company", type="string", length=255)
-     */
-    private $shippingCompany;
 
     /**
      * @var string
      *
      * @ORM\Column(name="shipping_address_1", type="string", length=255)
      */
-    private $shippingAddress1;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="shipping_address_2", type="string", length=255)
-     */
-    private $shippingAddress2;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="shipping_city", type="string", length=255)
-     */
-    private $shippingCity;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="shipping_postcode", type="string", length=255)
-     */
-    private $shippingPostcode;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="shipping_zone", type="string", length=255)
-     */
-    private $shippingZone;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="shipping_zone_id", type="integer")
-     */
-    private $shippingZoneId;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="shipping_country", type="string", length=255)
-     */
-    private $shippingCountry;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="shipping_country_id", type="integer")
-     */
-    private $shippingCountryId;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="shipping_address_format", type="string", length=255)
-     */
-    private $shippingAddressFormat;
+    private $shippingAddress;
 
     /**
      * @var string
@@ -188,13 +293,6 @@ class Orders
      * @ORM\Column(name="shipping_method", type="string", length=255)
      */
     private $shippingMethod;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="shipping_method_key", type="string", length=255)
-     */
-    private $shippingMethodKey;
 
     /**
      * @var string
@@ -1673,5 +1771,845 @@ class Orders
     public function getIsSuspended()
     {
         return $this->isSuspended;
+    }
+
+    /**
+     * Set vendorId
+     *
+     * @param integer $vendorId
+     *
+     * @return Orders
+     */
+    public function setVendorId($vendorId)
+    {
+        $this->vendorId = $vendorId;
+
+        return $this;
+    }
+
+    /**
+     * Get vendorId
+     *
+     * @return integer
+     */
+    public function getVendorId()
+    {
+        return $this->vendorId;
+    }
+
+    /**
+     * Set partyId
+     *
+     * @param integer $partyId
+     *
+     * @return Orders
+     */
+    public function setPartyId($partyId)
+    {
+        $this->partyId = $partyId;
+
+        return $this;
+    }
+
+    /**
+     * Get partyId
+     *
+     * @return integer
+     */
+    public function getPartyId()
+    {
+        return $this->partyId;
+    }
+
+    /**
+     * Set clientsNumber
+     *
+     * @param string $clientsNumber
+     *
+     * @return Orders
+     */
+    public function setClientsNumber($clientsNumber)
+    {
+        $this->clientsNumber = $clientsNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get clientsNumber
+     *
+     * @return string
+     */
+    public function getClientsNumber()
+    {
+        return $this->clientsNumber;
+    }
+
+    /**
+     * Set sex
+     *
+     * @param string $sex
+     *
+     * @return Orders
+     */
+    public function setSex($sex)
+    {
+        $this->sex = $sex;
+
+        return $this;
+    }
+
+    /**
+     * Get sex
+     *
+     * @return string
+     */
+    public function getSex()
+    {
+        return $this->sex;
+    }
+
+    /**
+     * Set category
+     *
+     * @param string $category
+     *
+     * @return Orders
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return string
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * Set class
+     *
+     * @param string $class
+     *
+     * @return Orders
+     */
+    public function setClass($class)
+    {
+        $this->class = $class;
+
+        return $this;
+    }
+
+    /**
+     * Get class
+     *
+     * @return string
+     */
+    public function getClass()
+    {
+        return $this->class;
+    }
+
+    /**
+     * Set beautyNotes
+     *
+     * @param string $beautyNotes
+     *
+     * @return Orders
+     */
+    public function setBeautyNotes($beautyNotes)
+    {
+        $this->beautyNotes = $beautyNotes;
+
+        return $this;
+    }
+
+    /**
+     * Get beautyNotes
+     *
+     * @return string
+     */
+    public function getBeautyNotes()
+    {
+        return $this->beautyNotes;
+    }
+
+    /**
+     * Set reservationDate
+     *
+     * @param string $reservationDate
+     *
+     * @return Orders
+     */
+    public function setReservationDate($reservationDate)
+    {
+        $this->reservationDate = $reservationDate;
+
+        return $this;
+    }
+
+    /**
+     * Get reservationDate
+     *
+     * @return string
+     */
+    public function getReservationDate()
+    {
+        return $this->reservationDate;
+    }
+
+    /**
+     * Set specialRequirements
+     *
+     * @param string $specialRequirements
+     *
+     * @return Orders
+     */
+    public function setSpecialRequirements($specialRequirements)
+    {
+        $this->specialRequirements = $specialRequirements;
+
+        return $this;
+    }
+
+    /**
+     * Get specialRequirements
+     *
+     * @return string
+     */
+    public function getSpecialRequirements()
+    {
+        return $this->specialRequirements;
+    }
+
+    /**
+     * Set reference
+     *
+     * @param string $reference
+     *
+     * @return Orders
+     */
+    public function setReference($reference)
+    {
+        $this->reference = $reference;
+
+        return $this;
+    }
+
+    /**
+     * Get reference
+     *
+     * @return string
+     */
+    public function getReference()
+    {
+        return $this->reference;
+    }
+
+    /**
+     * Set idCurrency
+     *
+     * @param string $idCurrency
+     *
+     * @return Orders
+     */
+    public function setIdCurrency($idCurrency)
+    {
+        $this->idCurrency = $idCurrency;
+
+        return $this;
+    }
+
+    /**
+     * Get idCurrency
+     *
+     * @return string
+     */
+    public function getIdCurrency()
+    {
+        return $this->idCurrency;
+    }
+
+    /**
+     * Set currentState
+     *
+     * @param string $currentState
+     *
+     * @return Orders
+     */
+    public function setCurrentState($currentState)
+    {
+        $this->currentState = $currentState;
+
+        return $this;
+    }
+
+    /**
+     * Get currentState
+     *
+     * @return string
+     */
+    public function getCurrentState()
+    {
+        return $this->currentState;
+    }
+
+    /**
+     * Set conversionRate
+     *
+     * @param string $conversionRate
+     *
+     * @return Orders
+     */
+    public function setConversionRate($conversionRate)
+    {
+        $this->conversionRate = $conversionRate;
+
+        return $this;
+    }
+
+    /**
+     * Get conversionRate
+     *
+     * @return string
+     */
+    public function getConversionRate()
+    {
+        return $this->conversionRate;
+    }
+
+    /**
+     * Set recyclable
+     *
+     * @param string $recyclable
+     *
+     * @return Orders
+     */
+    public function setRecyclable($recyclable)
+    {
+        $this->recyclable = $recyclable;
+
+        return $this;
+    }
+
+    /**
+     * Get recyclable
+     *
+     * @return string
+     */
+    public function getRecyclable()
+    {
+        return $this->recyclable;
+    }
+
+    /**
+     * Set gift
+     *
+     * @param string $gift
+     *
+     * @return Orders
+     */
+    public function setGift($gift)
+    {
+        $this->gift = $gift;
+
+        return $this;
+    }
+
+    /**
+     * Get gift
+     *
+     * @return string
+     */
+    public function getGift()
+    {
+        return $this->gift;
+    }
+
+    /**
+     * Set giftMessage
+     *
+     * @param string $giftMessage
+     *
+     * @return Orders
+     */
+    public function setGiftMessage($giftMessage)
+    {
+        $this->giftMessage = $giftMessage;
+
+        return $this;
+    }
+
+    /**
+     * Get giftMessage
+     *
+     * @return string
+     */
+    public function getGiftMessage()
+    {
+        return $this->giftMessage;
+    }
+
+    /**
+     * Set trackingNumber
+     *
+     * @param string $trackingNumber
+     *
+     * @return Orders
+     */
+    public function setTrackingNumber($trackingNumber)
+    {
+        $this->trackingNumber = $trackingNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get trackingNumber
+     *
+     * @return string
+     */
+    public function getTrackingNumber()
+    {
+        return $this->trackingNumber;
+    }
+
+    /**
+     * Set totalDiscounts
+     *
+     * @param string $totalDiscounts
+     *
+     * @return Orders
+     */
+    public function setTotalDiscounts($totalDiscounts)
+    {
+        $this->totalDiscounts = $totalDiscounts;
+
+        return $this;
+    }
+
+    /**
+     * Get totalDiscounts
+     *
+     * @return string
+     */
+    public function getTotalDiscounts()
+    {
+        return $this->totalDiscounts;
+    }
+
+    /**
+     * Set totalDiscountsTaxIncl
+     *
+     * @param string $totalDiscountsTaxIncl
+     *
+     * @return Orders
+     */
+    public function setTotalDiscountsTaxIncl($totalDiscountsTaxIncl)
+    {
+        $this->totalDiscountsTaxIncl = $totalDiscountsTaxIncl;
+
+        return $this;
+    }
+
+    /**
+     * Get totalDiscountsTaxIncl
+     *
+     * @return string
+     */
+    public function getTotalDiscountsTaxIncl()
+    {
+        return $this->totalDiscountsTaxIncl;
+    }
+
+    /**
+     * Set totalDiscountsTaxExcl
+     *
+     * @param string $totalDiscountsTaxExcl
+     *
+     * @return Orders
+     */
+    public function setTotalDiscountsTaxExcl($totalDiscountsTaxExcl)
+    {
+        $this->totalDiscountsTaxExcl = $totalDiscountsTaxExcl;
+
+        return $this;
+    }
+
+    /**
+     * Get totalDiscountsTaxExcl
+     *
+     * @return string
+     */
+    public function getTotalDiscountsTaxExcl()
+    {
+        return $this->totalDiscountsTaxExcl;
+    }
+
+    /**
+     * Set totalPaid
+     *
+     * @param string $totalPaid
+     *
+     * @return Orders
+     */
+    public function setTotalPaid($totalPaid)
+    {
+        $this->totalPaid = $totalPaid;
+
+        return $this;
+    }
+
+    /**
+     * Get totalPaid
+     *
+     * @return string
+     */
+    public function getTotalPaid()
+    {
+        return $this->totalPaid;
+    }
+
+    /**
+     * Set totalPaidTaxIncl
+     *
+     * @param string $totalPaidTaxIncl
+     *
+     * @return Orders
+     */
+    public function setTotalPaidTaxIncl($totalPaidTaxIncl)
+    {
+        $this->totalPaidTaxIncl = $totalPaidTaxIncl;
+
+        return $this;
+    }
+
+    /**
+     * Get totalPaidTaxIncl
+     *
+     * @return string
+     */
+    public function getTotalPaidTaxIncl()
+    {
+        return $this->totalPaidTaxIncl;
+    }
+
+    /**
+     * Set totalPaidTaxExcl
+     *
+     * @param string $totalPaidTaxExcl
+     *
+     * @return Orders
+     */
+    public function setTotalPaidTaxExcl($totalPaidTaxExcl)
+    {
+        $this->totalPaidTaxExcl = $totalPaidTaxExcl;
+
+        return $this;
+    }
+
+    /**
+     * Get totalPaidTaxExcl
+     *
+     * @return string
+     */
+    public function getTotalPaidTaxExcl()
+    {
+        return $this->totalPaidTaxExcl;
+    }
+
+    /**
+     * Set totalPaidReal
+     *
+     * @param string $totalPaidReal
+     *
+     * @return Orders
+     */
+    public function setTotalPaidReal($totalPaidReal)
+    {
+        $this->totalPaidReal = $totalPaidReal;
+
+        return $this;
+    }
+
+    /**
+     * Get totalPaidReal
+     *
+     * @return string
+     */
+    public function getTotalPaidReal()
+    {
+        return $this->totalPaidReal;
+    }
+
+    /**
+     * Set totalCost
+     *
+     * @param string $totalCost
+     *
+     * @return Orders
+     */
+    public function setTotalCost($totalCost)
+    {
+        $this->totalCost = $totalCost;
+
+        return $this;
+    }
+
+    /**
+     * Get totalCost
+     *
+     * @return string
+     */
+    public function getTotalCost()
+    {
+        return $this->totalCost;
+    }
+
+    /**
+     * Set valid
+     *
+     * @param integer $valid
+     *
+     * @return Orders
+     */
+    public function setValid($valid)
+    {
+        $this->valid = $valid;
+
+        return $this;
+    }
+
+    /**
+     * Get valid
+     *
+     * @return integer
+     */
+    public function getValid()
+    {
+        return $this->valid;
+    }
+
+    /**
+     * Set deleted
+     *
+     * @param integer $deleted
+     *
+     * @return Orders
+     */
+    public function setDeleted($deleted)
+    {
+        $this->deleted = $deleted;
+
+        return $this;
+    }
+
+    /**
+     * Get deleted
+     *
+     * @return integer
+     */
+    public function getDeleted()
+    {
+        return $this->deleted;
+    }
+
+    /**
+     * Set reservationNo
+     *
+     * @param string $reservationNo
+     *
+     * @return Orders
+     */
+    public function setReservationNo($reservationNo)
+    {
+        $this->reservationNo = $reservationNo;
+
+        return $this;
+    }
+
+    /**
+     * Get reservationNo
+     *
+     * @return string
+     */
+    public function getReservationNo()
+    {
+        return $this->reservationNo;
+    }
+
+    /**
+     * Set reservationApproved
+     *
+     * @param integer $reservationApproved
+     *
+     * @return Orders
+     */
+    public function setReservationApproved($reservationApproved)
+    {
+        $this->reservationApproved = $reservationApproved;
+
+        return $this;
+    }
+
+    /**
+     * Get reservationApproved
+     *
+     * @return integer
+     */
+    public function getReservationApproved()
+    {
+        return $this->reservationApproved;
+    }
+
+    /**
+     * Set deploymentStatus
+     *
+     * @param integer $deploymentStatus
+     *
+     * @return Orders
+     */
+    public function setDeploymentStatus($deploymentStatus)
+    {
+        $this->deploymentStatus = $deploymentStatus;
+
+        return $this;
+    }
+
+    /**
+     * Get deploymentStatus
+     *
+     * @return integer
+     */
+    public function getDeploymentStatus()
+    {
+        return $this->deploymentStatus;
+    }
+
+    /**
+     * Set beatyNotes
+     *
+     * @param string $beatyNotes
+     *
+     * @return Orders
+     */
+    public function setBeatyNotes($beatyNotes)
+    {
+        $this->beatyNotes = $beatyNotes;
+
+        return $this;
+    }
+
+    /**
+     * Get beatyNotes
+     *
+     * @return string
+     */
+    public function getBeatyNotes()
+    {
+        return $this->beatyNotes;
+    }
+
+    /**
+     * Set payment
+     *
+     * @param string $payment
+     *
+     * @return Orders
+     */
+    public function setPayment($payment)
+    {
+        $this->payment = $payment;
+
+        return $this;
+    }
+
+    /**
+     * Get payment
+     *
+     * @return string
+     */
+    public function getPayment()
+    {
+        return $this->payment;
+    }
+
+    /**
+     * Set module
+     *
+     * @param string $module
+     *
+     * @return Orders
+     */
+    public function setModule($module)
+    {
+        $this->module = $module;
+
+        return $this;
+    }
+
+    /**
+     * Get module
+     *
+     * @return string
+     */
+    public function getModule()
+    {
+        return $this->module;
+    }
+
+    /**
+     * Set orderNote
+     *
+     * @param string $orderNote
+     *
+     * @return Orders
+     */
+    public function setOrderNote($orderNote)
+    {
+        $this->orderNote = $orderNote;
+
+        return $this;
+    }
+
+    /**
+     * Get orderNote
+     *
+     * @return string
+     */
+    public function getOrderNote()
+    {
+        return $this->orderNote;
+    }
+
+    /**
+     * Set shippingAddress
+     *
+     * @param string $shippingAddress
+     *
+     * @return Orders
+     */
+    public function setShippingAddress($shippingAddress)
+    {
+        $this->shippingAddress = $shippingAddress;
+
+        return $this;
+    }
+
+    /**
+     * Get shippingAddress
+     *
+     * @return string
+     */
+    public function getShippingAddress()
+    {
+        return $this->shippingAddress;
     }
 }

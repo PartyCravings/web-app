@@ -22,13 +22,6 @@ class Party
     private $id;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="partyeditor_id", type="integer")
-     */
-    private $partyeditorId;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="link", type="string", length=255)
@@ -134,11 +127,11 @@ class Party
     private $preregistrationNumber;
 
     /**
-     * @var int
+     * @var Address
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Zone", inversedBy="party")
+     * @ORM\ManyToOne(targetEntity="Address")
      */
-    private $zoneId;
+    private $address;
 
     /**
      * @var string
@@ -867,5 +860,29 @@ class Party
     public function getVendorId()
     {
         return $this->vendorId;
+    }
+
+    /**
+     * Set address
+     *
+     * @param \AppBundle\Entity\Address $address
+     *
+     * @return Party
+     */
+    public function setAddress(\AppBundle\Entity\Address $address = null)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * Get address
+     *
+     * @return \AppBundle\Entity\Address
+     */
+    public function getAddress()
+    {
+        return $this->address;
     }
 }

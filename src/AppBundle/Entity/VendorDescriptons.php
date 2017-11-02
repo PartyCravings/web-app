@@ -22,19 +22,6 @@ class VendorDescriptons
     private $id;
 
     /**
-     * @var int
-     * @ORM\OneToOne(targetEntity="Vendor", mappedBy="vendorDescription")
-     */
-    private $vendorId;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="lang_id", type="integer")
-     */
-    private $langId;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="description", type="string", length=255)

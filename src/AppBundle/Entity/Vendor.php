@@ -23,33 +23,16 @@ class Vendor
     private $id;
 
     /**
-    * @ORM\OneToMany(targetEntity="AsoEbi", mappedBy="vendorId")
-    */
-    private $asoEbi;
-
-    /**
-     * @ORM\OneToOne(targetEntity="VendorDescriptons", inversedBy="vendorId")
+     * @ORM\OneToOne(targetEntity="VendorDescriptons")
      * @ORM\JoinColumn(name="vendorDescriptions", referencedColumnName="id")
     */
     private $vendorDescription;
 
     /**
-     * @ORM\OneToOne(targetEntity="Accounts", inversedBy="vendor")
+     * @ORM\OneToOne(targetEntity="Accounts")
      * @ORM\JoinColumn(name="account_id", referencedColumnName="id", nullable=false)
      */
     private $account;
-
-    /**
-     * @ORM\OneToMany(targetEntity="LiveParties", mappedBy="vendorId")
-    */
-    private $liveParties;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="id_state", type="string", length=255)
-     */
-    private $idState;
 
     /**
      * @var string
@@ -61,72 +44,9 @@ class Vendor
     /**
      * @var string
      *
-     * @ORM\Column(name="address1", type="string", length=255)
+     * @ORM\Column(name="address", type="string", length=255)
      */
-    private $address1;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="address2", type="string", length=255)
-     */
-    private $address2;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="city", type="string", length=255)
-     */
-    private $city;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="postcode", type="string", length=255)
-     */
-    private $postcode;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="latitude", type="string", length=255)
-     */
-    private $latitude;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="longitude", type="string", length=255)
-     */
-    private $longitude;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="hours", type="string", length=255)
-     */
-    private $hours;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="phone", type="string", length=255)
-     */
-    private $phone;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="fax", type="string", length=255)
-     */
-    private $fax;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="email", type="string", length=255)
-     */
-    private $email;
+    private $address;
 
     /**
      * @var string
@@ -159,13 +79,6 @@ class Vendor
     /**
      * @var string
      *
-     * @ORM\Column(name="suspended", type="string", length=255)
-     */
-    private $suspended;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="deleted", type="string", length=255)
      */
     private $deleted;
@@ -181,8 +94,6 @@ class Vendor
 
     public function __construct()
     {
-        $this->asoEbi = new ArrayCollection();
-        $this->liveParties = new ArrayCollection();
         $this->services = new ArrayCollection();
     }
 
@@ -782,5 +693,29 @@ class Vendor
     public function getServices()
     {
         return $this->services;
+    }
+
+    /**
+     * Set address
+     *
+     * @param string $address
+     *
+     * @return Vendor
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * Get address
+     *
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->address;
     }
 }

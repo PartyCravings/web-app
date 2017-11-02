@@ -22,51 +22,11 @@ class AffiliatesExtra
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="Affiliates", mappedBy="affiliatesExtra")
-     */
-    private $affilliateId;
-
-    /**
-     * @var string
+     * @var Address
      *
-     * @ORM\Column(name="address", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Address")
      */
     private $address;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="city", type="string", length=255)
-     */
-    private $city;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="postcode", type="string", length=255)
-     */
-    private $postcode;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="country", type="string", length=255)
-     */
-    private $country;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="phone", type="string", length=255)
-     */
-    private $phone;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="fax", type="string", length=255)
-     */
-    private $fax;
 
     /**
      * @var string
@@ -78,7 +38,7 @@ class AffiliatesExtra
     /**
      * @var string
      *
-     * @ORM\Column(name="account_contact", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Accounts")
      */
     private $accountContact;
 

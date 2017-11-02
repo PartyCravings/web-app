@@ -65,13 +65,13 @@ class Agency
     private $updated;
 
     /**
-    * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Accounts", inversedBy="agency")
-    * @ORM\JoinColumn(name="account_id", referencedColumnName="id")
+    * @ORM\ManyToOne(targetEntity="Accounts")
+    * @ORM\JoinColumn(name="account", referencedColumnName="id")
     */
-    private $accountId;
+    private $account;
 
     /**
-    * @ORM\OneToMany(targetEntity="Affiliates", mappedBy="agencyId")
+    * @ORM\OneToMany(targetEntity="Affiliates", mappedBy="agency")
     */
     private $affiliates;
 
@@ -321,5 +321,29 @@ class Agency
     public function removeAffiliate(\AppBundle\Entity\Affiliates $affiliate)
     {
         $this->affiliates->removeElement($affiliate);
+    }
+
+    /**
+     * Set account
+     *
+     * @param \AppBundle\Entity\Accounts $account
+     *
+     * @return Agency
+     */
+    public function setAccount(\AppBundle\Entity\Accounts $account = null)
+    {
+        $this->account = $account;
+
+        return $this;
+    }
+
+    /**
+     * Get account
+     *
+     * @return \AppBundle\Entity\Accounts
+     */
+    public function getAccount()
+    {
+        return $this->account;
     }
 }

@@ -34,6 +34,7 @@ class AppKernel extends Kernel
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\AopBundle\JMSAopBundle(),
             new Terminal42\HeaderReplay\HeaderReplayBundle(),
+            new rs\GaufretteBrowserBundle\rsGaufretteBrowserBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

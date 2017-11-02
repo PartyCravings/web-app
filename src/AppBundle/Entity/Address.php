@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Address
@@ -24,65 +25,15 @@ class Address
     /**
      * @var string
      *
-     * @ORM\Column(name="id_state", type="string", length=255)
-     */
-    private $idState;
-
-    /**
-     * @var AccountDetails
-     *
-     * @ORM\ManyToOne(targetEntity="AccountDetails", inversedBy="addresses")
-     * @ORM\JoinColumn(name="account_id", referencedColumnName="id")
-     */
-    private $accountDetail;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="id_manufacturer", type="string", length=255)
-     */
-    private $idManufacturer;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="id_supplier", type="string", length=255)
-     */
-    private $idSupplier;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="id_warehouse", type="string", length=255)
-     */
-    private $idWarehouse;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="alias", type="string", length=255)
      */
     private $alias;
-
     /**
      * @var string
      *
-     * @ORM\Column(name="company", type="string", length=255)
+     * @ORM\Column(name="address", type="string", length=255)
      */
-    private $company;
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="address1", type="string", length=255)
-     */
-    private $address1;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="address2", type="string", length=255)
-     */
-    private $address2;
+    private $address;
 
     /**
      * @var string
@@ -94,30 +45,9 @@ class Address
     /**
      * @var string
      *
-     * @ORM\Column(name="city", type="string", length=255)
-     */
-    private $city;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="other", type="string", length=255)
-     */
-    private $other;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="phone", type="string", length=255)
      */
     private $phone;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="phone_number", type="string", length=255)
-     */
-    private $phoneNumber;
 
     /**
      * @var string
@@ -127,152 +57,42 @@ class Address
     private $vatNumber;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="date_add", type="string", length=255)
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime")
      */
-    private $dateAdd;
+    private $created;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="date_upd", type="string", length=255)
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(type="datetime")
      */
-    private $dateUpd;
+    private $updated;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="active", type="string", length=255)
-     */
-    private $active;
+    * @var Country
+    *
+    * @ORM\ManyToOne(targetEntity="Country")
+    * @ORM\JoinColumn(name="country", referencedColumnName="id")
+    */
+    private $country;
 
     /**
-     * @var string
+     * @var Location
      *
-     * @ORM\Column(name="deleted", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Location")
+     * @ORM\JoinColumn(name="location", referencedColumnName="id")
      */
-    private $deleted;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="suspende", type="string", length=255)
-     */
-    private $suspende;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="format", type="string", length=255)
-     */
-    private $format;
+    private $location;
 
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set idState
-     *
-     * @param string $idState
-     *
-     * @return Address
-     */
-    public function setIdState($idState)
-    {
-        $this->idState = $idState;
-
-        return $this;
-    }
-
-    /**
-     * Get idState
-     *
-     * @return string
-     */
-    public function getIdState()
-    {
-        return $this->idState;
-    }
-
-    /**
-     * Set idManufacturer
-     *
-     * @param string $idManufacturer
-     *
-     * @return Address
-     */
-    public function setIdManufacturer($idManufacturer)
-    {
-        $this->idManufacturer = $idManufacturer;
-
-        return $this;
-    }
-
-    /**
-     * Get idManufacturer
-     *
-     * @return string
-     */
-    public function getIdManufacturer()
-    {
-        return $this->idManufacturer;
-    }
-
-    /**
-     * Set idSupplier
-     *
-     * @param string $idSupplier
-     *
-     * @return Address
-     */
-    public function setIdSupplier($idSupplier)
-    {
-        $this->idSupplier = $idSupplier;
-
-        return $this;
-    }
-
-    /**
-     * Get idSupplier
-     *
-     * @return string
-     */
-    public function getIdSupplier()
-    {
-        return $this->idSupplier;
-    }
-
-    /**
-     * Set idWarehouse
-     *
-     * @param string $idWarehouse
-     *
-     * @return Address
-     */
-    public function setIdWarehouse($idWarehouse)
-    {
-        $this->idWarehouse = $idWarehouse;
-
-        return $this;
-    }
-
-    /**
-     * Get idWarehouse
-     *
-     * @return string
-     */
-    public function getIdWarehouse()
-    {
-        return $this->idWarehouse;
     }
 
     /**
@@ -300,75 +120,27 @@ class Address
     }
 
     /**
-     * Set company
+     * Set address
      *
-     * @param string $company
+     * @param string $address
      *
      * @return Address
      */
-    public function setCompany($company)
+    public function setAddress($address)
     {
-        $this->company = $company;
+        $this->address = $address;
 
         return $this;
     }
 
     /**
-     * Get company
+     * Get address
      *
      * @return string
      */
-    public function getCompany()
+    public function getAddress()
     {
-        return $this->company;
-    }
-
-    /**
-     * Set address1
-     *
-     * @param string $address1
-     *
-     * @return Address
-     */
-    public function setAddress1($address1)
-    {
-        $this->address1 = $address1;
-
-        return $this;
-    }
-
-    /**
-     * Get address1
-     *
-     * @return string
-     */
-    public function getAddress1()
-    {
-        return $this->address1;
-    }
-
-    /**
-     * Set address2
-     *
-     * @param string $address2
-     *
-     * @return Address
-     */
-    public function setAddress2($address2)
-    {
-        $this->address2 = $address2;
-
-        return $this;
-    }
-
-    /**
-     * Get address2
-     *
-     * @return string
-     */
-    public function getAddress2()
-    {
-        return $this->address2;
+        return $this->address;
     }
 
     /**
@@ -396,54 +168,6 @@ class Address
     }
 
     /**
-     * Set city
-     *
-     * @param string $city
-     *
-     * @return Address
-     */
-    public function setCity($city)
-    {
-        $this->city = $city;
-
-        return $this;
-    }
-
-    /**
-     * Get city
-     *
-     * @return string
-     */
-    public function getCity()
-    {
-        return $this->city;
-    }
-
-    /**
-     * Set other
-     *
-     * @param string $other
-     *
-     * @return Address
-     */
-    public function setOther($other)
-    {
-        $this->other = $other;
-
-        return $this;
-    }
-
-    /**
-     * Get other
-     *
-     * @return string
-     */
-    public function getOther()
-    {
-        return $this->other;
-    }
-
-    /**
      * Set phone
      *
      * @param string $phone
@@ -465,30 +189,6 @@ class Address
     public function getPhone()
     {
         return $this->phone;
-    }
-
-    /**
-     * Set phoneNumber
-     *
-     * @param string $phoneNumber
-     *
-     * @return Address
-     */
-    public function setPhoneNumber($phoneNumber)
-    {
-        $this->phoneNumber = $phoneNumber;
-
-        return $this;
-    }
-
-    /**
-     * Get phoneNumber
-     *
-     * @return string
-     */
-    public function getPhoneNumber()
-    {
-        return $this->phoneNumber;
     }
 
     /**
@@ -516,162 +216,98 @@ class Address
     }
 
     /**
-     * Set dateAdd
+     * Set created
      *
-     * @param string $dateAdd
+     * @param \DateTime $created
      *
      * @return Address
      */
-    public function setDateAdd($dateAdd)
+    public function setCreated($created)
     {
-        $this->dateAdd = $dateAdd;
+        $this->created = $created;
 
         return $this;
     }
 
     /**
-     * Get dateAdd
+     * Get created
      *
-     * @return string
+     * @return \DateTime
      */
-    public function getDateAdd()
+    public function getCreated()
     {
-        return $this->dateAdd;
+        return $this->created;
     }
 
     /**
-     * Set dateUpd
+     * Set updated
      *
-     * @param string $dateUpd
+     * @param \DateTime $updated
      *
      * @return Address
      */
-    public function setDateUpd($dateUpd)
+    public function setUpdated($updated)
     {
-        $this->dateUpd = $dateUpd;
+        $this->updated = $updated;
 
         return $this;
     }
 
     /**
-     * Get dateUpd
+     * Get updated
      *
-     * @return string
+     * @return \DateTime
      */
-    public function getDateUpd()
+    public function getUpdated()
     {
-        return $this->dateUpd;
+        return $this->updated;
     }
 
     /**
-     * Set active
+     * Set country
      *
-     * @param string $active
+     * @param \AppBundle\Entity\Country $country
      *
      * @return Address
      */
-    public function setActive($active)
+    public function setCountry(\AppBundle\Entity\Country $country = null)
     {
-        $this->active = $active;
+        $this->country = $country;
 
         return $this;
     }
 
     /**
-     * Get active
+     * Get country
      *
-     * @return string
+     * @return \AppBundle\Entity\Country
      */
-    public function getActive()
+    public function getCountry()
     {
-        return $this->active;
+        return $this->country;
     }
 
     /**
-     * Set deleted
+     * Set location
      *
-     * @param string $deleted
+     * @param \AppBundle\Entity\Location $location
      *
      * @return Address
      */
-    public function setDeleted($deleted)
+    public function setLocation(\AppBundle\Entity\Location $location = null)
     {
-        $this->deleted = $deleted;
+        $this->location = $location;
 
         return $this;
     }
 
     /**
-     * Get deleted
+     * Get location
      *
-     * @return string
+     * @return \AppBundle\Entity\Location
      */
-    public function getDeleted()
+    public function getLocation()
     {
-        return $this->deleted;
-    }
-
-    /**
-     * Set suspende
-     *
-     * @param string $suspende
-     *
-     * @return Address
-     */
-    public function setSuspende($suspende)
-    {
-        $this->suspende = $suspende;
-
-        return $this;
-    }
-
-    /**
-     * Get suspende
-     *
-     * @return string
-     */
-    public function getSuspende()
-    {
-        return $this->suspende;
-    }
-
-    /**
-     * Set format
-     *
-     * @param string $format
-     *
-     * @return Address
-     */
-    public function setFormat($format)
-    {
-        $this->format = $format;
-
-        return $this;
-    }
-
-    /**
-     * Get format
-     *
-     * @return string
-     */
-    public function getFormat()
-    {
-        return $this->format;
-    }
-
-    /**
-     * @return AccountDetails
-     */
-    public function getAccountDetail()
-    {
-        return $this->accountDetail;
-    }
-
-    /**
-     * @param AccountDetails $accountDetail
-     */
-    public function setAccountDetail($accountDetail)
-    {
-        $this->accountDetail = $accountDetail;
+        return $this->location;
     }
 }

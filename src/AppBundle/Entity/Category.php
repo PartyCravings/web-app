@@ -4,15 +4,25 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 
 /**
  * Category
  *
+ * @Gedmo\Tree(type="nested")
  * @ORM\Table(name="category")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\CategoryRepository")
+ * @Gedmo\TranslationEntity(class="AppBundle\Entity\CategoryTranslation")
  */
 class Category
 {
+    /**
+     * Hook SoftDeleteable behavior
+     * updates deletedAt field
+     */
+    use SoftDeleteableEntity;
+
     /**
      * @var int
      *
@@ -23,28 +33,62 @@ class Category
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @Gedmo\Translatable
+     * @ORM\Column(length=64)
      */
-    private $name;
+    private $title;
 
     /**
-     * @var string
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Category", inversedBy="child")
-     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
+     * @Gedmo\Translatable
+     * @ORM\Column(type="text", nullable=true)
      */
-    private $idParent;
+    private $description;
 
     /**
-     * @var $this
-     *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Category", mappedBy="idParent")
-     * @ORM\JoinColumn(name="child", referencedColumnName="id_parent")
+     * @Gedmo\Translatable
+     * @Gedmo\Slug(fields={"created", "title"})
+     * @ORM\Column(length=64, unique=true)
      */
-    private $child;
+    private $slug;
 
+    /**
+     * @Gedmo\TreeLeft
+     * @ORM\Column(name="lft", type="integer")
+     */
+    private $lft;
+
+    /**
+     * @Gedmo\TreeLevel
+     * @ORM\Column(name="lvl", type="integer")
+     */
+    private $lvl;
+
+    /**
+     * @Gedmo\TreeRight
+     * @ORM\Column(name="rgt", type="integer")
+     */
+    private $rgt;
+
+    /**
+     * @Gedmo\TreeRoot
+     * @ORM\ManyToOne(targetEntity="Category")
+     * @ORM\JoinColumn(name="tree_root", referencedColumnName="id", onDelete="CASCADE")
+     */
+    private $root;
+
+    /**
+     * @Gedmo\TreeParent
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="children")
+     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id", onDelete="CASCADE")
+     */
+    private $parent;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Category", mappedBy="parent")
+     * @ORM\OrderBy({"lft" = "ASC"})
+     */
+    private $children;
+    
     /**
      * @var bool
      *
@@ -53,11 +97,39 @@ class Category
     private $isEnabled;
 
     /**
-     * @var datetime_immutable
-     *
-     * @ORM\Column(name="date_add", type="datetime_immutable")
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime")
      */
-    private $dateAdd;
+    private $created;
+
+    /**
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(type="datetime")
+     */
+    private $updated;
+
+    /**
+     * @Gedmo\Blameable(on="create")
+     * @ORM\ManyToOne(targetEntity="Accounts")
+     * @ORM\JoinColumn(name="created_by", referencedColumnName="id")
+     */
+    private $createdBy;
+
+    /**
+     * @Gedmo\Blameable(on="update")
+     * @ORM\ManyToOne(targetEntity="Accounts")
+     * @ORM\JoinColumn(name="updated_by", referencedColumnName="id")
+     */
+    private $updatedBy;
+
+    /**
+     * @ORM\OneToMany(
+     *   targetEntity="CategoryTranslation",
+     *   mappedBy="object",
+     *   cascade={"persist", "remove"}
+     * )
+     */
+    private $translations;
 
     /**
      * @var Country
@@ -77,15 +149,15 @@ class Category
 
     public function __construct()
     {
-        $this->child = new ArrayCollection();
+        $this->children = new ArrayCollection();
         $this->services = new ArrayCollection();
+        $this->translations = new ArrayCollection();
     }
-
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -93,107 +165,267 @@ class Category
     }
 
     /**
-     * Set idParent
+     * Set title
      *
-     * @param string $idParent
+     * @param string $title
      *
      * @return Category
      */
-    public function setIdParent($idParent)
+    public function setTitle($title)
     {
-        $this->idParent = $idParent;
+        $this->title = $title;
 
         return $this;
     }
 
     /**
-     * Get idParent
+     * Get title
      *
      * @return string
      */
-    public function getIdParent()
+    public function getTitle()
     {
-        return $this->idParent;
+        return $this->title;
     }
 
     /**
-     * @return mixed
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Category
      */
-    public function getName()
+    public function setDescription($description)
     {
-        return $this->name;
+        $this->description = $description;
+
+        return $this;
     }
 
     /**
-     * @param mixed $name
+     * Get description
+     *
+     * @return string
      */
-    public function setName($name)
+    public function getDescription()
     {
-        $this->name = $name;
+        return $this->description;
     }
 
     /**
-     * @return mixed
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Category
      */
-    public function getDateAdd()
+    public function setSlug($slug)
     {
-        return $this->dateAdd;
+        $this->slug = $slug;
+
+        return $this;
     }
 
     /**
-     * @param mixed $dateAdd
+     * Get slug
+     *
+     * @return string
      */
-    public function setDateAdd($dateAdd)
+    public function getSlug()
     {
-        $this->dateAdd = $dateAdd;
+        return $this->slug;
     }
 
     /**
-     * @return mixed
+     * Set lft
+     *
+     * @param integer $lft
+     *
+     * @return Category
      */
-    public function getChild()
+    public function setLft($lft)
     {
-        return $this->child;
+        $this->lft = $lft;
+
+        return $this;
     }
 
     /**
-     * @param mixed $child
+     * Get lft
+     *
+     * @return integer
      */
-    public function setChild($child)
+    public function getLft()
     {
-        $this->child = $child;
+        return $this->lft;
     }
 
     /**
-     * @return mixed
+     * Set lvl
+     *
+     * @param integer $lvl
+     *
+     * @return Category
      */
-    public function getisEnabled()
+    public function setLvl($lvl)
+    {
+        $this->lvl = $lvl;
+
+        return $this;
+    }
+
+    /**
+     * Get lvl
+     *
+     * @return integer
+     */
+    public function getLvl()
+    {
+        return $this->lvl;
+    }
+
+    /**
+     * Set rgt
+     *
+     * @param integer $rgt
+     *
+     * @return Category
+     */
+    public function setRgt($rgt)
+    {
+        $this->rgt = $rgt;
+
+        return $this;
+    }
+
+    /**
+     * Get rgt
+     *
+     * @return integer
+     */
+    public function getRgt()
+    {
+        return $this->rgt;
+    }
+
+    /**
+     * Set isEnabled
+     *
+     * @param boolean $isEnabled
+     *
+     * @return Category
+     */
+    public function setIsEnabled($isEnabled)
+    {
+        $this->isEnabled = $isEnabled;
+
+        return $this;
+    }
+
+    /**
+     * Get isEnabled
+     *
+     * @return boolean
+     */
+    public function getIsEnabled()
     {
         return $this->isEnabled;
     }
 
     /**
-     * @param mixed $isEnabled
+     * Set created
+     *
+     * @param \DateTime $created
+     *
+     * @return Category
      */
-    public function setIsEnabled($isEnabled)
+    public function setCreated($created)
     {
-        $this->isEnabled = $isEnabled;
+        $this->created = $created;
+
+        return $this;
     }
 
     /**
-     * @return Country
+     * Get created
+     *
+     * @return \DateTime
      */
-    public function getCountry()
+    public function getCreated()
     {
-        return $this->country;
+        return $this->created;
     }
 
     /**
-     * @param Country $country
+     * Set updated
+     *
+     * @param \DateTime $updated
+     *
+     * @return Category
      */
-    public function setCountry($country)
+    public function setUpdated($updated)
     {
-        $this->country = $country;
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * Set root
+     *
+     * @param \AppBundle\Entity\Category $root
+     *
+     * @return Category
+     */
+    public function setRoot(\AppBundle\Entity\Category $root = null)
+    {
+        $this->root = $root;
+
+        return $this;
+    }
+
+    /**
+     * Get root
+     *
+     * @return \AppBundle\Entity\Category
+     */
+    public function getRoot()
+    {
+        return $this->root;
+    }
+
+    /**
+     * Set parent
+     *
+     * @param \AppBundle\Entity\Category $parent
+     *
+     * @return Category
+     */
+    public function setParent(\AppBundle\Entity\Category $parent = null)
+    {
+        $this->parent = $parent;
+
+        return $this;
+    }
+
+    /**
+     * Get parent
+     *
+     * @return \AppBundle\Entity\Category
+     */
+    public function getParent()
+    {
+        return $this->parent;
     }
 
     /**
@@ -205,7 +437,7 @@ class Category
      */
     public function addChild(\AppBundle\Entity\Category $child)
     {
-        $this->child[] = $child;
+        $this->children[] = $child;
 
         return $this;
     }
@@ -217,7 +449,123 @@ class Category
      */
     public function removeChild(\AppBundle\Entity\Category $child)
     {
-        $this->child->removeElement($child);
+        $this->children->removeElement($child);
+    }
+
+    /**
+     * Get children
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getChildren()
+    {
+        return $this->children;
+    }
+
+    /**
+     * Set createdBy
+     *
+     * @param \AppBundle\Entity\Accounts $createdBy
+     *
+     * @return Category
+     */
+    public function setCreatedBy(\AppBundle\Entity\Accounts $createdBy = null)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * Get createdBy
+     *
+     * @return \AppBundle\Entity\Accounts
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
+    }
+
+    /**
+     * Set updatedBy
+     *
+     * @param \AppBundle\Entity\Accounts $updatedBy
+     *
+     * @return Category
+     */
+    public function setUpdatedBy(\AppBundle\Entity\Accounts $updatedBy = null)
+    {
+        $this->updatedBy = $updatedBy;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedBy
+     *
+     * @return \AppBundle\Entity\Accounts
+     */
+    public function getUpdatedBy()
+    {
+        return $this->updatedBy;
+    }
+
+    /**
+     * Add translation
+     *
+     * @param \AppBundle\Entity\CategoryTranslation $translation
+     *
+     * @return Category
+     */
+    public function addTranslation(\AppBundle\Entity\CategoryTranslation $translation)
+    {
+        $this->translations[] = $translation;
+
+        return $this;
+    }
+
+    /**
+     * Remove translation
+     *
+     * @param \AppBundle\Entity\CategoryTranslation $translation
+     */
+    public function removeTranslation(\AppBundle\Entity\CategoryTranslation $translation)
+    {
+        $this->translations->removeElement($translation);
+    }
+
+    /**
+     * Get translations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTranslations()
+    {
+        return $this->translations;
+    }
+
+    /**
+     * Set country
+     *
+     * @param \AppBundle\Entity\Country $country
+     *
+     * @return Category
+     */
+    public function setCountry(\AppBundle\Entity\Country $country = null)
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    /**
+     * Get country
+     *
+     * @return \AppBundle\Entity\Country
+     */
+    public function getCountry()
+    {
+        return $this->country;
     }
 
     /**

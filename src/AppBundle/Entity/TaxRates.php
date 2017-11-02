@@ -20,15 +20,7 @@ class TaxRates
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-    /**
-     * @var int
-     *
-     * @ORM\OneToOne(targetEntity="TaxRateDescriptions", inversedBy="taxRateId")
-     * @ORM\JoinColumn(name="taxRateDescriptions", referencedColumnName="id")
-     */
-    private $taxRateDescriptions;
-
+    
     /**
      * @var int
      *

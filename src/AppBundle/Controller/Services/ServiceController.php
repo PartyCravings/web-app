@@ -67,6 +67,7 @@ class ServiceController extends AbstractController
         EntityManagerInterface $em,
         \AppBundle\Entity\Country $country
     ) {
+        $results = array();
         $services = $em->getRepository('AppBundle:Service')
             ->findBySearchQuery(
                     $request->get('query', ''),
@@ -74,22 +75,18 @@ class ServiceController extends AbstractController
                     $country,
                     $request->get('page', 1)
         );
-        return !$request->isXmlHttpRequest() ? $this->json(
-            function () use ($services) {
-                $results = array('HHHHHH');
-                foreach ($services as $service) {
-                    $results[] = array(
-                    'name' => htmlspecialchars($service->getName()),
-                    'date' => $service->getDateAdd()->format('M d, Y'),
-                    'vendor' => htmlspecialchars($service->getVendor()->getName()),
-                    'summary' => htmlspecialchars($service->getserviceDescriptions()->getDescription()),
-                    'url' => $this->generateUrl('site_show_service', ['slug' => $service->getSlug()])
-                        );
-                }
-                return $results;
-            }
-        ) : array(
-            'services' => $services
+        
+        foreach ($services as $service) {
+            $results[] = array(
+                'name' => htmlspecialchars($service->getName()),
+                'date' => $service->getDateAdd()->format('M d, Y'),
+                'vendor' => htmlspecialchars($service->getVendor()->getName()),
+                'summary' => htmlspecialchars($service->getserviceDescriptions()->getDescription()),
+                'url' => $this->generateUrl('site_show_service', ['slug' => $service->getSlug()])
+                    );
+        }
+        return $request->isXmlHttpRequest() ? $this->json($results) : array(
+            'services' => $services,
             );
     }
 }

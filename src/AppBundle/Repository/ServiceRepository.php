@@ -2,7 +2,6 @@
 
 namespace AppBundle\Repository;
 
-
 use Doctrine\ORM\Query;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Pagerfanta\Pagerfanta;
@@ -23,13 +22,13 @@ class ServiceRepository extends \Doctrine\ORM\EntityRepository
         \AppBundle\Entity\Country $country,
         int $page
     ): Pagerfanta {
-        $searchTerms = $this->extractSearchTerms(
-            $this->sanitizeSearchQuery(
+        $searchTerms = \AppBundle\Utils\Sorter::buildTree(
+            \AppBundle\Utils\Sorter::sanitizeString(
                 $rawQuery
                 )
             );
         $queryBuilder = $this->createQueryBuilder('p')
-                ->where('f.name = :category')
+                ->where('f.title = :category')
                 ->setParameter('category', $category)
                 ->andWhere('f.country = :country')
                 ->setParameter('country', $country);
@@ -46,32 +45,6 @@ class ServiceRepository extends \Doctrine\ORM\EntityRepository
                 ->useQueryCache(true)
                 ->useResultCache(true);
 
-        return $this->createPaginator($query, $page);
-    }
-
-    private function createPaginator(Query $query, int $page): Pagerfanta
-    {
-        $paginator = new Pagerfanta(new DoctrineORMAdapter($query));
-        $paginator->setMaxPerPage(self::NUM_ITEMS);
-        $paginator->setCurrentPage($page);
-        return $paginator;
-    }
-
-    /**
-     * Removes all non-alphanumeric characters except whitespaces.
-     */
-    private function sanitizeSearchQuery(string $query): string
-    {
-        return preg_replace('/[^[:alnum:] ]/', '', trim(preg_replace('/[[:space:]]+/', ' ', $query)));
-    }
-    /**
-     * Splits the search query into terms and removes the ones which are irrelevant.
-     */
-    private function extractSearchTerms(string $searchQuery): array
-    {
-        $terms = array_unique(explode(' ', mb_strtolower($searchQuery)));
-        return array_filter($terms, function ($term) {
-            return 2 <= mb_strlen($term);
-        });
+        return \AppBundle\Utils\Sorter::createPaginator($query, $page, self::NUM_ITEMS);
     }
 }

@@ -101,8 +101,8 @@ class DefaultController extends AbstractController
             )
      * @Cache(
                 smaxage=0,
-                lastmodified="country.getUpdatedAt()",
-                etag="'Country' ~ country.getId() ~ country.getUpdatedAt().format('Y-m-d')"
+                lastmodified="country.getUpdated()",
+                etag="'Country' ~ country.getId() ~ country.getUpdated().format('Y-m-d')"
             )
      * @param \AppBundle\Entity\Country $country
      * @return array

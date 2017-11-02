@@ -46,27 +46,6 @@ class CampaignAttachments
     /**
      * @var bool
      *
-     * @ORM\Column(name="is_audio", type="boolean")
-     */
-    private $isAudio;
-
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="is_image", type="boolean")
-     */
-    private $isImage;
-
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="is_video", type="boolean")
-     */
-    private $isVideo;
-
-    /**
-     * @var bool
-     *
      * @ORM\Column(name="is_enabled", type="boolean")
      */
     private $isEnabled;

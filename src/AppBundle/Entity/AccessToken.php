@@ -27,8 +27,8 @@ class AccessToken extends BaseAccessToken
     protected $client;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Accounts", inversedBy="accessTokens")
-     * @ORM\JoinColumn(name="account_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Accounts")
+     * @ORM\JoinColumn(name="account", referencedColumnName="id")
      */
     protected $user;
 }

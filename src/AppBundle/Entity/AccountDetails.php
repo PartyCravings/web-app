@@ -32,30 +32,16 @@ class AccountDetails
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="birthday", type="datetime", nullable=true)
+     * @ORM\Column(name="birthday", type="date_immutable", nullable=true)
      */
     private $birthday;
 
     /**
      * @var Address
      *
-     * @ORM\OneToMany(targetEntity="Address", mappedBy="accountDetail")
+     * @ORM\ManyToMany(targetEntity="Address")
      */
     private $addresses;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="account_group_id", type="integer")
-     */
-    private $accountGroupId;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="country_id", type="integer")
-     */
-    private $countryId;
 
     /**
      * @var string
@@ -72,35 +58,24 @@ class AccountDetails
     private $lastname;
 
     /**
-     * @var int
+     * @var bool
      *
-     * @ORM\Column(name="financial_id", type="integer")
+     * @ORM\Column(name="newsletter_signed", type="boolean")
      */
-    private $financialId;
+    private $newsletterSigned;
 
     /**
-     * @var int
+     * @var Service
      *
-     * @ORM\Column(name="newsletter_id", type="integer")
+     * @ORM\ManyToMany(targetEntity="Service")
      */
-    private $newsletterId;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="wishlist_id", type="integer")
-     */
-    private $wishlistId;
-
-    /**
-     * @ORM\OneToOne(targetEntity="Accounts", mappedBy="accountDetail")
-     */
-    private $account;
+    private $wishlist;
 
 
     public function __construct()
     {
         $this->addresses = new ArrayCollection();
+        $this->wishlist = new ArrayCollection();
     }
 
     /**
@@ -345,5 +320,63 @@ class AccountDetails
     public function getAddresses()
     {
         return $this->addresses;
+    }
+
+    /**
+     * Set newsletterSigned
+     *
+     * @param boolean $newsletterSigned
+     *
+     * @return AccountDetails
+     */
+    public function setNewsletterSigned($newsletterSigned)
+    {
+        $this->newsletterSigned = $newsletterSigned;
+
+        return $this;
+    }
+
+    /**
+     * Get newsletterSigned
+     *
+     * @return boolean
+     */
+    public function getNewsletterSigned()
+    {
+        return $this->newsletterSigned;
+    }
+
+    /**
+     * Add wishlist
+     *
+     * @param \AppBundle\Entity\Service $wishlist
+     *
+     * @return AccountDetails
+     */
+    public function addWishlist(\AppBundle\Entity\Service $wishlist)
+    {
+        $this->wishlist[] = $wishlist;
+
+        return $this;
+    }
+
+    /**
+     * Remove wishlist
+     *
+     * @param \AppBundle\Entity\Service $wishlist
+     */
+    public function removeWishlist(\AppBundle\Entity\Service $wishlist)
+    {
+        $this->wishlist->removeElement($wishlist);
+    }
+
+    /**
+     * Get wishlist
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getWishlist()
+    {
+        return $this->wishlist;
     }
 }

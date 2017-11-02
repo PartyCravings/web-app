@@ -6,22 +6,33 @@
     {{ parent() }}
 {% endblock manifest %}
 
+{% block javascripts %}
+  {{ parent() }}
+  <script src="{{ preload(asset('build/slider.js'), {nopush: true}) }}" type="text/javascript"></script>
+  <script src="{{ preload(asset('build/sticklr.js'), {nopush: true}) }}" type="text/javascript"></script>
+  <script src="{{ preload(asset('build/home.js'), {nopush: true}) }}" type="text/javascript"></script>
+{% endblock %}
+
 {% block content %}
 
       <div id="slider-top" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:380px;overflow:hidden;visibility:hidden;">
+        <!-- Loading Screen -->
+            <div class="jssorl-009-spin" data-u="loading" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
+                <img src="{{ asset('build/images/spin.svg') }}" style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;">
+            </div>
         <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:380px;overflow:hidden;">
-          <div class="image"><img data-u="image" alt="#" src="{{ asset('build/images/demo-2.jpg') }}" data-src="{{ asset('images/001.jpg') }}" /></div>
-          <div class="image"><img data-u="image" alt="#" src="{{ asset('build/images/demo-2.jpg') }}" data-src="{{ asset('images/005.jpg') }}" /></div>
-          <div class="image"><img data-u="image" alt="#" src="{{ asset('build/images/demo-2.jpg') }}" data-src="{{ asset('images/006.jpg') }}" /></div>
-          <div class="image"><img data-u="image" alt="#" src="{{ asset('build/images/demo-2.jpg') }}" data-src="{{ asset('images/007.jpg') }}" /></div>
-          <div class="image"><img data-u="image" alt="#" src="{{ asset('build/images/demo-2.jpg') }}" data-src="{{ asset('images/008.jpg') }}" /></div>
-          <div class="image"><img data-u="image" alt="#" src="{{ asset('build/images/demo-2.jpg') }}" data-src="{{ asset('images/009.jpg') }}" /></div>
-          <div class="image"><img data-u="image" alt="#" src="{{ asset('build/images/demo-2.jpg') }}" data-src="{{ asset('images/010.jpg') }}" /></div>
-          <div class="image"><img data-u="image" alt="#" src="{{ asset('build/images/demo-2.jpg') }}" data-src="{{ asset('images/011.jpg') }}" /></div>
-          <div class="image"><img data-u="image" alt="#" src="{{ asset('build/images/demo-2.jpg') }}" data-src="{{ asset('images/024.jpg') }}" /></div>
-          <div class="image"><img data-u="image" alt="#" src="{{ asset('build/images/demo-2.jpg') }}" data-src="{{ asset('images/025.jpg') }}" /></div>
-          <div class="image"><img data-u="image" alt="#" src="{{ asset('build/images/demo-2.jpg') }}" data-src="{{ asset('images/026.jpg') }}" /></div>
-          <div class="image"><img data-u="image" alt="#" src="{{ asset('build/images/demo-2.jpg') }}" data-src="{{ asset('images/027.jpg') }}" /></div>
+          <div class="image"><img data-u="image" alt="#" src="{{ asset('images/001.jpg') }}" /></div>
+          <div class="image"><img data-u="image" alt="#" src="{{ asset('images/005.jpg') }}" /></div>
+          <div class="image"><img data-u="image" alt="#" src="{{ asset('images/006.jpg') }}" /></div>
+          <div class="image"><img data-u="image" alt="#" src="{{ asset('images/007.jpg') }}" /></div>
+          <div class="image"><img data-u="image" alt="#" src="{{ asset('images/008.jpg') }}" /></div>
+          <div class="image"><img data-u="image" alt="#" src="{{ asset('images/009.jpg') }}" /></div>
+          <div class="image"><img data-u="image" alt="#" src="{{ asset('images/010.jpg') }}" /></div>
+          <div class="image"><img data-u="image" alt="#" src="{{ asset('images/011.jpg') }}" /></div>
+          <div class="image"><img data-u="image" alt="#" src="{{ asset('images/024.jpg') }}" /></div>
+          <div class="image"><img data-u="image" alt="#" src="{{ asset('images/025.jpg') }}" /></div>
+          <div class="image"><img data-u="image" alt="#" src="{{ asset('images/026.jpg') }}" /></div>
+          <div class="image"><img data-u="image" alt="#" src="{{ asset('images/027.jpg') }}" /></div>
         </div>
         <!-- Bullet Navigator -->
         <div class="jssorb057" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75" data-u="navigator" style="position:absolute;bottom:12px;right:12px;">
@@ -46,19 +57,22 @@
       <!-- #endregion Jssor Slider End -->
       <div id="slider-bottom" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:150px;overflow:hidden;visibility:hidden;">
         <!-- Loading Screen -->
+            <div class="jssorl-009-spin" data-u="loading" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
+                <img src="{{ asset('build/images/spin.svg') }}" style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;">
+            </div>
         <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:150px;overflow:hidden;">
-          <div class="image"><img alt="#" src="{{ asset('build/images/demo-2.jpg') }}" data-src="{{ asset('images/001.jpg') }}" /></div>
-          <div class="image"><img alt="#" src="{{ asset('build/images/demo-2.jpg') }}" data-src="{{ asset('images/005.jpg') }}" /></div>
-          <div class="image"><img alt="#" src="{{ asset('build/images/demo-2.jpg') }}" data-src="{{ asset('images/006.jpg') }}" /></div>
-          <div class="image"><img alt="#" src="{{ asset('build/images/demo-2.jpg') }}" data-src="{{ asset('images/007.jpg') }}" /></div>
-          <div class="image"><img alt="#" src="{{ asset('build/images/demo-2.jpg') }}" data-src="{{ asset('images/008.jpg') }}" /></div>
-          <div class="image"><img alt="#" src="{{ asset('build/images/demo-2.jpg') }}" data-src="{{ asset('images/009.jpg') }}" /></div>
-          <div class="image"><img alt="#" src="{{ asset('build/images/demo-2.jpg') }}" data-src="{{ asset('images/010.jpg') }}" /></div>
-          <div class="image"><img alt="#" src="{{ asset('build/images/demo-2.jpg') }}" data-src="{{ asset('images/011.jpg') }}" /></div>
-          <div class="image"><img alt="#" src="{{ asset('build/images/demo-2.jpg') }}" data-src="{{ asset('images/024.jpg') }}" /></div>
-          <div class="image"><img alt="#" src="{{ asset('build/images/demo-2.jpg') }}" data-src="{{ asset('images/025.jpg') }}" /></div>
-          <div class="image"><img alt="#" src="{{ asset('build/images/demo-2.jpg') }}" data-src="{{ asset('images/026.jpg') }}" /></div>
-          <div class="image"><img alt="#" src="{{ asset('build/images/demo-2.jpg') }}" data-src="{{ asset('images/027.jpg') }}" /></div>
+          <div class="image"><img alt="#" src="{{ asset('images/001.jpg') }}" /></div>
+          <div class="image"><img alt="#" src="{{ asset('images/005.jpg') }}" /></div>
+          <div class="image"><img alt="#" src="{{ asset('images/006.jpg') }}" /></div>
+          <div class="image"><img alt="#" src="{{ asset('images/007.jpg') }}" /></div>
+          <div class="image"><img alt="#" src="{{ asset('images/008.jpg') }}" /></div>
+          <div class="image"><img alt="#" src="{{ asset('images/009.jpg') }}" /></div>
+          <div class="image"><img alt="#" src="{{ asset('images/010.jpg') }}" /></div>
+          <div class="image"><img alt="#" src="{{ asset('images/011.jpg') }}" /></div>
+          <div class="image"><img alt="#" src="{{ asset('images/024.jpg') }}" /></div>
+          <div class="image"><img alt="#" src="{{ asset('images/025.jpg') }}" /></div>
+          <div class="image"><img alt="#" src="{{ asset('images/026.jpg') }}" /></div>
+          <div class="image"><img alt="#" src="{{ asset('images/027.jpg') }}" /></div>
         </div>
         <!-- Bullet Navigator -->
         <div class="jssorb057" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75" data-u="navigator" style="position:absolute;bottom:12px;right:12px;">
@@ -352,7 +366,7 @@
         <div class="ui doubling three cards fluid">
           <div class="card">
             <div class="image">
-              <img alt="#" data-src="{{ asset('build/images/demo-2.jpg') }}" src="{{ asset('build/images/demo-5.jpg') }}" />
+              <img class ="lazy" alt="#" data-src="{{ asset('build/images/demo-2.jpg') }}" src="{{ asset('build/images/demo-5.jpg') }}" />
                
             </div>
             <div class="extra aligned center">
@@ -362,7 +376,7 @@
           </div>
           <div class="card">
             <div class="image">
-              <img alt="#" data-src="{{ asset('build/images/demo-2.jpg') }}" src="{{ asset('build/images/demo-5.jpg') }}" />
+              <img class ="lazy" alt="#" data-src="{{ asset('build/images/demo-2.jpg') }}" src="{{ asset('build/images/demo-5.jpg') }}" />
                
             </div>
             <div class="extra aligned center">
@@ -372,7 +386,7 @@
           </div>
           <div class="card">
             <div class="image">
-              <img alt="#" data-src="{{ asset('build/images/demo-2.jpg') }}" src="{{ asset('build/images/demo-5.jpg') }}" />
+              <img class ="lazy" alt="#" data-src="{{ asset('build/images/demo-2.jpg') }}" src="{{ asset('build/images/demo-5.jpg') }}" />
                
             </div>
             <div class="extra aligned center">
@@ -382,7 +396,7 @@
           </div>
           <div class="card">
             <div class="image">
-              <img alt="#" data-src="{{ asset('build/images/demo-2.jpg') }}" src="{{ asset('build/images/demo-5.jpg') }}" />
+              <img class ="lazy" alt="#" data-src="{{ asset('build/images/demo-2.jpg') }}" src="{{ asset('build/images/demo-5.jpg') }}" />
                
             </div>
             <div class="extra aligned center">
@@ -392,7 +406,7 @@
           </div>
           <div class="card">
             <div class="image">
-              <img alt="#" data-src="{{ asset('build/images/demo-2.jpg') }}" src="{{ asset('build/images/demo-5.jpg') }}" />
+              <img class ="lazy" alt="#" data-src="{{ asset('build/images/demo-2.jpg') }}" src="{{ asset('build/images/demo-5.jpg') }}" />
                
             </div>
             <div class="extra aligned center">
@@ -402,7 +416,7 @@
           </div>
           <div class="card">
             <div class="image">
-              <img alt="#" data-src="{{ asset('build/images/demo-2.jpg') }}" src="{{ asset('build/images/demo-5.jpg') }}" />
+              <img class ="lazy" alt="#" data-src="{{ asset('build/images/demo-2.jpg') }}" src="{{ asset('build/images/demo-5.jpg') }}" />
                
             </div>
             <div class="extra aligned center">
@@ -417,7 +431,7 @@
         <div class="ui three cards fluid">
           <div class="card">
             <div class="image">
-              <img alt="#" data-src="{{ asset('build/images/demo-2.jpg') }}" src="{{ asset('build/images/demo-5.jpg') }}" />
+              <img class ="lazy" alt="#" data-src="{{ asset('build/images/demo-2.jpg') }}" src="{{ asset('build/images/demo-5.jpg') }}" />
                
             </div>
             <div class="extra aligned center">
@@ -426,7 +440,7 @@
           </div>
           <div class="card">
             <div class="image">
-              <img alt="demo image" data-src="{{ asset('build/images/demo-2.jpg') }}" src="{{ asset('build/images/demo-5.jpg') }}" />
+              <img class ="lazy" alt="demo image" data-src="{{ asset('build/images/demo-2.jpg') }}" src="{{ asset('build/images/demo-5.jpg') }}" />
                
             </div>
             <div class="extra aligned center">
@@ -435,7 +449,7 @@
           </div>
           <div class="card">
             <div class="image">
-              <img alt="demo image" data-src="{{ asset('build/images/demo-2.jpg') }}" src="{{ asset('build/images/demo-5.jpg') }}" />
+              <img class ="lazy" alt="demo image" data-src="{{ asset('build/images/demo-2.jpg') }}" src="{{ asset('build/images/demo-5.jpg') }}" />
                
             </div>
             <div class="extra aligned center">

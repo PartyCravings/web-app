@@ -89,7 +89,7 @@ class BugReports
      *
      * @ORM\Column(name="dupliacte", type="boolean")
      */
-    private $dupliacte;
+    private $duplicate;
 
     /**
      * @var string
@@ -153,13 +153,6 @@ class BugReports
      * @ORM\Column(name="assigned_to", type="string", length=255)
      */
     private $assignedTo;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="bug_report_id", type="integer")
-     */
-    private $bugReportId;
 
 
     /**
@@ -650,5 +643,29 @@ class BugReports
     public function getBugReportId()
     {
         return $this->bugReportId;
+    }
+
+    /**
+     * Set duplicate
+     *
+     * @param boolean $duplicate
+     *
+     * @return BugReports
+     */
+    public function setDuplicate($duplicate)
+    {
+        $this->duplicate = $duplicate;
+
+        return $this;
+    }
+
+    /**
+     * Get duplicate
+     *
+     * @return boolean
+     */
+    public function getDuplicate()
+    {
+        return $this->duplicate;
     }
 }

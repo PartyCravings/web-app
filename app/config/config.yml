@@ -259,3 +259,9 @@ ornicar_gravatar:
 #Noxlogic Rate Limit Bundle Configuration
 noxlogic_rate_limit:
     enabled: false
+
+#rsGaufretteBrowserBundle Configuration
+rs_gaufrette_browser:
+    file_pattern:    /\.(jpg|gif|jpeg|png)$/    # a valid regular expression to filter for file-extensions
+    filesystem:      gaufrette.gallery_filesystem           # the gaufrette filesystem alias to use
+    file_class:      AppBundle\Entity\Files

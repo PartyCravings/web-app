@@ -25,9 +25,9 @@ class Affiliates
      * @var int
      *
      * @ORM\ManyToOne(targetEntity="Agency", inversedBy="affiliates")
-     * @ORM\JoinColumn(name="agency_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="agency", referencedColumnName="id")
      */
-    private $agencyId;
+    private $agency;
 
     /**
      * @var string
@@ -79,19 +79,12 @@ class Affiliates
     private $updated;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="oac_category_id", type="integer")
-     */
-    private $affiliateCategoryId;
-
-    /**
-    * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Accounts", inversedBy="affiliates")
-    * @ORM\JoinColumn(name="account_id", referencedColumnName="id")
+    * @ORM\ManyToOne(targetEntity="Accounts")
+    * @ORM\JoinColumn(name="account", referencedColumnName="id")
     */
-    private $accountId;
+    private $account;
     /**
-    * @ORM\OneToOne(targetEntity="AffiliatesExtra", inversedBy="affilliateId")
+    * @ORM\OneToOne(targetEntity="AffiliatesExtra")
     * @ORM\JoinColumn(name="affiliatesExtra", referencedColumnName="id")
     */
     private $affiliatesExtra;
@@ -353,5 +346,53 @@ class Affiliates
     public function setAffiliatesExtra($affiliatesExtra)
     {
         $this->affiliatesExtra = $affiliatesExtra;
+    }
+
+    /**
+     * Set agency
+     *
+     * @param \AppBundle\Entity\Agency $agency
+     *
+     * @return Affiliates
+     */
+    public function setAgency(\AppBundle\Entity\Agency $agency = null)
+    {
+        $this->agency = $agency;
+
+        return $this;
+    }
+
+    /**
+     * Get agency
+     *
+     * @return \AppBundle\Entity\Agency
+     */
+    public function getAgency()
+    {
+        return $this->agency;
+    }
+
+    /**
+     * Set account
+     *
+     * @param \AppBundle\Entity\Accounts $account
+     *
+     * @return Affiliates
+     */
+    public function setAccount(\AppBundle\Entity\Accounts $account = null)
+    {
+        $this->account = $account;
+
+        return $this;
+    }
+
+    /**
+     * Get account
+     *
+     * @return \AppBundle\Entity\Accounts
+     */
+    public function getAccount()
+    {
+        return $this->account;
     }
 }

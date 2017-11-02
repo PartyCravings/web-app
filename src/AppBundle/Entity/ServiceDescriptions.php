@@ -22,20 +22,6 @@ class ServiceDescriptions
     private $id;
 
     /**
-     * @var int
-     *
-     * @ORM\OneToOne(targetEntity="Service", mappedBy="serviceDescriptions")
-     */
-    private $serviceId;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="lang_id", type="integer")
-     */
-    private $langId;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
@@ -164,63 +150,14 @@ class ServiceDescriptions
     /**
      * @var string
      *
-     * @ORM\Column(name="loc_coordinates", type="string", length=255)
-     */
-    private $locCoordinates;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="width", type="string", length=255)
-     */
-    private $width;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="height", type="string", length=255)
-     */
-    private $height;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="weight", type="string", length=255)
-     */
-    private $weight;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="lenght", type="string", length=255)
-     */
-    private $lenght;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="out_of_stock", type="decimal", precision=10, scale=0)
-     */
-    private $outOfStock;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="quantity_discount", type="string", length=255)
      */
     private $quantityDiscount;
 
     /**
-     * @var string
+     * @var Files
      *
-     * @ORM\Column(name="customizable", type="string", length=255)
-     */
-    private $customizable;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="uploaded_files", type="string", length=255)
+     * @ORM\ManyToMany(targetEntity="Files")
      */
     private $uploadedFiles;
 
@@ -241,192 +178,16 @@ class ServiceDescriptions
     /**
      * @var string
      *
-     * @ORM\Column(name="redirect_type", type="string", length=255)
-     */
-    private $redirectType;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="id_product_redirected", type="string", length=255)
-     */
-    private $idProductRedirected;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="available_for_order", type="string", length=255)
-     */
-    private $availableForOrder;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="available_date", type="string", length=255)
-     */
-    private $availableDate;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="service_condition", type="string", length=255)
-     */
-    private $serviceCondition;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="show_price", type="string", length=255)
-     */
-    private $showPrice;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="indexed", type="string", length=255)
-     */
-    private $indexed;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="visibility", type="string", length=255)
-     */
-    private $visibility;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="date_upd", type="string", length=255)
      */
     private $dateUpd;
 
     /**
-     * @var string
+     * @var ServiceTags
      *
-     * @ORM\Column(name="advanced_stock_managementt", type="string", length=255)
-     */
-    private $advancedStockManagementt;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="pack_stock_type", type="string", length=255)
-     */
-    private $packStockType;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="attachments", type="string", length=255)
-     */
-    private $attachments;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="attribute", type="string", length=255)
-     */
-    private $attribute;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="attribute_combination", type="string", length=255)
-     */
-    private $attributeCombination;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="attribute_image", type="string", length=255)
-     */
-    private $attributeImage;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="class", type="string", length=255)
-     */
-    private $class;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="attribute_vendor", type="string", length=255)
-     */
-    private $attributeVendor;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="carrier", type="string", length=255)
-     */
-    private $carrier;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="country_tax", type="string", length=255)
-     */
-    private $countryTax;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="download", type="string", length=255)
-     */
-    private $download;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="vendor_reduction_cache", type="string", length=255)
-     */
-    private $vendorReductionCache;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="language", type="string", length=255)
-     */
-    private $language;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="sale", type="string", length=255)
-     */
-    private $sale;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="vendor", type="string", length=255)
-     */
-    private $vendor;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="supplier", type="string", length=255)
-     */
-    private $supplier;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="tag", type="string", length=255)
+     * @ORM\ManyToMany(targetEntity="ServiceTags")
      */
     private $tag;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="products", type="string", length=255)
-     */
-    private $products;
-
 
     /**
      * Get id
@@ -1829,5 +1590,61 @@ class ServiceDescriptions
     public function getProducts()
     {
         return $this->products;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->uploadedFiles = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->tag = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add uploadedFile
+     *
+     * @param \AppBundle\Entity\Files $uploadedFile
+     *
+     * @return ServiceDescriptions
+     */
+    public function addUploadedFile(\AppBundle\Entity\Files $uploadedFile)
+    {
+        $this->uploadedFiles[] = $uploadedFile;
+
+        return $this;
+    }
+
+    /**
+     * Remove uploadedFile
+     *
+     * @param \AppBundle\Entity\Files $uploadedFile
+     */
+    public function removeUploadedFile(\AppBundle\Entity\Files $uploadedFile)
+    {
+        $this->uploadedFiles->removeElement($uploadedFile);
+    }
+
+    /**
+     * Add tag
+     *
+     * @param \AppBundle\Entity\ServiceTags $tag
+     *
+     * @return ServiceDescriptions
+     */
+    public function addTag(\AppBundle\Entity\ServiceTags $tag)
+    {
+        $this->tag[] = $tag;
+
+        return $this;
+    }
+
+    /**
+     * Remove tag
+     *
+     * @param \AppBundle\Entity\ServiceTags $tag
+     */
+    public function removeTag(\AppBundle\Entity\ServiceTags $tag)
+    {
+        $this->tag->removeElement($tag);
     }
 }

@@ -40,7 +40,7 @@ class Campaigns
     /**
      * @var Media
      *
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Media", inversedBy="campaign")
+     * @ORM\OneToOne(targetEntity="Files")
      * @ORM\JoinColumn(name="image_url", referencedColumnName="id")
      */
     private $imageUrl;

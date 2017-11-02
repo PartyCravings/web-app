@@ -26,14 +26,6 @@ class Accounts extends BaseUser
     protected $id;
 
     /**
-     * @var AccessToken
-     *
-     * @ORM\OneToMany(targetEntity="AccessToken", mappedBy="user")
-     * @ORM\JoinColumn(name="access_tokens", referencedColumnName="id")
-     */
-    private $accessTokens;
-
-    /**
      * @var string
      *
      * @Gedmo\Slug(fields={"username","id"})
@@ -56,33 +48,14 @@ class Accounts extends BaseUser
     private $isSuspended;
 
     /**
-    * @ORM\OneToMany(targetEntity="Affiliates", mappedBy="accountId")
-    */
-    private $affiliates;
-
-    /**
-    * @ORM\OneToMany(targetEntity="Agency", mappedBy="accountId")
-    */
-    private $agency;
-
-    /**
-     * @ORM\OneToOne(targetEntity="Vendor", mappedBy="account")
-     */
-    private $vendor;
-
-    /**
-     * @ORM\OneToMany(targetEntity="LiveParties", mappedBy="account")
-     */
-    private $liveParties;
-
-    /**
-     * @ORM\OneToOne(targetEntity="AccountDetails", inversedBy="account")
+     * @ORM\OneToOne(targetEntity="AccountDetails")
      * @ORM\JoinColumn(name="account_detail", referencedColumnName="id")
      **/
     private $accountDetail;
 
     /**
      * @var string
+     *
      * @ORM\Column(name="facebook_id", type="string", length=255, nullable=true)
      */
     protected $facebook_id;
@@ -114,9 +87,6 @@ class Accounts extends BaseUser
     public function __construct()
     {
         parent::__construct();
-        $this->agency = new ArrayCollection();
-        $this->affiliates = new ArrayCollection();
-        $this->liveParties = new ArrayCollection();
     }
 
 

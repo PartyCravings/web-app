@@ -3,15 +3,24 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 
 /**
  * Pages
  *
  * @ORM\Table(name="pages")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PagesRepository")
+ * @Gedmo\TranslationEntity(class="AppBundle\Entity\PageTranslation")
  */
 class Pages
 {
+    /**
+     * Hook SoftDeleteable behavior
+     * updates deletedAt field
+     */
+    use SoftDeleteableEntity;
+    
     /**
      * @var int
      *
@@ -22,11 +31,23 @@ class Pages
     private $id;
 
     /**
-     * @var datetimetz_immutable
-     *
-     * @ORM\Column(name="date_add", type="datetimetz_immutable")
+     * @Gedmo\Translatable
+     * @ORM\Column(length=64)
      */
-    private $dateAdd;
+    private $title;
+
+    /**
+     * @Gedmo\Translatable
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $description;
+
+    /**
+     * @Gedmo\Translatable
+     * @Gedmo\Slug(fields={"created", "title"})
+     * @ORM\Column(length=64, unique=true)
+     */
+    private $slug;
 
     /**
      * @var bool
@@ -36,47 +57,39 @@ class Pages
     private $isEnabled;
 
     /**
-     * @var string
-     *
-     * @ORM\ManyToOne(targetEntity="Country", inversedBy="pages")
-     * @ORM\JoinColumn(name="country", referencedColumnName="id")
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime")
      */
-    private $country;
+    private $created;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="content", type="string", length=100000)
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(type="datetime")
      */
-    private $content;
+    private $updated;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @Gedmo\Blameable(on="create")
+     * @ORM\ManyToOne(targetEntity="Accounts")
+     * @ORM\JoinColumn(name="created_by", referencedColumnName="id")
      */
-    private $name;
+    private $createdBy;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="slug", type="string", length=255)
+     * @Gedmo\Blameable(on="update")
+     * @ORM\ManyToOne(targetEntity="Accounts")
+     * @ORM\JoinColumn(name="updated_by", referencedColumnName="id")
      */
-    private $slug;
+    private $updatedBy;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="edited_by", type="string", length=255)
+     * @ORM\OneToMany(
+     *   targetEntity="PageTranslation",
+     *   mappedBy="object",
+     *   cascade={"persist", "remove"}
+     * )
      */
-    private $editedBy;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="updated_at", type="datetimetz")
-     */
-    private $updatedAt;
+    private $translations;
 
 
     /**
@@ -282,5 +295,190 @@ class Pages
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->translations = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return Pages
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Pages
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     *
+     * @return Pages
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     *
+     * @return Pages
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * Set createdBy
+     *
+     * @param \AppBundle\Entity\Accounts $createdBy
+     *
+     * @return Pages
+     */
+    public function setCreatedBy(\AppBundle\Entity\Accounts $createdBy = null)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * Get createdBy
+     *
+     * @return \AppBundle\Entity\Accounts
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
+    }
+
+    /**
+     * Set updatedBy
+     *
+     * @param \AppBundle\Entity\Accounts $updatedBy
+     *
+     * @return Pages
+     */
+    public function setUpdatedBy(\AppBundle\Entity\Accounts $updatedBy = null)
+    {
+        $this->updatedBy = $updatedBy;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedBy
+     *
+     * @return \AppBundle\Entity\Accounts
+     */
+    public function getUpdatedBy()
+    {
+        return $this->updatedBy;
+    }
+
+    /**
+     * Add translation
+     *
+     * @param \AppBundle\Entity\PageTranslation $translation
+     *
+     * @return Pages
+     */
+    public function addTranslation(\AppBundle\Entity\PageTranslation $translation)
+    {
+        $this->translations[] = $translation;
+
+        return $this;
+    }
+
+    /**
+     * Remove translation
+     *
+     * @param \AppBundle\Entity\PageTranslation $translation
+     */
+    public function removeTranslation(\AppBundle\Entity\PageTranslation $translation)
+    {
+        $this->translations->removeElement($translation);
+    }
+
+    /**
+     * Get translations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTranslations()
+    {
+        return $this->translations;
     }
 }

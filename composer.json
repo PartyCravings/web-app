@@ -3,6 +3,7 @@
     "description": "This holds the source code for partycravings' entire frontend stack",
     "license": "proprietary",
     "type": "project",
+    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "AppBundle\\": "src/AppBundle",
@@ -39,6 +40,7 @@
     ],
     "require": {
         "php": ">=5.5.9",
+        "digitalkaoz/gaufrette-browser-bundle": "dev-master",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/doctrine-migrations-bundle": "^1.2",
         "doctrine/orm": "^2.5",
@@ -88,7 +90,7 @@
             "cd php-pm/ && composer install && cd .."
         ],
         "post-update-cmd": [
-            "@symfony-scripts"
+            "@symfony-scripts",
             "cd php-pm/ && composer update && cd .."
         ],
         "post-deploy-cmd": [
