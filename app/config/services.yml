@@ -39,3 +39,6 @@ services:
     AppBundle\EventListener\HeaderReplay\SessionIdListener:
         tags:
             - { name: kernel.event_listener, event: terminal42.header_replay, method: onReplay }
+
+    WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs:
+        alias: white_october_breadcrumbs
