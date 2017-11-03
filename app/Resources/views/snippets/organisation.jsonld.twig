@@ -1,0 +1,39 @@
+{%- spaceless -%}
+    <script type="application/ld+json">
+            {
+                "@context": "http://schema.org",
+                "@type": "Organization",
+                "url": "{{ url('homepage') }}",
+                "logo": "{{ absolute_url(asset('favicon.ico'))}}",
+                "contactPoint" : [
+                    {
+                        "@type" : "ContactPoint",
+                        "telephone" : "+234 700 880 8800",
+                        "contactType" : "customer service",
+                        "availableLanguage" : ["English", "Yoruba"],
+                        "description": "Mobile Phone Number"
+                    },
+                    {
+                        "@type" : "ContactPoint",
+                        "telephone" : "+234 814 880 8800",
+                        "contactType" : "customer service",
+                        "availableLanguage" : ["English", "Yoruba"],
+                        "description": "Mobile Phone Number"
+                    },
+                    {
+                        "@type" : "ContactPoint",
+                        "telephone" : "+234 818 218 0211",
+                        "contactType" : "customer service",
+                        "availableLanguage" : ["English", "Yoruba"],
+                        "description": "Whatsapp Contact Number"
+                    }
+                ],
+                "sameAs" : [
+                    "http://www.facebook.com/partycravings",
+                    "http://twitter.com/partycravings",
+                    "http://www.pinterest.com/partycravings/",
+                    "http://www.instagram.com/partycravings/"
+                  ]
+            }
+    </script>
+{%- endspaceless -%}

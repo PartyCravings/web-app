@@ -2,6 +2,10 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Utils\Sorter;
+use Pagerfanta\Pagerfanta;
+use AppBundle\Entity\Country;
+
 /**
  * CategoryRepository
  *
@@ -10,6 +14,8 @@ namespace AppBundle\Repository;
  */
 class CategoryRepository extends \Gedmo\Tree\Entity\Repository\NestedTreeRepository
 {
+    const NUM_ITEMS = 20;
+
     public function findHeaderCategories() :array
     {
         return $this->createQueryBuilder('p')
@@ -24,32 +30,44 @@ class CategoryRepository extends \Gedmo\Tree\Entity\Repository\NestedTreeReposit
             ->getResult();
     }
 
-    public function findAllByCountry(array $country) :array
+    public function findAllByCountry(Country $country, int $page) :Pagerfanta
     {
-        return $this->createQueryBuilder('p')
+        $query = $this->createQueryBuilder('p')
             ->where('p.parent = false')
             ->andWhere('p.isEnabled =  true')
             ->andWhere('p.country = :country')
-            ->setParameters($country)
-            ->orderBy('p.title', 'DESC')
+            ->setParameter('country', $country)
+            ->orderBy('p.title', 'ASC')
             ->getQuery()
             ->useQueryCache(true)
-            ->useResultCache(true)
-            ->getResult();
+            ->useResultCache(true);
+
+        return Sorter::createPaginator($query, $page, self::NUM_ITEMS);
     }
 
-    public function findChildByParent(array $slugCountry) :array
+    public function findAllByParent(Category $parent, int $page) :Pagerfanta
     {
-        return $this->createQueryBuilder('p')
+        $query = $this->createQueryBuilder('p')
             ->where('p.isEnabled = true')
-            ->andWhere('f.slug = :slug')
-            ->andWhere('p.country = :country')
-            ->innerJoin('p.parent', 'f')
-            ->setParameters($slugCountry)
-            ->orderBy('p.title', 'DESC')
+            ->andWhere('p.parent = :parent')
+            ->setParameter('slug', $parent)
+            ->orderBy('p.title', 'ASC')
             ->getQuery()
             ->useQueryCache(true)
-            ->useResultCache(true)
-            ->getResult();
+            ->useResultCache(true);
+
+        return Sorter::createPaginator($query, $page, self::NUM_ITEMS);
+    }
+
+    public function findBySlug(string $slug) :?Category
+    {
+        return $this->createQueryBuilder('p')
+                ->andWhere('p.isEnabled = true')
+                ->andWhere('p.slug = :slug')
+                ->setParameter($slug)
+                ->getQuery()
+                ->useQueryCache(true)
+                ->useResultCache(true)
+                ->getOneOrNullResult();
     }
 }

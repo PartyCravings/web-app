@@ -1,0 +1,14 @@
+{%- spaceless -%}
+    <script type="application/ld+json">
+            {
+                "@context": "http://schema.org",
+                "@type": "WebSite",
+                "url": "{{ url('homepage') }}",
+                "potentialAction": {
+                "@type": "SearchAction",
+                "target": "{{ url('site_wide_search', { "query": "SITE_SEARCH_TEMPLATE" })|replace({ "SITE_SEARCH_TEMPLATE": "{query}"}) }}"
+                "query-input": "required name=query"
+                }
+            }
+    </script>
+{%- endspaceless -%}

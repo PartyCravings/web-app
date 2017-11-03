@@ -126,10 +126,10 @@
                     </div>
                     <div class="ui two wide column">
                         {% if app.user is null %}
-                            <img alt="john doe" class="ui avatar image" src="{{ gravatar('xx', null, null, null, true) }}" />
+                            <img alt="john doe" class="ui avatar image" src="{{ preload(gravatar('xx', null, null, null, true), {nopush: true}) }}" />
                             <a rel="nofollow" href="{{ url('fos_user_security_login') }}">{{ 'security.login'|trans({}, 'FOSUserBundle') }}</a>
                         {% else %}
-                            <img alt="{{ app.user.username }}" class="ui avatar image" src="{{ gravatar(app.user.email, null, null, null, true) }}" />
+                            <img alt="{{ app.user.username }}" class="ui avatar image" src="{{ preload(gravatar(app.user.email, null, null, null, true), {nopush: true}) }}" />
                             <a rel="nofollow" href="{{ url('fos_user_security_logout') }}">{{ 'security.logout'|trans({}, 'FOSUserBundle') }}</a>
                         {% endif %}
                     </div>
@@ -146,9 +146,9 @@
                     </form>
                     <div class="ui right floated image">
                         {% if app.user is null %}
-                            <a rel="nofollow" href="{{ url('fos_user_security_login') }}"><img class="ui avatar image" alt="john doe" src="{{ gravatar('xx', null, null, null, true) }}" style="position: relative; top: 50%; transform: translateY(-50%);"/></a>
+                            <a rel="nofollow" href="{{ url('fos_user_security_login') }}"><img class="ui avatar image" alt="john doe" src="{{ preload(gravatar('xx', null, null, null, true), {nopush: true}) }}" style="position: relative; top: 50%; transform: translateY(-50%);"/></a>
                         {% else %}
-                            <a rel="nofollow" href="{{ url('fos_user_security_logout') }}"><img class="ui avatar image" alt="{{ app.user.username }}" src="{{ gravatar(app.user.email, null, null, null, true) }}" style="position: relative; top: 50%; transform: translateY(-50%);"/></a>
+                            <a rel="nofollow" href="{{ url('fos_user_security_logout') }}"><img class="ui avatar image" alt="{{ app.user.username }}" src="{{ preload(gravatar(app.user.email, null, null, null, true), {nopush: true}) }}" style="position: relative; top: 50%; transform: translateY(-50%);"/></a>
                         {% endif %}
                     </div>
                 </div>

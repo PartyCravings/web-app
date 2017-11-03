@@ -5,6 +5,10 @@ namespace AppBundle\Repository;
 use Doctrine\ORM\Query;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Pagerfanta\Pagerfanta;
+use AppBundle\Utils\Sorter;
+use AppBundle\Entity\Country;
+use AppBundle\Entity\Category;
+use AppBundle\Entity\Service;
 
 /**
  * ServiceRepository
@@ -16,14 +20,10 @@ class ServiceRepository extends \Doctrine\ORM\EntityRepository
 {
     const NUM_ITEMS = 20;
 
-    public function findBySearchQuery(
-        string $rawQuery,
-        string $category,
-        \AppBundle\Entity\Country $country,
-        int $page
-    ): Pagerfanta {
-        $searchTerms = \AppBundle\Utils\Sorter::buildTree(
-            \AppBundle\Utils\Sorter::sanitizeString(
+    public function findBySearchQuery(string $rawQuery, string $category, Country $country, int $page): Pagerfanta
+    {
+        $searchTerms = Sorter::buildTree(
+            Sorter::sanitizeString(
                 $rawQuery
                 )
             );
@@ -40,11 +40,66 @@ class ServiceRepository extends \Doctrine\ORM\EntityRepository
         }
         $query = $queryBuilder
                 ->innerJoin('p.category', 'f')
-                ->setMaxResults(self::NUM_ITEMS)
                 ->getQuery()
                 ->useQueryCache(true)
                 ->useResultCache(true);
 
-        return \AppBundle\Utils\Sorter::createPaginator($query, $page, self::NUM_ITEMS);
+        return Sorter::createPaginator($query, $page, self::NUM_ITEMS);
+    }
+
+    public function findAllByCountry(Country $country, int $page) :Pagerfanta
+    {
+        $query = $this->createQueryBuilder('p')
+                ->where('f.country = :country')
+                ->andWhere('p.isEnabled =  true')
+                ->innerJoin('p.category', 'f')
+                ->orderBy('p.dateAdd', 'DESC')
+                ->getQuery()
+                ->useQueryCache(true)
+                ->useResultCache(true);
+
+        return Sorter::createPaginator($query, $page, self::NUM_ITEMS);
+    }
+
+    public function findBySlug(string $slug) : ?Service
+    {
+        return $this->createQueryBuilder('p')
+                ->where('p.isEnabled = true')
+                ->andWhere('p.slug = :slug')
+                ->setParameter($slug)
+                ->getQuery()
+                ->useQueryCache(true)
+                ->useResultCache(true)
+                ->getOneOrNullResult();
+    }
+
+    public function findAllByCategory(Category $category, int $page) :Pagerfanta
+    {
+        $query = $this->createQueryBuilder('p')
+                ->where('p.isEnabled = true')
+                ->andWhere('p.category = :category')
+                ->setParameter('category', $category)
+                ->orderBy('p.dateAdd', 'DESC')
+                ->getQuery()
+                ->useQueryCache(true)
+                ->useResultCache(true);
+
+        return Sorter::createPaginator($query, $page, self::NUM_ITEMS);
+    }
+
+    public function findAllByCategoryLocation(Category $category, Location $location, int $page) :Pagerfanta
+    {
+        $query = $this->createQueryBuilder('p')
+                ->where('p.isEnabled = true')
+                ->andWhere('p.category = :category')
+                ->andWhere('p.location = :location')
+                ->setParameter('category', $category)
+                ->setParameter('location', $location)
+                ->orderBy('p.dateAdd', 'DESC')
+                ->getQuery()
+                ->useQueryCache(true)
+                ->useResultCache(true);
+
+        return Sorter::createPaginator($query, $page, self::NUM_ITEMS);
     }
 }

@@ -7,11 +7,13 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use AppBundle\Entity\Pages;
 
 /**
  * Class PageController
  * @package AppBundle\Controller
  *
+ * @Route("/pages")
  * @ParamConverter(
                     "country",
                     class="AppBundle:Country",
@@ -26,7 +28,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
  {
      /**
       * @Route(
-                  "/pages/{slug}",
+                  "/{slug}",
                    name="site_show_page"
               )
       * @Template(":pages:page.html.twig")
@@ -35,8 +37,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
                           class="AppBundle:Pages",
                           options=
                           {
-                              "id" = {"slug", "country"},
-                              "repository_method" = "findByCountry"
+                              "id" = "slug",
+                              "repository_method" = "findBySlug"
                           }
                       )
       * @Cache(
@@ -45,7 +47,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
                  etag="'Page' ~ page.getId() ~ page.getUpdatedAt().format('Y-m-d')"
              )
       */
-     public function showAction(\AppBundle\Entity\Pages $page) :void
+     public function showAction(Pages $page) :void
      {
      }
  }

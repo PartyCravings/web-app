@@ -9,11 +9,17 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
+use WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs;
+use AppBundle\Entity\Service;
+use AppBundle\Entity\Country;
+use AppBundle\Entity\Category;
+use AppBundle\Entity\Location;
 
 /**
- * Class PageController
+ * Class ServiceController
  * @package AppBundle\Controller
  *
+ * @Route("services")
  * @ParamConverter(
                     "country",
                     class="AppBundle:Country",
@@ -27,17 +33,35 @@ use Doctrine\ORM\EntityManagerInterface;
 class ServiceController extends AbstractController
 {
     /**
+     * @Route("", name="site_services_index")
+     * @Template(":services:index.html.twig")
+     * @Cache(smaxage=0)
+     */
+    public function indexAction(Country $country, Request $request, EntityManagerInterface $em, Breadcrumbs $breadcrumbs) :array
+    {
+        // Pass route name without any parameters
+        $breadcrumbs->addRouteItem("Services", "site_services_index");
+        $breadcrumbs->prependRouteItem("Home", "homepage");
+
+        return $em->getRepository(Service::class)
+                ->findAllByCountry(
+                    $country,
+                    $request->get('page', 1)
+                );
+    }
+
+    /**
      * @Route(
-                 "/services/{slug}",
-                 name="site_show_service"
+                 "/{slug}",
+                 name="site_services_show"
              )
      * @ParamConverter(
                          "service",
                          class="AppBundle:Service",
                          options=
                          {
-                             "id" ={"slug", "country"},
-                             "repository_method" = "findBySlugCountry"
+                             "id" ="slug",
+                             "repository_method" = "findBySlug"
                          }
                      )
      * @Template(
@@ -46,47 +70,96 @@ class ServiceController extends AbstractController
                  )
      * @Cache(
                 smaxage=0,
-                lastmodified="service.getUpdatedAt()",
-                etag="'Service' ~ service.id ~ service.serviceDescriptions.dateUpd.format('Y-m-d')"
+                lastmodified="service.updated",
+                etag="'Service' ~ service.id ~ service.serviceDescriptions.updated.format('Y-m-d')"
             )
      */
-    public function showAction(\AppBundle\Entity\Service $service) :void
+    public function showAction(Service $service, Breadcrumbs $breadcrumbs) :void
     {
+        $location = $service->getLocation();
+        $breadcrumbs->prependRouteItem($service->getName(), 'site_services_show', ['slug'=>$service->getSlug()]);
+        $breadcrumbs->prependRouteItem($location->getName(), 'site_location_listing', ['slug'=>$location->getSlug()]);
+        $node = $service->getCategory();
+        while ($node) {
+            $breadcrumbs->prependRouteItem($node->getTitle(), 'site_services_categories', ['slug'=>$node->getSlug()]);
+            $node = $node->getParent();
+        }
+        $breadcrumbs->prependRouteItem("Services", "site_services_index");
+        $breadcrumbs->prependRouteItem("Home", "homepage");
     }
 
     /**
-     * @Route(
-                 "/search",
-                 name="site_wide_search"
-             )
+     * @Route("/category/{slug}",
+            name="site_services_categories")
+     * @ParamConverter(
+            "category",
+            class="AppBundle:Category",
+            options=
+            {
+                "id" = "slug",
+                "repository_method" = "findBySlug"
+            }
+        )
+     * @Template(":services:category-listing.html.twig")
      * @Cache(smaxage=0)
-     * @Template(":services:search.html.twig")
+     *
      */
-    public function searchAction(
+    public function categoryAction(
+        Category $category,
+        Breadcrumbs $breadcrumbs,
         Request $request,
-        EntityManagerInterface $em,
-        \AppBundle\Entity\Country $country
+        EntityManagerInterface $em
     ) {
-        $results = array();
-        $services = $em->getRepository('AppBundle:Service')
-            ->findBySearchQuery(
-                    $request->get('query', ''),
-                    $request->get('category', !null),
-                    $country,
-                    $request->get('page', 1)
-        );
-        
-        foreach ($services as $service) {
-            $results[] = array(
-                'name' => htmlspecialchars($service->getName()),
-                'date' => $service->getDateAdd()->format('M d, Y'),
-                'vendor' => htmlspecialchars($service->getVendor()->getName()),
-                'summary' => htmlspecialchars($service->getserviceDescriptions()->getDescription()),
-                'url' => $this->generateUrl('site_show_service', ['slug' => $service->getSlug()])
-                    );
+        $node = $category;
+        while ($node) {
+            $breadcrumbs->prependRouteItem($node->getTitle(), 'site_services_categories', ['slug'=>$node->getSlug()]);
+            $node = $node->getParent();
         }
-        return $request->isXmlHttpRequest() ? $this->json($results) : array(
-            'services' => $services,
-            );
+        $breadcrumbs->prependRouteItem("Services", 'site_services_index');
+        $breadcrumbs->prependRouteItem("Home", "homepage");
+        return $em->getRepository(Service::class)->findAllByCategory($category, $request->get('page', 1));
+    }
+
+    /**
+     * @Route("/category/{slug}/location/{locationSlug}",
+            name="site_services_categories")
+     * @ParamConverter(
+            "category",
+            class="AppBundle:Category",
+            options=
+            {
+                "id" = "slug",
+                "repository_method" = "findBySlug"
+            }
+        )
+     * @ParamConverter(
+            "location",
+            class="AppBundle:Location",
+            options=
+            {
+                "id" = "locationSlug",
+                "repository_method" = "findBySlug"
+            }
+        )
+     * @Template(":services:category-location-listing.html.twig")
+     * @Cache(smaxage=0)
+     *
+     */
+    public function categoryLocationAction(
+        Category $category,
+        Location $location,
+        Breadcrumbs $breadcrumbs,
+        Request $request,
+        EntityManagerInterface $em
+    ) {
+        $breadcrumbs->prependRouteItem($location->getName(), 'site_location_listing', ['slug'=>$location->getSlug()]);
+        $node = $category;
+        while ($node) {
+            $breadcrumbs->prependRouteItem($node->getTitle(), 'site_services_categories', ['slug'=>$node->getSlug()]);
+            $node = $node->getParent();
+        }
+        $breadcrumbs->prependRouteItem("Services", 'site_services_index');
+        $breadcrumbs->prependRouteItem("Home", "homepage");
+        return $em->getRepository(Service::class)->findAllByCategoryLocation($category, $location, $request->get('page', 1));
     }
 }

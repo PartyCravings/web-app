@@ -3,6 +3,7 @@
    common elements and decorates all the other templates.
    See https://symfony.com/doc/current/book/templating.html#template-inheritance-and-layouts
 #}
+{% spaceless %}
 <!DOCTYPE html>
 <html lang="{{ app.request.locale }}">
 
@@ -20,6 +21,7 @@
     <meta name="keywords" content="party, events, birthday, wedding, vendor, meeting, venue, comedian, mc, artiste, musician, singer, celebration" />
     <meta name="author" content="PartyCravings℠" />
     <meta name="theme-color" content="#FF8300" />
+    <link rel="search" type="application/opensearchdescription+xml" title="PartyCravings℠" href="{{ url('site_wide_search_description') }}" />
     <!-- Preconnect for google fonts -->
     <link rel="preconnect" href="{{ preconnect('https://fonts.googleapis.com', { crossorigin :true } ) }}" crossorigin="crossorigin" />
     <link rel="preconnect" href="{{ preconnect('https://fonts.gstatic.com', { crossorigin: true } ) }}" crossorigin="crossorigin" />
@@ -33,73 +35,11 @@
     {% endblock %}
 
     {% block richSnippets %}
-        <script type="application/ld+json">
-            {
-                "@context": "http://schema.org",
-                "@type": "Organization",
-                "url": "{{ url('homepage') }}",
-                "logo": "{{ absolute_url(asset('favicon.ico'))}}",
-                "contactPoint" : [
-                    {
-                        "@type" : "ContactPoint",
-                        "telephone" : "+234 700 880 8800",
-                        "contactType" : "customer service",
-                        "availableLanguage" : ["English", "Yoruba"],
-                        "description": "Mobile Phone Number"
-                    },
-                    {
-                        "@type" : "ContactPoint",
-                        "telephone" : "+234 814 880 8800",
-                        "contactType" : "customer service",
-                        "availableLanguage" : ["English", "Yoruba"],
-                        "description": "Mobile Phone Number"
-                    },
-                    {
-                        "@type" : "ContactPoint",
-                        "telephone" : "+234 818 218 0211",
-                        "contactType" : "customer service",
-                        "availableLanguage" : ["English", "Yoruba"],
-                        "description": "Whatsapp Contact Number"
-                    }
-                ],
-                "sameAs" : [
-                    "http://www.facebook.com/partycravings",
-                    "http://twitter.com/partycravings",
-                    "http://www.pinterest.com/partycravings/",
-                    "http://www.instagram.com/partycravings/"
-                  ]
-            }
-        </script>
-        <script type="application/ld+json">
-            {
-              "@context": "http://schema.org/",
-              "@type": "EventService",
-              "serviceType": "Party Organizer",
-              "provider": {
-                "@type": "Organization",
-                "name": "PartyCravings℠"
-              },
-              "areaServed": {
-                "@type": "Country",
-                "name": "Nigeria"
-              },
-              "providerMobility": "dynamic"
-            }
-        </script>
-
-        <script type="application/ld+json">
-            {
-                "@context": "http://schema.org",
-                "@type": "WebSite",
-                "url": "{{ url('homepage') }}",
-                "potentialAction": {
-                "@type": "SearchAction",
-                "target": "{{ url('site_wide_search', { "query": "SITE_SEARCH_TEMPLATE" })|replace({ "SITE_SEARCH_TEMPLATE": "{query}"}) }}"
-                "query-input": "required name=query"
-                }
-            }
-        </script>
-    {% endblock %}
+        {% include 'snippets/organisation.jsonld.twig' %}
+        {% include 'snippets/service-provider.jsonld.twig' %}
+        {% include 'snippets/website.jsonld.twig' %}
+        {{ wo_render_breadcrumbs() }}
+    {% endblock %} 
 
   </head>
         <body>
@@ -130,6 +70,7 @@
                 }) }}"></script>
                 <script src="{{ preload(asset('build/app.js'), {nopush: true}) }}" type="text/javascript"></script>
             {% endblock %}
+            {% include "GoogleBundle:Analytics:async.html.twig" %}
 
             {# it's not mandatory to set the timezone in localizeddate(). This is done to
            avoid errors when the 'intl' PHP extension is not available and the application
@@ -137,3 +78,4 @@
             <!-- Page rendered on {{ 'now'|date('long', 'UTC') }} -->
         </body>
 </html>
+{% endspaceless %}

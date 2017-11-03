@@ -38,6 +38,12 @@ hwi_oauth_redirect:
     options:
         utf8: true
 
+#EasyAdminBundle Routes
+easy_admin_bundle:
+    resource: "@EasyAdminBundle/Controller/AdminController.php"
+    type:     annotation
+    prefix:   /admin
+
 #FOSOAuth Server Bundle Routes
 fos_oauth_server_token:
     resource: "@FOSOAuthServerBundle/Resources/config/routing/token.xml"
@@ -48,7 +54,7 @@ fos_oauth_server_authorize:
     resource: "@FOSOAuthServerBundle/Resources/config/routing/authorize.xml"
     options:
         utf8: true
-#OneUp Uploader Bundle Routes
+#OneUpUploaderBundle Routes
 oneup_uploader:
     resource: .
     type: uploader

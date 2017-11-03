@@ -2,6 +2,8 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Entity\Location;
+
 /**
  * LocationRepository
  *
@@ -10,7 +12,7 @@ namespace AppBundle\Repository;
  */
 class LocationRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function findLocationByNameParent(string $location, $parent): ?\AppBundle\Entity\Location
+    public function findLocationByParent(string $location, $parent): ?Location
     {
         return $this->createQueryBuilder('p')
             ->where('p.parent = :parent')
@@ -21,5 +23,46 @@ class LocationRepository extends \Doctrine\ORM\EntityRepository
             ->useQueryCache(true)
             ->useResultCache(true)
             ->getOneOrNullResult();
+    }
+
+    public function findAllByCountry(Country $country, int $page) :Pagerfanta
+    {
+        $query = $this->createQueryBuilder('p')
+            ->where('p.parent = false')
+            ->andWhere('p.isEnabled =  true')
+            ->andWhere('p.country = :country')
+            ->setParameter('country', $country)
+            ->orderBy('p.title', 'ASC')
+            ->getQuery()
+            ->useQueryCache(true)
+            ->useResultCache(true);
+
+        return Sorter::createPaginator($query, $page, self::NUM_ITEMS);
+    }
+
+    public function findAllByParent(Category $parent, int $page) :Pagerfanta
+    {
+        $query = $this->createQueryBuilder('p')
+            ->where('p.isEnabled = true')
+            ->andWhere('p.parent = :parent')
+            ->setParameter('slug', $parent)
+            ->orderBy('p.title', 'ASC')
+            ->getQuery()
+            ->useQueryCache(true)
+            ->useResultCache(true);
+
+        return Sorter::createPaginator($query, $page, self::NUM_ITEMS);
+    }
+
+    public function findBySlug(string $slug) : ?Location
+    {
+        return $this->createQueryBuilder('p')
+                ->andWhere('p.isEnabled = true')
+                ->andWhere('p.slug = :slug')
+                ->setParameter($slug)
+                ->getQuery()
+                ->useQueryCache(true)
+                ->useResultCache(true)
+                ->getOneOrNullResult();
     }
 }

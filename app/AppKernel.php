@@ -29,12 +29,16 @@ class AppKernel extends Kernel
             new Noxlogic\RateLimitBundle\NoxlogicRateLimitBundle(),
             new FOS\HttpCacheBundle\FOSHttpCacheBundle(),
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
+            new EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle(),
+            new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
             new JMS\TranslationBundle\JMSTranslationBundle(),
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\AopBundle\JMSAopBundle(),
             new Terminal42\HeaderReplay\HeaderReplayBundle(),
             new rs\GaufretteBrowserBundle\rsGaufretteBrowserBundle(),
+            new WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle(),
+            new AntiMattr\GoogleBundle\GoogleBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

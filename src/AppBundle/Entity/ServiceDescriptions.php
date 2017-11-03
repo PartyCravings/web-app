@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * ServiceDescriptions
@@ -48,41 +49,6 @@ class ServiceDescriptions
      * @ORM\Column(name="description", type="string", length=255)
      */
     private $description;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="blurb", type="string", length=255)
-     */
-    private $blurb;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="on_sale", type="string", length=255)
-     */
-    private $onSale;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="approved", type="string", length=255)
-     */
-    private $approved;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="deleted", type="string", length=255)
-     */
-    private $deleted;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="suspended", type="string", length=255)
-     */
-    private $suspended;
 
     /**
      * @var string
@@ -176,11 +142,17 @@ class ServiceDescriptions
     private $active;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="date_upd", type="string", length=255)
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(type="datetime")
      */
-    private $dateUpd;
+    private $updated;
+
+    /**
+     * @Gedmo\Blameable(on="update")
+     * @ORM\ManyToOne(targetEntity="Accounts")
+     * @ORM\JoinColumn(name="updated_by", referencedColumnName="id")
+     */
+    private $updatedBy;
 
     /**
      * @var ServiceTags
@@ -1646,5 +1618,53 @@ class ServiceDescriptions
     public function removeTag(\AppBundle\Entity\ServiceTags $tag)
     {
         $this->tag->removeElement($tag);
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     *
+     * @return ServiceDescriptions
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * Set updatedBy
+     *
+     * @param \AppBundle\Entity\Accounts $updatedBy
+     *
+     * @return ServiceDescriptions
+     */
+    public function setUpdatedBy(\AppBundle\Entity\Accounts $updatedBy = null)
+    {
+        $this->updatedBy = $updatedBy;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedBy
+     *
+     * @return \AppBundle\Entity\Accounts
+     */
+    public function getUpdatedBy()
+    {
+        return $this->updatedBy;
     }
 }

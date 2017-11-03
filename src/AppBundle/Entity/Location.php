@@ -32,6 +32,13 @@ class Location
     private $name;
 
     /**
+     * @var Country
+     *
+     * @ORM\ManyToOne(targetEntity="Country")
+     */
+    private $country;
+
+    /**
      * @var string
      *
      * @Gedmo\Slug(fields={"created", "name"})
@@ -446,5 +453,29 @@ class Location
     public function getUpdatedBy()
     {
         return $this->updatedBy;
+    }
+
+    /**
+     * Set country
+     *
+     * @param \AppBundle\Entity\Country $country
+     *
+     * @return Location
+     */
+    public function setCountry(\AppBundle\Entity\Country $country = null)
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    /**
+     * Get country
+     *
+     * @return \AppBundle\Entity\Country
+     */
+    public function getCountry()
+    {
+        return $this->country;
     }
 }

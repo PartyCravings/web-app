@@ -7,6 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs;
 
 /**
  * Class DefaultController
@@ -58,8 +59,9 @@ class DefaultController extends AbstractController
      * @param array $campaigns
      * @param array $posts
      */
-    public function indexAction(array $campaigns, array $posts) :void
+    public function indexAction(array $campaigns, array $posts, Breadcrumbs $breadcrumbs) :void
     {
+        $breadcrumbs->prependRouteItem("Home", "homepage");
     }
 
     /**

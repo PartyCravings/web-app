@@ -2,6 +2,8 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Entity\Pages;
+
 /**
  * PagesRepository
  *
@@ -10,13 +12,12 @@ namespace AppBundle\Repository;
  */
 class PagesRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function findByCountry(array $localisedSlug) : ?\AppBundle\Entity\Pages
+    public function findByCountry(string $slug) : ?Pages
     {
         return $this->createQueryBuilder('p')
-            ->where('p.country = :country')
             ->andWhere('p.isEnabled = true')
             ->andWhere('p.slug = :slug')
-            ->setParameters($localisedSlug)
+            ->setParameters($slug)
             ->getQuery()
             ->useQueryCache(true)
             ->useResultCache(true)

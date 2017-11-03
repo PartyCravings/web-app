@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Service
@@ -27,6 +28,12 @@ class Service
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
+
+    /**
+     * @Gedmo\Slug(fields={"created", "name"})
+     * @ORM\Column(length=64, unique=true)
+     */
+    private $slug;
 
     /**
      * @var Vendor
@@ -58,11 +65,31 @@ class Service
     private $category;
 
     /**
-     * @var datetime_immutable
+     * @var Location
      *
-     * @ORM\Column(name="date_add", type="datetimetz_immutable")
+     * @ORM\ManyToOne(targetEntity="Location")
      */
-    private $dateAdd;
+    private $location;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="is_enabled", type="boolean")
+     */
+    private $isEnabled;
+
+    /**
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime")
+     */
+    private $created;
+
+    /**
+     * @Gedmo\Blameable(on="create")
+     * @ORM\ManyToOne(targetEntity="Accounts")
+     * @ORM\JoinColumn(name="created_by", referencedColumnName="id")
+     */
+    private $createdBy;
 
 
     /**
@@ -288,5 +315,125 @@ class Service
     public function removeCampaign(\AppBundle\Entity\Campaigns $campaign)
     {
         $this->campaigns->removeElement($campaign);
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Service
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Set isEnabled
+     *
+     * @param boolean $isEnabled
+     *
+     * @return Service
+     */
+    public function setIsEnabled($isEnabled)
+    {
+        $this->isEnabled = $isEnabled;
+
+        return $this;
+    }
+
+    /**
+     * Get isEnabled
+     *
+     * @return boolean
+     */
+    public function getIsEnabled()
+    {
+        return $this->isEnabled;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     *
+     * @return Service
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set location
+     *
+     * @param \AppBundle\Entity\Location $location
+     *
+     * @return Service
+     */
+    public function setLocation(\AppBundle\Entity\Location $location = null)
+    {
+        $this->location = $location;
+
+        return $this;
+    }
+
+    /**
+     * Get location
+     *
+     * @return \AppBundle\Entity\Location
+     */
+    public function getLocation()
+    {
+        return $this->location;
+    }
+
+    /**
+     * Set createdBy
+     *
+     * @param \AppBundle\Entity\Accounts $createdBy
+     *
+     * @return Service
+     */
+    public function setCreatedBy(\AppBundle\Entity\Accounts $createdBy = null)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * Get createdBy
+     *
+     * @return \AppBundle\Entity\Accounts
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
     }
 }

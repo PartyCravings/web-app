@@ -10,6 +10,10 @@ parameters:
     app_locales: [en, de, zh]
 
 framework:
+    request:
+        formats:
+            opensearch : ['application/opensearchdescription+xml']
+            jsonld: ['application/json+ld']
     esi: { enabled: true }
     translator: { fallbacks: ['%locale%'] }
     secret: '%secret%'
@@ -265,3 +269,28 @@ rs_gaufrette_browser:
     file_pattern:    /\.(jpg|gif|jpeg|png)$/    # a valid regular expression to filter for file-extensions
     filesystem:      gaufrette.gallery_filesystem           # the gaufrette filesystem alias to use
     file_class:      AppBundle\Entity\Files
+
+#WhiteOctoberBreadcrumbsBundle Configuration
+white_october_breadcrumbs:
+    separator:          '>'
+    viewTemplate: 'snippets/breadcrumbs.jsonld.twig'
+    itemClass: 'section'
+    listClass: 'ui breadcrumb'
+
+#AntiMattrGoogleBundle
+google:
+    analytics:
+        enhanced_ecommerce: false
+        session_auto_started: true
+        trackers:
+            default:
+                name: partyloG
+                accountId: UA-xxxxxx-xx
+                domain: partycravings.com
+                setSiteSpeedSampleRate: 5
+                allowAnchor: true
+                allowHash: true
+                includeNamePrefix: false
+                plugins:
+                    - 'linkid'
+        whitelist: [ 'q', 'utm_source', 'utm_medium', 'utm_term', 'utm_content', 'utm_campaign' ]
