@@ -40,6 +40,7 @@ class AppKernel extends Kernel
             new WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle(),
             new AntiMattr\GoogleBundle\GoogleBundle(),
             new Knp\Bundle\DisqusBundle\KnpDisqusBundle(),
+            new Minishlink\Bundle\WebPushBundle\MinishlinkWebPushBundle()
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

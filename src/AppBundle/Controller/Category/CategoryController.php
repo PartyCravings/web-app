@@ -15,7 +15,7 @@ use AppBundle\Entity\Category;
 use AppBundle\Entity\Country;
 
 /**
- * Class PageController
+ * Class CategoryController
  * @package AppBundle\Controller
  *
  * @Route("/category")

@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#ver:2017-11-2 15:30:28
+#ver:2017-11-3 05:11:49
 #plugin:4.8.4
 
 CACHE:
@@ -7,8 +7,8 @@ CACHE:
 /build/manifest-main.json
 /build/app.21c16eea51f15f80e0182a63d76dba89.css
 /build/global.37d1445d3215713e590aea10d78e38f1.css
+/build/app.8fc0176f658291a9b01e.js
 /build/img.a719ca8d929d62a64276.js
-/build/app.08613a168be8aa8cea0b.js
 /build/login.6c9a9bd669c41a631788.js
 /build/sticklr.21843070fa9742f90d01.js
 /build/slider.45882ff14c9bd0cf4fd2.js

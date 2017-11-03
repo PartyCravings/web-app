@@ -116,7 +116,7 @@ Encore
         navigateFallbackURL: '/',
         navigateFallbackForRedirects: false,
         minify: Encore.isProduction(),
-        output: "./../sw.xjs",
+        output: "./../sw.js",
         scope: "/"
     },
     AppCache: {

@@ -69,6 +69,7 @@
                     nopush: true
                 }) }}"></script>
                 <script src="{{ preload(asset('build/app.js'), {nopush: true}) }}" type="text/javascript"></script>
+                <script type='text/javascript'>window.vapidPublicKey = '{{ vapidPublicKey }}';</script>
             {% endblock %}
             {% include "GoogleBundle:Analytics:async.html.twig" %}
 
