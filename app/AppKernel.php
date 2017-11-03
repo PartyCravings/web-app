@@ -39,6 +39,7 @@ class AppKernel extends Kernel
             new rs\GaufretteBrowserBundle\rsGaufretteBrowserBundle(),
             new WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle(),
             new AntiMattr\GoogleBundle\GoogleBundle(),
+            new Knp\Bundle\DisqusBundle\KnpDisqusBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

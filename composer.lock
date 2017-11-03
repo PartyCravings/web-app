@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "180e27461c6b8852222144debf3b6434",
+    "content-hash": "d4d189a6ce6f3961e3aec7aa01d4aced",
     "packages": [
         {
             "name": "aferrandini/urlizer",
@@ -2860,6 +2860,62 @@
                 "media"
             ],
             "time": "2017-06-17T10:37:47+00:00"
+        },
+        {
+            "name": "knplabs/knp-disqus-bundle",
+            "version": "dev-master",
+            "target-dir": "Knp/Bundle/DisqusBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KnpLabs/KnpDisqusBundle.git",
+                "reference": "fb5bccf0bc9ca037d90801a2fdff100fb3a07697"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KnpLabs/KnpDisqusBundle/zipball/fb5bccf0bc9ca037d90801a2fdff100fb3a07697",
+                "reference": "fb5bccf0bc9ca037d90801a2fdff100fb3a07697",
+                "shasum": ""
+            },
+            "require": {
+                "kriswallsmith/buzz": "~0.7",
+                "php": ">=5.3.3",
+                "symfony/framework-bundle": "^2.3|^3.0"
+            },
+            "require-dev": {
+                "symfony/yaml": "^2.3|^3.0"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Knp\\Bundle\\DisqusBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "KnpLabs Team",
+                    "homepage": "http://knplabs.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://github.com/KnpLabs/KnpDisqusBundle/contributors"
+                }
+            ],
+            "homepage": "http://github.com/KnpLabs/KnpDisqusBundle",
+            "keywords": [
+                "comments",
+                "disqus",
+                "forum"
+            ],
+            "time": "2017-04-09T16:33:00+00:00"
         },
         {
             "name": "knplabs/knp-gaufrette-bundle",
@@ -7169,8 +7225,9 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "partycravings/google-bundle": 20,
-        "digitalkaoz/gaufrette-browser-bundle": 20
+        "digitalkaoz/gaufrette-browser-bundle": 20,
+        "knplabs/knp-disqus-bundle": 20,
+        "partycravings/google-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
