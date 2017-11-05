@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * SocialLink
@@ -13,84 +14,28 @@ use Doctrine\ORM\Mapping as ORM;
 class SocialLink
 {
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="guid")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="UUID")
      */
     private $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\NotBlank(message="link.blank_content")
+     * @Assert\Length(min=5, minMessage="social.too_short_name")
+     * @ORM\Column(name="name", type="string")
      */
     private $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="link", type="string", length=255)
+     * @Assert\Length(min=7, minMessage="social.too_short_link")
+     * @ORM\Column(name="link", type="string")
      */
     private $link;
-
-
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return SocialLink
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set link
-     *
-     * @param string $link
-     *
-     * @return SocialLink
-     */
-    public function setLink($link)
-    {
-        $this->link = $link;
-
-        return $this;
-    }
-
-    /**
-     * Get link
-     *
-     * @return string
-     */
-    public function getLink()
-    {
-        return $this->link;
-    }
 }

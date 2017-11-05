@@ -14,9 +14,11 @@ use Doctrine\ORM\Mapping as ORM;
 class AccessToken extends BaseAccessToken
 {
     /**
+     * @var string
+     *
+     * @ORM\Column(name="id", type="guid")
      * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="UUID")
      */
     protected $id;
 
@@ -28,7 +30,6 @@ class AccessToken extends BaseAccessToken
 
     /**
      * @ORM\ManyToOne(targetEntity="Accounts")
-     * @ORM\JoinColumn(name="account", referencedColumnName="id")
      */
     protected $user;
 }

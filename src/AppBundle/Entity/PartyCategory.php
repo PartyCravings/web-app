@@ -5,16 +5,25 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Location
+ * Category
  *
  * @Gedmo\Tree(type="nested")
- * @ORM\Table(name="location")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\LocationRepository")
+ * @ORM\Table(name="party_category")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\PartyCategoryRepository")
+ * @Gedmo\TranslationEntity(class="AppBundle\Entity\CategoryTranslation")
  */
-class Location
+class PartyCategory
 {
+    /**
+     * Hook SoftDeleteable behavior
+     * updates deletedAt field
+     */
+    use SoftDeleteableEntity;
+
     /**
      * @var string
      *
@@ -25,26 +34,17 @@ class Location
     private $id;
 
     /**
-     * @var string
-     *
+     * @Gedmo\Translatable
+     * @Assert\NotBlank(message="partyCategory.blank_title")
      * @ORM\Column(type="string")
      */
-    private $name;
+    private $title;
 
     /**
-     * @var Country
-     *
-     * @ORM\ManyToOne(targetEntity="Country")
+     * @Gedmo\Translatable
+     * @ORM\Column(type="text", nullable=true)
      */
-    private $country;
-
-    /**
-     * @var string
-     *
-     * @Gedmo\Slug(fields={"name", "created"})
-     * @ORM\Column(type="string", unique=true)
-     */
-    private $slug;
+    private $description;
 
     /**
      * @Gedmo\TreeLeft
@@ -115,9 +115,19 @@ class Location
      */
     private $updatedBy;
 
+    /**
+     * @ORM\OneToMany(
+     *   targetEntity="PartyCategoryTranslation",
+     *   mappedBy="object",
+     *   cascade={"persist", "remove"}
+     * )
+     */
+    private $translations;
+
 
     public function __construct()
     {
         $this->children = new ArrayCollection();
+        $this->translations = new ArrayCollection();
     }
 }

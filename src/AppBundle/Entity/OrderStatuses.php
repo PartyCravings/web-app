@@ -13,32 +13,18 @@ use Doctrine\ORM\Mapping as ORM;
 class OrderStatuses
 {
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="guid")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="UUID")
      */
     private $id;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="order_status_id", type="integer")
-     */
-    private $orderStatusId;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="lang_id", type="integer")
-     */
-    private $langId;
-
-    /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="name", type="string")
      */
     private $name;
 

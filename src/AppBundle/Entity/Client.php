@@ -11,9 +11,11 @@ use Doctrine\ORM\Mapping as ORM;
 class Client extends BaseClient
 {
     /**
+     * @var string
+     *
+     * @ORM\Column(name="id", type="guid")
      * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="UUID")
      */
     protected $id;
 

@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Pages
@@ -22,30 +23,38 @@ class Pages
     use SoftDeleteableEntity;
     
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="guid")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="UUID")
      */
     private $id;
 
     /**
      * @Gedmo\Translatable
-     * @ORM\Column(length=64)
+     * @Assert\NotBlank(message="page.blank_title")
+     * @ORM\Column(type="string")
      */
     private $title;
 
     /**
-     * @Gedmo\Translatable
-     * @ORM\Column(type="text", nullable=true)
+     * @var string
+     *
+     * @ORM\Column(type="text")
+     * @Assert\Length(
+     *     min=10,
+     *     minMessage="page.content.too_short",
+     *     max=10000,
+     *     maxMessage="page.content.too_long"
+     * )
      */
-    private $description;
+    private $content;
 
     /**
      * @Gedmo\Translatable
-     * @Gedmo\Slug(fields={"created", "title"})
-     * @ORM\Column(length=64, unique=true)
+     * @Gedmo\Slug(fields={"title", "created"})
+     * @ORM\Column(unique=true)
      */
     private $slug;
 
@@ -54,7 +63,7 @@ class Pages
      *
      * @ORM\Column(name="is_enabled", type="boolean")
      */
-    private $isEnabled;
+    private $isEnabled = true;
 
     /**
      * @Gedmo\Timestampable(on="create")

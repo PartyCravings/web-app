@@ -13,168 +13,39 @@ use Doctrine\ORM\Mapping as ORM;
 class OrderData
 {
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="guid")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="UUID")
      */
     private $id;
 
     /**
-     * @var int
+     * @var OrderStatuses
      *
-     * @ORM\Column(name="order_id", type="integer")
+     * @ORM\ManyToOne(targetEntity="OrderStatuses")
      */
-    private $orderId;
+    private $orderStatus;
 
     /**
-     * @ORM\ManyToOne(targetEntity="OrderDataTypes", inversedBy="typeId")
-     * @ORM\JoinColumn(name="orderDataTypes", referencedColumnName="id")
+     * @var Service
+     *
+     * @ORM\ManyToOne(targetEntity="Service")
      */
-    private $orderDataType;
+    private $service;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="data", type="string", length=255)
+     * @ORM\Column(name="start_date", type="datetime")
      */
-    private $data;
+    private $startDate;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_add", type="datetime")
+     * @ORM\Column(name="end_date", type="datetime")
      */
-    private $dateAdd;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date_upd", type="datetime")
-     */
-    private $dateUpd;
-
-
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set orderId
-     *
-     * @param integer $orderId
-     *
-     * @return OrderData
-     */
-    public function setOrderId($orderId)
-    {
-        $this->orderId = $orderId;
-
-        return $this;
-    }
-
-    /**
-     * Get orderId
-     *
-     * @return int
-     */
-    public function getOrderId()
-    {
-        return $this->orderId;
-    }
-
-    /**
-     * Set data
-     *
-     * @param string $data
-     *
-     * @return OrderData
-     */
-    public function setData($data)
-    {
-        $this->data = $data;
-
-        return $this;
-    }
-
-    /**
-     * Get data
-     *
-     * @return string
-     */
-    public function getData()
-    {
-        return $this->data;
-    }
-
-    /**
-     * Set dateAdd
-     *
-     * @param \DateTime $dateAdd
-     *
-     * @return OrderData
-     */
-    public function setDateAdd($dateAdd)
-    {
-        $this->dateAdd = $dateAdd;
-
-        return $this;
-    }
-
-    /**
-     * Get dateAdd
-     *
-     * @return \DateTime
-     */
-    public function getDateAdd()
-    {
-        return $this->dateAdd;
-    }
-
-    /**
-     * Set dateUpd
-     *
-     * @param \DateTime $dateUpd
-     *
-     * @return OrderData
-     */
-    public function setDateUpd($dateUpd)
-    {
-        $this->dateUpd = $dateUpd;
-
-        return $this;
-    }
-
-    /**
-     * Get dateUpd
-     *
-     * @return \DateTime
-     */
-    public function getDateUpd()
-    {
-        return $this->dateUpd;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getOrderDataType()
-    {
-        return $this->orderDataType;
-    }
-
-    /**
-     * @param mixed $orderDataType
-     */
-    public function setOrderDataType($orderDataType)
-    {
-        $this->orderDataType = $orderDataType;
-    }
+    private $endDate;
 }

@@ -55,6 +55,7 @@ class SearchController extends AbstractController
                 'name' => htmlspecialchars($service->getName()),
                 'date' => $service->getCreated()->format('M d, Y'),
                 'vendor' => htmlspecialchars($service->getVendor()->getName()),
+                'rating' => $service->getAverageRating(),
                 'summary' => htmlspecialchars($service->getserviceDescriptions()->getDescription()),
                 'url' => $this->generateUrl('site_services_show', ['slug' => $service->getSlug()])
                     );

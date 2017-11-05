@@ -26,5 +26,4 @@ class PushVapidKeysCommand extends ContainerAwareCommand
         $output->writeln("<info>PublicKey:</info><error>{$keys['publicKey']}</error>");
         $output->writeln("<info>PrivateKey:</info><error>{$keys['privateKey']}</error>");
     }
-
 }

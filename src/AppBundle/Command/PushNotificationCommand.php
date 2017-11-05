@@ -42,13 +42,13 @@ class PushNotificationCommand extends ContainerAwareCommand
         ]);
 
         /** @var Subscriber $subscriber */
-        foreach($subscribers as $subscriber){
-            $webPush->sendNotification($subscriber->getEndpoint() , $notification , $subscriber->getBrowserKey() , $subscriber->getAuthSecret() , false);
+        foreach ($subscribers as $subscriber) {
+            $webPush->sendNotification($subscriber->getEndpoint(), $notification, $subscriber->getBrowserKey(), $subscriber->getAuthSecret(), false);
             $output->writeln("I've sent a notification!");
         }
         $responses = $webPush->flush();
-        foreach($responses as $response){
-            switch ($response["success"]){
+        foreach ($responses as $response) {
+            switch ($response["success"]) {
                 case false:
                         $output->writeln($response["message"]);
                     break;

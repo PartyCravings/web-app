@@ -11,9 +11,11 @@ use Doctrine\ORM\Mapping as ORM;
 class AuthCode extends BaseAuthCode
 {
     /**
+     * @var string
+     *
+     * @ORM\Column(name="id", type="guid")
      * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="UUID")
      */
     protected $id;
 

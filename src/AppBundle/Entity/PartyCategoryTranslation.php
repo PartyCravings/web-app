@@ -7,14 +7,29 @@ use Gedmo\Translatable\Entity\MappedSuperclass\AbstractPersonalTranslation;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="category_translations",
- *     uniqueConstraints={@ORM\UniqueConstraint(name="category_translation_idx", columns={
+ * @ORM\Table(name="party_category_translations",
+ *     uniqueConstraints={@ORM\UniqueConstraint(name="party_category_translation_idx", columns={
  *         "locale", "object_id", "field"
  *     })}
  * )
  */
-class CategoryTranslation extends AbstractPersonalTranslation
+class PartyCategoryTranslation extends AbstractPersonalTranslation
 {
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="id", type="guid")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="UUID")
+     */
+    protected $id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="PartyCategory", inversedBy="translations")
+     * @ORM\JoinColumn(onDelete="CASCADE")
+     */
+    protected $object;
+
     /**
      * Convinient constructor
      *
@@ -28,10 +43,4 @@ class CategoryTranslation extends AbstractPersonalTranslation
         $this->setField($field);
         $this->setContent($value);
     }
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Category", inversedBy="translations")
-     * @ORM\JoinColumn(name="object_id", referencedColumnName="id", onDelete="CASCADE")
-     */
-    protected $object;
 }

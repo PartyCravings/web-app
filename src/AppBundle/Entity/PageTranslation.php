@@ -16,6 +16,21 @@ use Gedmo\Translatable\Entity\MappedSuperclass\AbstractPersonalTranslation;
 class PageTranslation extends AbstractPersonalTranslation
 {
     /**
+     * @var string
+     *
+     * @ORM\Column(name="id", type="guid")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="UUID")
+     */
+    protected $id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Pages", inversedBy="translations")
+     * @ORM\JoinColumn(onDelete="CASCADE")
+     */
+    protected $object;
+
+    /**
      * Convinient constructor
      *
      * @param string $locale
@@ -28,10 +43,4 @@ class PageTranslation extends AbstractPersonalTranslation
         $this->setField($field);
         $this->setContent($value);
     }
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Pages", inversedBy="translations")
-     * @ORM\JoinColumn(name="object_id", referencedColumnName="id", onDelete="CASCADE")
-     */
-    protected $object;
 }

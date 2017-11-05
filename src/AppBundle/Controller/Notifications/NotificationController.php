@@ -22,21 +22,22 @@ class NotificationController extends AbstractController
      */
     public function registerAction(Request $request, EntityManagerInterface $em)
     {
-        $is_new = false;
-        // looking for better approach ? look in  http://labs.qandidate.com/blog/2014/08/13/handling-angularjs-post-requests-in-symfony/
+        $new = false;
         $data = json_decode($request->getContent(), true);
-        $is_subscribed = $em->getRepository("AppBundle:Subscriber")->findOneBy(['endpoint' => $data['endpoint']]);
-        if(is_null($is_subscribed)){
-            $is_new = true;
-            $subscriber = new Subscriber();
-            $subscriber->setEnabled(true);
-            $subscriber->setBrowserKey($data['key']);
-            $subscriber->setEndpoint($data['endpoint']);
-            $subscriber->setAuthSecret($data['authSecret']);
+
+        $subscriber = $em->getRepository("AppBundle:Subscriber")->findOneBy(['endpoint' => $data['endpoint']]);
+        if (!$subscriber) {
+            $new = true;
+            $subscriber = (new Subscriber())
+                    ->setEnabled(true)
+                    ->setBrowserKey($data['key'])
+                    ->setEndpoint($data['endpoint'])
+                    ->setAuthSecret($data['authSecret']);
+
             $em->persist($subscriber);
             $em->flush();
         }
-        return  $this->json(array('new' => $is_new, "success" => true));
+        return  $this->json(array('new' => $new, "success" => true));
     }
 
     /**
@@ -46,11 +47,12 @@ class NotificationController extends AbstractController
     public function unregisterAction(Request $request, EntityManagerInterface $em)
     {
         $data = json_decode($request->getContent(), true);
-        $is_subscribed = $em->getRepository(Subscriber::class)->findOneBy(['endpoint' => $data['endpoint']]);
-        if (!$is_subscribed) {
-            throw $this->createNotFoundException('No found');
+
+        $subscriber = $em->getRepository(Subscriber::class)->findOneBy(['endpoint' => $data['endpoint']]);
+        if (!$subscriber) {
+            throw $this->createNotFoundException('Not found');
         }
-        $em->remove($is_subscribed);
+        $em->remove($subscriber);
         $em->flush();
         return  $this->json(array("removed" => true));
     }
