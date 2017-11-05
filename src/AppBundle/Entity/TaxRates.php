@@ -26,7 +26,12 @@ class TaxRates
     /**
      * @var float
      *
-     * @Assert\NotBlank(message="tax.blank_rate")
+     * @Assert\NotBlank(message="tax.rate.blank")
+     * @Assert\Range(
+     *      min = 0,
+     *      max = 100,
+     *      invalidMessage="taxrate.rate.invalid"
+     * )
      * @ORM\Column(name="rate", type="float")
      */
     private $rate;
@@ -38,4 +43,68 @@ class TaxRates
      */
     private $ratePrefix;
 
+    public function __toString()
+    {
+        return $this->rate;
+    }
+
+
+
+    /**
+     * Get id
+     *
+     * @return guid
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set rate
+     *
+     * @param float $rate
+     *
+     * @return TaxRates
+     */
+    public function setRate($rate)
+    {
+        $this->rate = $rate;
+
+        return $this;
+    }
+
+    /**
+     * Get rate
+     *
+     * @return float
+     */
+    public function getRate()
+    {
+        return $this->rate;
+    }
+
+    /**
+     * Set ratePrefix
+     *
+     * @param string $ratePrefix
+     *
+     * @return TaxRates
+     */
+    public function setRatePrefix($ratePrefix)
+    {
+        $this->ratePrefix = $ratePrefix;
+
+        return $this;
+    }
+
+    /**
+     * Get ratePrefix
+     *
+     * @return string
+     */
+    public function getRatePrefix()
+    {
+        return $this->ratePrefix;
+    }
 }

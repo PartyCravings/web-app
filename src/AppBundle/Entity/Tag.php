@@ -1,27 +1,13 @@
 <?php
 
-/*
- * This file is part of the Symfony package.
- *
- * (c) Fabien Potencier <fabien@symfony.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity()
- * @ORM\Table(name="symfony_demo_tag")
- *
- * Defines the properties of the Tag entity to represent the post tags.
- *
- * See https://symfony.com/doc/current/book/doctrine.html#creating-an-entity-class
- *
- * @author Yonel Ceruto <yonelceruto@gmail.com>
+ * @ORM\Table(name="tag")
  */
 class Tag implements \JsonSerializable
 {
@@ -37,6 +23,13 @@ class Tag implements \JsonSerializable
     /**
      * @var string
      *
+     * @Assert\NotBlank(message="tag.name.blank")
+     * @Assert\Length(
+     *     min=2,
+     *     minMessage="tag.name.too_short",
+     *     max=10,
+     *     maxMessage="tag.name.too_long"
+     * )
      * @ORM\Column(type="string", unique=true)
      */
     private $name;
@@ -54,6 +47,40 @@ class Tag implements \JsonSerializable
     }
 
     public function __toString()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Get id
+     *
+     * @return guid
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Tag
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
     {
         return $this->name;
     }

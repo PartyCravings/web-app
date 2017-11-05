@@ -27,7 +27,7 @@ class ServiceDescriptions
     /**
      * @var string
      *
-     * @Assert\NotBlank(message="service.blank_content")
+     * @Assert\NotBlank(message="service.content.blank")
      * @Assert\Length(min=10, minMessage="service.too_short_content")
      * @ORM\Column(name="description", type="text")
      */
@@ -36,7 +36,7 @@ class ServiceDescriptions
     /**
      * @var float
      *
-     * @Assert\NotBlank(message="service.blank_price")
+     * @Assert\NotBlank(message="service.price.blank")
      * @ORM\Column(name="hourly_price", type="float")
      */
     private $hourlyPrice;
@@ -67,5 +67,151 @@ class ServiceDescriptions
     public function __construct()
     {
         $this->uploadedFiles = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->description;
+    }
+
+
+    /**
+     * Get id
+     *
+     * @return guid
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return ServiceDescriptions
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set hourlyPrice
+     *
+     * @param float $hourlyPrice
+     *
+     * @return ServiceDescriptions
+     */
+    public function setHourlyPrice($hourlyPrice)
+    {
+        $this->hourlyPrice = $hourlyPrice;
+
+        return $this;
+    }
+
+    /**
+     * Get hourlyPrice
+     *
+     * @return float
+     */
+    public function getHourlyPrice()
+    {
+        return $this->hourlyPrice;
+    }
+
+    /**
+     * Set hourlyDiscount
+     *
+     * @param float $hourlyDiscount
+     *
+     * @return ServiceDescriptions
+     */
+    public function setHourlyDiscount($hourlyDiscount)
+    {
+        $this->hourlyDiscount = $hourlyDiscount;
+
+        return $this;
+    }
+
+    /**
+     * Get hourlyDiscount
+     *
+     * @return float
+     */
+    public function getHourlyDiscount()
+    {
+        return $this->hourlyDiscount;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     *
+     * @return ServiceDescriptions
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * Add uploadedFile
+     *
+     * @param \AppBundle\Entity\Files $uploadedFile
+     *
+     * @return ServiceDescriptions
+     */
+    public function addUploadedFile(\AppBundle\Entity\Files $uploadedFile)
+    {
+        $this->uploadedFiles[] = $uploadedFile;
+
+        return $this;
+    }
+
+    /**
+     * Remove uploadedFile
+     *
+     * @param \AppBundle\Entity\Files $uploadedFile
+     */
+    public function removeUploadedFile(\AppBundle\Entity\Files $uploadedFile)
+    {
+        $this->uploadedFiles->removeElement($uploadedFile);
+    }
+
+    /**
+     * Get uploadedFiles
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUploadedFiles()
+    {
+        return $this->uploadedFiles;
     }
 }

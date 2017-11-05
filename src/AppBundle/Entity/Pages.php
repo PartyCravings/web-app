@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Pages
@@ -33,7 +34,7 @@ class Pages
 
     /**
      * @Gedmo\Translatable
-     * @Assert\NotBlank(message="page.blank_title")
+     * @Assert\NotBlank(message="page.title.blank")
      * @ORM\Column(type="string")
      */
     private $title;
@@ -79,14 +80,14 @@ class Pages
 
     /**
      * @Gedmo\Blameable(on="create")
-     * @ORM\ManyToOne(targetEntity="Accounts")
+     * @ORM\ManyToOne(targetEntity="Account")
      * @ORM\JoinColumn(name="created_by", referencedColumnName="id")
      */
     private $createdBy;
 
     /**
      * @Gedmo\Blameable(on="update")
-     * @ORM\ManyToOne(targetEntity="Accounts")
+     * @ORM\ManyToOne(targetEntity="Account")
      * @ORM\JoinColumn(name="updated_by", referencedColumnName="id")
      */
     private $updatedBy;
@@ -100,217 +101,28 @@ class Pages
      */
     private $translations;
 
-
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set dateAdd
-     *
-     * @param datetimetz_immutable $dateAdd
-     *
-     * @return Pages
-     */
-    public function setDateAdd($dateAdd)
-    {
-        $this->dateAdd = $dateAdd;
-
-        return $this;
-    }
-
-    /**
-     * Get dateAdd
-     *
-     * @return datetimetz_immutable
-     */
-    public function getDateAdd()
-    {
-        return $this->dateAdd;
-    }
-
-    /**
-     * Set isEnabled
-     *
-     * @param boolean $isEnabled
-     *
-     * @return Pages
-     */
-    public function setIsEnabled($isEnabled)
-    {
-        $this->isEnabled = $isEnabled;
-
-        return $this;
-    }
-
-    /**
-     * Get isEnabled
-     *
-     * @return bool
-     */
-    public function getIsEnabled()
-    {
-        return $this->isEnabled;
-    }
-
-    /**
-     * Set country
-     *
-     * @param Country $country
-     *
-     * @return Pages
-     */
-    public function setCountry($country)
-    {
-        $this->country = $country;
-
-        return $this;
-    }
-
-    /**
-     * Get country
-     *
-     * @return Country
-     */
-    public function getCountry()
-    {
-        return $this->country;
-    }
-
-    /**
-     * Set content
-     *
-     * @param string $content
-     *
-     * @return Pages
-     */
-    public function setContent($content)
-    {
-        $this->content = $content;
-
-        return $this;
-    }
-
-    /**
-     * Get content
-     *
-     * @return string
-     */
-    public function getContent()
-    {
-        return $this->content;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return Pages
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set slug
-     *
-     * @param string $slug
-     *
-     * @return Pages
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Get slug
-     *
-     * @return string
-     */
-    public function getSlug()
-    {
-        return $this->slug;
-    }
-
-    /**
-     * Set editedBy
-     *
-     * @param string $editedBy
-     *
-     * @return Pages
-     */
-    public function setEditedBy($editedBy)
-    {
-        $this->editedBy = $editedBy;
-
-        return $this;
-    }
-
-    /**
-     * Get editedBy
-     *
-     * @return string
-     */
-    public function getEditedBy()
-    {
-        return $this->editedBy;
-    }
-
-    /**
-     * Set updatedAt
-     *
-     * @param \DateTime $updatedAt
-     *
-     * @return Pages
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt
-            ->setTimezone(
-                $this->country->getTimezone()
-            );
-
-        return $this;
-    }
-
-    /**
-     * Get updatedAt
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
-    }
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->translations = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->translations = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->title;
+    }
+
+
+    /**
+     * Get id
+     *
+     * @return guid
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**
@@ -338,27 +150,75 @@ class Pages
     }
 
     /**
-     * Set description
+     * Set content
      *
-     * @param string $description
+     * @param string $content
      *
      * @return Pages
      */
-    public function setDescription($description)
+    public function setContent($content)
     {
-        $this->description = $description;
+        $this->content = $content;
 
         return $this;
     }
 
     /**
-     * Get description
+     * Get content
      *
      * @return string
      */
-    public function getDescription()
+    public function getContent()
     {
-        return $this->description;
+        return $this->content;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Pages
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Set isEnabled
+     *
+     * @param boolean $isEnabled
+     *
+     * @return Pages
+     */
+    public function setIsEnabled($isEnabled)
+    {
+        $this->isEnabled = $isEnabled;
+
+        return $this;
+    }
+
+    /**
+     * Get isEnabled
+     *
+     * @return boolean
+     */
+    public function getIsEnabled()
+    {
+        return $this->isEnabled;
     }
 
     /**
@@ -412,11 +272,11 @@ class Pages
     /**
      * Set createdBy
      *
-     * @param \AppBundle\Entity\Accounts $createdBy
+     * @param \AppBundle\Entity\Account $createdBy
      *
      * @return Pages
      */
-    public function setCreatedBy(\AppBundle\Entity\Accounts $createdBy = null)
+    public function setCreatedBy(\AppBundle\Entity\Account $createdBy = null)
     {
         $this->createdBy = $createdBy;
 
@@ -426,7 +286,7 @@ class Pages
     /**
      * Get createdBy
      *
-     * @return \AppBundle\Entity\Accounts
+     * @return \AppBundle\Entity\Account
      */
     public function getCreatedBy()
     {
@@ -436,11 +296,11 @@ class Pages
     /**
      * Set updatedBy
      *
-     * @param \AppBundle\Entity\Accounts $updatedBy
+     * @param \AppBundle\Entity\Account $updatedBy
      *
      * @return Pages
      */
-    public function setUpdatedBy(\AppBundle\Entity\Accounts $updatedBy = null)
+    public function setUpdatedBy(\AppBundle\Entity\Account $updatedBy = null)
     {
         $this->updatedBy = $updatedBy;
 
@@ -450,7 +310,7 @@ class Pages
     /**
      * Get updatedBy
      *
-     * @return \AppBundle\Entity\Accounts
+     * @return \AppBundle\Entity\Account
      */
     public function getUpdatedBy()
     {

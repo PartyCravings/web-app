@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Notifications
@@ -22,8 +24,9 @@ class Notifications
     private $id;
 
     /**
-     * @var string
+     * @var Country
      *
+     * @Assert\NotBlank(message="notification.country.blank")
      * @ORM\ManyToOne(targetEntity="Country")
      */
     private $country;
@@ -31,27 +34,21 @@ class Notifications
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="timestamp", type="datetime")
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(name="t_stamp", type="datetime")
      */
-    private $timestamp;
+    private $tStamp;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="object_type", type="string")
-     */
-    private $objectType;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="object_id", type="integer")
-     */
-    private $objectId;
-
-    /**
-     * @var string
-     *
+     * @Assert\Length(
+     *     min=3,
+     *     minMessage="notification.subject.too_short",
+     *     max=100,
+     *     maxMessage="notification.subject.too_long"
+     * )
+     * @Assert\NotBlank(message="notification.subject.blank")
      * @ORM\Column(name="subject", type="string")
      */
     private $subject;
@@ -59,42 +56,157 @@ class Notifications
     /**
      * @var string
      *
-     * @ORM\Column(name="subject_parameters", type="string")
-     */
-    private $subjectParameters;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="message", type="string")
-     */
-    private $message;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="message_parameters", type="string")
-     */
-    private $messageParameters;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="link", type="string")
+     * @Assert\Url(
+     *      checkDNS = true,
+     *      dnsMessage="notification.link.not_resolved"
+     * )
+     * @ORM\Column(name="link", type="string", nullable=true)
      */
     private $link;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="icon", type="string")
+     * @Assert\Url(
+     *      checkDNS = true,
+     *      dnsMessage="notification.icon.not_resolved"
+     * )
+     * @ORM\Column(name="icon", type="string", nullable=true)
      */
     private $icon;
 
+    public function __toString()
+    {
+        return $this->subject;
+    }
+
     /**
-     * @var string
+     * Get id
      *
-     * @ORM\Column(name="actions", type="string")
+     * @return guid
      */
-    private $actions;
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set tStamp
+     *
+     * @param \DateTime $tStamp
+     *
+     * @return Notifications
+     */
+    public function setTStamp($tStamp)
+    {
+        $this->tStamp = $tStamp;
+
+        return $this;
+    }
+
+    /**
+     * Get tStamp
+     *
+     * @return \DateTime
+     */
+    public function getTStamp()
+    {
+        return $this->tStamp;
+    }
+
+    /**
+     * Set subject
+     *
+     * @param string $subject
+     *
+     * @return Notifications
+     */
+    public function setSubject($subject)
+    {
+        $this->subject = $subject;
+
+        return $this;
+    }
+
+    /**
+     * Get subject
+     *
+     * @return string
+     */
+    public function getSubject()
+    {
+        return $this->subject;
+    }
+
+    /**
+     * Set link
+     *
+     * @param string $link
+     *
+     * @return Notifications
+     */
+    public function setLink($link)
+    {
+        $this->link = $link;
+
+        return $this;
+    }
+
+    /**
+     * Get link
+     *
+     * @return string
+     */
+    public function getLink()
+    {
+        return $this->link;
+    }
+
+    /**
+     * Set icon
+     *
+     * @param string $icon
+     *
+     * @return Notifications
+     */
+    public function setIcon($icon)
+    {
+        $this->icon = $icon;
+
+        return $this;
+    }
+
+    /**
+     * Get icon
+     *
+     * @return string
+     */
+    public function getIcon()
+    {
+        return $this->icon;
+    }
+
+    /**
+     * Set country
+     *
+     * @param \AppBundle\Entity\Country $country
+     *
+     * @return Notifications
+     */
+    public function setCountry(\AppBundle\Entity\Country $country = null)
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    /**
+     * Get country
+     *
+     * @return \AppBundle\Entity\Country
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
 }

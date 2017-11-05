@@ -27,7 +27,7 @@ class Reviews
      * @var string
      *
      * @ORM\Column(type="text")
-     * @Assert\NotBlank(message="review.blank_content")
+     * @Assert\NotBlank(message="review.content.blank")
      * @Assert\Length(
      *     min=5,
      *     minMessage="review.too_short",
@@ -40,7 +40,12 @@ class Reviews
     /**
      * @var int
      *
-     * @Assert\NotBlank(message="review.blank_rating")
+     * @Assert\NotBlank(message="review.rating.blank")
+     * @Assert\Range(
+     *      min = 0,
+     *      max = 5,
+     *      invalidMessage="review.rating.invalid"
+     * )
      * @ORM\Column(name="rating", type="integer")
      */
     private $rating;
@@ -53,9 +58,9 @@ class Reviews
 
     /**
      * @Gedmo\Blameable(on="create")
-     * @ORM\ManyToOne(targetEntity="Accounts")
+     * @ORM\ManyToOne(targetEntity="Account")
      */
-    private $author;
+    private $createdBy;
 
     /**
      * @var Service
@@ -72,5 +77,141 @@ class Reviews
         $containsInvalidCharacters = false !== mb_strpos($this->content, '@');
 
         return !$containsInvalidCharacters;
+    }
+
+    public function __toString()
+    {
+        return $this->content;
+    }
+
+
+    /**
+     * Get id
+     *
+     * @return guid
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set content
+     *
+     * @param string $content
+     *
+     * @return Reviews
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    /**
+     * Get content
+     *
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->content;
+    }
+
+    /**
+     * Set rating
+     *
+     * @param integer $rating
+     *
+     * @return Reviews
+     */
+    public function setRating($rating)
+    {
+        $this->rating = $rating;
+
+        return $this;
+    }
+
+    /**
+     * Get rating
+     *
+     * @return integer
+     */
+    public function getRating()
+    {
+        return $this->rating;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     *
+     * @return Reviews
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set createdBy
+     *
+     * @param \AppBundle\Entity\Account $createdBy
+     *
+     * @return Reviews
+     */
+    public function setCreatedBy(\AppBundle\Entity\Account $createdBy = null)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * Get createdBy
+     *
+     * @return \AppBundle\Entity\Account
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
+    }
+
+    /**
+     * Set service
+     *
+     * @param \AppBundle\Entity\Service $service
+     *
+     * @return Reviews
+     */
+    public function setService(\AppBundle\Entity\Service $service = null)
+    {
+        $this->service = $service;
+
+        return $this;
+    }
+
+    /**
+     * Get service
+     *
+     * @return \AppBundle\Entity\Service
+     */
+    public function getService()
+    {
+        return $this->service;
     }
 }

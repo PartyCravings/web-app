@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * OrderStatuses
@@ -24,67 +25,24 @@ class OrderStatuses
     /**
      * @var string
      *
+     * @Assert\NotBlank(message="orderstatus.name.blank")
      * @ORM\Column(name="name", type="string")
      */
     private $name;
 
+    public function __toString()
+    {
+        return $this->name;
+    }
 
     /**
      * Get id
      *
-     * @return int
+     * @return guid
      */
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set orderStatusId
-     *
-     * @param integer $orderStatusId
-     *
-     * @return OrderStatuses
-     */
-    public function setOrderStatusId($orderStatusId)
-    {
-        $this->orderStatusId = $orderStatusId;
-
-        return $this;
-    }
-
-    /**
-     * Get orderStatusId
-     *
-     * @return int
-     */
-    public function getOrderStatusId()
-    {
-        return $this->orderStatusId;
-    }
-
-    /**
-     * Set langId
-     *
-     * @param integer $langId
-     *
-     * @return OrderStatuses
-     */
-    public function setLangId($langId)
-    {
-        $this->langId = $langId;
-
-        return $this;
-    }
-
-    /**
-     * Get langId
-     *
-     * @return int
-     */
-    public function getLangId()
-    {
-        return $this->langId;
     }
 
     /**
