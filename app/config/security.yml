@@ -39,16 +39,6 @@ security:
                 target:         fos_user_security_login #Path to redirect to, after logging out
             anonymous:    true
 
-        oauth_token:
-            pattern:    ^/oauth/v2/token
-            security:   false
-
-        api:
-            pattern:    ^/api
-            fos_oauth:  true
-            stateless:  true
-            anonymous:  true
-
         login:
             pattern:  ^/login$
             security: false
@@ -63,4 +53,3 @@ security:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api, role: IS_AUTHENTICATED_FULLY }

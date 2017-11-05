@@ -68,10 +68,10 @@ doctrine:
         dbname: '%database_name%'
         user: '%database_user%'
         password: '%database_password%'
-        charset: UTF8
-        #default_table_options:
-        #    charset: utf8
-        #    collate: utf8_unicode_ci
+        charset: utf8
+        default_table_options:
+            charset: utf8
+            collate: utf8_unicode_ci
         # if using pdo_sqlite as your database driver:
         #   1. add the path in parameters.yml
         #     e.g. database_path: "%kernel.root_dir%/../var/data/data.sqlite"
@@ -176,18 +176,6 @@ stof_doctrine_extensions:
             sluggable:      true
             loggable:       true
             softdeleteable: true
-
-#FOSOAUth 2 Server Bundle Configurations
-fos_oauth_server:
-    db_driver: orm       # Drivers available: orm, mongodb, or propel
-    client_class:        AppBundle\Entity\Client
-    access_token_class:  AppBundle\Entity\AccessToken
-    refresh_token_class: AppBundle\Entity\RefreshToken
-    auth_code_class:     AppBundle\Entity\AuthCode
-    service:
-        user_provider: AppBundle\Security\FOSUBUserProvider
-        options:
-            supported_scopes: scope1 scope2
 
 #KnpGaufrette Bundle Configurations
 knp_gaufrette:

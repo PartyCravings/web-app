@@ -44,16 +44,6 @@ easy_admin_bundle:
     type:     annotation
     prefix:   /admin
 
-#FOSOAuth Server Bundle Routes
-fos_oauth_server_token:
-    resource: "@FOSOAuthServerBundle/Resources/config/routing/token.xml"
-    options:
-        utf8: true
-
-fos_oauth_server_authorize:
-    resource: "@FOSOAuthServerBundle/Resources/config/routing/authorize.xml"
-    options:
-        utf8: true
 #OneUpUploaderBundle Routes
 oneup_uploader:
     resource: .

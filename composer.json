@@ -46,7 +46,6 @@
         "egeloen/ckeditor-bundle": "^6.0",
         "egeloen/google-map-bundle": "^3.0",
         "friendsofsymfony/http-cache-bundle": "^2.1",
-        "friendsofsymfony/oauth-server-bundle": "^1.5",
         "friendsofsymfony/user-bundle": "^2.0",
         "guzzlehttp/psr7": "^1.4",
         "hwi/oauth-bundle": "^0.5.3",

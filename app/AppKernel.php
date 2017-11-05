@@ -20,7 +20,6 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
-            new FOS\OAuthServerBundle\FOSOAuthServerBundle(),
             new Liuggio\ExcelBundle\LiuggioExcelBundle(),
             new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
             new Oneup\UploaderBundle\OneupUploaderBundle(),
