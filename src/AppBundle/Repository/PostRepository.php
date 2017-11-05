@@ -27,6 +27,19 @@ class PostRepository extends EntityRepository
 {
     const NUM_ITEMS = 10;
 
+    const MAX_HOME_POSTS = 3;
+
+    public function findHomePosts() :array
+    {
+        return $this->createQueryBuilder('p')
+                ->orderBy('p.created', 'DESC')
+                ->setMaxResults(self::MAX_HOME_POSTS)
+                ->getQuery()
+                ->useQueryCache(true)
+                ->useResultCache(true)
+                ->getResult();
+    }
+
     public function findLatest(int $page = 1): Pagerfanta
     {
         $query = $this->createQueryBuilder('p')
@@ -47,7 +60,7 @@ class PostRepository extends EntityRepository
     /**
      * @return Post[]
      */
-    public function findBySearchQuery(string $rawQuery, int $limit = self::NUM_ITEMS): array
+    public function findBySearchQuery(string $rawQuery, int $page = 1, int $limit = self::NUM_ITEMS): array
     {
         $query = Sorter::sanitizeString($rawQuery);
         $searchTerms = Sorter::buildTree($query);
@@ -65,12 +78,12 @@ class PostRepository extends EntityRepository
             ;
         }
 
-        return $queryBuilder
+        $query = $queryBuilder
             ->orderBy('p.publishedAt', 'DESC')
-            ->setMaxResults($limit)
             ->getQuery()
             ->useQueryCache(true)
-            ->useResultCache(true)
-            ->getResult();
+            ->useResultCache(true);
+
+        return Sorter::createPaginator($query, $page, $limit);
     }
 }

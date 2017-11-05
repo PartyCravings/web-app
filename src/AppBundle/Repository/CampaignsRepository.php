@@ -16,10 +16,10 @@ class CampaignsRepository extends \Doctrine\ORM\EntityRepository
     {
         return $this->createQueryBuilder('p')
             ->where('p.isEnabled = true')
-            ->andWhere('p.launchDate <= :currentDate')
-            ->andWhere('p.dateEnd >= :currentDate')
+            ->andWhere('p.startDate <= :currentDate')
+            ->andWhere('p.endDate >= :currentDate')
             ->setParameter('currentDate', new \DateTime('now', $country->getTimezone()))
-            ->orderBy('p.dateEnd', 'DESC')
+            ->orderBy('p.endDate', 'ASC')
             ->setMaxResults(self::MAX_HOME_CATEGORIES)
             ->getQuery()
             ->useQueryCache(true)

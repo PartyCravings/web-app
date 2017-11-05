@@ -41,7 +41,7 @@ class DefaultController extends AbstractController
                 )
      * @ParamConverter(
                     "posts",
-                    class="AppBundle:Posts",
+                    class="AppBundle:Post",
                     options=
                     {
                         "id" = "country",

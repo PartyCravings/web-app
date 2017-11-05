@@ -21,7 +21,7 @@ function urlBase64ToUint8Array(base64String) {
     return outputArray;
 }
 
-/// get browser's end point 
+/// get browser's end point
 if ('serviceWorker' in navigator && "Notification" in window) {
     Notification.requestPermission().then(function (result) {
         if (result == "granted") {
