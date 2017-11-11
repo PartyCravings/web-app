@@ -33,6 +33,7 @@ class Orders
     /**
      * @var Service
      *
+     * @Assert\Valid
      * @Assert\NotBlank(message="order.orderDatas.blank")
      * @ORM\ManyToMany(targetEntity="OrderData")
      * @ORM\JoinColumn(nullable=false)

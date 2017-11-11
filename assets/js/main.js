@@ -1,6 +1,6 @@
 import './semantic-ui/dist/semantic.min.css';
 
-require('offline-plugin/runtime').install();
+require('offline-plugin/runtime');//.install();
 import axios from 'axios'
 
 /// make axis global so we can use it every where 

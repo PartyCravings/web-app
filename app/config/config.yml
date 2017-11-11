@@ -163,7 +163,7 @@ jms_translation:
 jms_i18n_routing:
     default_locale: '%locale%'
     locales: '%app_locales%'
-    strategy: custom
+    strategy: prefix_except_default
 
 #Stof Doctrine extensions Configuration
 stof_doctrine_extensions:
@@ -180,33 +180,34 @@ stof_doctrine_extensions:
 #KnpGaufrette Bundle Configurations
 knp_gaufrette:
     adapters:
-        gallery:
+        gallery_local:
             local:
                 directory:  '%kernel.project_dir%/web/uploads'
                 create:     true
 
-        gallery_database:
-            doctrine_dbal:
-                connection_name: default
-                table: media
-                columns:
-                    key: id
-                    content: name
-                    mtime: dateAdd
-                    checksum: filesize
-
         gallery_apc:
             apc:
-                prefix: APC_party_gallery.
-                ttl: 0
+                prefix: partycravings
+                ttl: 7200
+
         gallery_cache:
             cache:
                 source: gallery
-                cache: gallery_database
+                cache: gallery_apc
                 ttl: 7200
+
+        gallery:
+            google_cloud_storage:
+                service_id: Google_Service_Storage
+                bucket_name: cravings
+                options:
+                    acl: public
+                    directory: default
     filesystems:
         gallery:
             adapter: gallery_cache
+        gallery_local:
+            adapter: gallery_local
     stream_wrapper: ~
 
 #Oneup Uploader Bundle Configurations
@@ -217,14 +218,13 @@ oneup_uploader:
 
     mappings:
         gallery:
-            frontend: blueimp
+            frontend: yui3
             storage:
                 type: gaufrette
                 filesystem: gaufrette.gallery_filesystem
                 sync_buffer_size: 10M
                 stream_wrapper: gaufrette://gallery/
 
-            allowed_mimetypes:     []
             disallowed_mimetypes:  []
             error_handler:        oneup_uploader.error_handler.noop
             max_size:             9223372036854775807
@@ -237,9 +237,9 @@ oneup_uploader:
         maxage: 86400
         storage:
             type: gaufrette
-            filesystem: gaufrette.gallery_filesystem
+            filesystem: gaufrette.gallery_local_filesystem
             prefix: chunks
-            stream_wrapper: gaufrette://gallery/
+            stream_wrapper: gaufrette://gallery_local/
             sync_buffer_size:   10M
 
         load_distribution:    true
@@ -309,3 +309,98 @@ minishlink_web_push:
   topic: ~                                      # default identifier for your notifications
   timeout: 30                                   # Timeout of each request in seconds
   automatic_padding: true                       # pad messages automatically for better security (against more bandwith usage)
+
+#IvoryCKEditorBundle Configuration
+ivory_ck_editor:
+    configs:
+        party_config:
+            uiColor:                '#FF8300'
+            toolbar: standard
+
+#EasyAdminBundle Configuration
+easy_admin:
+    site_name: 'PartyCravings℠'
+    design:
+        brand_color: '#FF8300'
+        form_theme:
+            - 'vertical'
+            - 'easy_admin/_form_theme.html.twig'
+        color_scheme: 'dark'
+        menu:
+            - label: 'menu.service'
+              icon: 'shopping-basket'
+              children:
+                  - { entity: 'Service', icon: 'th-list', label: 'menu.service.list', params: { sortField: 'created' }, default: true }
+                  - { entity: 'Category', icon: 'tags', label: 'menu.category' }
+                  - { entity: 'Service', icon: 'plus-circle', label: 'menu.service.add', params: { action: 'new' } }
+            - { label: 'menu.country', entity: 'Country', icon: 'globe' }
+            - { label: 'menu.pages', entity: 'Pages', icon: 'book' }
+
+    entities:            
+        Account:
+            class: AppBundle\Entity\Account
+        #- AppBundle\Entity\BugReports
+        Category:
+            class: AppBundle\Entity\Category
+        Currency:
+            class: AppBundle\Entity\Currency
+        #- AppBundle\Entity\Files
+        #- AppBundle\Entity\Notifications
+        #- AppBundle\Entity\Orders
+        Pages:
+            class: AppBundle\Entity\Pages
+        #- AppBundle\Entity\Party
+        #- AppBundle\Entity\PartyCategory
+        #- AppBundle\Entity\Post
+        #- AppBundle\Entity\PreRegistration
+        #- AppBundle\Entity\Reviews
+        Service:
+            class: AppBundle\Entity\Service
+            form:
+                fields:
+                    - { property: name }
+                    - { property: serviceDescriptions, type: AppBundle\Form\ServiceDescriptionsType, label: false }
+                    - { property: category, type: 'easyadmin_autocomplete' }
+                    - { property: address, type: AppBundle\Form\AddressType, label: false }
+        SocialLinks:
+            class: AppBundle\Entity\SocialLink
+        #- AppBundle\Entity\Subscriber
+        #- AppBundle\Entity\Tag
+        #- AppBundle\Entity\TaxRates
+        #- AppBundle\Entity\Vendor
+
+        Country:
+            class: AppBundle\Entity\Country
+            disabled_actions: ['delete']
+            form:  # <-- 'form' is applied to both 'new' and 'edit' views
+                fields:
+                    - { type: 'group', label: 'Domain information', icon: 'globe', css_class: 'danger' }
+                    - { property: 'name' }
+                    - { property: 'hostname' }
+                    - { type: 'group', label: 'Language information', icon: 'book', css_class: 'danger' }
+                    - { property: 'defaultLocale' }
+                    - { property: 'defaultLanguage' }
+
+                    - { property: 'timezone' }
+                    - { type: 'group', label: 'Billing information', icon: 'money', css_class: 'danger' }
+                    - { property: 'defaultCurrency', type: 'easyadmin_autocomplete' }
+                    - { property: 'currencies', type: 'easyadmin_autocomplete' }
+                    - { property: 'taxRate' }
+                    - { type: 'group', label: 'Advanced Settings', icon: 'spinner', css_class: 'danger' }
+                    - { property: 'contacts', type: 'easyadmin_autocomplete' }
+                    - { property: 'pages', type: 'easyadmin_autocomplete' }
+                    - { property: 'socialLinks', type: 'easyadmin_autocomplete' }
+                    - { property: 'categories', type: 'easyadmin_autocomplete' }
+            list:
+                fields:
+                    - 'name'
+                    - 'hostname'
+                    - 'timezone'
+                    - { property: 'defaultLocale', label: 'Locale'}
+                    - { property: 'isEnabled', label: 'Enabled'}
+                    - { property: 'created', format: 'F j, Y', label: 'Created' }
+                actions:
+                    - { name: 'edit', icon: 'pencil', label: 'Edit' }
+                    - { name: 'show', icon: 'info-circle', label: 'Show' }
+                disabled_actions: ['delete']
+                sort: 'name'

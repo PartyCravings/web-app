@@ -37,12 +37,7 @@ class Country
      * @var string
      *
      * @Assert\NotBlank(message="country.name.blank")
-     * @Assert\Length(
-     *     min=1,
-     *     minMessage="country.name.too_short",
-     *     max=100,
-     *     maxMessage="country.name.too_long"
-     * )
+     * @Assert\Country(message="country.name.invalid")
      * @ORM\Column(name="name", type="string", unique=true)
      */
     private $name;
@@ -62,6 +57,7 @@ class Country
      * @var string
      *
      * @Assert\NotBlank(message="country.defaultlocale.blank")
+     * @Assert\Locale(message="country.defaultlocale.invalid")
      * @ORM\Column(name="default_locale", type="string")
      */
     private $defaultLocale;
@@ -70,6 +66,7 @@ class Country
      * @var string
      *
      * @Assert\NotBlank(message="country.defaultlanguage.blank")
+     * @Assert\Language(message="country.defaultlanguage.invalid")
      * @ORM\Column(name="default_language", type="string")
      */
     private $defaultLanguage;
@@ -125,12 +122,14 @@ class Country
     private $updated;
 
     /**
+     * @Assert\IsNull()
      * @Gedmo\Blameable(on="create")
      * @ORM\ManyToOne(targetEntity="Account")
      */
     private $createdBy;
 
     /**
+     * @Assert\IsNull()
      * @Gedmo\Blameable(on="update")
      * @ORM\ManyToOne(targetEntity="Account")
      */
@@ -190,7 +189,7 @@ class Country
      */
     public function getTimezone()
     {
-        return new \DateTimeZone($this->timezone);
+        return $this->timezone ?: 'Africa/Lagos';
     }
 
     /**
@@ -204,7 +203,7 @@ class Country
     {
         $this->dateDeleted = $dateDeleted
             ->setTimezone(
-                $this->getTimezone()
+                new \DateTimeZone($this->getTimezone())
             );
 
         return $this;
@@ -221,7 +220,7 @@ class Country
     {
         $this->created = $created
             ->setTimezone(
-                $this->getTimezone()
+                new \DateTimeZone($this->getTimezone())
             );
 
         return $this;
@@ -238,7 +237,7 @@ class Country
     {
         $this->updated = $updated
             ->setTimezone(
-                $this->getTimezone()
+                new \DateTimeZone($this->getTimezone())
             );
 
         return $this;

@@ -46,7 +46,10 @@ class Service
     private $vendor;
 
     /**
-     * @ORM\OneToOne(targetEntity="ServiceDescriptions")
+     * @var ServiceDescriptions
+     *
+     * @Assert\Valid
+     * @ORM\OneToOne(targetEntity="ServiceDescriptions", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $serviceDescriptions;
@@ -62,13 +65,13 @@ class Service
      * @var Category
      *
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="services")
-     * @ORM\JoinColumn(nullable=false)
      */
     private $category;
 
     /**
      * @var Address
      *
+     * @Assert\Valid
      * @ORM\ManyToOne(targetEntity="Address")
      */
     private $address;

@@ -1,0 +1,51 @@
+{% block file_widget %}
+
+	<link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/smoothness/jquery-ui.min.css" media="screen" />
+	<link type="text/css" rel="stylesheet" href="http://www.plupload.com/plupload/js/jquery.ui.plupload/css/jquery.ui.plupload.css" media="screen" />
+	<div id="fileupload"></div>
+	<script type="text/javascript" src="http://bp.yahooapis.com/2.4.21/browserplus-min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="http://www.plupload.com/plupload/js/plupload.full.min.js"></script>
+	<script type="text/javascript" src="http://www.plupload.com/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js"></script>
+	<script type="text/javascript">
+		$(function() {
+	$("#fileupload").plupload({
+		// General settings
+		runtimes: "html5",
+        url: "{{ oneup_uploader_endpoint('gallery') }}",
+
+		chunk_size: '100mb',
+
+		// Resize images on clientside if we can
+		resize : {
+			width : 200, 
+			height : 200, 
+			quality : 90,
+			crop: true // crop to exact dimensions
+		},
+
+		// Specify what files to browse for
+		filters : [
+			{title : "Image files", extensions : "jpg,gif,png"},
+			{title : "Zip files", extensions : "zip,avi"}
+		],
+
+		// Rename files by clicking on their titles
+		rename: true,
+		
+		// Sort files
+		sortable: true,
+
+		// Enable ability to drag'n'drop files onto the widget (currently only HTML5 supports that)
+		dragdrop: true,
+
+		// Views to activate
+		views: {
+			list: true,
+			thumbs: true, // Show thumbs
+			active: 'thumbs'
+		}
+	});
+});
+	</script>
+{% endblock %}

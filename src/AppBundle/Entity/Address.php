@@ -84,6 +84,7 @@ class Address
     /**
      * @var Location
      *
+     * @Assert\Valid
      * @ORM\ManyToOne(targetEntity="Location")
      * @ORM\JoinColumn(onDelete="CASCADE")
      */

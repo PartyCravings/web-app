@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "odusanya-symfony-test",
+  "private_key_id": "c2dafeff858e8ddf70dece9352286ad93ea4907d",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDETptpRAWIPJo9\nRo34HRkvQwuoFP5uI+8CvPsrh7XmuBQt143wEnfRuODplMEMoJxryPliYl5gt8Ib\njk4JXdbQ07MDRurilTGnwTiWEUqBluRRICi/VRV5V6T/LzW9fuUScmSuLPqXAhZ2\nQ/gp5xVQjCut5MxTUDSHm7VvyFSw76w9fSuOnvdlHf5bvLO8aBAL7g6fpW5/tS1s\nENCcRBcZH98cEm2N6c6wjb4uQKL4rJpr16gUgM221630boBsHoGb1VxVqUcqmHuL\n35U8AYo9OhKc4O1IETseR5BOQCnBocyq8IZRlh3+k1IwxEvkzmjWAd81jSfYF/tx\njUULPlOnAgMBAAECggEAC+MYrRSl4xyMWHaLxUD50+9S5uAykffSEs/fw8CJhsmR\nyz7YxPdRUx1HXU2ZLQsSvcIjO85qGaA2/FUvK4kHp4iSN/oU4hiXs6lTJF8yrEs3\nUyRH42IjFUB16M/yiKGE/It5xkRJ/lfthUbTYbIxC7oZMQQATXE3ZRjMMVMnsbkO\ng4Pa9kRP+cF7N4IS16Go5qkPS1ZrhAnxJv3lO8vZ4PZY984mMmfCUKcslrk+eZ4D\nJ+XT9Di+6yBjgUMmeZ72Mx7xX15pI6bc1GcoR8woXQ6EvPhGvJX3sxmE0GtYCVwZ\nb0KM+bZuP54OEw6ECjTd4ReytiDH8eCN/RROytpPZQKBgQDme0cFpOf5Sn3qjtRo\ncBq1f4QNAOvIeQ8wepxpUktOL8/tNZNZzQnFFusVsRXJz9CFi4+9OmVM73Z87Jzx\naDGjf4AcQYcflGMQUqIzHI0sXEQHbMJGKzIH+rRj0tZxEh+wX3AsOlJzflmLVy91\nHd8AevYpL2sjImliT2SKDThaSwKBgQDaCrHX+rori6VmqWCDsnNQh3MSl52QlGhO\nW0bpKddkACpwIfcYGqxR85etG5wcjBLlTqe4qVvXOlAnJqz3oTtq7SLet0nDFEoY\nSAuSP64nzqYApEP1FGA6x2D9+c5jlh2Wi/Ig+/vGPHkDtL3T3CHQqu8VBfCZvscW\nbnw2SfmSlQKBgDEHJkuAEcyI2RItQefZeQUE1B1EBeQGRIHmgyEwXU6LgyqNjAO9\nRwfC4U0i92SPrWbLEk+JfYUJJ2ZZmuULagvCkojwM4M3OH9/ZHuE5k76bYo6y3TL\nuX/TB854Sh+RYGZPVvhBi8p/pSKr8C90pDxg675FFQBLUKmWA+gN+d/TAoGAKziZ\nfkWeJ8mbtNj4X8K85waigdn6CtHQR1ACo29+2bzKrMWe1HFdHTWbKF5juKjvifLo\nfktcADL39nrNKJ0WSSDOm7VbcscP1PZbDNeArzVgZJorOmaamKwzBsVA6y6zmMcO\n7QjmJKqSFnD6fAeT0GhB0joGMoPFtSWbi6toRG0CgYAP27ghupVneJ+HleaaQt6c\nBp3xut1EH0TnnMD5+GyQy6YGI4JQ/et/jetCFkayyS9HsekB1aktogNl1JAaWe4R\nnS/IkvNO2HQi0+o5+lQX/xZa7HFvMTIVY0BAslAsMwtqah7BUZAyOvtYlzUjZXDp\nfGeV1Bcvvy//JnbK1JBJ1g==\n-----END PRIVATE KEY-----\n",
+  "client_email": "odusanya-symfony-test@appspot.gserviceaccount.com",
+  "client_id": "105261515615665237271",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/odusanya-symfony-test%40appspot.gserviceaccount.com"
+}

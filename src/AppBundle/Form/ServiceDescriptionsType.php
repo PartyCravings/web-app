@@ -5,15 +5,18 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Ivory\CKEditorBundle\Form\Type\CKEditorType;
+use AppBundle\Form\FilesType;
 
-class EventsType extends AbstractType
+class ServiceDescriptionsType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('type')->add('subtype')->add('level')->add('visibility')->add('text')->add('associationType')->add('associationId')->add('user')->add('timestamp')->add('dateUpd')->add('important')->add('sticky')->add('color')->add('fontColor')->add('linkColor')->add('locationId')->add('recordLinks')->add('eventsData');
+        $builder->add('description', CKEditorType::class)->add('hourlyPrice')->add('hourlyDiscount')
+        ->add('uploadedFiles', FilesType::class, array('label'=> false));
     }
     
     /**
@@ -22,7 +25,7 @@ class EventsType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Events'
+            'data_class' => 'AppBundle\Entity\ServiceDescriptions'
         ));
     }
 
@@ -31,6 +34,6 @@ class EventsType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_events';
+        return 'appbundle_servicedescriptions';
     }
 }

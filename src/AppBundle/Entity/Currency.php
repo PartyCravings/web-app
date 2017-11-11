@@ -35,6 +35,7 @@ class Currency
      * @var string
      *
      * @Assert\NotBlank(message="currency.isocode.blank")
+     * @Assert\Currency(message="currency.isoocode.invalid")
      * @ORM\Column(name="iso_code", type="string")
      */
     private $isoCode;

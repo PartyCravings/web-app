@@ -29,7 +29,7 @@ class NotificationController extends AbstractController
         if (!$subscriber) {
             $new = true;
             $subscriber = (new Subscriber())
-                    ->setEnabled(true)
+                    ->setIsEnabled(true)
                     ->setBrowserKey($data['key'])
                     ->setEndpoint($data['endpoint'])
                     ->setAuthSecret($data['authSecret']);

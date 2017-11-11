@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#ver:2017-11-5 19:02:08
+#ver:2017-11-10 10:32:09
 #plugin:4.8.4
 
 CACHE:
@@ -7,8 +7,9 @@ CACHE:
 /build/manifest-main.json
 /build/app.21c16eea51f15f80e0182a63d76dba89.css
 /build/global.37d1445d3215713e590aea10d78e38f1.css
-/build/app.fc103e42b63db130045b.js
-/build/img.a719ca8d929d62a64276.js
+/build/app.3e8234d3bd9520f85d71.js
+/build/fileupload.e99d98522245d8055fff.js
+/build/img.bd4ae60a4bdd2976598e.js
 /build/login.6c9a9bd669c41a631788.js
 /build/sticklr.21843070fa9742f90d01.js
 /build/slider.45882ff14c9bd0cf4fd2.js
@@ -28,6 +29,8 @@ CACHE:
 /build/images/addthis.7dc87287.png
 /build/images/user.53fe7479.png
 /build/images/wordpress-2.5a0c6595.png
+/build/images/loading.05992d34.gif
+/build/images/progressbar.2165b99c.gif
 /build/images/demo-5.00db1207.jpg
 /build/images/demo-2.474d12e3.jpg
 /build/images/spin.47273a94.svg

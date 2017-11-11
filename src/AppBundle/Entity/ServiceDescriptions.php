@@ -66,7 +66,7 @@ class ServiceDescriptions
      */
     public function __construct()
     {
-        $this->uploadedFiles = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->uploadedFiles = new ArrayCollection();
     }
 
     public function __toString()

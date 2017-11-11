@@ -35,7 +35,6 @@ class Files extends GaufretteFile
     /**
      * @var int
      *
-     * @Assert\NotBlank(message="file.size.blank")
      * @ORM\Column(name="size", type="integer", nullable=true)
      */
     private $size;
@@ -59,7 +58,7 @@ class Files extends GaufretteFile
      * @var \DateTime
      *
      * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(name="t_stamp", type="datetime")
+     * @ORM\Column(name="t_stamp", type="datetime", nullable=true)
      */
     private $tStamp;
 

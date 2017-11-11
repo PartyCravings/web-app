@@ -65,6 +65,7 @@ class Vendor
     /**
      * @var Address
      *
+     * @Assert\Valid
      * @ORM\ManyToOne(targetEntity="Address")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -80,6 +81,7 @@ class Vendor
     /**
      * @var Service
      *
+     * @Assert\Valid
      * @ORM\OneToMany(targetEntity="Service", mappedBy="vendor")
      */
     private $services;
@@ -100,7 +102,7 @@ class Vendor
      */
     public function __construct()
     {
-        $this->services = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->services = new ArrayCollection();
     }
 
     /**

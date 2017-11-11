@@ -178,7 +178,6 @@
           <root url="file://$MODULE_DIR$/vendor/egeloen/google-map" />
           <root url="file://$MODULE_DIR$/vendor/egeloen/google-map-bundle" />
           <root url="file://$MODULE_DIR$/vendor/egeloen/json-builder" />
-          <root url="file://$MODULE_DIR$/vendor/evenement/evenement" />
           <root url="file://$MODULE_DIR$/vendor/fig/link-util" />
           <root url="file://$MODULE_DIR$/vendor/friendsofsymfony/http-cache" />
           <root url="file://$MODULE_DIR$/vendor/friendsofsymfony/http-cache-bundle" />
@@ -186,16 +185,6 @@
           <root url="file://$MODULE_DIR$/vendor/friendsofsymfony/oauth2-php" />
           <root url="file://$MODULE_DIR$/vendor/friendsofsymfony/user-bundle" />
           <root url="file://$MODULE_DIR$/vendor/gedmo/doctrine-extensions" />
-          <root url="file://$MODULE_DIR$/vendor/gos/pnctl-event-loop-emitter" />
-          <root url="file://$MODULE_DIR$/vendor/gos/pubsub-router-bundle" />
-          <root url="file://$MODULE_DIR$/vendor/gos/ratchet" />
-          <root url="file://$MODULE_DIR$/vendor/gos/ratchet-stack" />
-          <root url="file://$MODULE_DIR$/vendor/gos/web-socket-bundle" />
-          <root url="file://$MODULE_DIR$/vendor/gos/websocket-client" />
-          <root url="file://$MODULE_DIR$/vendor/guzzle/common" />
-          <root url="file://$MODULE_DIR$/vendor/guzzle/http" />
-          <root url="file://$MODULE_DIR$/vendor/guzzle/parser" />
-          <root url="file://$MODULE_DIR$/vendor/guzzle/stream" />
           <root url="file://$MODULE_DIR$/vendor/guzzlehttp/guzzle" />
           <root url="file://$MODULE_DIR$/vendor/guzzlehttp/promises" />
           <root url="file://$MODULE_DIR$/vendor/guzzlehttp/psr7" />
@@ -212,7 +201,6 @@
           <root url="file://$MODULE_DIR$/vendor/knplabs/knp-gaufrette-bundle" />
           <root url="file://$MODULE_DIR$/vendor/kriswallsmith/buzz" />
           <root url="file://$MODULE_DIR$/vendor/liuggio/ExcelBundle" />
-          <root url="file://$MODULE_DIR$/vendor/mobiledetect/mobiledetectlib" />
           <root url="file://$MODULE_DIR$/vendor/monolog/monolog" />
           <root url="file://$MODULE_DIR$/vendor/myclabs/deep-copy" />
           <root url="file://$MODULE_DIR$/vendor/nikic/php-parser" />
@@ -249,10 +237,6 @@
           <root url="file://$MODULE_DIR$/vendor/psr/link" />
           <root url="file://$MODULE_DIR$/vendor/psr/log" />
           <root url="file://$MODULE_DIR$/vendor/psr/simple-cache" />
-          <root url="file://$MODULE_DIR$/vendor/react/event-loop" />
-          <root url="file://$MODULE_DIR$/vendor/react/promise" />
-          <root url="file://$MODULE_DIR$/vendor/react/socket" />
-          <root url="file://$MODULE_DIR$/vendor/react/stream" />
           <root url="file://$MODULE_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
           <root url="file://$MODULE_DIR$/vendor/sebastian/comparator" />
           <root url="file://$MODULE_DIR$/vendor/sebastian/diff" />
@@ -269,7 +253,6 @@
           <root url="file://$MODULE_DIR$/vendor/sensio/generator-bundle" />
           <root url="file://$MODULE_DIR$/vendor/sensiolabs/security-checker" />
           <root url="file://$MODULE_DIR$/vendor/stof/doctrine-extensions-bundle" />
-          <root url="file://$MODULE_DIR$/vendor/suncat/mobile-detect-bundle" />
           <root url="file://$MODULE_DIR$/vendor/swiftmailer/swiftmailer" />
           <root url="file://$MODULE_DIR$/vendor/symfony/monolog-bundle" />
           <root url="file://$MODULE_DIR$/vendor/symfony/phpunit-bridge" />
@@ -308,7 +291,6 @@
           <root url="file://$MODULE_DIR$/vendor/egeloen/google-map" />
           <root url="file://$MODULE_DIR$/vendor/egeloen/google-map-bundle" />
           <root url="file://$MODULE_DIR$/vendor/egeloen/json-builder" />
-          <root url="file://$MODULE_DIR$/vendor/evenement/evenement" />
           <root url="file://$MODULE_DIR$/vendor/fig/link-util" />
           <root url="file://$MODULE_DIR$/vendor/friendsofsymfony/http-cache" />
           <root url="file://$MODULE_DIR$/vendor/friendsofsymfony/http-cache-bundle" />
@@ -316,16 +298,6 @@
           <root url="file://$MODULE_DIR$/vendor/friendsofsymfony/oauth2-php" />
           <root url="file://$MODULE_DIR$/vendor/friendsofsymfony/user-bundle" />
           <root url="file://$MODULE_DIR$/vendor/gedmo/doctrine-extensions" />
-          <root url="file://$MODULE_DIR$/vendor/gos/pnctl-event-loop-emitter" />
-          <root url="file://$MODULE_DIR$/vendor/gos/pubsub-router-bundle" />
-          <root url="file://$MODULE_DIR$/vendor/gos/ratchet" />
-          <root url="file://$MODULE_DIR$/vendor/gos/ratchet-stack" />
-          <root url="file://$MODULE_DIR$/vendor/gos/web-socket-bundle" />
-          <root url="file://$MODULE_DIR$/vendor/gos/websocket-client" />
-          <root url="file://$MODULE_DIR$/vendor/guzzle/common" />
-          <root url="file://$MODULE_DIR$/vendor/guzzle/http" />
-          <root url="file://$MODULE_DIR$/vendor/guzzle/parser" />
-          <root url="file://$MODULE_DIR$/vendor/guzzle/stream" />
           <root url="file://$MODULE_DIR$/vendor/guzzlehttp/guzzle" />
           <root url="file://$MODULE_DIR$/vendor/guzzlehttp/promises" />
           <root url="file://$MODULE_DIR$/vendor/guzzlehttp/psr7" />
@@ -342,7 +314,6 @@
           <root url="file://$MODULE_DIR$/vendor/knplabs/knp-gaufrette-bundle" />
           <root url="file://$MODULE_DIR$/vendor/kriswallsmith/buzz" />
           <root url="file://$MODULE_DIR$/vendor/liuggio/ExcelBundle" />
-          <root url="file://$MODULE_DIR$/vendor/mobiledetect/mobiledetectlib" />
           <root url="file://$MODULE_DIR$/vendor/monolog/monolog" />
           <root url="file://$MODULE_DIR$/vendor/myclabs/deep-copy" />
           <root url="file://$MODULE_DIR$/vendor/nikic/php-parser" />
@@ -379,10 +350,6 @@
           <root url="file://$MODULE_DIR$/vendor/psr/link" />
           <root url="file://$MODULE_DIR$/vendor/psr/log" />
           <root url="file://$MODULE_DIR$/vendor/psr/simple-cache" />
-          <root url="file://$MODULE_DIR$/vendor/react/event-loop" />
-          <root url="file://$MODULE_DIR$/vendor/react/promise" />
-          <root url="file://$MODULE_DIR$/vendor/react/socket" />
-          <root url="file://$MODULE_DIR$/vendor/react/stream" />
           <root url="file://$MODULE_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
           <root url="file://$MODULE_DIR$/vendor/sebastian/comparator" />
           <root url="file://$MODULE_DIR$/vendor/sebastian/diff" />
@@ -399,7 +366,6 @@
           <root url="file://$MODULE_DIR$/vendor/sensio/generator-bundle" />
           <root url="file://$MODULE_DIR$/vendor/sensiolabs/security-checker" />
           <root url="file://$MODULE_DIR$/vendor/stof/doctrine-extensions-bundle" />
-          <root url="file://$MODULE_DIR$/vendor/suncat/mobile-detect-bundle" />
           <root url="file://$MODULE_DIR$/vendor/swiftmailer/swiftmailer" />
           <root url="file://$MODULE_DIR$/vendor/symfony/monolog-bundle" />
           <root url="file://$MODULE_DIR$/vendor/symfony/phpunit-bridge" />

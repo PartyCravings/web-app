@@ -42,3 +42,7 @@ services:
 
     WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs:
         alias: white_october_breadcrumbs
+
+    Google_Service_Storage:
+        class: \Google_Service_Storage
+        factory: ['AppBundle\Storage\GoogleCloudStorageServiceFactory', createService]
