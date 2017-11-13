@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
+use AppBundle\Entity\Files as EmbeddedFile;
 
 /**
  * Service
@@ -72,7 +73,7 @@ class Service
      * @var Address
      *
      * @Assert\Valid
-     * @ORM\ManyToOne(targetEntity="Address")
+     * @ORM\ManyToOne(targetEntity="Address",cascade={"persist"})
      */
     private $address;
 
@@ -91,6 +92,13 @@ class Service
      * @Assert\Count(max="4", maxMessage="service.too_many_feature")
      */
     private $features;
+
+    /**
+     * @var EmbeddedFile[]|ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="Files", cascade={"persist"})
+     */
+    private $uploadedFiles;
 
     /**
      * @var bool
@@ -114,6 +122,23 @@ class Service
         $this->campaigns = new ArrayCollection();
         $this->reviews = new ArrayCollection();
         $this->features = new ArrayCollection();
+        $this->uploadedFiles = new ArrayCollection();
+    }
+
+    /**
+     * @param EmbeddedFile $image
+     */
+    public function setUploadedFiles(EmbeddedFile $uploadedFiles)
+    {
+        $this->uploadedFiles[] = $uploadedFiles;
+    }
+
+    /**
+     * @return EmbeddedFile
+     */
+    public function getUploadedFiles()
+    {
+        return $this->uploadedFiles;
     }
 
     public function getAverageRating()
@@ -443,5 +468,29 @@ class Service
     public function getFeatures()
     {
         return $this->features;
+    }
+
+    /**
+     * Add uploadedFile
+     *
+     * @param \Vich\UploaderBundle\Entity\File $uploadedFile
+     *
+     * @return ServiceDescriptions
+     */
+    public function addUploadedFile(EmbeddedFile $uploadedFile)
+    {
+        $this->uploadedFiles[] = $uploadedFile;
+
+        return $this;
+    }
+
+    /**
+     * Remove uploadedFile
+     *
+     * @param \Vich\UploaderBundle\Entity\File $uploadedFile
+     */
+    public function removeUploadedFile(EmbeddedFile $uploadedFile)
+    {
+        $this->uploadedFiles->removeElement($uploadedFile);
     }
 }

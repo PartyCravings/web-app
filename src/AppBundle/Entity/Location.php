@@ -61,20 +61,20 @@ class Location
 
     /**
      * @Gedmo\TreeRoot
-     * @ORM\ManyToOne(targetEntity="Category")
+     * @ORM\ManyToOne(targetEntity="Location")
      * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $root;
 
     /**
      * @Gedmo\TreeParent
-     * @ORM\ManyToOne(targetEntity="Category", inversedBy="children")
+     * @ORM\ManyToOne(targetEntity="Location", inversedBy="children")
      * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $parent;
 
     /**
-     * @ORM\OneToMany(targetEntity="Category", mappedBy="parent")
+     * @ORM\OneToMany(targetEntity="Location", mappedBy="parent")
      * @ORM\OrderBy({"lft" = "ASC"})
      */
     private $children;
@@ -335,11 +335,11 @@ class Location
     /**
      * Set root
      *
-     * @param \AppBundle\Entity\Category $root
+     * @param \AppBundle\Entity\Location $root
      *
      * @return Location
      */
-    public function setRoot(\AppBundle\Entity\Category $root = null)
+    public function setRoot(\AppBundle\Entity\Location $root = null)
     {
         $this->root = $root;
 
@@ -349,7 +349,7 @@ class Location
     /**
      * Get root
      *
-     * @return \AppBundle\Entity\Category
+     * @return \AppBundle\Entity\Location
      */
     public function getRoot()
     {
@@ -359,11 +359,11 @@ class Location
     /**
      * Set parent
      *
-     * @param \AppBundle\Entity\Category $parent
+     * @param \AppBundle\Entity\Location $parent
      *
      * @return Location
      */
-    public function setParent(\AppBundle\Entity\Category $parent = null)
+    public function setParent(\AppBundle\Entity\Location $parent = null)
     {
         $this->parent = $parent;
 
@@ -373,7 +373,7 @@ class Location
     /**
      * Get parent
      *
-     * @return \AppBundle\Entity\Category
+     * @return \AppBundle\Entity\Location
      */
     public function getParent()
     {
@@ -383,11 +383,11 @@ class Location
     /**
      * Add child
      *
-     * @param \AppBundle\Entity\Category $child
+     * @param \AppBundle\Entity\Location $child
      *
      * @return Location
      */
-    public function addChild(\AppBundle\Entity\Category $child)
+    public function addChild(\AppBundle\Entity\Location $child)
     {
         $this->children[] = $child;
 
@@ -397,9 +397,9 @@ class Location
     /**
      * Remove child
      *
-     * @param \AppBundle\Entity\Category $child
+     * @param \AppBundle\Entity\Location $child
      */
-    public function removeChild(\AppBundle\Entity\Category $child)
+    public function removeChild(\AppBundle\Entity\Location $child)
     {
         $this->children->removeElement($child);
     }

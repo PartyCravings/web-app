@@ -75,14 +75,14 @@ class Category
 
     /**
      * @Gedmo\TreeRoot
-     * @ORM\ManyToOne(targetEntity="Category")
+     * @ORM\ManyToOne(targetEntity="Category", cascade={"remove"})
      * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $root;
 
     /**
      * @Gedmo\TreeParent
-     * @ORM\ManyToOne(targetEntity="Category", inversedBy="children")
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="children", cascade={"remove"})
      * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $parent;
@@ -98,7 +98,7 @@ class Category
      *
      * @ORM\Column(name="is_enabled", type="boolean")
      */
-    private $isEnabled;
+    private $isEnabled = true;
 
     /**
      * @Gedmo\Timestampable(on="create")

@@ -32,14 +32,6 @@ class Campaigns
     private $services;
 
     /**
-     * @var Media
-     *
-     * @ORM\OneToOne(targetEntity="Files")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $imageUrl;
-
-    /**
      * @var string
      *
      * @Assert\Range(

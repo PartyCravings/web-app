@@ -24,6 +24,6 @@ app:
     type:     annotation
     prefix:   /{_country}
     defaults: 
-        _country: "nigeria"
+        _country: "ng"
     options:
         utf8: true

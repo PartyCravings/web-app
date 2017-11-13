@@ -8,12 +8,32 @@ imports:
 parameters:
     locale: en
     app_locales: [en, de, zh]
+    hostname: partycravings.com
+    keys_dir: '%kernel.root_dir%/config/keys'
+
+    knp_disqus.api_key: YOUR_PUBLIC_API_KEY
+    knp_disqus.secret_key: YOUR_SECRET_API_KEY
+    knp_disqus.lorem.shortname: dolor-sid
+    knp_disqus.ipsum.shortname: amet
+
+    gcp_key: '%keys_dir%/storage-key.json'
+    gcp_bucket: cravings
+    gcp_bucket_url: 'https://storage.googleapis.com/%gcp_bucket%'
+
+    webpush.subject: http://elastic.live/
+    webpush.gcm: 314804067424
+    webpush.publicKey: BF2bGmBZuhVIBofX58XY4COHAVrIWnGMqOXOaAJMHylBgLsXjvRnYd4I-vtmoHnjQk8PfDD_LalMXSnt9xgJzQg
+    webpush.privateKey: lsFwvYdDZ_LtpZvTWYuKhwCLDvxNs5InAfldbbA8IGE
+    webpush.pem: '%keys_dir%/private_key.pem'
+    
+    google_app_id: 99524646330-55lkia8drehg45b6bctgmkmo8h2l1u12.apps.googleusercontent.com
+    google_app_secret: MihbaS8xfqFwycZE7BvNXBV-
 
 framework:
     request:
         formats:
-            opensearch : ['application/opensearchdescription+xml']
-            jsonld: ['application/json+ld']
+            opensearch : [application/opensearchdescription+xml]
+            jsonld: [application/json+ld]
     esi: { enabled: true }
     translator: { fallbacks: ['%locale%'] }
     secret: '%secret%'
@@ -25,7 +45,7 @@ framework:
     validation: { enable_annotations: true }
     #serializer: { enable_annotations: true }
     templating:
-        engines: ['twig']
+        engines: [twig]
     default_locale: '%locale%'
     trusted_hosts: ~
     session:
@@ -58,6 +78,7 @@ twig:
     strict_variables: '%kernel.debug%'
     globals:
         vapidPublicKey: '%webpush.publickey%'
+        storage_link: /uploads
 
 # Doctrine Configuration
 doctrine:
@@ -119,8 +140,8 @@ fos_user:
 
 #Doctrine Migrations Configuration
 doctrine_migrations:
-    dir_name: "%kernel.root_dir%/../src/AppBundle/Doctrine/Migrations"
-    namespace: AppBundle\Doctrine\Migrations
+    dir_name: "%kernel.root_dir%/../app/Migrations"
+    namespace: App\Migrations
     table_name: migration_versions
     name: Application Migrations
 
@@ -147,7 +168,7 @@ hwi_oauth:
             type:                google
             client_id:           "%google_app_id%"
             client_secret:       "%google_app_secret%"
-            scope:               "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
+            scope:               https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile
 
 #JMS Translator Bundle Configuration
 jms_translation:
@@ -177,7 +198,7 @@ stof_doctrine_extensions:
             loggable:       true
             softdeleteable: true
 
-#KnpGaufrette Bundle Configurations
+#KnpGaufrette Bundle Configuration
 knp_gaufrette:
     adapters:
         gallery_local:
@@ -185,64 +206,21 @@ knp_gaufrette:
                 directory:  '%kernel.project_dir%/web/uploads'
                 create:     true
 
-        gallery_apc:
-            apc:
-                prefix: partycravings
-                ttl: 7200
-
-        gallery_cache:
-            cache:
-                source: gallery
-                cache: gallery_apc
-                ttl: 7200
-
-        gallery:
-            google_cloud_storage:
-                service_id: Google_Service_Storage
-                bucket_name: cravings
-                options:
-                    acl: public
-                    directory: default
     filesystems:
         gallery:
-            adapter: gallery_cache
-        gallery_local:
             adapter: gallery_local
     stream_wrapper: ~
 
-#Oneup Uploader Bundle Configurations
-oneup_uploader:
-    orphanage:
-        maxage: 86400
-        directory: ~
+#VichUploaderBundle Configuration
+vich_uploader:
+    db_driver: orm
+    storage:   gaufrette
 
     mappings:
-        gallery:
-            frontend: yui3
-            storage:
-                type: gaufrette
-                filesystem: gaufrette.gallery_filesystem
-                sync_buffer_size: 10M
-                stream_wrapper: gaufrette://gallery/
-
-            disallowed_mimetypes:  []
-            error_handler:        oneup_uploader.error_handler.noop
-            max_size:             9223372036854775807
-            use_orphanage:        true
-            enable_progress:      true
-            enable_cancelation:   true
-            namer:                oneup_uploader.namer.uniqid
-
-    chunks:
-        maxage: 86400
-        storage:
-            type: gaufrette
-            filesystem: gaufrette.gallery_local_filesystem
-            prefix: chunks
-            stream_wrapper: gaufrette://gallery_local/
-            sync_buffer_size:   10M
-
-        load_distribution:    true
+        service_files:
+            uri_prefix:         /uploads
+            upload_destination: gallery
+            namer:              vich_uploader.namer_uniqid
 
 #Gravatar Bundle Configurations
 ornicar_gravatar:
@@ -258,14 +236,14 @@ noxlogic_rate_limit:
 rs_gaufrette_browser:
     file_pattern:    /\.(jpg|gif|jpeg|png)$/    # a valid regular expression to filter for file-extensions
     filesystem:      gaufrette.gallery_filesystem           # the gaufrette filesystem alias to use
-    file_class:      AppBundle\Entity\Files
+    file_class:      Vich\UploaderBundle\Entity\File
 
 #WhiteOctoberBreadcrumbsBundle Configuration
 white_october_breadcrumbs:
     separator:          '>'
-    viewTemplate: 'snippets/breadcrumbs.jsonld.twig'
-    itemClass: 'section'
-    listClass: 'ui breadcrumb'
+    viewTemplate: snippets/breadcrumbs.jsonld.twig
+    itemClass: section
+    listClass: ui breadcrumb
 
 #AntiMattrGoogleBundle
 google:
@@ -282,8 +260,8 @@ google:
                 allowHash: true
                 includeNamePrefix: false
                 plugins:
-                    - 'linkid'
-        whitelist: [ 'q', 'utm_source', 'utm_medium', 'utm_term', 'utm_content', 'utm_campaign' ]
+                    - linkid
+        whitelist: [q, utm_source, utm_medium, utm_term, utm_content, utm_campaign]
 
 #KnpDisqusBundle Configuration
 knp_disqus:
@@ -314,41 +292,151 @@ minishlink_web_push:
 ivory_ck_editor:
     configs:
         party_config:
-            uiColor:                '#FF8300'
+            uiColor:                '#C0C0C0'
             toolbar: standard
 
 #EasyAdminBundle Configuration
 easy_admin:
-    site_name: 'PartyCravings℠'
+    site_name: PartyCravings℠
     design:
         brand_color: '#FF8300'
         form_theme:
-            - 'vertical'
-            - 'easy_admin/_form_theme.html.twig'
-        color_scheme: 'dark'
+            - vertical
+            - easy_admin/vich_uploader_file.html.twig
+            - easy_admin/service_description.html.twig
+            
+        color_scheme: dark
         menu:
-            - label: 'menu.service'
-              icon: 'shopping-basket'
+            - { entity: Account, label: menu.account, icon: user }
+            - { entity: Country, label: menu.country, icon: globe }
+            - { entity: Currency, label: menu.currency, icon: money }
+
+
+            - label: menu.service
+              icon: shopping-basket
               children:
-                  - { entity: 'Service', icon: 'th-list', label: 'menu.service.list', params: { sortField: 'created' }, default: true }
-                  - { entity: 'Category', icon: 'tags', label: 'menu.category' }
-                  - { entity: 'Service', icon: 'plus-circle', label: 'menu.service.add', params: { action: 'new' } }
-            - { label: 'menu.country', entity: 'Country', icon: 'globe' }
-            - { label: 'menu.pages', entity: 'Pages', icon: 'book' }
+                  - { entity: Service, label: menu.service.list, icon: th-list, params: { sortField: created }, default: true }
+                  - { entity: Category, label: menu.category, icon: tags }
+                  - { entity: Service, label: menu.service.add, icon: plus-circle, params: { action: new } }
+
+
+            - { entity: Pages, label: menu.pages, icon: book }
+            - { entity: Posts, label: menu.post, icon: book }
+            - { entity: Notifications, label: menu.notifications, icon: bell }
+            - { entity: SocialLinks, label: menu.socialLinks, icon: facebook }
 
     entities:            
         Account:
             class: AppBundle\Entity\Account
+            form:
+                fields:
+                        - username
+                        - email
+                        - enabled
+                        # if administrators are allowed to edit users' passwords and roles, add this:
+                        - { property: 'plainPassword', type: 'text', type_options: { required: false } }
+                        - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'User': 'ROLE_USER', 'Admin': 'ROLE_ADMIN', 'Vendor': 'ROLE_VENDOR', 'Super Admin': 'ROLE_SUPER_ADMIN' } } }
+                edit:
+                        fields:
+                            # ...
+                            - { property: 'plainPassword', type_options: { required: false} }
+                            # ...
+                        form_options: { validation_groups: ['Profile'] }
+                new:
+                        fields:
+                            # ...
+                            - { property: 'plainPassword', type_options: { required: true} }
+                            # ...
+                        form_options: { validation_groups: ['Registration'] }
         #- AppBundle\Entity\BugReports
         Category:
             class: AppBundle\Entity\Category
+            form:
+                fields:
+                    - { type: group, label: Basic information, icon: pencil, css_class: danger }
+                    - { property: title }
+                    - { property: description, type: ckeditor }
+                    - { property: isEnabled, label: Enabled }
+
+                    - { type: group, label: Mapping information, icon: tree, css_class: danger }
+                    - { property: parent }
+
+                    - { type: group, label: Billing information, icon: money, css_class: danger }
+                    - { property: taxRate }
+            list:
+                sort: title
+                fields:
+                    - title
+                    - parent
+                    - children
+                    - { property: isEnabled, label: Enabled }
+                    - { property: created, format: 'F j, Y', label: Created }
+                actions:
+                    - { name: edit, icon: pencil, label: Edit }
+                    - { name: show, icon: info-circle, label: Show }
+                    - { name: delete, icon: trash, label: Delete }
         Currency:
             class: AppBundle\Entity\Currency
-        #- AppBundle\Entity\Files
-        #- AppBundle\Entity\Notifications
+            form:
+                fields:
+                    - name
+                    - isoCode
+                    - symbol
+                    - rate
+                    - { property: isEnabled, label: Enabled }
+            list:
+                sort: name
+                fields:
+                    - name
+                    - isoCode
+                    - symbol
+                    - rate
+                    - { property: isEnabled, label: Enabled }
+                    - { property: created, format: 'F j, Y', label: Created }
+                actions:
+                    - { name: edit, icon: pencil, label: Edit }
+                    - { name: delete, icon: trash, label: Delete }
+        Notifications:
+            class: AppBundle\Entity\Notifications
+            form:
+                fields:
+                    - { property: subject }
+                    - { property: link, type: url }
+                    - { property: icon }
+            list:
+                sort: tStamp
+                fields:
+                    - subject
+                    - link
+                    - icon
+                    - { property: tStamp, format: 'F j, Y', label: Created }
+                actions:
+                    - { name: edit, icon: pencil, label: Edit }
+                    - { name: show, icon: info-circle, label: Show }
+                    - { name: delete, icon: trash, label: Delete }
+
         #- AppBundle\Entity\Orders
         Pages:
             class: AppBundle\Entity\Pages
+            form:
+                fields:
+                    - title
+                    - { property: content, type: ckeditor }
+                    - { property: isEnabled, label: Enabled }
+            list:
+                sort: title
+                fields:
+                    - title
+                    - { property: content, template: service_description.html.twig, css_class: text }
+                    - { property: isEnabled, label: Enabled }
+                    - { property: created, format: 'F j, Y', label: Created }
+                    - createdBy
+                    - translations
+
+                actions:
+                    - { name: edit, icon: pencil, label: Edit }
+                    - { name: delete, icon: trash, label: Delete }
+
         #- AppBundle\Entity\Party
         #- AppBundle\Entity\PartyCategory
         #- AppBundle\Entity\Post
@@ -358,49 +446,94 @@ easy_admin:
             class: AppBundle\Entity\Service
             form:
                 fields:
+                    - { type: group, label: Basic information, icon: pencil, css_class: danger }
                     - { property: name }
                     - { property: serviceDescriptions, type: AppBundle\Form\ServiceDescriptionsType, label: false }
-                    - { property: category, type: 'easyadmin_autocomplete' }
+                    - { property: uploadedFiles, type: collection, type_options: { entry_type: 'AppBundle\Form\FilesType' }}
+                    - { property: category, type: easyadmin_autocomplete }
+
+                    - { type: group, label: Location information, icon: road, css_class: danger }
                     - { property: address, type: AppBundle\Form\AddressType, label: false }
+
+            list: 
+                sort: created
+                fields:
+                    - name
+                    - { property: uploadedFiles, template: vich_uploader_file.html.twig, css_class: image, label: ser.files }
+                    - { property: serviceDescriptions.description, template: service_description.html.twig, css_class: text, label: ser.description }
+                    - category
+                    - { property: isEnabled, label: Enabled }
+                    - { property: created, format: 'F j, Y', label: Created }
+                actions:
+                    - { name: edit, icon: pencil, label: Edit }
+                    - { name: show, icon: info-circle, label: Show }
+                    - { name: delete, icon: trash, label: Delete }
+
         SocialLinks:
             class: AppBundle\Entity\SocialLink
-        #- AppBundle\Entity\Subscriber
-        #- AppBundle\Entity\Tag
+            list:
+                sort: name
+                actions:
+                    - { name: edit, icon: pencil, label: Edit }
+                    - { name: delete, icon: trash, label: Delete }
         #- AppBundle\Entity\TaxRates
         #- AppBundle\Entity\Vendor
 
+        Posts:
+            class: AppBundle\Entity\Post
+            form:
+                fields:
+                    - { property: title }
+                    - { property: content, type: ckeditor }
+                    - { property: summary }
+                    - { property: tags }
+            list:
+                sort: title
+                fields:
+                    - title
+                    - summary
+                    - tags
+                    - createdBy
+                actions:
+                    - { name: edit, icon: pencil, label: Edit }
+                    - { name: show, icon: info-circle, label: Show }
+                    - { name: delete, icon: trash, label: Delete }
+
         Country:
             class: AppBundle\Entity\Country
-            disabled_actions: ['delete']
+            disabled_actions: [delete]
             form:  # <-- 'form' is applied to both 'new' and 'edit' views
                 fields:
-                    - { type: 'group', label: 'Domain information', icon: 'globe', css_class: 'danger' }
-                    - { property: 'name' }
-                    - { property: 'hostname' }
-                    - { type: 'group', label: 'Language information', icon: 'book', css_class: 'danger' }
-                    - { property: 'defaultLocale' }
-                    - { property: 'defaultLanguage' }
+                    - { type: group, label: Domain information, icon: globe, css_class: danger }
+                    - { property: name }
+                    - { property: hostname }
 
-                    - { property: 'timezone' }
-                    - { type: 'group', label: 'Billing information', icon: 'money', css_class: 'danger' }
-                    - { property: 'defaultCurrency', type: 'easyadmin_autocomplete' }
-                    - { property: 'currencies', type: 'easyadmin_autocomplete' }
-                    - { property: 'taxRate' }
-                    - { type: 'group', label: 'Advanced Settings', icon: 'spinner', css_class: 'danger' }
-                    - { property: 'contacts', type: 'easyadmin_autocomplete' }
-                    - { property: 'pages', type: 'easyadmin_autocomplete' }
-                    - { property: 'socialLinks', type: 'easyadmin_autocomplete' }
-                    - { property: 'categories', type: 'easyadmin_autocomplete' }
+                    - { type: group, label: Language information, icon: book, css_class: danger }
+                    - { property: defaultLocale }
+                    - { property: defaultLanguage }
+
+                    - { property: timezone }
+
+                    - { type: group, label: Billing information, icon: money, css_class: danger }
+                    - { property: defaultCurrency, type: easyadmin_autocomplete }
+                    - { property: currencies, type: easyadmin_autocomplete }
+                    - { property: taxRate }
+
+                    - { type: group, label: Advanced Settings, icon: spinner, css_class: danger }
+                    - { property: contacts, type: easyadmin_autocomplete }
+                    - { property: pages, type: easyadmin_autocomplete }
+                    - { property: socialLinks, type: easyadmin_autocomplete }
+                    - { property: categories, type: easyadmin_autocomplete }
             list:
                 fields:
-                    - 'name'
-                    - 'hostname'
-                    - 'timezone'
-                    - { property: 'defaultLocale', label: 'Locale'}
-                    - { property: 'isEnabled', label: 'Enabled'}
-                    - { property: 'created', format: 'F j, Y', label: 'Created' }
+                    - name
+                    - hostname
+                    - timezone
+                    - { property: defaultLocale, label: Locale }
+                    - { property: isEnabled, label: Enabled }
+                    - { property: created, format: 'F j, Y', label: Created }
                 actions:
-                    - { name: 'edit', icon: 'pencil', label: 'Edit' }
-                    - { name: 'show', icon: 'info-circle', label: 'Show' }
-                disabled_actions: ['delete']
-                sort: 'name'
+                    - { name: edit, icon: pencil, label: Edit }
+                    - { name: show, icon: info-circle, label: Show }
+                disabled_actions: [delete]
+                sort: name

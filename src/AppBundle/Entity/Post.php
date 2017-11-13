@@ -82,7 +82,6 @@ class Post
      *
      * @Gedmo\Blameable(on="create")
      * @ORM\ManyToOne(targetEntity="Account")
-     * @ORM\JoinColumn(nullable=false)
      */
     private $createdBy;
 

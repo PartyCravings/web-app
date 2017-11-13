@@ -1,6 +1,10 @@
 imports:
     - { resource: config.yml }
 
+twig:
+    globals:
+        storage_link: '%gcp_bucket_url%'
+
 doctrine:
     orm:
         metadata_cache_driver: apc
@@ -20,3 +24,34 @@ monolog:
         console:
             type: console
             process_psr_3_messages: false
+
+knp_gaufrette:
+    adapters:
+        #gallery_apc:
+        #    apc:
+        #        prefix: partycravings
+        #        ttl: 0
+
+        #gallery_cache:
+        #    cache:
+        #        source: gallery
+        #        cache: gallery_apc
+        #        ttl: 7200
+
+        gallery:
+            google_cloud_storage:
+                service_id: Google_Service_Storage
+                bucket_name: '%gcp_bucket%'
+                options:
+                    acl: public
+                    directory: default
+    filesystems:
+        gallery:
+            adapter: gallery
+
+#VichUploaderBundle Configuration
+vich_uploader:
+    mappings:
+        service_image:
+            uri_prefix: '%gcp_bucket_url%'
+            upload_destination: gallery

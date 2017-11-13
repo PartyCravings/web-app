@@ -1,0 +1,29 @@
+
+{% for file in value %}
+	{% set randomValue = random() %}
+	{% if file.mimetype matches '/^image.*/' %}
+
+		<a href="#" class="easyadmin-thumbnail" data-featherlight="#easyadmin-lightbox-{{ randomValue }}" data-featherlight-close-on-click="anywhere">
+			<img alt="{{ file.originalName }}" src="{{ asset(storage_link  ~ '/' ~ file.name) }}" />
+		</a>
+    	<div id="easyadmin-lightbox-{{ randomValue }}" class="easyadmin-lightbox">
+    		<img alt="{{ file.originalName }}" src="{{ asset(storage_link  ~ '/' ~ file.name) }}" />
+    	</div>
+    	<br/>
+
+
+	{% elseif file.mimetype matches '/^video.*/' %}
+
+		<a href="#" class="easyadmin-thumbnail" data-featherlight="#easyadmin-lightbox-{{ randomValue }}" data-featherlight-close-on-click="anywhere">
+			<video alt="{{ file.originalName }}" src="{{ asset(storage_link  ~ '/' ~ file.name) }}"></video>
+		</a>
+    	<div id="easyadmin-lightbox-{{ randomValue }}" class="easyadmin-lightbox">
+    		<video alt="{{ file.originalName }}" src="{{ asset(storage_link  ~ '/' ~ file.name) }}"></video>
+    	</div>
+    	<br/>
+		
+	{% else %}
+		<a href="{{ asset(storage_link  ~ '/' ~ file.name) }}">{{ file.originalName }}</a>
+		<br/>
+	{% endif %}
+{% endfor %}

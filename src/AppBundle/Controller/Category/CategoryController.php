@@ -20,7 +20,7 @@ use AppBundle\Entity\Country;
  *
  * @Route("/category")
  * @ParamConverter(
-                    "country",
+                    "_country",
                     class="AppBundle:Country",
                     options=
                     {
@@ -36,7 +36,7 @@ class CategoryController extends AbstractController
      * @Template(":category:index.html.twig")
      * @Cache(smaxage=0)
      */
-    public function indexAction(Country $country, Breadcrumbs $breadcrumbs, EntityManagerInterface $em) :Pagerfanta
+    public function indexAction(Country $_country, Breadcrumbs $breadcrumbs, EntityManagerInterface $em) :Pagerfanta
     {
         // Pass "_demo" route name without any parameters
         $breadcrumbs->addRouteItem("Category", "site_category_index");
@@ -44,7 +44,7 @@ class CategoryController extends AbstractController
 
         return $em->getRepository(Category::class)
                 ->findAllByCountry(
-                    $country,
+                    $_country,
                     $request->get('page', 1)
                 );
     }

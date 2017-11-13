@@ -17,20 +17,3 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret: ThisTokenIsNotSoSecretChangeIt
-
-    #Google, Facebook and other OAUTH Keys
-    google_app_id: 99524646330-55lkia8drehg45b6bctgmkmo8h2l1u12.apps.googleusercontent.com
-    google_app_secret: MihbaS8xfqFwycZE7BvNXBV-
-    hostname: partycravings.com
-    knp_disqus.api_key:    YOUR_PUBLIC_API_KEY
-    knp_disqus.secret_key: YOUR_SECRET_API_KEY # optional, for SSO auth only
-    # Insert your disqus shortname
-    # it's the unique identifier for your website as registered on Disqus
-    knp_disqus.lorem.shortname: "dolor-sid"
-    # you can also register more than one forum
-    knp_disqus.ipsum.shortname: "amet"
-    webpush.subject: http://elastic.live/
-    webpush.gcm: 314804067424
-    webpush.publicKey: BF2bGmBZuhVIBofX58XY4COHAVrIWnGMqOXOaAJMHylBgLsXjvRnYd4I-vtmoHnjQk8PfDD_LalMXSnt9xgJzQg
-    webpush.privateKey: lsFwvYdDZ_LtpZvTWYuKhwCLDvxNs5InAfldbbA8IGE
-    webpush.pem: %kernel.root_dir%/config/keys/private_key.pem

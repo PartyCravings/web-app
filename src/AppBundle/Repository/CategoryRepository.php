@@ -16,13 +16,15 @@ class CategoryRepository extends \Gedmo\Tree\Entity\Repository\NestedTreeReposit
 {
     const NUM_ITEMS = 20;
 
-    public function findHeaderCategories() :array
+    public function findHeaderCategories(Country $country) :array
     {
         return $this->createQueryBuilder('p')
             ->where('p.parent = false')
             ->andWhere('l = true')
+            ->andWhere('p.country = :country')
             ->andWhere('p.isEnabled = true')
             ->innerJoin('p.children', 'l')
+            ->setParameter('country', $country)
             ->orderBy('p.title', 'DESC')
             ->getQuery()
             ->useQueryCache(true)

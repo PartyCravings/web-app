@@ -5,6 +5,7 @@ namespace AppBundle\Utils;
 use Doctrine\ORM\EntityManagerInterface;
 use AppBundle\Utils\Sorter;
 use AppBundle\Entity\Location;
+use AppBundle\Entity\Address;
 
 class LocationTools
 {
@@ -23,8 +24,10 @@ class LocationTools
         $this->em = $em;
     }
 
-    public function buildLocationTree(string $address) : ?Location
+    public function buildLocationTree(Address $address) : ?Location
     {
+        $address = $address->getAddress();
+        
         /**
          * @var $sanitizedString contains the sanitized sting from the sorter
          * @var $locationTree contains the tree built in reverse order
@@ -38,20 +41,20 @@ class LocationTools
             if (
                 $place = $this->em
                     ->getRepository(Location::class)
-                    ->findLocationByNameParent($location, $parent)
+                    ->findLocationByParent($location, $parent)
                 ) {
                 $parent = $place;
             } else {
-                $places[$location] = (new Location())
+                $place = (new Location())
                     ->setName($location);
-                if ($parent) {
-                    $places[$location]->setParent($parent);
-                }
-                $parent = $places[$location];
+                (!$parent) ?: $place->setParent($parent);
+                $parent = $place;
+                $this->em->persist($parent);
             }
         }
-        $this->em->persist($places);
-        $this->$em->flush();
+        dump($parent);
+        die();
+        $this->em->flush();
         return $parent;
     }
 }

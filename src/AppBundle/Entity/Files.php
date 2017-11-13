@@ -3,17 +3,19 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use rs\GaufretteBrowserBundle\Entity\File as GaufretteFile;
-use Gedmo\Mapping\Annotation as Gedmo;
-use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Entity\File as VichFile;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Files
  *
  * @ORM\Table(name="files")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\FilesRepository")
+ * @Vich\Uploadable
  */
-class Files extends GaufretteFile
+class Files extends VichFile
 {
     /**
      * @var string
@@ -25,60 +27,29 @@ class Files extends GaufretteFile
     private $id;
 
     /**
-     * @var string
-     *
-     * @Assert\NotBlank(message="file.name.blank")
-     * @ORM\Column(name="filename", type="string", nullable=true)
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     * 
+     * @Vich\UploadableField(mapping="service_files", fileNameProperty="name", size="size", mimeType="mimeType", originalName="originalName")
+     * 
+     * @var File
      */
-    private $name;
+    private $actualFile;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="size", type="integer", nullable=true)
+     * @ORM\Column(type="datetime", nullable=true)
      */
-    private $size;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="contents", type="string", nullable=true)
-     */
-    private $contents;
-
-    /**
-     * @var string
-     *
-     * @Assert\NotBlank(message="file.mimetype.blank")
-     * @ORM\Column(name="mime_type", type="string", nullable=true)
-     */
-    private $mimeType;
-
-    /**
-     * @var \DateTime
-     *
-     * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(name="t_stamp", type="datetime", nullable=true)
-     */
-    private $tStamp;
-
-    /**
-     * @var Account
-     *
-     * @Gedmo\Blameable(on="create")
-     * @ORM\ManyToOne(targetEntity="Account")
-     */
-    private $uploadedBy;
+    private $updated;
 
     public function __toString()
     {
         return $this->name;
     }
 
+
     /**
      * Get id
      *
-     * @return guid
+     * @return string
      */
     public function getId()
     {
@@ -86,146 +57,31 @@ class Files extends GaufretteFile
     }
 
     /**
-     * Set name
+     * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
+     * of 'UploadedFile' is injected into this setter to trigger the  update. If this
+     * bundle's configuration parameter 'inject_on_load' is set to 'true' this setter
+     * must be able to accept an instance of 'File' as the bundle will inject one here
+     * during Doctrine hydration.
      *
-     * @param string $name
-     *
-     * @return Files
+     * @param File|UploadedFile $image
      */
-    public function setName($name)
+    public function setActualFile(File $file = null)
     {
-        $this->name = $name;
+        $this->actualFile = $file;
 
-        return $this;
+        if ($file) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updated = new \DateTimeImmutable();
+        }
     }
 
     /**
-     * Get name
-     *
-     * @return string
+     * @return File|null
      */
-    public function getName()
+    public function getActualFile()
     {
-        return $this->name;
-    }
-
-    /**
-     * Set size
-     *
-     * @param integer $size
-     *
-     * @return Files
-     */
-    public function setSize($size)
-    {
-        $this->size = $size;
-
-        return $this;
-    }
-
-    /**
-     * Get size
-     *
-     * @return integer
-     */
-    public function getSize()
-    {
-        return $this->size;
-    }
-
-    /**
-     * Set contents
-     *
-     * @param string $contents
-     *
-     * @return Files
-     */
-    public function setContents($contents)
-    {
-        $this->contents = $contents;
-
-        return $this;
-    }
-
-    /**
-     * Get contents
-     *
-     * @return string
-     */
-    public function getContents()
-    {
-        return $this->contents;
-    }
-
-    /**
-     * Set mimeType
-     *
-     * @param string $mimeType
-     *
-     * @return Files
-     */
-    public function setMimeType($mimeType)
-    {
-        $this->mimeType = $mimeType;
-
-        return $this;
-    }
-
-    /**
-     * Get mimeType
-     *
-     * @return string
-     */
-    public function getMimeType()
-    {
-        return $this->mimeType;
-    }
-
-    /**
-     * Set tStamp
-     *
-     * @param \DateTime $tStamp
-     *
-     * @return Files
-     */
-    public function setTStamp($tStamp)
-    {
-        $this->tStamp = $tStamp;
-
-        return $this;
-    }
-
-    /**
-     * Get tStamp
-     *
-     * @return \DateTime
-     */
-    public function getTStamp()
-    {
-        return $this->tStamp;
-    }
-
-    /**
-     * Set uploadedBy
-     *
-     * @param \AppBundle\Entity\Account $uploadedBy
-     *
-     * @return Files
-     */
-    public function setUploadedBy(\AppBundle\Entity\Account $uploadedBy = null)
-    {
-        $this->uploadedBy = $uploadedBy;
-
-        return $this;
-    }
-
-    /**
-     * Get uploadedBy
-     *
-     * @return \AppBundle\Entity\Account
-     */
-    public function getUploadedBy()
-    {
-        return $this->uploadedBy;
+        return $this->actualFile;
     }
 }
+

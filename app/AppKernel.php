@@ -22,7 +22,7 @@ class AppKernel extends Kernel
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
             new Liuggio\ExcelBundle\LiuggioExcelBundle(),
             new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
-            new Oneup\UploaderBundle\OneupUploaderBundle(),
+            new Vich\UploaderBundle\VichUploaderBundle(),
             new Ornicar\GravatarBundle\OrnicarGravatarBundle(),
             new Ivory\GoogleMapBundle\IvoryGoogleMapBundle(),
             new Noxlogic\RateLimitBundle\NoxlogicRateLimitBundle(),
@@ -39,7 +39,7 @@ class AppKernel extends Kernel
             new WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle(),
             new AntiMattr\GoogleBundle\GoogleBundle(),
             new Knp\Bundle\DisqusBundle\KnpDisqusBundle(),
-            new Minishlink\Bundle\WebPushBundle\MinishlinkWebPushBundle()
+            new Minishlink\Bundle\WebPushBundle\MinishlinkWebPushBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

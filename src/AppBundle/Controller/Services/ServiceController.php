@@ -21,7 +21,7 @@ use AppBundle\Entity\Location;
  *
  * @Route("services")
  * @ParamConverter(
-                    "country",
+                    "_country",
                     class="AppBundle:Country",
                     options=
                     {
@@ -37,7 +37,7 @@ class ServiceController extends AbstractController
      * @Template(":services:index.html.twig")
      * @Cache(smaxage=0)
      */
-    public function indexAction(Country $country, Request $request, EntityManagerInterface $em, Breadcrumbs $breadcrumbs) :array
+    public function indexAction(Country $_country, Request $request, EntityManagerInterface $em, Breadcrumbs $breadcrumbs) :array
     {
         // Pass route name without any parameters
         $breadcrumbs->addRouteItem("Services", "site_services_index");
@@ -45,7 +45,7 @@ class ServiceController extends AbstractController
 
         return $em->getRepository(Service::class)
                 ->findAllByCountry(
-                    $country,
+                    $_country,
                     $request->get('page', 1)
                 );
     }

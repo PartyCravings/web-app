@@ -49,25 +49,10 @@ class ServiceDescriptions
     private $hourlyDiscount;
 
     /**
-     * @var Files
-     *
-     * @ORM\ManyToMany(targetEntity="Files")
-     */
-    private $uploadedFiles;
-
-    /**
      * @Gedmo\Timestampable(on="update")
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $updated;
-    
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->uploadedFiles = new ArrayCollection();
-    }
 
     public function __toString()
     {
@@ -179,39 +164,5 @@ class ServiceDescriptions
     public function getUpdated()
     {
         return $this->updated;
-    }
-
-    /**
-     * Add uploadedFile
-     *
-     * @param \AppBundle\Entity\Files $uploadedFile
-     *
-     * @return ServiceDescriptions
-     */
-    public function addUploadedFile(\AppBundle\Entity\Files $uploadedFile)
-    {
-        $this->uploadedFiles[] = $uploadedFile;
-
-        return $this;
-    }
-
-    /**
-     * Remove uploadedFile
-     *
-     * @param \AppBundle\Entity\Files $uploadedFile
-     */
-    public function removeUploadedFile(\AppBundle\Entity\Files $uploadedFile)
-    {
-        $this->uploadedFiles->removeElement($uploadedFile);
-    }
-
-    /**
-     * Get uploadedFiles
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getUploadedFiles()
-    {
-        return $this->uploadedFiles;
     }
 }

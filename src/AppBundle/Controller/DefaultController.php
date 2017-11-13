@@ -8,13 +8,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs;
+use AppBundle\Entity\Country;
 
 /**
  * Class DefaultController
  * @package AppBundle\Controller
  *
  * @ParamConverter(
-                    "country",
+                    "_country",
                     class="AppBundle:Country",
                     options=
                     {
@@ -35,7 +36,7 @@ class DefaultController extends AbstractController
                     class="AppBundle:Campaigns",
                     options=
                     {
-                        "id" = "country",
+                        "id" = "_country",
                         "repository_method" = "getHomeCampaigns"
                     }
                 )
@@ -44,7 +45,7 @@ class DefaultController extends AbstractController
                     class="AppBundle:Post",
                     options=
                     {
-                        "id" = "country",
+                        "id" = "_country",
                         "repository_method" = "findHomePosts"
                     }
                 )
@@ -74,6 +75,7 @@ class DefaultController extends AbstractController
                     class="AppBundle:Category",
                     options=
                     {
+                        "id" = "_country",
                         "repository_method" = "findHeaderCategories"
                     }
                 )
@@ -82,7 +84,7 @@ class DefaultController extends AbstractController
                      vars={"categories"}
             )
      * @Cache(
-                smaxage=0,
+                smaxage=300,
                 vary={"PHPSESSID"}
             )
      * @param EntityManagerInterface $em
@@ -99,17 +101,17 @@ class DefaultController extends AbstractController
             )
      * @Template(
                     ":fragments:_footer.html.twig",
-                    vars={"country"}
+                    vars={"_country"}
             )
      * @Cache(
-                smaxage=0,
-                lastmodified="country.getUpdated()",
-                etag="'Country' ~ country.getId() ~ country.getUpdated().format('Y-m-d')"
+                smaxage=300,
+                lastmodified="_country.getUpdated()",
+                etag="'Country' ~ _country.getId() ~ _country.getUpdated().format('Y-m-d')"
             )
-     * @param \AppBundle\Entity\Country $country
+     * @param \AppBundle\Entity\Country $_country
      * @return array
      */
-    public function footerAction(\AppBundle\Entity\Country $country) :void
+    public function footerAction(Country $_country) :void
     {
     }
 }

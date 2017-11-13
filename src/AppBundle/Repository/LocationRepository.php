@@ -15,10 +15,11 @@ class LocationRepository extends \Doctrine\ORM\EntityRepository
     public function findLocationByParent(string $location, $parent): ?Location
     {
         return $this->createQueryBuilder('p')
-            ->where('p.parent = :parent')
+            ->where('j.id = :parent')
             ->andWhere('p.name LIKE :name')
+            ->join('p.parent', 'j')
             ->setParameter('name', $location)
-            ->setParameter('parent', $parent)
+            ->setParameter('parent', ($parent) ? $parent->getId() : false)
             ->getQuery()
             ->useQueryCache(true)
             ->useResultCache(true)

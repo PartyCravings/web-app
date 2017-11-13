@@ -40,8 +40,8 @@ class ServiceRepository extends \Doctrine\ORM\EntityRepository
         }
         $query = $queryBuilder
                 ->innerJoin('p.category', 'f')
-                ->leftJoin('p.reviews', 'f')
-                ->addSelect('f')
+                ->leftJoin('p.reviews', 'j')
+                ->addSelect('j')
                 ->getQuery()
                 ->useQueryCache(true)
                 ->useResultCache(true);

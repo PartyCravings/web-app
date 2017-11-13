@@ -15,7 +15,7 @@ app:
     type:     annotation
     host: "{_country}.%hostname%|{_hostname}"
     defaults:
-        _country: "!null"
+        _country: !null
     options:
         utf8: true
 
@@ -43,11 +43,6 @@ easy_admin_bundle:
     resource: "@EasyAdminBundle/Controller/AdminController.php"
     type:     annotation
     prefix:   /admin
-
-#OneUpUploaderBundle Routes
-oneup_uploader:
-    resource: .
-    type: uploader
 
 #rsGaufretteBrowserBundle Routes
 rs_gaufrette_browser:
