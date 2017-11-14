@@ -22,7 +22,7 @@
         ]
     },
     "require": {
-        "php": ">=5.5.9",
+        "php": "7.1.*",
         "digitalkaoz/gaufrette-browser-bundle": "dev-master",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/doctrine-migrations-bundle": "^1.2",
