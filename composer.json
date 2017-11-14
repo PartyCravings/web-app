@@ -79,11 +79,11 @@
         ],
         "post-install-cmd": [
             "@symfony-scripts",
-            "gnome-terminal -e 'nohup cd php-pm/ && composer install'"
+            "cd php-pm/ && composer install --dev --optimize-autoloader"
         ],
         "post-update-cmd": [
             "@symfony-scripts",
-            "gnome-terminal -e 'nohup cd php-pm/ && composer update'"
+            "cd php-pm/ && composer update"
         ],
         "post-deploy-cmd": [
             "chmod -R ug+w $APP_DIR/var",
