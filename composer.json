@@ -87,7 +87,6 @@
         ],
         "post-deploy-cmd": [
             "chmod -R ug+w $APP_DIR/var",
-            "gnome-terminal -e 'sudo apt install libgmp-dev && sudo apt install php-gmp'",
             "php bin/console doctrine:migrations:diff --no-interaction",
             "php bin/console doctrine:migrations:migrate --no-interaction"
 
