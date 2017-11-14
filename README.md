@@ -11,4 +11,3 @@ php bin/console translation:extract de --config=app --output-format=xliff
 
 #For OAuth
 You need to add check endpoints for each and every locale, since the project has full localization enabled!
-lBheKJbuHBJmIOK1

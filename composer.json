@@ -79,11 +79,11 @@
         ],
         "post-install-cmd": [
             "@symfony-scripts",
-            "cd php-pm/ && composer install --dev --optimize-autoloader && cd .."
+            "(cd php-pm/ && composer install --dev --optimize-autoloader)"
         ],
         "post-update-cmd": [
             "@symfony-scripts",
-            "cd php-pm/ && composer update && cd .."
+            "(cd php-pm/ && composer update)"
         ],
         "post-deploy-cmd": [
             "chmod -R ug+w $APP_DIR/var",
