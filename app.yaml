@@ -10,12 +10,11 @@ runtime_config:
   document_root: web
   nginx_conf_include: nginx-app.conf
   php_ini_override: php.prod.ini
-  composer_flags: --dev --optimize-autoloader
-  SYMFONY_ENV: prod
+  composer_flags: --no-dev --optimize-autoloader
 
 # [START overrides]
 env_variables:
-  PORT: 8080
+  SYMFONY_ENV: prod
 # [END overrides]
 
 automatic_scaling:
