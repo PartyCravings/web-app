@@ -14,8 +14,6 @@ app:
     resource: '@AppBundle/Controller/'
     type:     annotation
     host: "{_country}.%hostname%|{_hostname}"
-    defaults:
-        _country: !null
     options:
         utf8: true
 

@@ -27,17 +27,6 @@ monolog:
 
 knp_gaufrette:
     adapters:
-        #gallery_apc:
-        #    apc:
-        #        prefix: partycravings
-        #        ttl: 0
-
-        #gallery_cache:
-        #    cache:
-        #        source: gallery
-        #        cache: gallery_apc
-        #        ttl: 7200
-
         gallery:
             google_cloud_storage:
                 service_id: Google_Service_Storage
