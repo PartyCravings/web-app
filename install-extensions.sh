@@ -13,6 +13,7 @@ if [ gmpLoad = 1 ]; then
 
 	sudo add-apt-repository -y ppa:ondrej/php
 	sudo apt update -y
+	sudo apt install libgmp-dev -y
 	sudo apt install php-gmp -y
 
 else
