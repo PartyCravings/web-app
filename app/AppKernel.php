@@ -34,7 +34,6 @@ class AppKernel extends Kernel
             new JMS\TranslationBundle\JMSTranslationBundle(),
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\AopBundle\JMSAopBundle(),
-            new rs\GaufretteBrowserBundle\rsGaufretteBrowserBundle(),
             new WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle(),
             new AntiMattr\GoogleBundle\GoogleBundle(),
             new Knp\Bundle\DisqusBundle\KnpDisqusBundle(),

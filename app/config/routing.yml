@@ -44,8 +44,3 @@ easy_admin_bundle:
     resource: "@EasyAdminBundle/Controller/AdminController.php"
     type:     annotation
     prefix:   /admin
-
-#rsGaufretteBrowserBundle Routes
-rs_gaufrette_browser:
-    resource: "@rsGaufretteBrowserBundle/Resources/config/routing.xml"
-    prefix:   /gaufrette/browser
