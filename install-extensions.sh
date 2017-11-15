@@ -15,6 +15,7 @@ if [ gmpLoad = 1 ]; then
 	sudo apt update -y
 	sudo apt install libgmp-dev -y
 	sudo apt install php-gmp -y
+	sudo apt install php-cgi -y
 
 else
 	continue
