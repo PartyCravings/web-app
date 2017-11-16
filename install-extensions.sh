@@ -15,9 +15,10 @@ if [ gmpLoad = 1 ]; then
 	apt update
 	apt install libgmp-dev -y
 	apt install php-gmp -y
-	(git clone https://github.com/php-pm/php-pm && cd php-pm/ && composer require php-pm/httpkernel-adapter:dev-master) ; php-pm/bin/ppm start --bootstrap=symfony --app-env=prod --port=8081 --cgi-path=/usr/bin/php --debug=0 --concurrent-requests=1 --no-interaction &
+	
 
 else
-	(git clone https://github.com/php-pm/php-pm && cd php-pm/ && composer require php-pm/httpkernel-adapter:dev-master) ; php-pm/bin/ppm start --bootstrap=symfony --app-env=prod --port=8081 --cgi-path=/usr/bin/php --debug=0 --concurrent-requests=1 --no-interaction &
 	continue
 fi
+
+(git clone https://github.com/php-pm/php-pm && cd php-pm/ && composer require php-pm/httpkernel-adapter:dev-master) ; php-pm/bin/ppm start --bootstrap=symfony --app-env=prod --port=8081 --cgi-path=/usr/bin/php --debug=0 --concurrent-requests=1 --no-interaction &
