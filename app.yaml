@@ -3,12 +3,13 @@ runtime: php
 env: flex
 
 # [START entrypoint]
-entrypoint: php-pm/bin/ppm start --bootstrap=symfony --app-env=prod --cgi-path=/usr/bin/php --debug=0 --concurrent-requests=1
+entrypoint: php-pm/bin/ppm start --bootstrap=symfony --port=8081 --app-env=prod --cgi-path=/usr/bin/php --debug=0 --concurrent-requests=1
 # [END entrypoint]
 
 runtime_config:
   document_root: web
   #front_controller_file: app.php
+  nginx_conf_include: nginx-app.conf
   composer_flags: --no-dev --optimize-autoloader
   whitelist_functions: proc_open, proc_close
 
