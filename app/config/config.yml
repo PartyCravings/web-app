@@ -89,6 +89,7 @@ doctrine:
         dbname: '%database_name%'
         user: '%database_user%'
         password: '%database_password%'
+        unix_socket: '%database_socket%'
         charset: utf8
         default_table_options:
             charset: utf8
