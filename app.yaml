@@ -3,29 +3,30 @@ runtime: php
 env: flex
 
 # [START entrypoint]
-entrypoint: nohup ./install-extensions.sh &
+#entrypoint: nohup ./install-extensions.sh &
 # [END entrypoint]
 
 runtime_config:
   document_root: web
+  front_controller_file: app.php
   nginx_conf_include: nginx-app.conf
   composer_flags: --no-dev --optimize-autoloader
-  whitelist_functions: proc_open, proc_close
+  #whitelist_functions: proc_open, proc_close
 
 # [START overrides]
 env_variables:
   SYMFONY_ENV: prod
 # [END overrides]
 
-#automatic_scaling:
-  #min_num_instances: 1
-  #max_num_instances: 1000
-  #cool_down_period_sec: 120 # default value
-  #cpu_utilization:
-    #target_utilization: 0.8
+automatic_scaling:
+  min_num_instances: 1
+  max_num_instances: 1000
+  cool_down_period_sec: 120 # default value
+  cpu_utilization:
+    target_utilization: 0.9
 
-manual_scaling:
-  instances: 1
+#manual_scaling:
+  #instances: 1
 
 resources:
   cpu: 0.5
