@@ -3,7 +3,7 @@ runtime: php
 env: flex
 
 # [START entrypoint]
-entrypoint: (git clone https://github.com/php-pm/php-pm && cd php-pm/ && composer require php-pm/httpkernel-adapter:dev-master) && php-pm/bin/ppm start --bootstrap=symfony --app-env=prod --port=8081 --cgi-path=/usr/bin/php --debug=0 --concurrent-requests=1 --no-interaction
+entrypoint: (git clone https://github.com/php-pm/php-pm && cd php-pm/ && composer require php-pm/httpkernel-adapter:dev-master) ; php-pm/bin/ppm start --bootstrap=symfony --app-env=prod --port=8081 --cgi-path=/usr/bin/php --debug=0 --concurrent-requests=1 --no-interaction
 # [END entrypoint]
 
 runtime_config:
