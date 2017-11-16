@@ -21,4 +21,4 @@ else
 	continue
 fi
 
-(git clone https://github.com/php-pm/php-pm && cd php-pm/ && composer require php-pm/httpkernel-adapter:dev-master) ; mv php-pm.conf /etc/supervisor/conf.d/php-pm.conf && supervisorctl reread && supervisorctl update
+(git clone https://github.com/php-pm/php-pm && cd php-pm/ && composer require php-pm/httpkernel-adapter:dev-master)
