@@ -28,7 +28,6 @@
         "ext-intl": "*",
         "ext-event": "*",
         "ext-timezonedb": "*",
-        "digitalkaoz/gaufrette-browser-bundle": "dev-master",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/doctrine-migrations-bundle": "^1.2",
         "doctrine/orm": "^2.5",

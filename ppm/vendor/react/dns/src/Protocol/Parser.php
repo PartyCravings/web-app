@@ -4,7 +4,6 @@ namespace React\Dns\Protocol;
 
 use React\Dns\Model\Message;
 use React\Dns\Model\Record;
-use InvalidArgumentException;
 
 /**
  * DNS protocol parser
@@ -13,32 +12,7 @@ use InvalidArgumentException;
  */
 class Parser
 {
-    /**
-     * Parses the given raw binary message into a Message object
-     *
-     * @param string $data
-     * @throws InvalidArgumentException
-     * @return Message
-     */
-    public function parseMessage($data)
-    {
-        $message = new Message();
-        if ($this->parse($data, $message) !== $message) {
-            throw new InvalidArgumentException('Unable to parse binary message');
-        }
-
-        return $message;
-    }
-
-    /**
-     * @deprecated unused, exists for BC only
-     */
     public function parseChunk($data, Message $message)
-    {
-        return $this->parse($data, $message);
-    }
-
-    private function parse($data, Message $message)
     {
         $message->data .= $data;
 
@@ -159,14 +133,14 @@ class Parser
 
         $rdata = null;
 
-        if (Message::TYPE_A === $type || Message::TYPE_AAAA === $type) {
+        if (Message::TYPE_A === $type) {
             $ip = substr($message->data, $consumed, $rdLength);
             $consumed += $rdLength;
 
             $rdata = inet_ntop($ip);
         }
 
-        if (Message::TYPE_CNAME === $type || Message::TYPE_PTR === $type) {
+        if (Message::TYPE_CNAME === $type) {
             list($bodyLabels, $consumed) = $this->readLabels($message->data, $consumed);
 
             $rdata = implode('.', $bodyLabels);

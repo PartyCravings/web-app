@@ -6,7 +6,6 @@ use React\EventLoop\LoopInterface;
 use React\Promise;
 use React\Promise\Deferred;
 use React\Stream\Stream;
-use React\Stream\ReadableResourceStream;
 
 class FilesystemFactory
 {
@@ -56,7 +55,7 @@ class FilesystemFactory
 
             $contents = '';
 
-            $stream = class_exists('React\Stream\ReadableResourceStream') ? new ReadableResourceStream($fd, $this->loop) : new Stream($fd, $this->loop);
+            $stream = new Stream($fd, $this->loop);
             $stream->on('data', function ($data) use (&$contents) {
                 $contents .= $data;
             });

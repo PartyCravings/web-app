@@ -7,11 +7,6 @@ use React\Dns\Model\Message;
 
 class ParserTest extends \PHPUnit_Framework_TestCase
 {
-    public function setUp()
-    {
-        $this->parser = new Parser();
-    }
-
     /**
      * @dataProvider provideConvertTcpDumpToBinary
      */
@@ -39,7 +34,10 @@ class ParserTest extends \PHPUnit_Framework_TestCase
 
         $data = $this->convertTcpDumpToBinary($data);
 
-        $request = $this->parser->parseMessage($data);
+        $request = new Message();
+
+        $parser = new Parser();
+        $parser->parseChunk($data, $request);
 
         $header = $request->header;
         $this->assertSame(0x7262, $header->get('id'));
@@ -76,7 +74,10 @@ class ParserTest extends \PHPUnit_Framework_TestCase
 
         $data = $this->convertTcpDumpToBinary($data);
 
-        $response = $this->parser->parseMessage($data);
+        $response = new Message();
+
+        $parser = new Parser();
+        $parser->parseChunk($data, $response);
 
         $header = $response->header;
         $this->assertSame(0x7262, $header->get('id'));
@@ -120,7 +121,8 @@ class ParserTest extends \PHPUnit_Framework_TestCase
         $request->header->set('qdCount', 2);
         $request->data = $data;
 
-        $this->parser->parseQuestion($request);
+        $parser = new Parser();
+        $parser->parseQuestion($request);
 
         $this->assertCount(2, $request->questions);
         $this->assertSame('igor.io', $request->questions[0]['name']);
@@ -146,7 +148,8 @@ class ParserTest extends \PHPUnit_Framework_TestCase
         $response->header->set('anCount', 1);
         $response->data = $data;
 
-        $this->parser->parseAnswer($response);
+        $parser = new Parser();
+        $parser->parseAnswer($response);
 
         $this->assertCount(1, $response->answers);
         $this->assertSame('igor.io', $response->answers[0]->name);
@@ -171,7 +174,10 @@ class ParserTest extends \PHPUnit_Framework_TestCase
 
         $data = $this->convertTcpDumpToBinary($data);
 
-        $response = $this->parser->parseMessage($data);
+        $response = new Message();
+
+        $parser = new Parser();
+        $parser->parseChunk($data, $response);
 
         $this->assertCount(1, $response->questions);
         $this->assertSame('mail.google.com', $response->questions[0]['name']);
@@ -184,50 +190,6 @@ class ParserTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(Message::CLASS_IN, $response->answers[0]->class);
         $this->assertSame(43164, $response->answers[0]->ttl);
         $this->assertSame('googlemail.l.google.com', $response->answers[0]->data);
-    }
-
-    public function testParseAAAAResponse()
-    {
-        $data = "";
-        $data .= "cd 72 81 80 00 01 00 01 00 00 00 00 06";          // header
-        $data .= "67 6f 6f 67 6c 65 03 63 6f 6d 00";                // question: google.com
-        $data .= "00 1c 00 01";                                     // question: type AAAA, class IN
-        $data .= "c0 0c";                                           // answer: offset pointer to google.com
-        $data .= "00 1c 00 01";                                     // answer: type AAAA, class IN
-        $data .= "00 00 01 2b";                                     // answer: ttl 299
-        $data .= "00 10";                                           // answer: rdlength 16
-        $data .= "2a 00 14 50 40 09 08 09 00 00 00 00 00 00 20 0e"; // answer: 2a00:1450:4009:809::200e
-
-        $data = $this->convertTcpDumpToBinary($data);
-
-        $response = $this->parser->parseMessage($data);
-
-        $header = $response->header;
-        $this->assertSame(0xcd72, $header->get('id'));
-        $this->assertSame(1, $header->get('qdCount'));
-        $this->assertSame(1, $header->get('anCount'));
-        $this->assertSame(0, $header->get('nsCount'));
-        $this->assertSame(0, $header->get('arCount'));
-        $this->assertSame(1, $header->get('qr'));
-        $this->assertSame(Message::OPCODE_QUERY, $header->get('opcode'));
-        $this->assertSame(0, $header->get('aa'));
-        $this->assertSame(0, $header->get('tc'));
-        $this->assertSame(1, $header->get('rd'));
-        $this->assertSame(1, $header->get('ra'));
-        $this->assertSame(0, $header->get('z'));
-        $this->assertSame(Message::RCODE_OK, $header->get('rcode'));
-
-        $this->assertCount(1, $response->questions);
-        $this->assertSame('google.com', $response->questions[0]['name']);
-        $this->assertSame(Message::TYPE_AAAA, $response->questions[0]['type']);
-        $this->assertSame(Message::CLASS_IN, $response->questions[0]['class']);
-
-        $this->assertCount(1, $response->answers);
-        $this->assertSame('google.com', $response->answers[0]->name);
-        $this->assertSame(Message::TYPE_AAAA, $response->answers[0]->type);
-        $this->assertSame(Message::CLASS_IN, $response->answers[0]->class);
-        $this->assertSame(299, $response->answers[0]->ttl);
-        $this->assertSame('2a00:1450:4009:809::200e', $response->answers[0]->data);
     }
 
     public function testParseResponseWithTwoAnswers()
@@ -250,7 +212,10 @@ class ParserTest extends \PHPUnit_Framework_TestCase
 
         $data = $this->convertTcpDumpToBinary($data);
 
-        $response = $this->parser->parseMessage($data);
+        $response = new Message();
+
+        $parser = new Parser();
+        $parser->parseChunk($data, $response);
 
         $this->assertCount(1, $response->questions);
         $this->assertSame('io.whois-servers.net', $response->questions[0]['name']);
@@ -270,67 +235,6 @@ class ParserTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(Message::CLASS_IN, $response->answers[1]->class);
         $this->assertSame(3575, $response->answers[1]->ttl);
         $this->assertSame('193.223.78.152', $response->answers[1]->data);
-    }
-
-    public function testParsePTRResponse()
-    {
-        $data = "";
-        $data .= "5d d8 81 80 00 01 00 01 00 00 00 00";             // header
-        $data .= "01 34 01 34 01 38 01 38 07 69 6e";                // question: 4.4.8.8.in-addr.arpa
-        $data .= "2d 61 64 64 72 04 61 72 70 61 00";                // question (continued)
-        $data .= "00 0c 00 01";                                     // question: type PTR, class IN
-        $data .= "c0 0c";                                           // answer: offset pointer to rdata
-        $data .= "00 0c 00 01";                                     // answer: type PTR, class IN
-        $data .= "00 01 51 7f";                                     // answer: ttl 86399
-        $data .= "00 20";                                           // answer: rdlength 32
-        $data .= "13 67 6f 6f 67 6c 65 2d 70 75 62 6c 69 63 2d 64"; // answer: rdata google-public-dns-b.google.com.
-        $data .= "6e 73 2d 62 06 67 6f 6f 67 6c 65 03 63 6f 6d 00";
-
-        $data = $this->convertTcpDumpToBinary($data);
-
-        $response = $this->parser->parseMessage($data);
-
-        $header = $response->header;
-        $this->assertSame(0x5dd8, $header->get('id'));
-        $this->assertSame(1, $header->get('qdCount'));
-        $this->assertSame(1, $header->get('anCount'));
-        $this->assertSame(0, $header->get('nsCount'));
-        $this->assertSame(0, $header->get('arCount'));
-        $this->assertSame(1, $header->get('qr'));
-        $this->assertSame(Message::OPCODE_QUERY, $header->get('opcode'));
-        $this->assertSame(0, $header->get('aa'));
-        $this->assertSame(0, $header->get('tc'));
-        $this->assertSame(1, $header->get('rd'));
-        $this->assertSame(1, $header->get('ra'));
-        $this->assertSame(0, $header->get('z'));
-        $this->assertSame(Message::RCODE_OK, $header->get('rcode'));
-
-        $this->assertCount(1, $response->questions);
-        $this->assertSame('4.4.8.8.in-addr.arpa', $response->questions[0]['name']);
-        $this->assertSame(Message::TYPE_PTR, $response->questions[0]['type']);
-        $this->assertSame(Message::CLASS_IN, $response->questions[0]['class']);
-
-        $this->assertCount(1, $response->answers);
-        $this->assertSame('4.4.8.8.in-addr.arpa', $response->answers[0]->name);
-        $this->assertSame(Message::TYPE_PTR, $response->answers[0]->type);
-        $this->assertSame(Message::CLASS_IN, $response->answers[0]->class);
-        $this->assertSame(86399, $response->answers[0]->ttl);
-        $this->assertSame('google-public-dns-b.google.com', $response->answers[0]->data);
-    }
-
-    /**
-     * @expectedException InvalidArgumentException
-     */
-    public function testParseIncomplete()
-    {
-        $data = "";
-        $data .= "72 62 01 00 00 01 00 00 00 00 00 00"; // header
-        $data .= "04 69 67 6f 72 02 69 6f 00";          // question: igor.io
-        //$data .= "00 01 00 01";                         // question: type A, class IN
-
-        $data = $this->convertTcpDumpToBinary($data);
-
-        $this->parser->parseMessage($data);
     }
 
     private function convertTcpDumpToBinary($input)

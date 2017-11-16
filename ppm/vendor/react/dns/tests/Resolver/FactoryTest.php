@@ -4,14 +4,13 @@ namespace React\Tests\Dns\Resolver;
 
 use React\Dns\Resolver\Factory;
 use React\Tests\Dns\TestCase;
-use React\Dns\Query\HostsFileExecutor;
 
 class FactoryTest extends TestCase
 {
     /** @test */
     public function createShouldCreateResolver()
     {
-        $loop = $this->getMockBuilder('React\EventLoop\LoopInterface')->getMock();
+        $loop = $this->getMock('React\EventLoop\LoopInterface');
 
         $factory = new Factory();
         $resolver = $factory->create('8.8.8.8:53', $loop);
@@ -22,7 +21,7 @@ class FactoryTest extends TestCase
     /** @test */
     public function createWithoutPortShouldCreateResolverWithDefaultPort()
     {
-        $loop = $this->getMockBuilder('React\EventLoop\LoopInterface')->getMock();
+        $loop = $this->getMock('React\EventLoop\LoopInterface');
 
         $factory = new Factory();
         $resolver = $factory->create('8.8.8.8', $loop);
@@ -34,13 +33,13 @@ class FactoryTest extends TestCase
     /** @test */
     public function createCachedShouldCreateResolverWithCachedExecutor()
     {
-        $loop = $this->getMockBuilder('React\EventLoop\LoopInterface')->getMock();
+        $loop = $this->getMock('React\EventLoop\LoopInterface');
 
         $factory = new Factory();
         $resolver = $factory->createCached('8.8.8.8:53', $loop);
 
         $this->assertInstanceOf('React\Dns\Resolver\Resolver', $resolver);
-        $executor = $this->getResolverPrivateExecutor($resolver);
+        $executor = $this->getResolverPrivateMemberValue($resolver, 'executor');
         $this->assertInstanceOf('React\Dns\Query\CachedExecutor', $executor);
         $recordCache = $this->getCachedExecutorPrivateMemberValue($executor, 'cache');
         $recordCacheCache = $this->getRecordCachePrivateMemberValue($recordCache, 'cache');
@@ -51,14 +50,14 @@ class FactoryTest extends TestCase
     /** @test */
     public function createCachedShouldCreateResolverWithCachedExecutorWithCustomCache()
     {
-        $cache = $this->getMockBuilder('React\Cache\CacheInterface')->getMock();
-        $loop = $this->getMockBuilder('React\EventLoop\LoopInterface')->getMock();
+        $cache = $this->getMock('React\Cache\CacheInterface');
+        $loop = $this->getMock('React\EventLoop\LoopInterface');
 
         $factory = new Factory();
         $resolver = $factory->createCached('8.8.8.8:53', $loop, $cache);
 
         $this->assertInstanceOf('React\Dns\Resolver\Resolver', $resolver);
-        $executor = $this->getResolverPrivateExecutor($resolver);
+        $executor = $this->getResolverPrivateMemberValue($resolver, 'executor');
         $this->assertInstanceOf('React\Dns\Query\CachedExecutor', $executor);
         $recordCache = $this->getCachedExecutorPrivateMemberValue($executor, 'cache');
         $recordCacheCache = $this->getRecordCachePrivateMemberValue($recordCache, 'cache');
@@ -72,7 +71,7 @@ class FactoryTest extends TestCase
      */
     public function factoryShouldAddDefaultPort($input, $expected)
     {
-        $loop = $this->getMockBuilder('React\EventLoop\LoopInterface')->getMock();
+        $loop = $this->getMock('React\EventLoop\LoopInterface');
 
         $factory = new Factory();
         $resolver = $factory->create($input, $loop);
@@ -91,21 +90,6 @@ class FactoryTest extends TestCase
             array('::1',            '[::1]:53'),
             array('[::1]:53',       '[::1]:53')
         );
-    }
-
-    private function getResolverPrivateExecutor($resolver)
-    {
-        $executor = $this->getResolverPrivateMemberValue($resolver, 'executor');
-
-        // extract underlying executor that may be wrapped in multiple layers of hosts file executors
-        while ($executor instanceof HostsFileExecutor) {
-            $reflector = new \ReflectionProperty('React\Dns\Query\HostsFileExecutor', 'fallback');
-            $reflector->setAccessible(true);
-
-            $executor = $reflector->getValue($executor);
-        }
-
-        return $executor;
     }
 
     private function getResolverPrivateMemberValue($resolver, $field)

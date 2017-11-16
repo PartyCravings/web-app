@@ -343,18 +343,10 @@ you can use any of its events and methods as usual:
 
 ```php
 $connection->on('data', function ($chunk) {
-    echo $chunk;
+    echo $data;
 });
 
-$connection->on('end', function () {
-    echo 'ended';
-});
-
-$connection->on('error', function (Exception $e) {
-    echo 'error: ' . $e->getMessage();
-});
-
-$connection->on('close', function () {
+$conenction->on('close', function () {
     echo 'closed';
 });
 
@@ -419,7 +411,7 @@ The recommended way to install this library is [through Composer](http://getcomp
 This will install the latest supported version:
 
 ```bash
-$ composer require react/socket:^0.5.1
+$ composer require react/socket:^0.5
 ```
 
 More details about version upgrades can be found in the [CHANGELOG](CHANGELOG.md).

@@ -21,7 +21,6 @@ return array(
     'React\\Socket\\' => array($vendorDir . '/react/socket/src'),
     'React\\SocketClient\\' => array($vendorDir . '/react/socket-client/src'),
     'React\\Promise\\Timer\\' => array($vendorDir . '/react/promise-timer/src'),
-    'React\\Promise\\Stream\\' => array($vendorDir . '/react/promise-stream/src'),
     'React\\Promise\\' => array($vendorDir . '/react/promise/src'),
     'React\\Http\\' => array($vendorDir . '/react/http/src'),
     'React\\EventLoop\\' => array($vendorDir . '/react/event-loop/src'),

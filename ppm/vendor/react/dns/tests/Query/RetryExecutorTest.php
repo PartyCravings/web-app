@@ -162,6 +162,26 @@ class RetryExecutorTest extends TestCase
         $this->assertEquals(1, $cancelled);
     }
 
+    protected function expectCallableOnce()
+    {
+        $mock = $this->createCallableMock();
+        $mock
+            ->expects($this->once())
+            ->method('__invoke');
+
+        return $mock;
+    }
+
+    protected function expectCallableNever()
+    {
+        $mock = $this->createCallableMock();
+        $mock
+            ->expects($this->never())
+            ->method('__invoke');
+
+        return $mock;
+    }
+
     protected function expectPromiseOnce($return = null)
     {
         $mock = $this->createPromiseMock();
@@ -173,14 +193,19 @@ class RetryExecutorTest extends TestCase
         return $mock;
     }
 
+    protected function createCallableMock()
+    {
+        return $this->getMock('React\Tests\Dns\CallableStub');
+    }
+
     protected function createExecutorMock()
     {
-        return $this->getMockBuilder('React\Dns\Query\ExecutorInterface')->getMock();
+        return $this->getMock('React\Dns\Query\ExecutorInterface');
     }
 
     protected function createPromiseMock()
     {
-        return $this->getMockBuilder('React\Promise\PromiseInterface')->getMock();
+        return $this->getMock('React\Promise\PromiseInterface');
     }
 
     protected function createStandardResponse()

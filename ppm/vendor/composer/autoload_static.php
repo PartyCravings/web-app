@@ -4,18 +4,16 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit83009f7ed3ab6a4a568dc5bbd5625b1b
+class ComposerStaticInit686f0569bf9450488afc0de14f1a8fe1
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         'ad155f8f1cf0d418fe49e248db8c661b' => __DIR__ . '/..' . '/react/promise/src/functions_include.php',
-        '6b06ce8ccf69c43a60a1e48495a034c9' => __DIR__ . '/..' . '/react/promise-timer/src/functions.php',
         '1d1b89d124cc9cb8219922c9d5569199' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest.php',
+        '6b06ce8ccf69c43a60a1e48495a034c9' => __DIR__ . '/..' . '/react/promise-timer/src/functions.php',
         'ebf8799635f67b5d7248946fe2154f4a' => __DIR__ . '/..' . '/ringcentral/psr7/src/functions_include.php',
-        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
-        'cea474b4340aa9fa53661e887a21a316' => __DIR__ . '/..' . '/react/promise-stream/src/functions_include.php',
-        '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
+        '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -45,7 +43,6 @@ class ComposerStaticInit83009f7ed3ab6a4a568dc5bbd5625b1b
             'React\\Socket\\' => 13,
             'React\\SocketClient\\' => 19,
             'React\\Promise\\Timer\\' => 20,
-            'React\\Promise\\Stream\\' => 21,
             'React\\Promise\\' => 14,
             'React\\Http\\' => 11,
             'React\\EventLoop\\' => 16,
@@ -135,10 +132,6 @@ class ComposerStaticInit83009f7ed3ab6a4a568dc5bbd5625b1b
         'React\\Promise\\Timer\\' => 
         array (
             0 => __DIR__ . '/..' . '/react/promise-timer/src',
-        ),
-        'React\\Promise\\Stream\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/react/promise-stream/src',
         ),
         'React\\Promise\\' => 
         array (
@@ -292,12 +285,9 @@ class ComposerStaticInit83009f7ed3ab6a4a568dc5bbd5625b1b
         'Hamcrest\\Util' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
         'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/Assert.php',
-        'PHPUnit\\Framework\\AssertionFailedError' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/AssertionFailedError.php',
         'PHPUnit\\Framework\\BaseTestListener' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/BaseTestListener.php',
-        'PHPUnit\\Framework\\Test' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/Test.php',
         'PHPUnit\\Framework\\TestCase' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/TestCase.php',
         'PHPUnit\\Framework\\TestListener' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/TestListener.php',
-        'PHPUnit\\Framework\\TestSuite' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/TestSuite.php',
         'PHPUnit_Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',
         'PHPUnit_Extensions_GroupTestSuite' => __DIR__ . '/..' . '/phpunit/phpunit/src/Extensions/GroupTestSuite.php',
         'PHPUnit_Extensions_PhptTestCase' => __DIR__ . '/..' . '/phpunit/phpunit/src/Extensions/PhptTestCase.php',
@@ -758,10 +748,10 @@ class ComposerStaticInit83009f7ed3ab6a4a568dc5bbd5625b1b
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit83009f7ed3ab6a4a568dc5bbd5625b1b::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit83009f7ed3ab6a4a568dc5bbd5625b1b::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit83009f7ed3ab6a4a568dc5bbd5625b1b::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit83009f7ed3ab6a4a568dc5bbd5625b1b::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit686f0569bf9450488afc0de14f1a8fe1::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit686f0569bf9450488afc0de14f1a8fe1::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit686f0569bf9450488afc0de14f1a8fe1::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit686f0569bf9450488afc0de14f1a8fe1::$classMap;
 
         }, null, ClassLoader::class);
     }
