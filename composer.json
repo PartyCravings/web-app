@@ -81,16 +81,13 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
         ],
         "post-install-cmd": [
-            "@symfony-scripts"
-        ],
-        "post-update-cmd": [
-            "@symfony-scripts"
-        ],
-        "post-deploy-cmd": [
+            "@symfony-scripts",
             "chmod -R ug+w $APP_DIR/var",
             "php bin/console doctrine:migrations:diff --no-interaction",
             "php bin/console doctrine:migrations:migrate --no-interaction"
-
+        ],
+        "post-update-cmd": [
+            "@symfony-scripts"
         ]
     },
     "config": {
