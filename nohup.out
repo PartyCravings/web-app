@@ -92,3 +92,25 @@ Restart all worker
 [16/Nov/2017:11:41:24 +0100] File changed /media/odusanya/77EDAA8C14BF8EA51/Development/web-app/var/cache/dev/twig/fc/fc9f7817afeaa9fc32601252dcccda4c7f27fd391569c8357f790b7a709d1888.php (detection 4.116476, 1399). Reload workers.
 Restart all worker
 [16/Nov/2017:11:41:33 +0100] 127.0.0.1 - - "GET /_wdt/67aa78 HTTP/1.1" 200 21984 "http://localhost:8081/login"
+[16/Nov/2017:11:44:30 +0100] File changed /media/odusanya/77EDAA8C14BF8EA51/Development/web-app/var/cache/dev/twig/fc/fc9f7817afeaa9fc32601252dcccda4c7f27fd391569c8357f790b7a709d1888.php (detection 0.001664, 1407). Reload workers.
+Restart all worker
+[16/Nov/2017:11:44:34 +0100] 127.0.0.1 - - "GET /favicon.ico HTTP/1.1" 200 6518 "http://localhost:8081/login"
+[16/Nov/2017:11:44:41 +0100] 127.0.0.1 - - "GET /login HTTP/1.1" 200 61739 "-"
+[16/Nov/2017:11:44:45 +0100] 127.0.0.1 - - "GET /favicon.ico HTTP/1.1" 200 6518 "http://localhost:8081/login"
+[16/Nov/2017:11:44:45 +0100] 127.0.0.1 - - "GET /_wdt/20276b HTTP/1.1" 200 21975 "http://localhost:8081/login"
+[16/Nov/2017:11:44:52 +0100] 127.0.0.1 - - "GET /login HTTP/1.1" 200 61739 "-"
+[16/Nov/2017:11:44:55 +0100] 127.0.0.1 - - "GET /_wdt/ab79ba HTTP/1.1" 200 18732 "http://localhost:8081/login"
+[16/Nov/2017:11:44:55 +0100] 127.0.0.1 - - "GET /favicon.ico HTTP/1.1" 200 6518 "http://localhost:8081/login"
+[16/Nov/2017:11:45:00 +0100] 127.0.0.1 - - "GET /login HTTP/1.1" 200 61739 "-"
+[16/Nov/2017:11:45:05 +0100] 127.0.0.1 - - "GET /_wdt/bb9a94 HTTP/1.1" 200 21975 "http://localhost:8081/login"
+[16/Nov/2017:11:45:06 +0100] 127.0.0.1 - - "GET /favicon.ico HTTP/1.1" 200 6518 "http://localhost:8081/login"
+[16/Nov/2017:11:45:09 +0100] 127.0.0.1 - - "GET /login HTTP/1.1" 200 61739 "-"
+[16/Nov/2017:11:45:14 +0100] 127.0.0.1 - - "GET /_wdt/b84594 HTTP/1.1" 200 21977 "http://localhost:8081/login"
+[16/Nov/2017:11:45:16 +0100] 127.0.0.1 - - "GET /login HTTP/1.1" 200 61739 "-"
+[16/Nov/2017:11:45:21 +0100] 127.0.0.1 - - "GET /favicon.ico HTTP/1.1" 200 6518 "http://localhost:8081/login"
+[16/Nov/2017:11:45:22 +0100] 127.0.0.1 - - "GET /login HTTP/1.1" 200 61739 "-"
+[16/Nov/2017:11:45:20 +0100] 127.0.0.1 - - "GET /_wdt/92905e HTTP/1.1" 200 20412 "http://localhost:8081/login"
+[16/Nov/2017:11:45:25 +0100] 127.0.0.1 - - "GET /_wdt/ed2a09 HTTP/1.1" 200 20406 "http://localhost:8081/login"
+[16/Nov/2017:11:45:28 +0100] 127.0.0.1 - - "GET /login HTTP/1.1" 200 61739 "-"
+[16/Nov/2017:11:45:32 +0100] 127.0.0.1 - - "GET /_wdt/237680 HTTP/1.1" 200 18732 "http://localhost:8081/login"
+[16/Nov/2017:11:45:34 +0100] 127.0.0.1 - - "GET /favicon.ico HTTP/1.1" 200 6518 "http://localhost:8081/login"
