@@ -12,10 +12,13 @@ class CountryRepository extends \Doctrine\ORM\EntityRepository
 {
     public function findByName(string $name) : ?\AppBundle\Entity\Country
     {
+        $hostname = parse_url($name)['host'];
+
         return $this->createQueryBuilder('p')
             ->where('p.isEnabled = true')
-            ->andWhere('p.name = :name')
-            ->setParameter('name', $name)
+            ->andWhere('p.subdomain = :name')
+            ->orWhere('p.hostname = :name')
+            ->setParameter('name', $hostname)
             ->getQuery()
             ->useQueryCache(true)
             ->useResultCache(true)

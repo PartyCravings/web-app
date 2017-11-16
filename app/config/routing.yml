@@ -13,10 +13,9 @@ google_login:
 app:
     resource: '@AppBundle/Controller/'
     type:     annotation
-    host: "{_country}.%hostname%|{_hostname}"
+    host: '{_country}'
     defaults: 
-        _country: ng
-        _hostname: partycravings.com.ng
+        _country: ng.partycravings.com
     options:
         utf8: true
 

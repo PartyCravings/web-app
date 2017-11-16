@@ -56,6 +56,13 @@ class Country
     /**
      * @var string
      *
+     * @ORM\Column(name="subdomain", type="string", unique=true, nullable=true)
+     */
+    private $subdomain;
+
+    /**
+     * @var string
+     *
      * @Assert\NotBlank(message="country.defaultlocale.blank")
      * @Assert\Locale(message="country.defaultlocale.invalid")
      * @ORM\Column(name="default_locale", type="string")
@@ -268,6 +275,8 @@ class Country
     public function setName($name)
     {
         $this->name = $name;
+        
+        $this->setSubdomain($name);
 
         return $this;
     }
@@ -304,6 +313,30 @@ class Country
     public function getHostname()
     {
         return $this->hostname;
+    }
+
+    /**
+     * Set subdomain
+     *
+     * @param string $subdomain
+     *
+     * @return Country
+     */
+    public function setSubdomain($subdomain)
+    {
+        $this->subdomain = $subdomain.'partycravings.com';
+
+        return $this;
+    }
+
+    /**
+     * Get subdomain
+     *
+     * @return string
+     */
+    public function getSubdomain()
+    {
+        return $this->subdomain;
     }
 
     /**

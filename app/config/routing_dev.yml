@@ -24,6 +24,6 @@ app:
     type:     annotation
     prefix:   /{_country}
     defaults: 
-        _country: "ng"
+        _country: ng.partycravings.com
     options:
         utf8: true

@@ -114,3 +114,14 @@ Restart all worker
 [16/Nov/2017:11:45:28 +0100] 127.0.0.1 - - "GET /login HTTP/1.1" 200 61739 "-"
 [16/Nov/2017:11:45:32 +0100] 127.0.0.1 - - "GET /_wdt/237680 HTTP/1.1" 200 18732 "http://localhost:8081/login"
 [16/Nov/2017:11:45:34 +0100] 127.0.0.1 - - "GET /favicon.ico HTTP/1.1" 200 6518 "http://localhost:8081/login"
+
+                                                                               
+  [Symfony\Component\Debug\Exception\ContextErrorException]                    
+  Warning: filemtime(): stat failed for /media/odusanya/77EDAA8C14BF8EA51/Dev  
+  elopment/web-app/vendor/symfony/symfony/src/Symfony/Component/Routing/Match  
+  er/RequestMatcherInterface.php                                               
+                                                                               
+
+start [--bridge [BRIDGE]] [--host [HOST]] [--port [PORT]] [--workers [WORKERS]] [--app-env [APP-ENV]] [--debug [DEBUG]] [--logging [LOGGING]] [--static [STATIC]] [--max-requests [MAX-REQUESTS]] [--concurrent-requests [CONCURRENT-REQUESTS]] [--bootstrap [BOOTSTRAP]] [--cgi-path [CGI-PATH]] [--socket-path [SOCKET-PATH]] [--pidfile [PIDFILE]] [-c|--config [CONFIG]] [--] [<working-directory>]
+
+Termination received, exiting.
