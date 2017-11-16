@@ -4,6 +4,7 @@ entrypoint: php-pm/bin/ppm start --bootstrap=symfony --port=$PORT --app-env=prod
 service: default
 
 runtime_config:
+  document_root: web
   front_controller_file: app.php
   nginx_conf_include: nginx-app.conf
   composer_flags: --no-dev --optimize-autoloader
