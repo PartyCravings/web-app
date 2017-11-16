@@ -1,35 +1,35 @@
 CACHE MANIFEST
-#ver:2017-11-13 19:07:46
+#ver:2017-11-16 20:41:23
 #plugin:4.8.4
 
 CACHE:
 /build/manifest.json
 /build/manifest-main.json
-/build/app.2bfcd4d373e0b2b0d62f0cc3cea83f46.css
-/build/global.8b9d56f2deac80d5b5450d5d5e29e24e.css
-/build/app.49b394921a07646c2e9d.js
-/build/img.858a2f7cbd9c8c3c45e0.js
-/build/login.e28b70f74eb496c470fc.js
-/build/sticklr.f4db7c53d0eee459d08a.js
-/build/slider.257444d8843b899b417e.js
-/build/home.7eba5d21d08508fa21d4.js
-/build/fonts/icons.674f50d2.eot
+/build/app.21c16eea51f15f80e0182a63d76dba89.css
+/build/global.37d1445d3215713e590aea10d78e38f1.css
+/build/app.3e8234d3bd9520f85d71.js
+/build/img.a719ca8d929d62a64276.js
+/build/login.6c9a9bd669c41a631788.js
+/build/sticklr.21843070fa9742f90d01.js
+/build/slider.45882ff14c9bd0cf4fd2.js
+/build/home.996f72d6ba8ccc51a4c4.js
 /build/fonts/icons.b06871f2.ttf
 /build/fonts/icons.fee66e71.woff
 /build/fonts/icons.af7ae505.woff2
+/build/fonts/icons.674f50d2.eot
 /build/images/icons.912ec66d.svg
 /build/images/flags.9c74e172.png
-/build/images/addthis.7dc87287.png
-/build/images/facebook.a88781c0.png
-/build/images/google.e2289369.png
-/build/images/wordpress-2.5a0c6595.png
-/build/images/sitemap.243dcf45.png
-/build/images/tag.8a24dcfc.png
-/build/images/twitter.0f05d8dc.png
-/build/images/user.53fe7479.png
 /build/images/zoom.37ba8a0c.png
-/build/images/demo-2.474d12e3.jpg
+/build/images/sitemap.243dcf45.png
+/build/images/twitter.0f05d8dc.png
+/build/images/google.e2289369.png
+/build/images/facebook.a88781c0.png
+/build/images/tag.8a24dcfc.png
+/build/images/addthis.7dc87287.png
+/build/images/user.53fe7479.png
+/build/images/wordpress-2.5a0c6595.png
 /build/images/demo-5.00db1207.jpg
+/build/images/demo-2.474d12e3.jpg
 /build/images/spin.47273a94.svg
 /
 
