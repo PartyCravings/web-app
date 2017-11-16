@@ -1,6 +1,6 @@
-runtime: php
+runtime: custom
 env: flex
-entrypoint: php-pm/bin/ppm start --bootstrap=symfony --port=:$PORT --app-env=prod --cgi-path=/usr/bin/php --debug=0 --concurrent-requests=1
+entrypoint: php-pm/bin/ppm start --bootstrap=symfony --port=$PORT --app-env=prod --cgi-path=/usr/bin/php --debug=0 --concurrent-requests=1
 service: default
 
 runtime_config:
