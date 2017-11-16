@@ -11,3 +11,4 @@ php bin/console translation:extract de --config=app --output-format=xliff
 
 #For OAuth
 You need to add check endpoints for each and every locale, since the project has full localization enabled!
+ab -n <num_requests> -c <concurrency> <addr>:<port><path

@@ -26,7 +26,7 @@
                 {% block fos_user_content %} {% if error %}
                     <div id="error" class="ui small error message">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                     {% endif %}
-                    <form action="{{ url("fos_user_security_check") }}" class="ui container form" method="post">
+                    <form action="{{ path("fos_user_security_check") }}" class="ui container form" method="post">
                         {% if csrf_token %}
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" /> {% endif %}
                         <div class="field">
