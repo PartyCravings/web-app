@@ -17,12 +17,15 @@ env_variables:
   SYMFONY_ENV: prod
 # [END overrides]
 
-automatic_scaling:
-  min_num_instances: 1
-  max_num_instances: 1000
-  cool_down_period_sec: 120 # default value
-  cpu_utilization:
-    target_utilization: 0.8
+#automatic_scaling:
+  #min_num_instances: 1
+  #max_num_instances: 1000
+  #cool_down_period_sec: 120 # default value
+  #cpu_utilization:
+    #target_utilization: 0.8
+
+manual_scaling:
+  instances: 1
 
 resources:
   cpu: 0.5
