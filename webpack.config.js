@@ -93,14 +93,12 @@ Encore
         caches: {
             // offline plugin doesn't know about build folder
             // if I added build in it , it will show something like : OfflinePlugin: Cache pattern [build/images/*] did not match any assets
-            main: [
-            ],
-            additional: [
+                        additional: [
                 ':externals:'
-            ],
+            ]/*,
             optional: [
                 ':rest:'
-            ],
+            ],*/
         },
         externals: [
             '/',
@@ -117,7 +115,7 @@ Encore
         scope: "/"
     },
     AppCache: {
-        caches: ["main", "additional"],
+        caches: ["additional"],
         FALLBACK: {
                 '/': '/'
         }

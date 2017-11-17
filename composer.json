@@ -82,8 +82,7 @@
         ],
         "post-install-cmd": [
             "@symfony-scripts",
-            "chmod -R ug+w $APP_DIR/var",
-            "nohup ./install-extensions.sh &"
+            "chmod -R ug+w $APP_DIR/var"
         ],
         "post-update-cmd": [
             "@symfony-scripts"
