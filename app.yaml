@@ -14,6 +14,7 @@ runtime_config:
 # [START overrides]
 env_variables:
   NGINX_CONF_INCLUDE: nginx-app.conf
+  FRONT_CONTROLLER_FILE: ''
   SYMFONY_ENV: prod
   DB_DATABASE: symfony
   DB_USERNAME: root
