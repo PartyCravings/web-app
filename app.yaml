@@ -16,13 +16,8 @@ env_variables:
   DB_DATABASE: symfony
   DB_USERNAME: root
   DB_PASSWORD: lBheKJbuHBJmIOK1
-  DB_SOCKET: "/cloudsql/odusanya-symfony-test:europe-west3:party-01"
+  DB_HOST: 35.198.90.159
 # [END overrides]
-
-beta_settings:
-  # for Cloud SQL, set this value to the Cloud SQL connection name,
-  # e.g. "project:region:cloudsql-instance"
-  cloud_sql_instances: "odusanya-symfony-test:europe-west3:party-01"
 
 automatic_scaling:
   min_num_instances: 1
