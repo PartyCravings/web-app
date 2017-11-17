@@ -21,4 +21,4 @@ else
 	continue
 fi
 
-(git clone https://github.com/php-pm/php-pm && cd php-pm/ && composer require php-pm/httpkernel-adapter:dev-master) ; nohup (php-pm/bin/ppm start --bootstrap=symfony --port=$PORT --app-env=prod --cgi-path=/usr/bin/php --debug=0 --concurrent-requests=1) &
+(git clone https://github.com/php-pm/php-pm && cd php-pm/ && composer require php-pm/httpkernel-adapter:dev-master)

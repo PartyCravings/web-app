@@ -7,14 +7,13 @@ entrypoint: php php-pm/bin/ppm start --bootstrap=symfony --port=$PORT --app-env=
 # [END entrypoint]
 runtime_config:
   document_root: web
-  #front_controller_file: app.php
+  front_controller_file: app.php
   composer_flags: --no-dev --optimize-autoloader
   whitelist_functions: proc_open, proc_close
 
 # [START overrides]
 env_variables:
   NGINX_CONF_INCLUDE: nginx-app.conf
-  FRONT_CONTROLLER_FILE: ''
   SYMFONY_ENV: prod
   DB_DATABASE: symfony
   DB_USERNAME: root
