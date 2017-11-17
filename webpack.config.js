@@ -89,16 +89,11 @@ Encore
     .addPlugin(new OfflinePlugin({
     strategy: "changed",
     responseStrategy: "cache-first",
-    publicPath: path+'/',
+    publicPath: '/build/',
         caches: {
             // offline plugin doesn't know about build folder
             // if I added build in it , it will show something like : OfflinePlugin: Cache pattern [build/images/*] did not match any assets
             main: [
-                '*.json',
-                '*.css',
-                '*.js',
-                'fonts/*',
-                'images/*'
             ],
             additional: [
                 ':externals:'

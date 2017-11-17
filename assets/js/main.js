@@ -6,10 +6,10 @@ import axios from 'axios';
 
 var visits = getCookie("visitscounter");
 if (!visits) {
-    visits = 0
+    var visits = 0;
 }
 
-visits = parseInt(visits) + 1;
+var visits = parseInt(visits) + 1;
 
 var expdate = new Date ();
 
@@ -18,18 +18,22 @@ expdate.setTime(expdate.getTime() + (24 * 60 * 60 * 1000 * 365));  // cookie exp
 setCookie("visitscounter", visits, expdate);
 
 function setCookie(isName,isValue,dExpires) {
-document.cookie = isName + "=" + isValue + ";expires=" + dExpires.toGMTString() ;   // path not specified so cookie only active for this page
+    document.cookie = isName + "=" + isValue + ";expires=" + dExpires.toGMTString() ;   // path not specified so cookie only active for this page
 }
 
 function getCookie(isName){
-cookieStr = document.cookie;
-startSlice = cookieStr.indexOf(isName+"=");
-if (startSlice == -1) {return false}
-endSlice = cookieStr.indexOf(";",startSlice+1)
-if (endSlice == -1){endSlice = cookieStr.length}
-isData = cookieStr.substring(startSlice,endSlice)
-isValue = isData.substring(isData.indexOf("=")+1,isData.length);
-return isValue;
+    var cookieStr = document.cookie;
+    var startSlice = cookieStr.indexOf(isName+"=");
+    if (startSlice == -1) {
+        return false;
+    }
+    var endSlice = cookieStr.indexOf(";",startSlice+1);
+    if (endSlice == -1){
+        var endSlice = cookieStr.length;
+    }
+    var isData = cookieStr.substring(startSlice,endSlice);
+    var isValue = isData.substring(isData.indexOf("=")+1,isData.length);
+    return isValue;
 }
 
 

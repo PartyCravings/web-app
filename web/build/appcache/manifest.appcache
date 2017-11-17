@@ -1,36 +1,8 @@
 CACHE MANIFEST
-#ver:2017-11-17 02:06:27
+#ver:2017-11-17 13:02:26
 #plugin:4.8.4
 
 CACHE:
-https://assets.partycravings.com/build/manifest.json
-https://assets.partycravings.com/build/manifest-main.json
-https://assets.partycravings.com/build/app.694ac8f4fb17c122e74f1bdb3b5ead87.css
-https://assets.partycravings.com/build/global.3a4faa2c57d9948b56e72ce0ebfc635a.css
-https://assets.partycravings.com/build/app.09ebb630557bedc3d334.js
-https://assets.partycravings.com/build/img.9a48835f361bbb93552b.js
-https://assets.partycravings.com/build/login.6c9a9bd669c41a631788.js
-https://assets.partycravings.com/build/sticklr.21843070fa9742f90d01.js
-https://assets.partycravings.com/build/slider.45882ff14c9bd0cf4fd2.js
-https://assets.partycravings.com/build/home.996f72d6ba8ccc51a4c4.js
-https://assets.partycravings.com/build/fonts/icons.b06871f2.ttf
-https://assets.partycravings.com/build/fonts/icons.fee66e71.woff
-https://assets.partycravings.com/build/fonts/icons.af7ae505.woff2
-https://assets.partycravings.com/build/fonts/icons.674f50d2.eot
-https://assets.partycravings.com/build/images/icons.912ec66d.svg
-https://assets.partycravings.com/build/images/flags.9c74e172.png
-https://assets.partycravings.com/build/images/zoom.37ba8a0c.png
-https://assets.partycravings.com/build/images/sitemap.243dcf45.png
-https://assets.partycravings.com/build/images/twitter.0f05d8dc.png
-https://assets.partycravings.com/build/images/google.e2289369.png
-https://assets.partycravings.com/build/images/facebook.a88781c0.png
-https://assets.partycravings.com/build/images/tag.8a24dcfc.png
-https://assets.partycravings.com/build/images/addthis.7dc87287.png
-https://assets.partycravings.com/build/images/user.53fe7479.png
-https://assets.partycravings.com/build/images/wordpress-2.5a0c6595.png
-https://assets.partycravings.com/build/images/demo-5.00db1207.jpg
-https://assets.partycravings.com/build/images/demo-2.474d12e3.jpg
-https://assets.partycravings.com/build/images/spin.47273a94.svg
 /
 
 NETWORK:
