@@ -6,7 +6,6 @@ service: default
 entrypoint: php php-pm/bin/ppm start --bootstrap=symfony --port=$PORT --app-env=prod --cgi-path=/usr/bin/php --debug=0 --concurrent-requests=1
 # [END entrypoint]
 runtime_config:
-  document_root: web
   #front_controller_file: app.php
   composer_flags: --no-dev --optimize-autoloader
   whitelist_functions: proc_open, proc_close
