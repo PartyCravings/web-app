@@ -18,7 +18,7 @@ parameters:
 
     gcp_key: '%keys_dir%/storage-key.json'
     gcp_bucket: cravings
-    gcp_bucket_url: 'https://storage.partycravings.com'
+    gcp_bucket_url: 'https://storage.googleapis.com/%gcp_bucket%'
 
     webpush.subject: http://elastic.live/
     webpush.gcm: 314804067424

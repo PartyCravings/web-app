@@ -1,17 +1,19 @@
 runtime: php
-env: flex
-entrypoint: php-pm/bin/ppm start --bootstrap=symfony --port=$PORT --app-env=prod --cgi-path=/usr/bin/php --debug=0 --concurrent-requests=1
+vm: true
 service: default
 
+# [START entrypoint]
+entrypoint: php php-pm/bin/ppm start --bootstrap=symfony --port=$PORT --app-env=prod --cgi-path=/usr/bin/php --debug=0 --concurrent-requests=1
+# [END entrypoint]
 runtime_config:
   document_root: web
-  front_controller_file: app.php
-  nginx_conf_include: nginx-app.conf
+  #front_controller_file: app.php
   composer_flags: --no-dev --optimize-autoloader
   whitelist_functions: proc_open, proc_close
 
 # [START overrides]
 env_variables:
+  NGINX_CONF_INCLUDE: nginx-app.conf
   SYMFONY_ENV: prod
   DB_DATABASE: symfony
   DB_USERNAME: root
