@@ -9,12 +9,14 @@ const commonChunk = require("webpack/lib/optimize/CommonsChunkPlugin");
 const HtmlCriticalPlugin = require("html-critical-webpack-plugin");
 
 
+var path = Encore.isProduction() ? 'https://assets.partycravings.com/build' : '/build';
+
 Encore
     // directory where all compiled assets will be stored
     .setOutputPath('web/build/')
 
     // what's the public path to this directory (relative to your project's document root dir)
-    .setPublicPath('/build')
+    .setPublicPath(path)
 
     // empty the outputPath dir before each build
     .cleanupOutputBeforeBuild()
@@ -87,7 +89,7 @@ Encore
     .addPlugin(new OfflinePlugin({
     strategy: "changed",
     responseStrategy: "cache-first",
-    publicPath: "/build/",
+    publicPath: path+'/',
         caches: {
             // offline plugin doesn't know about build folder
             // if I added build in it , it will show something like : OfflinePlugin: Cache pattern [build/images/*] did not match any assets
@@ -144,6 +146,9 @@ Encore
     // create hashed filenames (e.g. app.abc123.css)
     .enableVersioning()
 ;
+if (Encore.isProduction()) {
+    Encore.setManifestKeyPrefix('build/');
+}
 
 // export the final and modified configuration
 module.exports = Encore.getWebpackConfig();

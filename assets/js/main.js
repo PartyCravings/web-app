@@ -1,7 +1,37 @@
 import './semantic-ui/dist/semantic.min.css';
 
-require('offline-plugin/runtime');//.install();
-import axios from 'axios'
+require('offline-plugin/runtime').install();
+
+import axios from 'axios';
+
+var visits = getCookie("visitscounter");
+if (!visits) {
+    visits = 0
+}
+
+visits = parseInt(visits) + 1;
+
+var expdate = new Date ();
+
+expdate.setTime(expdate.getTime() + (24 * 60 * 60 * 1000 * 365));  // cookie expires 365 days ahead
+
+setCookie("visitscounter", visits, expdate);
+
+function setCookie(isName,isValue,dExpires) {
+document.cookie = isName + "=" + isValue + ";expires=" + dExpires.toGMTString() ;   // path not specified so cookie only active for this page
+}
+
+function getCookie(isName){
+cookieStr = document.cookie;
+startSlice = cookieStr.indexOf(isName+"=");
+if (startSlice == -1) {return false}
+endSlice = cookieStr.indexOf(";",startSlice+1)
+if (endSlice == -1){endSlice = cookieStr.length}
+isData = cookieStr.substring(startSlice,endSlice)
+isValue = isData.substring(isData.indexOf("=")+1,isData.length);
+return isValue;
+}
+
 
 /// make axis global so we can use it every where 
 window.axios = axios
@@ -22,7 +52,7 @@ function urlBase64ToUint8Array(base64String) {
 }
 
 /// get browser's end point
-if ('serviceWorker' in navigator && "Notification" in window) {
+if ('serviceWorker' in navigator && "Notification" in window && visits >= 10) {
     Notification.requestPermission().then(function (result) {
         if (result == "granted") {
             navigator.serviceWorker.getRegistration()
