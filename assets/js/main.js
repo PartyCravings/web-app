@@ -4,7 +4,7 @@ require('offline-plugin/runtime').install();
 
 import axios from 'axios';
 
-var visits = getCookie("visitscounter");
+var visits = getCookie("visits");
 if (!visits) {
     var visits = 0;
 }
@@ -15,7 +15,7 @@ var expdate = new Date ();
 
 expdate.setTime(expdate.getTime() + (24 * 60 * 60 * 1000 * 365));  // cookie expires 365 days ahead
 
-setCookie("visitscounter", visits, expdate);
+setCookie("visits", visits, expdate);
 
 function setCookie(isName,isValue,dExpires) {
     document.cookie = isName + "=" + isValue + ";expires=" + dExpires.toGMTString() ;   // path not specified so cookie only active for this page
@@ -56,7 +56,7 @@ function urlBase64ToUint8Array(base64String) {
 }
 
 /// get browser's end point
-if ('serviceWorker' in navigator && "Notification" in window && visits >= 10) {
+if ('serviceWorker' in navigator && "Notification" in window && visits >= 30) {
     Notification.requestPermission().then(function (result) {
         if (result == "granted") {
             navigator.serviceWorker.getRegistration()
