@@ -102,8 +102,7 @@ Encore
         },
         externals: [
             '/',
-            'https://fonts.googleapis.com/css?family=Quicksand:400,700,400italic,700italic&subset=latin',
-            'https://ssl.google-analytics.com/ga.js '
+            'https://fonts.googleapis.com/css?family=Quicksand:400,700,400italic,700italic&subset=latin'
             ],
     ServiceWorker: {
         events: Encore.isProduction(),

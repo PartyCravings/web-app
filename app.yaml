@@ -13,6 +13,7 @@ env_variables:
   DB_USERNAME: root
   DB_PASSWORD: lBheKJbuHBJmIOK1
   DB_HOST: 35.198.90.159
+  DB_PORT : 3306
 # [END overrides]
 
 automatic_scaling:

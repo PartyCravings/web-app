@@ -27,3 +27,9 @@ app:
         _country: ng.partycravings.com
     options:
         utf8: true
+
+#EasyAdminBundle Routes
+easy_admin_bundle:
+    resource: "@EasyAdminBundle/Controller/AdminController.php"
+    type:     annotation
+    prefix:   /admin

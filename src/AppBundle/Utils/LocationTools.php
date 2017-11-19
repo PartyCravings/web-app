@@ -52,9 +52,6 @@ class LocationTools
                 $this->em->persist($parent);
             }
         }
-        dump($parent);
-        die();
-        $this->em->flush();
         return $parent;
     }
 }

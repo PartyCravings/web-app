@@ -40,6 +40,11 @@ class Files extends VichFile
      */
     private $updated;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $silhouette;
+
     public function __toString()
     {
         return $this->name;
@@ -83,5 +88,52 @@ class Files extends VichFile
     {
         return $this->actualFile;
     }
-}
 
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     *
+     * @return Files
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * Set silhouette
+     *
+     * @param string $silhouette
+     *
+     * @return Files
+     */
+    public function setSilhouette($silhouette)
+    {
+        $this->silhouette = $silhouette;
+
+        return $this;
+    }
+
+    /**
+     * Get silhouette
+     *
+     * @return string
+     */
+    public function getSilhouette()
+    {
+        return $this->silhouette;
+    }
+}

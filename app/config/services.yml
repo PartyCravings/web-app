@@ -43,6 +43,10 @@ services:
     WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs:
         alias: white_october_breadcrumbs
 
+    AppBundle\EventListener\SilhouetteCreationListener:
+        tags:
+            - { name: kernel.event_listener, event: vich_uploader.pre_upload }
+
     Google_Service_Storage:
         class: \Google_Service_Storage
         factory: ['AppBundle\Storage\GoogleCloudStorageServiceFactory', createService]

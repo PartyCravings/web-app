@@ -18,7 +18,7 @@ parameters:
 
     gcp_key: '%keys_dir%/storage-key.json'
     gcp_bucket: cravings
-    gcp_bucket_url: 'https://%gcp_bucket%.storage.googleapis.com'
+    gcp_bucket_url: 'https://%gcp_bucket%.storage.googleapis.com/default'
 
     webpush.subject: http://elastic.live/
     webpush.gcm: 314804067424
@@ -89,7 +89,6 @@ doctrine:
         dbname: '%database_name%'
         user: '%database_user%'
         password: '%database_password%'
-        unix_socket: '%database_socket%'
         charset: utf8
         default_table_options:
             charset: utf8

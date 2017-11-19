@@ -11,6 +11,20 @@ doctrine:
         result_cache_driver: apc
         query_cache_driver: apc
 
+doctrine:
+    dbal:
+        driver: pdo_mysql
+        host: '%database_host%'
+        port: '%database_port%'
+        dbname: '%database_name%'
+        user: '%database_user%'
+        password: '%database_password%'
+        unix_socket: '%database_socket%'
+        charset: utf8
+        default_table_options:
+            charset: utf8
+            collate: utf8_unicode_ci
+
 monolog:
     handlers:
         main:
