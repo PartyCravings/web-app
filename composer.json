@@ -26,6 +26,7 @@
         "ext-redis": "*",
         "ext-mbstring": "*",
         "ext-intl": "*",
+        "ext-gd": "*",
         "ext-event": "*",
         "ext-timezonedb": "*",
         "doctrine/doctrine-bundle": "^1.6",

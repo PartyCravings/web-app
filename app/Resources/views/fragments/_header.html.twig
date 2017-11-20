@@ -79,7 +79,7 @@
                             <a class="ui circular orange right labeled icon button" name="party now"><i class="right arrow icon"></i>{{ 'PARTY NOW'|trans }}</a>
                         </div>
                         <div class="ui two wide column">
-                            <img alt="john doe" class="ui avatar image" src="{{ preload(gravatar('xx', null, null, null, true), {nopush: true}) }}"> <a href="{{ url('fos_user_security_login') }}" rel="nofollow">{{ 'security.login'|trans({}, 'FOSUserBundle') }}</a>
+                            <img alt="john doe" class="ui avatar image" src="{{ preload(gravatar('xx', null, null, null, true), {nopush: true}) }}"> <a href="{{ url('fos_user_security_logout') }}" rel="nofollow">{{ 'security.login'|trans({}, 'FOSUserBundle') }}</a>
                         </div>
                     </div>
                     <div class="ui tablet mobile only row">
@@ -92,7 +92,7 @@
                             </div>
                         </form>
                         <div class="ui right floated image">
-                            <a href="{{ url('fos_user_security_login') }}" rel="nofollow"><img alt="john doe" class="ui avatar image" src="{{ preload(gravatar('xx', null, null, null, true), {nopush: true}) }}" style="position: relative; top: 50%; transform: translateY(-50%);"></a>
+                            <a href="{{ url('fos_user_security_logout') }}" rel="nofollow"><img alt="john doe" class="ui avatar image" src="{{ preload(gravatar('xx', null, null, null, true), {nopush: true}) }}" style="position: relative; top: 50%; transform: translateY(-50%);"></a>
                         </div>
                     </div>
                 </div>
@@ -364,4 +364,5 @@
                 </li>
             </ul>
         </div>
+        <div style="padding-top:20px;"></div>
 {% endblock header %}
