@@ -3,7 +3,6 @@
    common elements and decorates all the other templates.
    See https://symfony.com/doc/current/book/templating.html#template-inheritance-and-layouts
 #}
-{% spaceless %}
 <!DOCTYPE html>
 <html lang="{{ app.request.locale }}">
 
@@ -78,4 +77,3 @@
             <!-- Page rendered on {{ 'now'|date('long', 'UTC') }} -->
         </body>
 </html>
-{% endspaceless %}

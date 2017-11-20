@@ -12,7 +12,8 @@ class SilhouetteCreationListener
         $object = $event->getObject();
         
 
-        if (0 === strpos($object->getActualFile()->getMimetype(), 'image')) {
+        
+        if (0 === strpos($object->getActualFile()->getClientMimeType(), 'image')) {
             $potracio = new Potracio();
 
             $potracio->loadImageFromFile($object->getActualFile());
