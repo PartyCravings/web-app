@@ -76,7 +76,7 @@
                             </form>
                         </div>
                         <div class="ui three wide column">
-                            <button class="ui circular orange right labeled icon button" name="party now"><i class="right arrow icon"></i>{{ 'PARTY NOW'|trans }}</button>
+                            <a class="ui circular orange right labeled icon button" name="party now"><i class="right arrow icon"></i>{{ 'PARTY NOW'|trans }}</a>
                         </div>
                         <div class="ui two wide column">
                             {% if app.user is null %} <img alt="john doe" class="ui avatar image" src="{{ preload(gravatar('xx', null, null, null, true), {nopush: true}) }}"> <a href="{{ url('fos_user_security_login') }}" rel="nofollow">{{ 'security.login'|trans({}, 'FOSUserBundle') }}</a> {% else %} <img alt="{{ app.user.username }}" class="ui avatar image" src="{{ preload(gravatar(app.user.email, null, null, null, true), {nopush: true}) }}"> <a href="{{ url('fos_user_security_logout') }}" rel="nofollow">{{ 'security.logout'|trans({}, 'FOSUserBundle') }}</a> {% endif %}

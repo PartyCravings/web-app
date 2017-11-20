@@ -25,6 +25,18 @@ class Campaigns
     private $id;
 
     /**
+     * @Assert\Length(
+     *     min=3,
+     *     minMessage="campaign.title.too_short",
+     *     max=100,
+     *     maxMessage="campaign.title.too_long"
+     * )
+     * @Assert\NotBlank(message="campaign.title.blank")
+     * @ORM\Column(type="string")
+     */
+    private $title;
+
+    /**
      * @var Service
      *
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Service", mappedBy="campaigns")
@@ -92,6 +104,13 @@ class Campaigns
      * @ORM\ManyToOne(targetEntity="Account")
      */
     private $updatedBy;
+
+    /**
+     * @var EmbeddedFile
+     *
+     * @ORM\ManyToOne(targetEntity="Files", cascade={"persist"})
+     */
+    private $uploadedFiles;
 
 
     /**
@@ -365,5 +384,53 @@ class Campaigns
     public function getUpdatedBy()
     {
         return $this->updatedBy;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return Campaigns
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set uploadedFiles
+     *
+     * @param \AppBundle\Entity\Files $uploadedFiles
+     *
+     * @return Campaigns
+     */
+    public function setUploadedFiles(\AppBundle\Entity\Files $uploadedFiles = null)
+    {
+        $this->uploadedFiles = $uploadedFiles;
+
+        return $this;
+    }
+
+    /**
+     * Get uploadedFiles
+     *
+     * @return \AppBundle\Entity\Files
+     */
+    public function getUploadedFiles()
+    {
+        return $this->uploadedFiles;
     }
 }

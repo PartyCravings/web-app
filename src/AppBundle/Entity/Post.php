@@ -94,6 +94,13 @@ class Post
      */
     private $tags;
 
+    /**
+     * @var EmbeddedFile
+     *
+     * @ORM\ManyToOne(targetEntity="Files", cascade={"persist"})
+     */
+    private $uploadedFiles;
+
     public function __construct()
     {
         $this->tags = new ArrayCollection();
@@ -284,5 +291,29 @@ class Post
     public function getTags()
     {
         return $this->tags;
+    }
+
+    /**
+     * Set uploadedFiles
+     *
+     * @param \AppBundle\Entity\Files $uploadedFiles
+     *
+     * @return Post
+     */
+    public function setUploadedFiles(\AppBundle\Entity\Files $uploadedFiles = null)
+    {
+        $this->uploadedFiles = $uploadedFiles;
+
+        return $this;
+    }
+
+    /**
+     * Get uploadedFiles
+     *
+     * @return \AppBundle\Entity\Files
+     */
+    public function getUploadedFiles()
+    {
+        return $this->uploadedFiles;
     }
 }

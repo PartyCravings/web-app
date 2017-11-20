@@ -51,6 +51,7 @@ class AppExtension extends AbstractExtension
     {
         return [
             new TwigFilter('md2html', [$this, 'markdownToHtml'], ['is_safe' => ['html']]),
+            new TwigFilter('base64encode', [$this, 'base64encode'], ['is_safe' => ['html']]),
             new TwigFilter('country', [$this, 'countryFilter'])
         ];
     }
@@ -71,6 +72,14 @@ class AppExtension extends AbstractExtension
     public function markdownToHtml(string $content): string
     {
         return $this->parser->toHtml($content);
+    }
+
+    /**
+     * Transforms the given Markdown content into HTML content.
+     */
+    public function base64encode(string $content): string
+    {
+        return base64_encode($content);
     }
 
     public function countryFilter(string $countryCode, string $locale = "en") :string
