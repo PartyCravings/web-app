@@ -64,7 +64,7 @@ class AccountDetails
      *
      * @ORM\Column(name="newsletter_signed", type="boolean")
      */
-    private $newsletterSigned = true;
+    private $newsletterSigned = false;
 
     /**
      * @var Service

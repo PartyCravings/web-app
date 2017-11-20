@@ -7,6 +7,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs;
 use AppBundle\Entity\Country;
 
@@ -49,7 +51,7 @@ class DefaultController extends AbstractController
                         "repository_method" = "findHomePosts"
                     }
                 )
-     * @Cache(smaxage=0)
+     * @Cache(smaxage=1)
      * @Template(
                     ":default:index.html.twig",
                     vars= {
@@ -81,16 +83,16 @@ class DefaultController extends AbstractController
                 )
      * @Template(
                     ":fragments:_header.html.twig",
-                     vars={"categories"}
+                     vars={"categories", "_country"}
             )
      * @Cache(
-                smaxage=300,
+                smaxage=1,
                 vary={"PHPSESSID"}
             )
      * @param EntityManagerInterface $em
      * @return array
      */
-    public function headerAction(array $categories) :void
+    public function headerAction(Country $_country, array $categories) :void
     {
     }
 
@@ -100,18 +102,29 @@ class DefaultController extends AbstractController
                 name="sitewide_footer"
             )
      * @Template(
-                    ":fragments:_footer.html.twig",
-                    vars={"_country"}
+                    ":fragments:_footer.html.twig"
             )
      * @Cache(
-                smaxage=300,
+                smaxage=86400,
                 lastmodified="_country.getUpdated()",
                 etag="'Country' ~ _country.getId() ~ _country.getUpdated().format('Y-m-d')"
             )
      * @param \AppBundle\Entity\Country $_country
      * @return array
      */
-    public function footerAction(Country $_country) :void
+    public function footerAction(Country $_country, EntityManagerInterface $em) :array
     {
+        $similarCountries = $em->getRepository(Country::class)->findSimilarCountries($_country);
+        $form = $this->createFormBuilder(null, array('csrf_protection' => false))
+            ->setAction($this->generateUrl('notification_newsletter_register'))
+            ->setMethod('POST')
+            ->add('email', EmailType::class, array('label'=> false))
+            ->getForm('success', '');
+
+        return array(
+            'newsletter'=> $form->createView(),
+            '_country' => $_country,
+            'similarCountries'=> $similarCountries
+        );
     }
 }

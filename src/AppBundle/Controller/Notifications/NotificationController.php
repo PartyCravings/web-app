@@ -7,13 +7,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use AppBundle\Entity\Subscriber;
 use AppBundle\Entity\Country;
 
 /* Class NotificationController
  * @package AppBundle\Controller
  *
- * @Route("notification")
+ * @Route("/notification")
  * @ParamConverter(
                     "_country",
                     class="AppBundle:Country",
@@ -49,6 +50,37 @@ class NotificationController extends AbstractController
             $em->flush();
         }
         return  $this->json(array('new' => $new, "success" => true));
+    }
+
+    /**
+     * @Route("/newsletter", name="notification_newsletter_register")
+     * @Method("POST")
+     */
+    public function newsletterAction(Country $_country, Request $request, EntityManagerInterface $em)
+    {
+        $translator = $this->get('translator');
+        $form = $this->createFormBuilder(null, array('csrf_protection' => false))
+            ->setAction($this->generateUrl('notification_newsletter_register'))
+            ->setMethod('POST')
+            ->add('email', EmailType::class, array('label'=> false))
+            ->getForm();
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $email = $form->getData()['email'];
+
+            $account = $em->getRepository('AppBundle::Account')->findOneByEmail($email);
+
+            if ($account) {
+                $account->getAccountDetails()->setNewsletterSigned(true);
+                $em->flush();
+                $this->addFlash('success', $translator->trans('newsletter.signup.success'));
+            } else {
+                $this->addFlash('failure', $translator->trans('newsletter.signup.failed'));
+            }
+
+            return $this->redirect($request->getReferer());
+        }
     }
 
     /**

@@ -15,7 +15,9 @@ class FilesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('actualFile', VichFileType::class, array('label'=>'file.select'));
+            ->add('actualFile', VichFileType::class, array('label'=>false,
+                'attr'=> array('class'=> 'btn btn-default btn-file',
+                    'style'=> 'background-color: orange;')));
     }
     
     /**
@@ -35,6 +37,4 @@ class FilesType extends AbstractType
     {
         return 'appbundle_files';
     }
-
-
 }

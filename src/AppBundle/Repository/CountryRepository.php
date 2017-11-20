@@ -2,6 +2,8 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Entity\Country;
+
 /**
  * CountryRepository
  *
@@ -10,16 +12,33 @@ namespace AppBundle\Repository;
  */
 class CountryRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function findByName(string $name) : ?\AppBundle\Entity\Country
+    const HOME_MAX_COUNTRIES = 5;
+
+    public function findByName(string $name) : ?Country
     {
         return $this->createQueryBuilder('p')
             ->where('p.isEnabled = true')
             ->andWhere('p.subdomain = :name')
             ->orWhere('p.hostname = :name')
+            ->andWhere('p.isEnabled = true')
             ->setParameter('name', $name)
             ->getQuery()
             ->useQueryCache(true)
             ->useResultCache(true)
             ->getOneOrNullResult();
+    }
+
+    public function findSimilarCountries(Country $country) : array
+    {
+        $region = strtok($country->getTimezone(), '/');
+        return $this->createQueryBuilder('p')
+            ->where('p.timezone LIKE :timezone')
+            ->andWhere('p.isEnabled = true')
+            ->setParameter('timezone', '%'.$region.'%')
+            ->setMaxResults(self::HOME_MAX_COUNTRIES)
+            ->getQuery()
+            ->useQueryCache(true)
+            ->useResultCache(true)
+            ->getResult();
     }
 }

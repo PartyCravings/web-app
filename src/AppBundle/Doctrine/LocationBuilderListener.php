@@ -1,5 +1,6 @@
 <?php
 namespace AppBundle\Doctrine;
+
 use AppBundle\Entity\Address;
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Event\LifecycleEventArgs;

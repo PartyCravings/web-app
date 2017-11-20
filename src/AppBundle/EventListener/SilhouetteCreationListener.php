@@ -7,22 +7,20 @@ use AppBundle\Utils\Potracio\Potracio;
 
 class SilhouetteCreationListener
 {
-
     public function onVichUploaderPreUpload(Event $event)
     {
         $object = $event->getObject();
         
 
-        if(0 === strpos($object->getActualFile()->getMimetype(), 'image')){
-        	$potracio = new Potracio();
+        if (0 === strpos($object->getActualFile()->getMimetype(), 'image')) {
+            $potracio = new Potracio();
 
-        	$potracio->loadImageFromFile($object->getActualFile());
+            $potracio->loadImageFromFile($object->getActualFile());
 
-        	$potracio->process();
+            $potracio->process();
 
-        	$object->setSilhouette($potracio->getSVG(1));
+            $object->setSilhouette($potracio->getSVG(1));
         }
         // do your stuff with $object and/or $mapping...
     }
-
 }

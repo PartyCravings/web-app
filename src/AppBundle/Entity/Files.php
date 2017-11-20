@@ -28,9 +28,9 @@ class Files extends VichFile
 
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
-     * 
+     *
      * @Vich\UploadableField(mapping="service_files", fileNameProperty="name", size="size", mimeType="mimeType", originalName="originalName")
-     * 
+     *
      * @var File
      */
     private $actualFile;

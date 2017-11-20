@@ -133,7 +133,7 @@ swiftmailer:
 fos_user:
     db_driver: orm # other valid values are 'mongodb' and 'couchdb'
     firewall_name: main
-    user_class: AppBundle\Entity\Accounts
+    user_class: AppBundle\Entity\Account
     from_email:
         address: "%mailer_user%"
         sender_name: "%mailer_user%"
@@ -513,7 +513,11 @@ easy_admin:
                     - { property: currencies, type: easyadmin_autocomplete }
                     - { property: taxRate }
 
+                    - { type: group, label: Location information, icon: road, css_class: danger }
+                    - { property: address, type: AppBundle\Form\AddressType, label: false }
+
                     - { type: group, label: Advanced Settings, icon: spinner, css_class: danger }
+                    - { property: infoMail, label: Info Mail }
                     - { property: contacts, type: easyadmin_autocomplete }
                     - { property: pages, type: easyadmin_autocomplete }
                     - { property: socialLinks, type: easyadmin_autocomplete }

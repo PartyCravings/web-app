@@ -44,7 +44,11 @@ function getCookie(isName){
 /// make axis global so we can use it every where 
 window.axios = axios
 
-function urlBase64ToUint8Array(base64String) {
+/// get browser's end point
+
+
+setTimeout(function() {
+    function urlBase64ToUint8Array(base64String) {
     const padding = '='.repeat((4 - base64String.length % 4) % 4);
     const base64 = (base64String + padding)
         .replace(/\-/g, '+')
@@ -58,9 +62,7 @@ function urlBase64ToUint8Array(base64String) {
     }
     return outputArray;
 }
-
-/// get browser's end point
-if ('serviceWorker' in navigator && "Notification" in window && visits >= 30) {
+    if ('serviceWorker' in navigator && "Notification" in window && visits >= 30) {
     Notification.requestPermission().then(function (result) {
         if (result == "granted") {
             navigator.serviceWorker.getRegistration()
@@ -103,3 +105,4 @@ if ('serviceWorker' in navigator && "Notification" in window && visits >= 30) {
         }
     });
 }
+}, (15 * 1000));

@@ -87,6 +87,20 @@ class Country
     private $defaultCurrency;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="info_mail", type="string", nullable=true)
+     */
+    private $infoMail;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="phone", type="string", length=20, nullable=true)
+     */
+    private $phone;
+
+    /**
      * @var Currency
      *
      * @ORM\ManyToMany(targetEntity="Currency")
@@ -127,6 +141,14 @@ class Country
      * @ORM\Column(type="datetime")
      */
     private $updated;
+
+    /**
+     * @var Address
+     *
+     * @Assert\Valid
+     * @ORM\ManyToOne(targetEntity="Address",cascade={"persist"})
+     */
+    private $address;
 
     /**
      * @Assert\IsNull()
@@ -709,5 +731,77 @@ class Country
     public function getCategories()
     {
         return $this->categories;
+    }
+
+    /**
+     * Set address
+     *
+     * @param \AppBundle\Entity\Address $address
+     *
+     * @return Country
+     */
+    public function setAddress(\AppBundle\Entity\Address $address = null)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * Get address
+     *
+     * @return \AppBundle\Entity\Address
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * Set infoMail
+     *
+     * @param string $infoMail
+     *
+     * @return Country
+     */
+    public function setInfoMail($infoMail)
+    {
+        $this->infoMail = $infoMail;
+
+        return $this;
+    }
+
+    /**
+     * Get infoMail
+     *
+     * @return string
+     */
+    public function getInfoMail()
+    {
+        return $this->infoMail;
+    }
+
+    /**
+     * Set phone
+     *
+     * @param string $phone
+     *
+     * @return Country
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Get phone
+     *
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->phone;
     }
 }

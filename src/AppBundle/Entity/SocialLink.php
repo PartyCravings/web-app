@@ -34,6 +34,19 @@ class SocialLink
     /**
      * @var string
      *
+     * @Assert\Length(
+     *     min=2,
+     *     minMessage="feature.icon.too_short",
+     *     max=20,
+     *     maxMessage="feature.icon.too_long"
+     * )
+     * @ORM\Column(name="icon", type="string", nullable=true)
+     */
+    private $icon;
+
+    /**
+     * @var string
+     *
      * @Assert\Length(min=7, minMessage="social.link.too_short")
      * @Assert\Url(
      *      checkDNS = true,
@@ -105,5 +118,29 @@ class SocialLink
     public function getLink()
     {
         return $this->link;
+    }
+
+    /**
+     * Set icon
+     *
+     * @param string $icon
+     *
+     * @return SocialLink
+     */
+    public function setIcon($icon)
+    {
+        $this->icon = $icon;
+
+        return $this;
+    }
+
+    /**
+     * Get icon
+     *
+     * @return string
+     */
+    public function getIcon()
+    {
+        return $this->icon;
     }
 }

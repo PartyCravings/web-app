@@ -1,47 +1,38 @@
 {% block footer %}
     <footer>
-        <br/>
-        <div id="context" class="ui container">
-            <h2>OUR TOP BRANDS</h2>
+        <br>
+        <div class="ui container" id="context">
+            <h2>{{ 'OUR TOP BRANDS'|trans }}</h2>
             <div class="ui equal width grid">
-                <div class="column"><img alt="brand1" class="brand-image" src="{{ asset('images/demo-4.jpg') }}" /></div>
-                <div class="column"><img alt="brand2" class="brand-image" src="{{ asset('images/demo-4.jpg') }}" /></div>
-                <div class="column"><img alt="brand3" class="brand-image" src="{{ asset('images/demo-4.jpg') }}" /></div>
+                <div class="column"><img alt="brand1" class="brand-image" src="{{ asset('images/demo-4.jpg') }}"></div>
+                <div class="column"><img alt="brand2" class="brand-image" src="{{ asset('images/demo-4.jpg') }}"></div>
+                <div class="column"><img alt="brand3" class="brand-image" src="{{ asset('images/demo-4.jpg') }}"></div>
             </div>
-        </div>
-        <br/>
+        </div><br>
         <div class="ui grid">
             <div class="one wide column"></div>
-            <div id="site-statement" class="fourteen wide column">
-                <h3>Why choose PartyCravings?</h3>
-                <p>Lorel ipsum dolo...</p>
+            <div class="fourteen wide column" id="site-statement">
+                <h3>{{ 'Why choose PartyCravings?'|trans }}</h3>
+                <p>{{ 'Lorel ipsum dolo... - reason'|trans }}</p>
             </div>
             <div class="one wide column"></div>
-        </div>
-        <br/>
-        <br/>
+        </div><br>
+        <br>
         <div class="ui stackable grid" id="footer">
             <div class="four wide column">
-                <h3>OTHER COUNTRIES</h3>
+                <h3>{{ 'OTHER COUNTRIES'|trans }}</h3>{% for country in similarCountries %}
                 <div class="row">
-                    Nigeria
-                </div>
-                <div class="row">
-                    Kenya
-                </div>
-                <div class="row">
-                    Djibouti
-                </div>
-                <br/>
+                    <a href="{{ url('homepage', {'_country':country}) }}">{{ country.name|country(app.request.locale) }}</a>
+                </div>{% endfor %}<br>
                 <div class="row">
                     <div class="row">
                         <h3>PartyCravings Inc.</h3>
                     </div>
                     <div class="row">
-                        Yaba, Lagos Nigeria
+                        {{ _country.address }}
                     </div>
                     <div class="row">
-                        info@partycravings.com
+                        {{ _country.infoMail }}
                     </div>
                     <div class="row">
                         &copy; {{ 'now'|date('Y') }} - PartyCravings Inc.
@@ -52,48 +43,30 @@
                 </div>
             </div>
             <div class="four wide column">
-                <h3>CUSTOMER SERVICES</h3>
+                <h3>{{ 'PAGES'|trans }}</h3>{% for page in _country.pages|slice(0, 4) %}
                 <div class="row">
-                    Financing
-                </div>
-                <div class="row">
-                    Call us
-                </div>
-                <div class="row">
-                    Need help
-                </div>
+                    <a href="{{ url('site_show_page', {'slug':page.slug}) }}">{{ page }}</a>
+                </div>{% endfor %}
             </div>
             <div class="four wide column">
-                <h3>CUSTOMER SERVICES</h3>
+                <h3>{{ 'PAGES'|trans }}</h3>{% for page in _country.pages|slice(4, 4) %}
                 <div class="row">
-                    Financing
-                </div>
-                <div class="row">
-                    Call us
-                </div>
-                <div class="row">
-                    Need help
-                </div>
+                    <a href="{{ url('site_show_page', {'slug':page.slug}) }}">{{ page }}</a>
+                </div>{% endfor %}
             </div>
             <div class="four wide column">
-                <h3>NEWSLETTER</h3>
+                <h3>{{ 'NEWSLETTER'|trans }}</h3>
                 <div class="row">
-                    Subscribe to our newsletter
-                </div>
-                <br/>
+                    {{ 'Subscribe to our newsletter'|trans }}
+                </div><br>
                 <div class="row">
-                    <form>
-                        <div class="ui icon input">
-                            <input name="email" placeholder="Your email address..." type="text" /> <i class="right arrow icon"></i>
-                        </div>
-                    </form>
-                </div>
-                <br/>
+                    {{ form_start(newsletter) }}
+                    <div class="ui icon input">
+                        {{ form_row(newsletter.email, {'attr': {'placeholder': 'Your email address...'|trans } }) }} <i class="right arrow icon"></i>
+                    </div>{{ form_end(newsletter) }}
+                </div><br>
                 <div class="row">
-                    <button name="facebook" class="ui circular facebook icon button"><i class="facebook icon"></i></button>
-                    <button name="twitter" class="ui circular twitter icon button"><i class="twitter icon"></i></button>
-                    <button name="linkedin" class="ui circular linkedin icon button"><i class="linkedin icon"></i></button>
-                    <button name="google plus" class="ui circular google plus icon button"><i class="google plus icon"></i></button>
+                    {% for social in _country.socialLinks %} <a class="ui circular {{ social.icon }} icon button" href="{{ social.link }}" name="{{ social.name }}"><i class="{{ social.icon }} icon"></i></a> {% endfor %}
                 </div>
             </div>
         </div>

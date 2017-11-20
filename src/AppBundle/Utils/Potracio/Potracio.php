@@ -9,25 +9,25 @@ namespace AppBundle\Utils\Potracio;
  *  Copyright (C) 2001-2013 Peter Selinger.
  *
  * A javascript port of Potrace (http://potrace.sourceforge.net).
- * 
+ *
  * Licensed under the GPL
- * 
+ *
  * Usage
  *   loadImageFromFile(file) : load image from File, All
- * 
+ *
  *   setParameter({para1: value, ...}) : set parameters
  *     parameters:
  *        turnpolicy ("black" / "white" / "left" / "right" / "minority" / "majority")
- *          how to resolve ambiguities in path decomposition. (default: "minority")       
+ *          how to resolve ambiguities in path decomposition. (default: "minority")
  *        turdsize
  *          suppress speckles of up to this size (default: 2)
  *        optcurve (true / false)
  *          turn on/off curve optimization (default: true)
  *        alphamax
  *          corner threshold parameter (default: 1)
- *        opttolerance 
+ *        opttolerance
  *          curve optimization tolerance (default: 0.2)
- *       
+ *
  *   getSVG(size, opt_type) : return a string of generated SVG image.
  *                                    result_image_size = original_image_size * size
  *                                    optional parameter opt_type can be "curve"
@@ -65,8 +65,7 @@ class Potracio
         $image = @imagecreatefromstring($file);
        
         //if the image doesn't work then keep striping out crap
-        while(!$image)
-        {
+        while (!$image) {
             //cut off the bad bytes one by one
             $file = substr_replace($file, "", -3, -2);
            
@@ -120,7 +119,7 @@ class Potracio
                 }
                 if ($ct > 0) {
                     return 1;
-                } else if ($ct < 0) {
+                } elseif ($ct < 0) {
                     return 0;
                 }
             }
@@ -178,11 +177,11 @@ class Potracio
                         $dirx = $diry;
                         $diry = -$tmp;
                     }
-                } else if ($r) {
+                } elseif ($r) {
                     $tmp = $dirx;
                     $dirx = -$diry;
                     $diry = $tmp;
-                } else if (!$l) {
+                } elseif (!$l) {
                     $tmp = $dirx;
                     $dirx = $diry;
                     $diry = -$tmp;
@@ -361,7 +360,7 @@ class Potracio
 
             if ($r1 >= 0 && $r1 <= 1) {
                 return $r1;
-            } else if ($r2 >= 0 && $r2 <= 1) {
+            } elseif ($r2 >= 0 && $r2 <= 1) {
                 return $r2;
             } else {
                 return -1.0;
@@ -378,8 +377,13 @@ class Potracio
             for ($i = 0; $i < $path->len; $i++) {
                 $x = $path->pt[$i]->x - $path->x0;
                 $y = $path->pt[$i]->y - $path->y0;
-                $s[] = new Sum($s[$i]->x + $x, $s[$i]->y + $y, $s[$i]->xy + $x * $y,
-                    $s[$i]->x2 + $x * $x, $s[$i]->y2 + $y * $y);
+                $s[] = new Sum(
+                    $s[$i]->x + $x,
+                    $s[$i]->y + $y,
+                    $s[$i]->xy + $x * $y,
+                    $s[$i]->x2 + $x * $x,
+                    $s[$i]->y2 + $y * $y
+                );
             }
         };
 
@@ -437,7 +441,6 @@ class Potracio
                     }
 
                     if (abs($cur->x) <= 1 && abs($cur->y) <= 1) {
-
                     } else {
                         $off->x = $cur->x + (($cur->y >= 0 && ($cur->y > 0 || $cur->x < 0)) ? 1 : -1);
                         $off->y = $cur->y + (($cur->x <= 0 && ($cur->x < 0 || $cur->y < 0)) ? 1 : -1);
@@ -495,7 +498,6 @@ class Potracio
         };
 
         $bestPolygon = function (&$path) use ($mod) {
-
             $penalty3 = function ($path, $i, $j) {
                 $n = $path->len;
                 $pt = $path->pt;
@@ -603,9 +605,7 @@ class Potracio
         };
 
         $adjustVertices = function (&$path) use ($mod, $quadform) {
-
             $pointslope = function ($path, $i, $j, &$ctr, &$dir) {
-
                 $n = $path->len;
                 $sums = $path->sums;
                 $r = 0;
@@ -727,7 +727,6 @@ class Potracio
                 }
 
                 while (1) {
-
                     $det = $Q->at(0, 0) * $Q->at(1, 1) - $Q->at(0, 1) * $Q->at(1, 0);
                     if ($det !== 0.0 && $det != 0) {
                         $w->x = (-$Q->at(0, 2) * $Q->at(1, 1) + $Q->at(1, 2) * $Q->at(0, 1)) / $det;
@@ -738,7 +737,7 @@ class Potracio
                     if ($Q->at(0, 0) > $Q->at(1, 1)) {
                         $v[0] = -$Q->at(0, 1);
                         $v[1] = $Q->at(0, 0);
-                    } else if ($Q->at(1, 1)) {
+                    } elseif ($Q->at(1, 1)) {
                         $v[0] = -$Q->at(1, 1);
                         $v[1] = $Q->at(1, 0);
                     } else {
@@ -848,7 +847,7 @@ class Potracio
                 } else {
                     if ($alpha < 0.55) {
                         $alpha = 0.55;
-                    } else if ($alpha > 1) {
+                    } elseif ($alpha > 1) {
                         $alpha = 1;
                     }
                     $p2 = $interval(0.5 + 0.5 * $alpha, $curve->vertex[$i], $curve->vertex[$j]);
@@ -1036,8 +1035,15 @@ class Potracio
                 $len[$j] = $len[$j - 1] + 1;
 
                 for ($i = $j - 2; $i >= 0; $i--) {
-                    $r = $opti_penalty($path, $i, $mod($j, $m), $o, $info->opttolerance, $convc,
-                        $areac);
+                    $r = $opti_penalty(
+                        $path,
+                        $i,
+                        $mod($j, $m),
+                        $o,
+                        $info->opttolerance,
+                        $convc,
+                        $areac
+                    );
                     if ($r) {
                         break;
                     }
@@ -1073,8 +1079,11 @@ class Potracio
                     $ocurve->c[$i * 3 + 0] = $opt[$j]->c[0];
                     $ocurve->c[$i * 3 + 1] = $opt[$j]->c[1];
                     $ocurve->c[$i * 3 + 2] = $curve->c[$mod($j, $m) * 3 + 2];
-                    $ocurve->vertex[$i] = $interval($opt[$j]->s, $curve->c[$mod($j, $m) * 3 + 2],
-                        $vert[$mod($j, $m)]);
+                    $ocurve->vertex[$i] = $interval(
+                        $opt[$j]->s,
+                        $curve->c[$mod($j, $m) * 3 + 2],
+                        $vert[$mod($j, $m)]
+                    );
                     $ocurve->alpha[$i] = $opt[$j]->alpha;
                     $ocurve->alpha0[$i] = $opt[$j]->alpha;
                     $s[$i] = $opt[$j]->s;
@@ -1132,7 +1141,6 @@ class Potracio
         $bm = &$this->bm;
         $pathlist = &$this->pathlist;
         $path = function ($curve) use ($size) {
-
             $bezier = function ($i) use ($curve, $size) {
                 $b = 'C ' . number_format($curve->c[$i * 3 + 0]->x * $size, 3) . ' ' .
                     number_format($curve->c[$i * 3 + 0]->y * $size, 3) . ',';
@@ -1160,7 +1168,7 @@ class Potracio
             for ($i = 0; $i < $n; $i++) {
                 if ($curve->tag[$i] === "CURVE") {
                     $p .= $bezier($i);
-                } else if ($curve->tag[$i] === "CORNER") {
+                } elseif ($curve->tag[$i] === "CORNER") {
                     $p .= $segment($i);
                 }
             }
@@ -1197,5 +1205,3 @@ class Potracio
         return $svg;
     }
 }
-
-?>
