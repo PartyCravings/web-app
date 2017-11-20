@@ -5,6 +5,7 @@ namespace AppBundle\Repository;
 use AppBundle\Utils\Sorter;
 use Pagerfanta\Pagerfanta;
 use AppBundle\Entity\Country;
+use AppBundle\Entity\Category;
 
 /**
  * CategoryRepository
@@ -66,7 +67,7 @@ class CategoryRepository extends \Gedmo\Tree\Entity\Repository\NestedTreeReposit
         return $this->createQueryBuilder('p')
                 ->andWhere('p.isEnabled = true')
                 ->andWhere('p.slug = :slug')
-                ->setParameter($slug)
+                ->setParameter('slug', $slug)
                 ->getQuery()
                 ->useQueryCache(true)
                 ->useResultCache(true)

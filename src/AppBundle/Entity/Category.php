@@ -33,6 +33,13 @@ class Category
     private $id;
 
     /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean")
+     */
+    private $isVisibleOnHome = true;
+
+    /**
      * @Assert\Length(
      *     min=3,
      *     minMessage="category.title.too_short",
@@ -593,5 +600,29 @@ class Category
     public function getTaxRate()
     {
         return $this->taxRate;
+    }
+
+    /**
+     * Set isVisibleOnHome
+     *
+     * @param boolean $isVisibleOnHome
+     *
+     * @return Category
+     */
+    public function setIsVisibleOnHome($isVisibleOnHome)
+    {
+        $this->isVisibleOnHome = $isVisibleOnHome;
+
+        return $this;
+    }
+
+    /**
+     * Get isVisibleOnHome
+     *
+     * @return boolean
+     */
+    public function getIsVisibleOnHome()
+    {
+        return $this->isVisibleOnHome;
     }
 }

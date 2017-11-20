@@ -95,17 +95,21 @@ class ServiceRepository extends \Doctrine\ORM\EntityRepository
         return Sorter::createPaginator($query, $page, self::NUM_ITEMS);
     }
 
-    public function findAllByCategoryLocation(Category $category, Location $location, int $page) :Pagerfanta
+    public function findAllByCategoryLocation(Category $category, $location, int $page) :Pagerfanta
     {
         $query = $this->createQueryBuilder('p')
                 ->where('p.isEnabled = true')
                 ->andWhere('p.category = :category')
-                ->andWhere('p.location = :location')
+                ->andWhere('l.location = :location')
+                ->orWhere('m.location = :location')
                 ->leftJoin('p.reviews', 'f')
+                ->leftJoin('p.address', 'l')
+                ->leftJoin('p.vendor', 'k')
+                ->leftJoin('k.address', 'm')
                 ->addSelect('f')
                 ->setParameter('category', $category)
                 ->setParameter('location', $location)
-                ->orderBy('p.dateAdd', 'DESC')
+                ->orderBy('p.created', 'DESC')
                 ->getQuery()
                 ->useQueryCache(true)
                 ->useResultCache(true);

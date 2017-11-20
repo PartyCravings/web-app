@@ -5,30 +5,17 @@
         <input class="search" autocomplete="off" tabindex="0"><span class="text">{{ 'Select Language'|trans }}</span>
         <div class="menu transition hidden" tabindex="-1">
           {% for locale in locales() %}
-    <div class="item{% if app.request.locale == locale.code %} active selected{% else %}{% endif %}"><a href="{{ path(app.request.get('_route', 'homepage'), app.request.get('_route_params', [])|merge({_locale: locale.code})) }}">{{ locale.name|capitalize }}</a></div>
+    <div class="item{% if app.request.locale == locale.code %} active selected{% else %}{% endif %}"><a href="{{ url(app.request.get('current_route', 'homepage'), app.request.get('_route_params', [])|merge({_locale: locale.code})) }}">{{ locale.name|capitalize }}</a></div>
     {% endfor %}
         </div>
       </div>
   </div>
     <div class="item">
-        <a href="/"><b>UI Docs</b></a>
-    </div><a class="item" href="/introduction/getting-started.html"><b>Getting Started</b></a> <a class="item" href="/introduction/new.html"><b>New in 2.2</b></a>
-    <div class="item">
-        <div class="header">
-            Introduction
-        </div>
-        <div class="menu">
-            <a class="item" href="/introduction/integrations.html">Integrations</a> <a class="item" href="/introduction/build-tools.html">Build Tools</a> <a class="item" href="/introduction/advanced-usage.html">Recipes</a> <a class="item" href="/introduction/glossary.html">Glossary</a>
-        </div>
+        <a href="{{ url('fos_user_registration_register') }}"><b>{{ 'Sign Up'|trans }}</b></a>
     </div>
     <div class="item">
-        <div class=" header">
-            Behaviors
-        </div>
-        <div class="menu">
-            <a class="item" href="/behaviors/api.html">API</a> <a class="item" href="/behaviors/form.html">Form Validation</a> <a class="item" href="/behaviors/visibility.html">Visibility</a>
-        </div>
-    </div>
+        <a href="{{ url('fos_user_security_login') }}"><b>{{ 'Login In'|trans }}</b></a>
+    </div>{{ tree|raw }}
 </div>
     <div class="pusher" id="content">
         <!--All the divs-->

@@ -44,7 +44,7 @@
         <body>
             {% block body %}
                 <div class="ui vertical inverted orange sidebar menu">
-                    {{ render_esi(url('sitewide_header')) }}
+                    {{ render_esi(url('sitewide_header'), {'current_route' : app.request.uri }) }}
                         {% block content %}{% endblock %}
                     {{ render_esi(url('sitewide_footer')) }}
                 </div>

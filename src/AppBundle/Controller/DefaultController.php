@@ -82,9 +82,8 @@ class DefaultController extends AbstractController
                     }
                 )
      * @Template(
-                    ":fragments:_header.html.twig",
-                     vars={"categories", "_country"}
-            )
+                    ":fragments:_header.html.twig"
+                    )
      * @Cache(
                 smaxage=1,
                 vary={"PHPSESSID"}
@@ -92,8 +91,32 @@ class DefaultController extends AbstractController
      * @param EntityManagerInterface $em
      * @return array
      */
-    public function headerAction(Country $_country, array $categories) :void
+    public function headerAction(Country $_country, array $categories, EntityManagerInterface $em) :array
     {
+        $controller = $this;
+        $tree = $em->getRepository('AppBundle:Category')->childrenHierarchy(null,false,array('decorate' => true,
+            'rootOpen' => function($tree) {
+                if(count($tree) && ($tree[0]['lvl'] == 0)){
+                        return '<div class="item">';
+                }
+            },
+            'rootClose' => function($child) {
+                if(count($child) && ($child[0]['lvl'] == 0)){
+                                return '</div>';
+                }
+             },
+            'childOpen' => '',
+            'childClose' => '',
+            'nodeDecorator' => function($node) use (&$controller) {
+                if($node['lvl'] == 1) {
+                    return '<h3>'.ucfirst($node['title']).'</h3>';
+                }elseif($node["isVisibleOnHome"]) {
+                    return '<a href="'.$controller->generateUrl("site_services_categories",array("slug"=>$node['slug'])).'">'.$node['title'].'</a>&nbsp;';
+                }
+            }
+        ));
+
+        return array('tree'=> $tree, 'categories'=> $categories, '_country'=> $_country);
     }
 
     /**
