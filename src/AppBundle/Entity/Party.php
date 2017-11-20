@@ -126,11 +126,25 @@ class Party
     private $updatedBy;
 
     /**
+     * @var EmbeddedFile[]|ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="Files", cascade={"persist"})
+     */
+    private $uploadedFiles;
+
+    /**
      * @var bool
      *
      * @ORM\Column(name="is_enabled", type="boolean")
      */
     private $isEnabled = true;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime", nullable=true)
+     */
+    private $date;
 
     public function __construct()
     {
@@ -517,5 +531,63 @@ class Party
     public function getUpdatedBy()
     {
         return $this->updatedBy;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     *
+     * @return Party
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Add uploadedFile
+     *
+     * @param \AppBundle\Entity\Files $uploadedFile
+     *
+     * @return Party
+     */
+    public function addUploadedFile(\AppBundle\Entity\Files $uploadedFile)
+    {
+        $this->uploadedFiles[] = $uploadedFile;
+
+        return $this;
+    }
+
+    /**
+     * Remove uploadedFile
+     *
+     * @param \AppBundle\Entity\Files $uploadedFile
+     */
+    public function removeUploadedFile(\AppBundle\Entity\Files $uploadedFile)
+    {
+        $this->uploadedFiles->removeElement($uploadedFile);
+    }
+
+    /**
+     * Get uploadedFiles
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUploadedFiles()
+    {
+        return $this->uploadedFiles;
     }
 }

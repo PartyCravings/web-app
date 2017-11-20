@@ -68,6 +68,31 @@
                 }) }}"></script>
                 <script src="{{ preload(asset('build/app.js'), {nopush: true}) }}" type="text/javascript"></script>
                 <script type='text/javascript'>window.vapidPublicKey = '{{ vapidPublicKey }}';</script>
+                <script type="text/javascript">$(".ui.embed").embed();
+                    $('.menu .item').tab();
+                    $('.ui.rating').rating('disable');
+                    $('.ui.dropdown').dropdown({
+                      on: 'hover'
+                    });
+                    $('img.lazy').visibility({
+                      type: 'image',
+                      transition: 'fade in',
+                      duration: 300
+                    });
+                    $('header').visibility({
+                            type: 'fixed'
+                          });
+                    if (/Android|BlackBerry|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent) === false) {
+                      $('#example-1').sticklr({
+                        showOn: 'hover',
+                        stickTo: 'right',
+                      });
+                    } //run sticklr, not a mobile device
+                    else {
+                      $('.toggle.button').click(function() {
+                        $('.ui.sidebar').sidebar('toggle');
+                      });
+                    } //mobile device, initialise sidebar instead</script>
             {% endblock %}
             {% include "GoogleBundle:Analytics:async.html.twig" %}
 

@@ -5,16 +5,18 @@ namespace AppBundle\Controller\Notifications;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use AppBundle\Entity\Subscriber;
 use AppBundle\Entity\Country;
 
-/* Class NotificationController
+/** Class NotificationController
  * @package AppBundle\Controller
  *
- * @Route("/notification")
+ * @Route("/notification",  name="notification")
+ * @Method("POST")
  * @ParamConverter(
                     "_country",
                     class="AppBundle:Country",
@@ -29,7 +31,6 @@ class NotificationController extends AbstractController
 {
     /**
      * @Route("/register", name="notification_register")
-     * @Method("POST")
      */
     public function registerAction(Country $_country, Request $request, EntityManagerInterface $em)
     {
@@ -54,7 +55,6 @@ class NotificationController extends AbstractController
 
     /**
      * @Route("/newsletter", name="notification_newsletter_register")
-     * @Method("POST")
      */
     public function newsletterAction(Country $_country, Request $request, EntityManagerInterface $em)
     {
@@ -85,7 +85,6 @@ class NotificationController extends AbstractController
 
     /**
      * @Route("/unregister", name="notification_unregister")
-     * @Method("POST")
      */
     public function unregisterAction(Request $request, EntityManagerInterface $em)
     {

@@ -19,7 +19,7 @@ JMSTranslationBundle_ui:
 _main:
     resource: routing.yml
 
-app:
+app2:
     resource: '@AppBundle/Controller/'
     type:     annotation
     prefix:   /{_country}

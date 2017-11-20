@@ -1,7 +1,7 @@
 {% block header %}
     <div class="item">
     <div class="ui floating dropdown labeled search icon button">
-        <i class="world icon"></i><input class="search" autocomplete="off" tabindex="0"><span class="text">
+        <i class="orange world icon"></i><input class="search" autocomplete="off" tabindex="0"><span class="text">
         {% for locale in locales() %}
             {% if app.request.locale == locale.code %}
                 {{ locale.name|capitalize }}
@@ -79,7 +79,7 @@
                             <a class="ui circular orange right labeled icon button" name="party now"><i class="right arrow icon"></i>{{ 'PARTY NOW'|trans }}</a>
                         </div>
                         <div class="ui two wide column">
-                            {% if app.user is null %} <img alt="john doe" class="ui avatar image" src="{{ preload(gravatar('xx', null, null, null, true), {nopush: true}) }}"> <a href="{{ url('fos_user_security_login') }}" rel="nofollow">{{ 'security.login'|trans({}, 'FOSUserBundle') }}</a> {% else %} <img alt="{{ app.user.username }}" class="ui avatar image" src="{{ preload(gravatar(app.user.email, null, null, null, true), {nopush: true}) }}"> <a href="{{ url('fos_user_security_logout') }}" rel="nofollow">{{ 'security.logout'|trans({}, 'FOSUserBundle') }}</a> {% endif %}
+                            <img alt="john doe" class="ui avatar image" src="{{ preload(gravatar('xx', null, null, null, true), {nopush: true}) }}"> <a href="{{ url('fos_user_security_login') }}" rel="nofollow">{{ 'security.login'|trans({}, 'FOSUserBundle') }}</a>
                         </div>
                     </div>
                     <div class="ui tablet mobile only row">
@@ -92,7 +92,7 @@
                             </div>
                         </form>
                         <div class="ui right floated image">
-                            {% if app.user is null %} <a href="{{ url('fos_user_security_login') }}" rel="nofollow"><img alt="john doe" class="ui avatar image" src="{{ preload(gravatar('xx', null, null, null, true), {nopush: true}) }}" style="position: relative; top: 50%; transform: translateY(-50%);"></a> {% else %} <a href="{{ url('fos_user_security_logout') }}" rel="nofollow"><img alt="{{ app.user.username }}" class="ui avatar image" src="{{ preload(gravatar(app.user.email, null, null, null, true), {nopush: true}) }}" style="position: relative; top: 50%; transform: translateY(-50%);"></a> {% endif %}
+                            <a href="{{ url('fos_user_security_login') }}" rel="nofollow"><img alt="john doe" class="ui avatar image" src="{{ preload(gravatar('xx', null, null, null, true), {nopush: true}) }}" style="position: relative; top: 50%; transform: translateY(-50%);"></a>
                         </div>
                     </div>
                 </div>

@@ -74,29 +74,3 @@ $(window).bind("load", ScaleSlider);
 $(window).bind("resize", ScaleSlider);
 $(window).bind("orientationchange", ScaleSlider);
 /*#endregion responsive code end*/
-
-$(".ui.embed").embed();
-$('.menu .item').tab();
-$('.ui.rating').rating('disable');
-$('.ui.dropdown').dropdown({
-  on: 'hover'
-});
-$('img.lazy').visibility({
-  type: 'image',
-  transition: 'fade in',
-  duration: 300
-});
-$('header').visibility({
-        type: 'fixed'
-      });
-if (/Android|BlackBerry|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent) === false) {
-  $('#example-1').sticklr({
-    showOn: 'hover',
-    stickTo: 'right',
-  });
-} //run sticklr, not a mobile device
-else {
-  $('.toggle.button').click(function() {
-    $('.ui.sidebar').sidebar('toggle');
-  });
-} //mobile device, initialise sidebar instead

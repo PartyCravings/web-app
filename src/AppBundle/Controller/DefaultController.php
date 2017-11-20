@@ -51,12 +51,23 @@ class DefaultController extends AbstractController
                         "repository_method" = "findHomePosts"
                     }
                 )
+
+    * @ParamConverter(
+                    "parties",
+                    class="AppBundle:Party",
+                    options=
+                    {
+                        "id" = "_country",
+                        "repository_method" = "findHomeParties"
+                    }
+                )
      * @Cache(smaxage=1)
      * @Template(
                     ":default:index.html.twig",
                     vars= {
                             "campaigns",
-                            "posts"
+                            "posts",
+                            "parties"
                         }
             )
      * @param array $campaigns
@@ -84,10 +95,7 @@ class DefaultController extends AbstractController
      * @Template(
                     ":fragments:_header.html.twig"
                     )
-     * @Cache(
-                smaxage=1,
-                vary={"PHPSESSID"}
-            )
+     * @Cache(smaxage=1)
      * @param EntityManagerInterface $em
      * @return array
      */
@@ -111,7 +119,7 @@ class DefaultController extends AbstractController
                 if($node['lvl'] == 1) {
                     return '<h3>'.ucfirst($node['title']).'</h3>';
                 }elseif($node["isVisibleOnHome"]) {
-                    return '<a href="'.$controller->generateUrl("site_services_categories",array("slug"=>$node['slug'])).'">'.$node['title'].'</a>&nbsp;';
+                    return '<a href="'.$controller->generateUrl("site_services_categories",array("slug"=>$node['slug'])).'">'.ucfirst($node['title']).'</a>&nbsp;';
                 }
             }
         ));

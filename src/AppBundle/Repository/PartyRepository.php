@@ -10,4 +10,18 @@ namespace AppBundle\Repository;
  */
 class PartyRepository extends \Doctrine\ORM\EntityRepository
 {
+	const HOME_MAX_PARTIES = 6;
+
+	public function findHomeParties() :array
+	{
+		return $this->createQueryBuilder('p')
+			->where('p.date >= :date')
+			->setParameter('date', new \DateTime('+ 2 days'))
+			->orderBy('p.created', 'DESC')
+			->setMaxResults(self::HOME_MAX_PARTIES)
+			->getQuery()
+            ->useQueryCache(true)
+            ->useResultCache(true)
+            ->getResult();
+	}
 }
