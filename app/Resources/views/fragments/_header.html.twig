@@ -1,11 +1,15 @@
 {% block header %}
     <div class="item">
     <div class="ui floating dropdown labeled search icon button">
-        <i class="world icon"></i>
-        <input class="search" autocomplete="off" tabindex="0"><span class="text">{{ 'Select Language'|trans }}</span>
+        <i class="world icon"></i><input class="search" autocomplete="off" tabindex="0"><span class="text">
+        {% for locale in locales() %}
+            {% if app.request.locale == locale.code %}
+                {{ locale.name|capitalize }}
+            {% endif %}
+        {% endfor %}</span>
         <div class="menu transition hidden" tabindex="-1">
           {% for locale in locales() %}
-    <div class="item{% if app.request.locale == locale.code %} active selected{% else %}{% endif %}"><a href="{{ url(app.request.get('current_route', 'homepage'), app.request.get('_route_params', [])|merge({_locale: locale.code})) }}">{{ locale.name|capitalize }}</a></div>
+            <div class="item{% if app.request.locale == locale.code %} active selected{% else %}{% endif %}"><a style="color: black;" href="{{ url(app.request.get('current_route', 'homepage'), app.request.get('_route_params', [])|merge({_locale: locale.code})) }}">{{ locale.name|capitalize }}</a></div>
     {% endfor %}
         </div>
       </div>
