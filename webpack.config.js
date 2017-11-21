@@ -64,7 +64,7 @@ Encore
     fileName: 'manifest-main.json',
     basePath: '/build/',
     seed: {
-        short_name: "PartyCraving",
+        short_name: "Cravings",
         name: "PartyCravings Inc.",
         start_url: "/",
         icons: [{
