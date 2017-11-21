@@ -1,15 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2017-10-23T15:21:49Z" source-language="en" target-language="zh" datatype="plaintext" original="not.available">
+  <file date="2017-11-21T11:12:22Z" source-language="en" target-language="zh" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
     </header>
     <body>
-      <trans-unit id="032d606dfd99351b46863cdebd81c3b390d9ef0a" resname="rights_reserved">
-        <source>rights_reserved</source>
-        <target state="new">rights_reserved</target>
-        <jms:reference-file line="50">/Resources/views/fragments/_footer.html.twig</jms:reference-file>
+      <trans-unit id="1fd266c217d796db7382651498389bb639d8eaa2" resname="All Categories">
+        <source>All Categories</source>
+        <target state="new">All Categories</target>
+        <jms:reference-file line="67">/Resources/views/fragments/_header.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bcf31aed685d326ec3c0b7b6e880bc9f6716a390" resname="FROM THE BLOG">
+        <source>FROM THE BLOG</source>
+        <target state="new">FROM THE BLOG</target>
+        <jms:reference-file line="158">/Resources/views/default/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="b8e385941565b7601d85e6e4f293d33a178035f0" resname="Lorel ipsum dolo... - reason">
+        <source>Lorel ipsum dolo... - reason</source>
+        <target state="new">Lorel ipsum dolo... - reason</target>
+        <jms:reference-file line="16">/Resources/views/fragments/_footer.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f53538db4d8b0ccca9a6be884e23d7740b7a4a33" resname="NEWSLETTER">
+        <source>NEWSLETTER</source>
+        <target state="new">NEWSLETTER</target>
+        <jms:reference-file line="58">/Resources/views/fragments/_footer.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a0ee80157d3d3d43b4440b11da6fefbee622fe67" resname="Need help ?">
+        <source>Need help ?</source>
+        <target state="new">Need help ?</target>
+        <jms:reference-file line="46">/Resources/views/fragments/_header.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0b8d4819f0793c13b4b876bc7aadd4bbdef420b4" resname="OTHER COUNTRIES">
+        <source>OTHER COUNTRIES</source>
+        <target state="new">OTHER COUNTRIES</target>
+        <jms:reference-file line="23">/Resources/views/fragments/_footer.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="dee9889ad644e6e58468f0ff85f3a57aa76cfbd9" resname="OTHERS">
+        <source>OTHERS</source>
+        <target state="new">OTHERS</target>
+        <jms:reference-file line="37">/Resources/views/fragments/_header.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e22d55e5b68cefda044cdb44e648d61ff7205147" resname="OUR TOP BRANDS">
+        <source>OUR TOP BRANDS</source>
+        <target state="new">OUR TOP BRANDS</target>
+        <jms:reference-file line="5">/Resources/views/fragments/_footer.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5d53ff178146dd1541cca0d004d76033d534fc17" resname="PAGES">
+        <source>PAGES</source>
+        <target state="new">PAGES</target>
+        <jms:reference-file line="46">/Resources/views/fragments/_footer.html.twig</jms:reference-file>
+        <jms:reference-file line="52">/Resources/views/fragments/_footer.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="80f7b9d3dc54e4a1b4e0db4a0422cee226e720f6" resname="PARTY NOW">
+        <source>PARTY NOW</source>
+        <target state="new">PARTY NOW</target>
+        <jms:reference-file line="79">/Resources/views/fragments/_header.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3ae5a4f21ea0626bab5ac6472de6e1415aaa416a" resname="Subscribe to our newsletter">
+        <source>Subscribe to our newsletter</source>
+        <target state="new">Subscribe to our newsletter</target>
+        <jms:reference-file line="60">/Resources/views/fragments/_footer.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="974fc164f6e733e3ff3b6ef39af48d5d04ea76f3" resname="UPCOMING PARTIES">
+        <source>UPCOMING PARTIES</source>
+        <target state="new">UPCOMING PARTIES</target>
+        <jms:reference-file line="131">/Resources/views/default/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ffca59bc5b7dadbd212670e6b6a56cc99bdf495f" resname="What are you looking for?">
+        <source>What are you looking for?</source>
+        <target state="new">What are you looking for?</target>
+        <jms:reference-file line="65">/Resources/views/fragments/_header.html.twig</jms:reference-file>
+        <jms:reference-file line="91">/Resources/views/fragments/_header.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="dd960e096f72ccc66a7350525efff560cad2a4f2" resname="Why choose PartyCravings?">
+        <source>Why choose PartyCravings?</source>
+        <target state="new">Why choose PartyCravings?</target>
+        <jms:reference-file line="15">/Resources/views/fragments/_footer.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0978f3c6f4185eb6e220f6723aa8a226432d475c" resname="Your email address...">
+        <source>Your email address...</source>
+        <target state="new">Your email address...</target>
+        <jms:reference-file line="65">/Resources/views/fragments/_footer.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="8bb4d180102e5a3e5a94308ba747791fb45d46d5" resname="newsletter.signup.failed">
+        <source>newsletter.signup.failed</source>
+        <target state="new">newsletter.signup.failed</target>
+        <jms:reference-file line="79">/../src/AppBundle/Controller/Notifications/NotificationController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="58086f4144c510d3d8f9d2f6255538b8ee1ded86" resname="newsletter.signup.success">
+        <source>newsletter.signup.success</source>
+        <target state="new">newsletter.signup.success</target>
+        <jms:reference-file line="77">/../src/AppBundle/Controller/Notifications/NotificationController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c9dbc1b936a26837ac67c89d47eca568591c3186" resname="rights.reserved">
+        <source>rights.reserved</source>
+        <target state="new">rights.reserved</target>
+        <jms:reference-file line="41">/Resources/views/fragments/_footer.html.twig</jms:reference-file>
       </trans-unit>
     </body>
   </file>

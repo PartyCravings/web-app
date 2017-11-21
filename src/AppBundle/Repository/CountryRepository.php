@@ -20,6 +20,7 @@ class CountryRepository extends \Doctrine\ORM\EntityRepository
             ->where('p.isEnabled = true')
             ->andWhere('p.subdomain = :name')
             ->orWhere('p.hostname = :name')
+            ->orWhere('p.name = :name')
             ->andWhere('p.isEnabled = true')
             ->setParameter('name', $name)
             ->getQuery()

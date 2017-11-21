@@ -15,8 +15,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
  * Class ControllerCurrency
  *
  * @Route(
- *      path = "/currency",
- * )
+ *      path = "/currency")
  */
 class CurrencyController extends AbstractController
 {

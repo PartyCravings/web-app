@@ -19,14 +19,6 @@ JMSTranslationBundle_ui:
 _main:
     resource: routing.yml
 
-app2:
-    resource: '@AppBundle/Controller/'
-    type:     annotation
-    prefix:   /{_country}
-    defaults: 
-        _country: ng.partycravings.com
-    options:
-        utf8: true
 
 #EasyAdminBundle Routes
 easy_admin_bundle:

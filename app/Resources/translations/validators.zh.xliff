@@ -1,11 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2017-10-23T15:21:49Z" source-language="en" target-language="zh" datatype="plaintext" original="not.available">
+  <file date="2017-11-21T11:12:22Z" source-language="en" target-language="zh" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
     </header>
     <body>
+      <trans-unit id="e11bb56c72054da19e65bde2c6f8ca1a3c44461e" resname="address.address.too_long">
+        <source>address.address.too_long</source>
+        <target state="new">address.address.too_long</target>
+      </trans-unit>
+      <trans-unit id="6c75ac10c346109eabef4cfd9b0b91e5df571462" resname="address.address.too_short">
+        <source>address.address.too_short</source>
+        <target state="new">address.address.too_short</target>
+      </trans-unit>
+      <trans-unit id="e58345bff85dc60a8758d1a20a3b7359244ed194" resname="address.blank_address">
+        <source>address.blank_address</source>
+        <target state="new">address.blank_address</target>
+      </trans-unit>
+      <trans-unit id="dc3797840450e5b4bb71617a89e072cebd6d5ea3" resname="address.too_many_address">
+        <source>address.too_many_address</source>
+        <target state="new">address.too_many_address</target>
+      </trans-unit>
+      <trans-unit id="d90727cda623f188ff49f84c1ad844d0cf228525" resname="advise.blank_content">
+        <source>advise.blank_content</source>
+        <target state="new">advise.blank_content</target>
+      </trans-unit>
+      <trans-unit id="ae75c257245e8ea944b24f2855f77dc5b743f8cf" resname="advise.content.too_long">
+        <source>advise.content.too_long</source>
+        <target state="new">advise.content.too_long</target>
+      </trans-unit>
+      <trans-unit id="80f4af5eb3c2e53b5ca0866ebeb5df04c8d72466" resname="advise.content.too_short">
+        <source>advise.content.too_short</source>
+        <target state="new">advise.content.too_short</target>
+      </trans-unit>
+      <trans-unit id="70fdb88c0509693837201e12f849c81528ef9888" resname="bugReport.invalid_code">
+        <source>bugReport.invalid_code</source>
+        <target state="new">bugReport.invalid_code</target>
+      </trans-unit>
+      <trans-unit id="e66d2cbee6202144226e092745d76047595a6455" resname="bugReport.subject.too_long">
+        <source>bugReport.subject.too_long</source>
+        <target state="new">bugReport.subject.too_long</target>
+      </trans-unit>
+      <trans-unit id="2f71931a457189d1ce0d9bbc118cc1afc76d89b0" resname="bugReport.subject.too_short">
+        <source>bugReport.subject.too_short</source>
+        <target state="new">bugReport.subject.too_short</target>
+      </trans-unit>
+      <trans-unit id="f9dc75b6b24e18eb507720eaa00cf8853b8acd15" resname="campaign.description.too_long">
+        <source>campaign.description.too_long</source>
+        <target state="new">campaign.description.too_long</target>
+      </trans-unit>
+      <trans-unit id="de6df5c1ee2c6ec9bb91e59226fbab70efab08e6" resname="campaign.description.too_short">
+        <source>campaign.description.too_short</source>
+        <target state="new">campaign.description.too_short</target>
+      </trans-unit>
+      <trans-unit id="6e25ba63d60004ba33828b99174e4cc606132e5f" resname="campaign.title.blank">
+        <source>campaign.title.blank</source>
+        <target state="new">campaign.title.blank</target>
+      </trans-unit>
+      <trans-unit id="7001274ce3bd4b325c208979abec0dee398786e3" resname="campaign.title.too_long">
+        <source>campaign.title.too_long</source>
+        <target state="new">campaign.title.too_long</target>
+      </trans-unit>
+      <trans-unit id="3127233b69da7791bc82fed0bb82a771c003c7db" resname="campaign.title.too_short">
+        <source>campaign.title.too_short</source>
+        <target state="new">campaign.title.too_short</target>
+      </trans-unit>
+      <trans-unit id="e45688cfb0dd634a5e206890fc6c73a0a05fc559" resname="category.title.blank">
+        <source>category.title.blank</source>
+        <target state="new">category.title.blank</target>
+      </trans-unit>
+      <trans-unit id="51afced3d7ac7c0961de4e4553683f3015a23c91" resname="category.title.too_long">
+        <source>category.title.too_long</source>
+        <target state="new">category.title.too_long</target>
+      </trans-unit>
+      <trans-unit id="61a21add3463f9e0397d004e57aa66560de62e25" resname="category.title.too_short">
+        <source>category.title.too_short</source>
+        <target state="new">category.title.too_short</target>
+      </trans-unit>
+      <trans-unit id="85c88bfdbdf87a54e835865657243281b9d7efa9" resname="country.categories.blank">
+        <source>country.categories.blank</source>
+        <target state="new">country.categories.blank</target>
+      </trans-unit>
+      <trans-unit id="9ac9ce3069063369558e681ab56ee319e7753574" resname="country.contacts.blank">
+        <source>country.contacts.blank</source>
+        <target state="new">country.contacts.blank</target>
+      </trans-unit>
+      <trans-unit id="2e6184fcaf884e913d70b2af79ec8096d0f9700e" resname="country.defaultcurrency.blank">
+        <source>country.defaultcurrency.blank</source>
+        <target state="new">country.defaultcurrency.blank</target>
+      </trans-unit>
+      <trans-unit id="b7f822afc18b39f9078f5d009d8ef4fd9b9e915a" resname="country.defaultlanguage.blank">
+        <source>country.defaultlanguage.blank</source>
+        <target state="new">country.defaultlanguage.blank</target>
+      </trans-unit>
+      <trans-unit id="cea1ad110e77b806654605ec17d66cc6a9245389" resname="country.defaultlanguage.invalid">
+        <source>country.defaultlanguage.invalid</source>
+        <target state="new">country.defaultlanguage.invalid</target>
+      </trans-unit>
+      <trans-unit id="d91241670481f48750587a968d78df47a46b5df0" resname="country.defaultlocale.blank">
+        <source>country.defaultlocale.blank</source>
+        <target state="new">country.defaultlocale.blank</target>
+      </trans-unit>
+      <trans-unit id="7d0218e81374c2c1ab85f652e8ca1468e20c465f" resname="country.defaultlocale.invalid">
+        <source>country.defaultlocale.invalid</source>
+        <target state="new">country.defaultlocale.invalid</target>
+      </trans-unit>
+      <trans-unit id="6a5744c2e9bb628c801c22d245a5a8f6ef9e41ff" resname="country.exists">
+        <source>country.exists</source>
+        <target state="new">country.exists</target>
+      </trans-unit>
+      <trans-unit id="5966e965630eef3f7fb86acbf6e9036e9f539324" resname="country.hostname.not_resolved">
+        <source>country.hostname.not_resolved</source>
+        <target state="new">country.hostname.not_resolved</target>
+      </trans-unit>
+      <trans-unit id="6d84bbf543eb04746173f22577385f14e447ccb7" resname="country.name.blank">
+        <source>country.name.blank</source>
+        <target state="new">country.name.blank</target>
+      </trans-unit>
+      <trans-unit id="68ce9a8fee2c13b149fe09eae2fd851edb76425a" resname="country.name.invalid">
+        <source>country.name.invalid</source>
+        <target state="new">country.name.invalid</target>
+      </trans-unit>
+      <trans-unit id="064c4bf7f1fee737b2d801de35f5c14b54ff474a" resname="country.sociallinks.blank">
+        <source>country.sociallinks.blank</source>
+        <target state="new">country.sociallinks.blank</target>
+      </trans-unit>
+      <trans-unit id="b0390237dddc57075fcac03b809ee6c612a81cb4" resname="country.taxrate.blank">
+        <source>country.taxrate.blank</source>
+        <target state="new">country.taxrate.blank</target>
+      </trans-unit>
+      <trans-unit id="196e61ef9a4d745fa34c1c36687cdd2638f977a5" resname="country.taxrate.invalid">
+        <source>country.taxrate.invalid</source>
+        <target state="new">country.taxrate.invalid</target>
+      </trans-unit>
+      <trans-unit id="1d5966dfdfe910c27c834f51122276b0248bd1a1" resname="country.timezone.blank">
+        <source>country.timezone.blank</source>
+        <target state="new">country.timezone.blank</target>
+      </trans-unit>
+      <trans-unit id="eadb3ca9f500a7fa0eee9cf23c4a0ee3c7feb318" resname="coupon.name.blank">
+        <source>coupon.name.blank</source>
+        <target state="new">coupon.name.blank</target>
+      </trans-unit>
+      <trans-unit id="05b87a520a3f2f3d3abf1074c6ef8291165bb94a" resname="currency.isocode.blank">
+        <source>currency.isocode.blank</source>
+        <target state="new">currency.isocode.blank</target>
+      </trans-unit>
+      <trans-unit id="2baff63a0a44de2b189891c28558775836ca6e3d" resname="currency.isoocode.invalid">
+        <source>currency.isoocode.invalid</source>
+        <target state="new">currency.isoocode.invalid</target>
+      </trans-unit>
+      <trans-unit id="582f991f289e276eb6fe478acd3fd516992f7f97" resname="currency.name.blank">
+        <source>currency.name.blank</source>
+        <target state="new">currency.name.blank</target>
+      </trans-unit>
+      <trans-unit id="0ba40e80dee53ee3cbac4a9f0053f7be38d823b4" resname="currency.rate.blank">
+        <source>currency.rate.blank</source>
+        <target state="new">currency.rate.blank</target>
+      </trans-unit>
+      <trans-unit id="8971a15a2494ea80f85ce6e7f8d361e13bcc20d0" resname="currency.symbol.blank">
+        <source>currency.symbol.blank</source>
+        <target state="new">currency.symbol.blank</target>
+      </trans-unit>
+      <trans-unit id="9e7830e7e1841b7cbe1b61de780e8d651aad8dce" resname="feature.icon.too_long">
+        <source>feature.icon.too_long</source>
+        <target state="new">feature.icon.too_long</target>
+      </trans-unit>
+      <trans-unit id="d366644821ec6bc8ec51d8998240b7eb8aff017a" resname="feature.icon.too_short">
+        <source>feature.icon.too_short</source>
+        <target state="new">feature.icon.too_short</target>
+      </trans-unit>
+      <trans-unit id="4c44e49090c14b26e409201a85e1e1f8d8adb340" resname="feature.name.blank">
+        <source>feature.name.blank</source>
+        <target state="new">feature.name.blank</target>
+      </trans-unit>
+      <trans-unit id="d80dc150102ff173256047bf162b9ecde78a2ceb" resname="feature.name.too_long">
+        <source>feature.name.too_long</source>
+        <target state="new">feature.name.too_long</target>
+      </trans-unit>
+      <trans-unit id="1817c05f1bfdff3f91fb4907d70cbc4ee7476573" resname="feature.name.too_short">
+        <source>feature.name.too_short</source>
+        <target state="new">feature.name.too_short</target>
+      </trans-unit>
       <trans-unit id="f48ccf84018671218aac090abf90770212497b70" resname="fos_user.email.already_used">
         <source>fos_user.email.already_used</source>
         <target state="new">fos_user.email.already_used</target>
@@ -49,6 +225,202 @@
       <trans-unit id="920e8d37f8a7c923ece7d123d55668ac522d612d" resname="fos_user.username.short">
         <source>fos_user.username.short</source>
         <target state="new">fos_user.username.short</target>
+      </trans-unit>
+      <trans-unit id="91aa8fc454c966d102c4d2239c72da9bf32a9fa5" resname="location.country.blank">
+        <source>location.country.blank</source>
+        <target state="new">location.country.blank</target>
+      </trans-unit>
+      <trans-unit id="242615320d089d5884d42a7efabf8e0e35856848" resname="location.name.blank">
+        <source>location.name.blank</source>
+        <target state="new">location.name.blank</target>
+      </trans-unit>
+      <trans-unit id="1891f6c06082ce42e75f3e11478c68f7707c6ee1" resname="notification.country.blank">
+        <source>notification.country.blank</source>
+        <target state="new">notification.country.blank</target>
+      </trans-unit>
+      <trans-unit id="6f4400232cbf9d09f698eb73edcd1befae7c759d" resname="notification.icon.not_resolved">
+        <source>notification.icon.not_resolved</source>
+        <target state="new">notification.icon.not_resolved</target>
+      </trans-unit>
+      <trans-unit id="10821a6b76e6a44b931040b7b3f6b15d850888a8" resname="notification.link.not_resolved">
+        <source>notification.link.not_resolved</source>
+        <target state="new">notification.link.not_resolved</target>
+      </trans-unit>
+      <trans-unit id="7bb8ec51b8ba4c723bcab63652939837ac3a8934" resname="notification.subject.blank">
+        <source>notification.subject.blank</source>
+        <target state="new">notification.subject.blank</target>
+      </trans-unit>
+      <trans-unit id="1befb5ba28fd393639d9f30951e3ad57c275cf86" resname="notification.subject.too_long">
+        <source>notification.subject.too_long</source>
+        <target state="new">notification.subject.too_long</target>
+      </trans-unit>
+      <trans-unit id="bdade04d4d9cadea30d6e3a57ef4acd8d00b4a37" resname="notification.subject.too_short">
+        <source>notification.subject.too_short</source>
+        <target state="new">notification.subject.too_short</target>
+      </trans-unit>
+      <trans-unit id="8cd31b172bc5aa4bf6fb030e3e59f56ca8c5e55d" resname="order.orderDatas.blank">
+        <source>order.orderDatas.blank</source>
+        <target state="new">order.orderDatas.blank</target>
+      </trans-unit>
+      <trans-unit id="d345735989d14c49615e4bc827b58e575d70fe92" resname="orderdata.orderstatus.blank">
+        <source>orderdata.orderstatus.blank</source>
+        <target state="new">orderdata.orderstatus.blank</target>
+      </trans-unit>
+      <trans-unit id="b2083312b83837162b341dcf8ea5cce1ea94b3c6" resname="orderdata.service.blank">
+        <source>orderdata.service.blank</source>
+        <target state="new">orderdata.service.blank</target>
+      </trans-unit>
+      <trans-unit id="22b28119ac2d90d809799188ea1979ebbdbc312f" resname="orderstatus.name.blank">
+        <source>orderstatus.name.blank</source>
+        <target state="new">orderstatus.name.blank</target>
+      </trans-unit>
+      <trans-unit id="8f83147853acf8814e130749f052560e0264d1a7" resname="page.content.too_long">
+        <source>page.content.too_long</source>
+        <target state="new">page.content.too_long</target>
+      </trans-unit>
+      <trans-unit id="c83c1412b446aacf7ab64758faba7314ad60d0fb" resname="page.content.too_short">
+        <source>page.content.too_short</source>
+        <target state="new">page.content.too_short</target>
+      </trans-unit>
+      <trans-unit id="aab9141cd113986f82c3f53bf29df8fe64d08056" resname="page.title.blank">
+        <source>page.title.blank</source>
+        <target state="new">page.title.blank</target>
+      </trans-unit>
+      <trans-unit id="70ab09b1e3cc762a2e689061c25779f0603a3134" resname="party.description.too_long">
+        <source>party.description.too_long</source>
+        <target state="new">party.description.too_long</target>
+      </trans-unit>
+      <trans-unit id="b8c89603f4650c4c2ebc38205f75560a576c7bfc" resname="party.description.too_short">
+        <source>party.description.too_short</source>
+        <target state="new">party.description.too_short</target>
+      </trans-unit>
+      <trans-unit id="575170dd2852507f9b556aab3d3365927d9a0dc7" resname="party.title.blank">
+        <source>party.title.blank</source>
+        <target state="new">party.title.blank</target>
+      </trans-unit>
+      <trans-unit id="6620ace4b633b14bc3ceb48029083e9831979b28" resname="partycategory.title.blank">
+        <source>partycategory.title.blank</source>
+        <target state="new">partycategory.title.blank</target>
+      </trans-unit>
+      <trans-unit id="0851c8b44a180e1d34a5e916b66eb95ee156aa9c" resname="post.content.blank">
+        <source>post.content.blank</source>
+        <target state="new">post.content.blank</target>
+      </trans-unit>
+      <trans-unit id="e539062421f0053d89c37aab97cbf7e3d9dd2472" resname="post.content.too_long">
+        <source>post.content.too_long</source>
+        <target state="new">post.content.too_long</target>
+      </trans-unit>
+      <trans-unit id="d0e500da1c826fcc144d2ccd74b265b05816ac4d" resname="post.content.too_short">
+        <source>post.content.too_short</source>
+        <target state="new">post.content.too_short</target>
+      </trans-unit>
+      <trans-unit id="7ccf15de4e2e077d5f17c729679b74bee8644a3b" resname="post.summary.blank">
+        <source>post.summary.blank</source>
+        <target state="new">post.summary.blank</target>
+      </trans-unit>
+      <trans-unit id="6141c3ab6201a1ffb1b30172659bf4fd4906f8f0" resname="post.title.blank">
+        <source>post.title.blank</source>
+        <target state="new">post.title.blank</target>
+      </trans-unit>
+      <trans-unit id="6ceee83456db320f5b4df87057451c1266492746" resname="post.too_many_tags">
+        <source>post.too_many_tags</source>
+        <target state="new">post.too_many_tags</target>
+      </trans-unit>
+      <trans-unit id="468a488f236a1a02ecf7616b38687bc25f45e423" resname="review.content.blank">
+        <source>review.content.blank</source>
+        <target state="new">review.content.blank</target>
+      </trans-unit>
+      <trans-unit id="b1e82c02b6be27043bd2e46115f2f74166069c9c" resname="review.is_spam">
+        <source>review.is_spam</source>
+        <target state="new">review.is_spam</target>
+      </trans-unit>
+      <trans-unit id="0b1dac7faa81f258b9128dd1b7cbba8552adde36" resname="review.rating.blank">
+        <source>review.rating.blank</source>
+        <target state="new">review.rating.blank</target>
+      </trans-unit>
+      <trans-unit id="4ffe5189d380a7dd2e9a5e4349cff0381ce4b458" resname="review.rating.invalid">
+        <source>review.rating.invalid</source>
+        <target state="new">review.rating.invalid</target>
+      </trans-unit>
+      <trans-unit id="1184dd016690e1e109f2dbda0c3962d1b1dcc40a" resname="review.too_long">
+        <source>review.too_long</source>
+        <target state="new">review.too_long</target>
+      </trans-unit>
+      <trans-unit id="54c855576b1385996d4cbb3df7caf696b49a6e9a" resname="review.too_short">
+        <source>review.too_short</source>
+        <target state="new">review.too_short</target>
+      </trans-unit>
+      <trans-unit id="5f332ad28aa2e554872dc2a565d9984f06bd032c" resname="service.content.blank">
+        <source>service.content.blank</source>
+        <target state="new">service.content.blank</target>
+      </trans-unit>
+      <trans-unit id="e71acbe19812cd407dc39f2aee16b466f52317d4" resname="service.name.blank">
+        <source>service.name.blank</source>
+        <target state="new">service.name.blank</target>
+      </trans-unit>
+      <trans-unit id="1aac97a5f76783aef218d7fede21884af48ba155" resname="service.price.blank">
+        <source>service.price.blank</source>
+        <target state="new">service.price.blank</target>
+      </trans-unit>
+      <trans-unit id="9aea36e70001fb2849384d9ca52502a6b93e4b32" resname="service.too_many_feature">
+        <source>service.too_many_feature</source>
+        <target state="new">service.too_many_feature</target>
+      </trans-unit>
+      <trans-unit id="53a4cef04181136c0c7b5dadee3c80e89ba15d32" resname="service.too_short_content">
+        <source>service.too_short_content</source>
+        <target state="new">service.too_short_content</target>
+      </trans-unit>
+      <trans-unit id="ef3d3448043aaf83c879e2014aa93ade03f089e9" resname="social.content.blank">
+        <source>social.content.blank</source>
+        <target state="new">social.content.blank</target>
+      </trans-unit>
+      <trans-unit id="629d17fdb98ef566e0a8ac6df88b7a7b48aaf2c0" resname="social.link.not_resolved">
+        <source>social.link.not_resolved</source>
+        <target state="new">social.link.not_resolved</target>
+      </trans-unit>
+      <trans-unit id="7b33b8bd505018be659e5a5bcacb81ddc95c1dc1" resname="social.link.too_short">
+        <source>social.link.too_short</source>
+        <target state="new">social.link.too_short</target>
+      </trans-unit>
+      <trans-unit id="53f96bd8be1e44d3df473058ff1cdb7f2b14ad99" resname="social.name.too_short">
+        <source>social.name.too_short</source>
+        <target state="new">social.name.too_short</target>
+      </trans-unit>
+      <trans-unit id="f8dbf11ec420f27485cd0b4f4234d5033b3af8df" resname="tag.name.blank">
+        <source>tag.name.blank</source>
+        <target state="new">tag.name.blank</target>
+      </trans-unit>
+      <trans-unit id="814cc21201a31d686757d78c991f4c293e8483c4" resname="tag.name.too_long">
+        <source>tag.name.too_long</source>
+        <target state="new">tag.name.too_long</target>
+      </trans-unit>
+      <trans-unit id="2e266a74998a9c602d311116f2c336d8493b0c05" resname="tag.name.too_short">
+        <source>tag.name.too_short</source>
+        <target state="new">tag.name.too_short</target>
+      </trans-unit>
+      <trans-unit id="8e2b167d8acde999da75e27393c308b8c80da0d7" resname="tax.rate.blank">
+        <source>tax.rate.blank</source>
+        <target state="new">tax.rate.blank</target>
+      </trans-unit>
+      <trans-unit id="0205b88826e8166f8e86abb644086ba0eab60dcc" resname="taxrate.rate.invalid">
+        <source>taxrate.rate.invalid</source>
+        <target state="new">taxrate.rate.invalid</target>
+      </trans-unit>
+      <trans-unit id="ef42545e7c0fd95b4bc2650ab637d6aea549a8f8" resname="vendor.description.blank">
+        <source>vendor.description.blank</source>
+        <target state="new">vendor.description.blank</target>
+      </trans-unit>
+      <trans-unit id="edac9657d42e28870ce968cdd24848a43149c1a2" resname="vendor.description.too_long">
+        <source>vendor.description.too_long</source>
+        <target state="new">vendor.description.too_long</target>
+      </trans-unit>
+      <trans-unit id="063c19586a6ea674199a9630e30c6bda0a72c7d3" resname="vendor.description.too_short">
+        <source>vendor.description.too_short</source>
+        <target state="new">vendor.description.too_short</target>
+      </trans-unit>
+      <trans-unit id="f90de05bf00f45d8cf18501bf202e80aca04083e" resname="vendor.name.blank">
+        <source>vendor.name.blank</source>
+        <target state="new">vendor.name.blank</target>
       </trans-unit>
     </body>
   </file>
