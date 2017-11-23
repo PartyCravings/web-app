@@ -35,6 +35,7 @@
     {% endblock %}
 
     {% jshrink %}
+        {% include "GoogleBundle:Analytics:async.html.twig" %}
         {% block richSnippets %}
             {% include 'snippets/website.jsonld.twig' %}
         {% endblock %}
@@ -102,7 +103,6 @@
                           });
                         } //mobile device, initialise sidebar instead
                         </script>
-                        {% include "GoogleBundle:Analytics:async.html.twig" %}
                 {% endblock %}
             {% endjshrink %}
 
