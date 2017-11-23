@@ -10,7 +10,7 @@
 				},
 				"areaServed": {
 					"@type": "Country",
-					"name": "Nigeria"
+					"name": "{{ country.name|country(app.request.locale) }}"
 				},
 			  	"providerMobility": "dynamic"
 			}

@@ -71,4 +71,8 @@
             </div>
         </div>
     </footer>
+    {% jshrink %}
+        {% include 'snippets/organisation.jsonld.twig' %}
+        {% include 'snippets/service-provider.jsonld.twig' %}
+    {% endjshrink %}
 {% endblock footer %}

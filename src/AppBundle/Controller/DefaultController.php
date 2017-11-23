@@ -148,7 +148,7 @@ class DefaultController extends AbstractController
                     ":fragments:_footer.html.twig"
             )
      * @Cache(
-                smaxage=86400,
+                smaxage=1,
                 lastmodified="_country.getUpdated()",
                 etag="'Country' ~ _country.getId() ~ _country.getUpdated().format('Y-m-d')"
             )

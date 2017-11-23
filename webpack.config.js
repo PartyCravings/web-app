@@ -24,10 +24,6 @@ Encore
     // will output as web/build/app.js
     .addEntry('app', './assets/js/main.js')
 
-    .addEntry('home', './assets/js/home.js')
-
-    .addEntry('login', './assets/js/login.js')
-
     // will output as web/build/img.js
     .addEntry('img', './assets/img/images.js')
 
