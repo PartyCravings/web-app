@@ -7,7 +7,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs;
 use AppBundle\Entity\Country;
@@ -99,30 +101,40 @@ class DefaultController extends AbstractController
      * @param EntityManagerInterface $em
      * @return array
      */
-    public function headerAction(Country $_country, array $categories, EntityManagerInterface $em) :array
+    public function headerAction(Request $request, Country $_country, array $categories, EntityManagerInterface $em, UrlGeneratorInterface $generator) :array
     {
-        $controller = $this;
-        $tree = $em->getRepository('AppBundle:Category')->childrenHierarchy(null,false,array('decorate' => true,
-            'rootOpen' => function($tree) {
-                if(count($tree) && ($tree[0]['lvl'] == 0)){
+        $tree = $em->getRepository('AppBundle:Category')->childrenHierarchy(
+            null,
+            false,
+            array(
+                'decorate' => true,
+                'rootOpen' => function ($tree) {
+                    if (count($tree) && ($tree[0]['lvl'] == 0)) {
                         return '<div class="item">';
-                }
-            },
-            'rootClose' => function($child) {
-                if(count($child) && ($child[0]['lvl'] == 0)){
-                                return '</div>';
-                }
-             },
-            'childOpen' => '',
-            'childClose' => '',
-            'nodeDecorator' => function($node) use (&$controller) {
-                if($node['lvl'] == 1) {
-                    return '<h3>'.ucfirst($node['title']).'</h3>';
-                }elseif($node["isVisibleOnHome"]) {
-                    return '<a href="'.$controller->generateUrl("site_services_categories",array("slug"=>$node['slug'])).'">'.ucfirst($node['title']).'</a>&nbsp;';
-                }
-            }
-        ));
+                    }
+                },
+                'rootClose' => function ($child) {
+                    if (count($child) && ($child[0]['lvl'] == 0)) {
+                        return '</div>';
+                    }
+                },
+                'childOpen' => '',
+                'childClose' => '',
+                'nodeDecorator' => function ($node) use (&$generator) {
+                    if ($node['lvl'] == 1 || $node['isVisibleOnHome']) {
+                        return '<a href="'.
+                        $generator->generate(
+                            'site_services_categories',
+                            array(
+                                'slug' => $node['slug']
+                                ),
+                            UrlGeneratorInterface::ABSOLUTE_PATH
+                        )
+                        .'">'.ucfirst($node['title']).'</a>&nbsp;';
+                        }
+                    }
+                )
+        );
 
         return array('tree'=> $tree, 'categories'=> $categories, '_country'=> $_country);
     }

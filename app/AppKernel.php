@@ -38,6 +38,8 @@ class AppKernel extends Kernel
             new AntiMattr\GoogleBundle\GoogleBundle(),
             new Knp\Bundle\DisqusBundle\KnpDisqusBundle(),
             new Minishlink\Bundle\WebPushBundle\MinishlinkWebPushBundle(),
+            new Ivory\SerializerBundle\IvorySerializerBundle(),
+            new Http\HttplugBundle\HttplugBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

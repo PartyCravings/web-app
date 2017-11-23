@@ -55,7 +55,7 @@ class PartyController extends AbstractController
         $breadcrumbs->addRouteItem("Services", "site_services_index");
         $breadcrumbs->prependRouteItem("Home", "homepage");
 
-        return  array ('services'=> $services, 'categories'=> $categories);
+        return  array('services'=> $services, 'categories'=> $categories);
     }
 
     /**

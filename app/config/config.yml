@@ -289,6 +289,25 @@ ivory_ck_editor:
             uiColor:                '#C0C0C0'
             toolbar: standard
 
+#IvoryGoogleMapsBundle Configuration
+ivory_google_map:
+    place_autocomplete:
+        api_key: AIzaSyBwp8jow1XJeQp3LHDQyeQMRNxhGrgEiN8
+        client: httplug.client.default
+        message_factory: httplug.message_factory.default
+    map:
+        debug: "%kernel.debug%"
+        api_key: AIzaSyBwp8jow1XJeQp3LHDQyeQMRNxhGrgEiN8
+        language: "%locale%"
+
+#HttplugBundle Configuration
+httplug:
+    classes:
+        client: Http\Adapter\Guzzle6\Client
+        message_factory: Http\Message\MessageFactory\GuzzleMessageFactory
+    clients:
+        acme:
+            factory: httplug.factory.guzzle6
 #EasyAdminBundle Configuration
 easy_admin:
     site_name: PartyCravings℠

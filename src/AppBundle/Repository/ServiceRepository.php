@@ -49,15 +49,14 @@ class ServiceRepository extends \Doctrine\ORM\EntityRepository
         return Sorter::createPaginator($query, $page, self::NUM_ITEMS);
     }
 
-    public function findAllByCountry(Country $country, int $page) :Pagerfanta
+    public function findAllByCountry(int $page) :Pagerfanta
     {
         $query = $this->createQueryBuilder('p')
-                ->where('f.country = :country')
                 ->andWhere('p.isEnabled =  true')
                 ->innerJoin('p.category', 'f')
-                ->leftJoin('p.reviews', 'f')
-                ->addSelect('f')
-                ->orderBy('p.dateAdd', 'DESC')
+                ->leftJoin('p.reviews', 'k')
+                ->addSelect('k')
+                ->orderBy('p.created', 'DESC')
                 ->getQuery()
                 ->useQueryCache(true)
                 ->useResultCache(true);
@@ -95,20 +94,21 @@ class ServiceRepository extends \Doctrine\ORM\EntityRepository
         return Sorter::createPaginator($query, $page, self::NUM_ITEMS);
     }
 
-    public function findAllByCategoryLocation(Category $category, $location, int $page) :Pagerfanta
+    public function findAllByCategoryLocation(Category $category, $locationSlug, int $page) :Pagerfanta
     {
         $query = $this->createQueryBuilder('p')
                 ->where('p.isEnabled = true')
                 ->andWhere('p.category = :category')
-                ->andWhere('l.location = :location')
-                ->orWhere('m.location = :location')
+                ->andWhere('(s.slug = :location) OR (z.slug = :location)')
                 ->leftJoin('p.reviews', 'f')
                 ->leftJoin('p.address', 'l')
                 ->leftJoin('p.vendor', 'k')
                 ->leftJoin('k.address', 'm')
+                ->leftJoin('l.location', 's')
+                ->leftJoin('m.location', 'z')
                 ->addSelect('f')
                 ->setParameter('category', $category)
-                ->setParameter('location', $location)
+                ->setParameter('location', $locationSlug)
                 ->orderBy('p.created', 'DESC')
                 ->getQuery()
                 ->useQueryCache(true)

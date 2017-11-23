@@ -33,7 +33,7 @@ class CategoryRepository extends \Gedmo\Tree\Entity\Repository\NestedTreeReposit
             ->getResult();
     }
 
-    public function findAllByCountry(Country $country, int $page) :Pagerfanta
+    public function findAllByCountry($country, int $page) :Pagerfanta
     {
         $query = $this->createQueryBuilder('p')
             ->where('p.parent = false')

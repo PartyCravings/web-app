@@ -43,7 +43,7 @@
         <body>
             {% block body %}
                 <div class="ui vertical inverted orange sidebar menu">
-                    {{ render_esi(url('sitewide_header'), {'current_route' : app.request.uri }) }}
+                    {{ render_esi(url('sitewide_header', {'_croute' : app.request.get('_route'), '_croute_params' : app.request.get('_route_params')})) }}
                         {% block content %}{% endblock %}
                     {{ render_esi(url('sitewide_footer')) }}
                 </div>
@@ -67,8 +67,10 @@
                     nopush: true
                 }) }}"></script>
                 <script src="{{ preload(asset('build/app.js'), {nopush: true}) }}" type="text/javascript"></script>
+                <script src="{{ preload(asset('build/sticklr.js'), {nopush: true}) }}" type="text/javascript"></script>
                 <script type='text/javascript'>window.vapidPublicKey = '{{ vapidPublicKey }}';</script>
-                <script type="text/javascript">$(".ui.embed").embed();
+                <script type="text/javascript">
+                    $(".ui.embed").embed();
                     $('.menu .item').tab();
                     $('.ui.rating').rating('disable');
                     $('.ui.dropdown').dropdown({

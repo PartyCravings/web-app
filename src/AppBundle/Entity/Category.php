@@ -37,7 +37,7 @@ class Category
      *
      * @ORM\Column(type="boolean")
      */
-    private $isVisibleOnHome = true;
+    private $isVisibleOnHome = false;
 
     /**
      * @Assert\Length(
@@ -151,6 +151,13 @@ class Category
      * @ORM\ManyToOne(targetEntity="TaxRates")
      */
     private $taxRate;
+
+    /**
+     * @var EmbeddedFile
+     *
+     * @ORM\ManyToOne(targetEntity="Files", cascade={"persist"})
+     */
+    private $uploadedFiles;
 
 
     public function __construct()
@@ -624,5 +631,29 @@ class Category
     public function getIsVisibleOnHome()
     {
         return $this->isVisibleOnHome;
+    }
+
+    /**
+     * Set uploadedFiles
+     *
+     * @param \AppBundle\Entity\Files $uploadedFiles
+     *
+     * @return Category
+     */
+    public function setUploadedFiles(\AppBundle\Entity\Files $uploadedFiles = null)
+    {
+        $this->uploadedFiles = $uploadedFiles;
+
+        return $this;
+    }
+
+    /**
+     * Get uploadedFiles
+     *
+     * @return \AppBundle\Entity\Files
+     */
+    public function getUploadedFiles()
+    {
+        return $this->uploadedFiles;
     }
 }

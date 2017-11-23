@@ -2,12 +2,35 @@
 
 namespace AppBundle\Utils;
 
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Query;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Pagerfanta\Pagerfanta;
+use AppBundle\Entity\Category;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class Sorter
 {
+
+    /**
+     * @var EntityManagerInterface
+     */
+    private $em;
+
+
+    /*
+     * @param EntityManagerInterface $em
+     *
+     **/
+    public function __construct(
+        EntityManagerInterface $em,
+        UrlGeneratorInterface $generator
+    ) {
+        $this->generator = $generator;
+        $this->em = $em;
+    }
+
+
     public static function createPaginator(Query $query, int $page, int $maxPerPage = 20): Pagerfanta
     {
         $paginator = new Pagerfanta(new DoctrineORMAdapter($query));
@@ -32,5 +55,31 @@ class Sorter
         return array_filter($terms, function ($term) {
             return 2 <= mb_strlen($term);
         });
+    }
+
+    public function buildHtmlCategoryHierarchy(Category $category = null) : string
+    {
+        $generator = $this->generator;
+
+        $tree = $this->em->getRepository('AppBundle:Category')->childrenHierarchy($category, false, array('decorate' => true,
+            'rootOpen' => function ($tree) {
+                if (count($tree) && ($tree[0]['lvl'] == 0)) {
+                    return '<div class="item">';
+                }
+            },
+            'rootClose' => function ($child) {
+                if (count($child) && ($child[0]['lvl'] == 0)) {
+                    return '</div>';
+                }
+            },
+            'childOpen' => '',
+            'childClose' => '',
+            'nodeDecorator' => function ($node) use (&$generator) {
+                if ($node['lvl'] == 1 || $node['lvl'] == 2 ||  $node['lvl'] == 3) {
+                    return '<a href="'.$generator->generateUrl("site_services_categories", array("slug"=>$node['slug'])).'">'.ucfirst($node['title']).'</a>&nbsp;';
+                }
+            }
+        ));
+        return $tree;
     }
 }

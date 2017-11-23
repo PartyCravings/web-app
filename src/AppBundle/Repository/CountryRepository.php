@@ -18,9 +18,13 @@ class CountryRepository extends \Doctrine\ORM\EntityRepository
     {
         return $this->createQueryBuilder('p')
             ->where('p.isEnabled = true')
-            ->andWhere('p.subdomain = :name')
-            ->orWhere('p.hostname = :name')
-            ->orWhere('p.name = :name')
+            ->andWhere('(
+                p.subdomain = :name
+            ) OR (
+                p.hostname = :name
+            ) OR (
+                p.name = :name
+            )')
             ->andWhere('p.isEnabled = true')
             ->setParameter('name', $name)
             ->getQuery()

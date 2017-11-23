@@ -13,9 +13,6 @@ google_login:
 app:
     resource: '@AppBundle/Controller/'
     type:     annotation
-    host: '{_country}.%hostname%'
-    defaults: 
-        _country: ng
     options:
         utf8: true
 

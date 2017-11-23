@@ -40,6 +40,10 @@ services:
     #     arguments:
     #         $someArgument: 'some_value'
 
+    AppBundle\EventListener\CountrySubscriber:
+        tags:
+            - { name: kernel.event_subscriber }
+
     AppBundle\Doctrine\LocationBuilderListener:
         tags:
             - { name: doctrine.event_subscriber }

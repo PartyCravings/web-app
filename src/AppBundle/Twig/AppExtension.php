@@ -38,8 +38,11 @@ class AppExtension extends AbstractExtension
 
     private $locales;
 
-    public function __construct(Markdown $parser, array $locales)
-    {
+    public function __construct(
+        array $locales,
+        Markdown $parser
+
+    ) {
         $this->parser = $parser;
         $this->localeCodes = $locales;
     }
@@ -52,7 +55,8 @@ class AppExtension extends AbstractExtension
         return [
             new TwigFilter('md2html', [$this, 'markdownToHtml'], ['is_safe' => ['html']]),
             new TwigFilter('base64encode', [$this, 'base64encode'], ['is_safe' => ['html']]),
-            new TwigFilter('country', [$this, 'countryFilter'])
+            new TwigFilter('country', [$this, 'countryFilter']),
+            new TwigFilter('json_decode', [$this, 'jsonDecode'], ['is_safe' => ['html']])
         ];
     }
 
@@ -74,15 +78,17 @@ class AppExtension extends AbstractExtension
         return $this->parser->toHtml($content);
     }
 
-    /**
-     * Transforms the given Markdown content into HTML content.
-     */
+    public function jsonDecode(string $json) :array
+    {
+        return (array)json_decode($json);
+    }
+
     public function base64encode(string $content): string
     {
         return base64_encode($content);
     }
 
-    public function countryFilter(string $countryCode, string $locale = "en") :string
+    public function countryFilter(string $countryCode, string $locale = 'en') :string
     {
         return Intl::getRegionBundle()->getCountryName($countryCode, $locale);
     }

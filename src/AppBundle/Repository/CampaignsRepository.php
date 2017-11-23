@@ -18,7 +18,7 @@ class CampaignsRepository extends \Doctrine\ORM\EntityRepository
             ->where('p.isEnabled = true')
             ->andWhere('p.startDate <= :currentDate')
             ->andWhere('p.endDate >= :currentDate')
-            ->setParameter('currentDate',new \DateTime('+1 day'))
+            ->setParameter('currentDate', new \DateTime('+1 day'))
             ->orderBy('p.endDate', 'ASC')
             ->setMaxResults(self::MAX_HOME_CATEGORIES)
             ->getQuery()
