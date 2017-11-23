@@ -77,9 +77,14 @@
 									</div>
 								</div>
 							<div class="ui four wide computer tablet sixteen wide mobile column">
-								<div class="ui vertical segment" style="display: block;width: 100%;">
-									{{ ivory_google_map(map) }}
-									{{ ivory_google_api([map]) }}
+								<div class="ui vertical segment">
+									{{ ivory_google_map_container(map) }}
+									
+									{% jshrink %}
+										{{ ivory_google_map_css(map) }}
+										{{ ivory_google_map_js(map) }}
+										{{ ivory_google_api([map]) }}
+									{% endjshrink %}
 								</div>
 							</div>
 						</div>

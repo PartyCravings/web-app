@@ -1,40 +1,38 @@
-{%- spaceless -%}
-    <script type="application/ld+json">
-            {
-                "@context": "http://schema.org",
-                "@type": "Organization",
-                "url": "{{ url('homepage') }}",
-                "logo": "{{ asset('favicon.ico')}}"
-                {% if _country.contacts is not null %},
-                    "contactPoint" : [
-                        {% for contact in _country.contacts %}
-                    {
-                        "@type" : "ContactPoint",
-                        "telephone" : 
-                            "{% if contact.accountDetails %}
-                                {% if accountDetails.accountDetails.address %}
-                                    {{ contact.accountDetails.address.0.phone ?: random(['+2348028184186', '+2348091115317']) }}
-                                {% else %}
-                                    {{ random(['+2348028184186', '+2348091115317']) }}
-                                {% endif %}
+<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"@type": "Organization",
+			"url": "{{- url('homepage') -}}",
+			"logo": "{{- asset('favicon.ico') -}}"
+			{%- if _country.contacts is not null -%},
+				"contactPoint" : [
+				{%- for contact in _country.contacts -%}
+				{
+					"@type" : "ContactPoint",
+					"telephone" : 
+						"{%- if contact.accountDetails -%}
+							{%- if accountDetails.accountDetails.address -%}
+								{{- contact.accountDetails.address.0.phone ?: random(['+2348028184186', '+2348091115317']) -}}
+							{%- else -%}
+								{{- random(['+2348028184186', '+2348091115317']) -}}
+							{%- endif -%}
 
-                            {% else %}
-                               {{ random(['+2348028184186', '+2348091115317']) }}
-                            {% endif %}",
-                        "contactType" : "customer service",
-                        "availableLanguage" : [{{ _country.defaultLanguage|language(app.request.locale) }}],
-                        "description": "Mobile Phone Number"
-                    }{% if not loop.last %},{% endif %}
-                    {% endfor %}
-                ]
-                {% endif %}
-                {% if _country.socialLinks is not null %},
-                    "sameAs" : [
-                        {% for link in _country.socialLinks %}
-                            "{{ link.link|raw }}"{% if not loop.last %},{% endif %}
-                        {% endfor %}
-                  ]
-                {% endif %}
-            }
-    </script>
-{%- endspaceless -%}
+						{%- else -%}
+						   {{- random(['+2348028184186', '+2348091115317']) -}}
+						{%- endif -%}",
+					"contactType" : "customer service",
+					"availableLanguage" : [{{- _country.defaultLanguage|language(app.request.locale) -}}],
+					"description": "Mobile Phone Number"
+				}{%- if not loop.last -%},{%- endif -%}
+				{%- endfor -%}
+			]
+			{%- endif -%}
+			{%- if _country.socialLinks is not null -%},
+				"sameAs" : [
+					{%- for link in _country.socialLinks -%}
+						"{{- link.link|raw -}}"{%- if not loop.last -%},{%- endif -%}
+					{%- endfor -%}
+			]
+			{%- endif -%}
+		}
+	</script>

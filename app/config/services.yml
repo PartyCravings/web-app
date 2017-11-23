@@ -33,7 +33,7 @@ services:
     #    public: true
     #    tags: ['controller.service_arguments']
 
-    AppBundle\Security\FOSUBUserProvider: ["@fos_user.user_manager", { google: google_id }]
+    AppBundle\Security\FOSUBUserProvider: ['@fos_user.user_manager', { google: google_id }]
 
     # add more services, or override services that need manual wiring
     # AppBundle\Service\ExampleService:
@@ -45,6 +45,14 @@ services:
             - { name: kernel.event_subscriber }
 
     AppBundle\Doctrine\LocationBuilderListener:
+        tags:
+            - { name: doctrine.event_subscriber }
+
+    AppBundle\Doctrine\DnsRecordUpdateListener:
+        arguments:
+            $email: '%cloudflare.email%'
+            $apiKey: '%cloudflare.api_key%'
+            $hostname: '%hostname%'
         tags:
             - { name: doctrine.event_subscriber }
 

@@ -26,6 +26,7 @@
         "ext-gd": "*",
         "ext-intl": "*",
         "ext-mbstring": "*",
+        "cloudflare/sdk": "^1.0",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/doctrine-migrations-bundle": "^1.2",
         "doctrine/orm": "^2.5",

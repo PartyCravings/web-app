@@ -1,18 +1,16 @@
-{%- spaceless -%}
-	<script type="application/ld+json">
-			{
-				"@context": "http://schema.org/",
-				"@type": "EventService",
-				"serviceType": "Party Organizer",
-				"provider": {
-					"@type": "Organization",
-					"name": "PartyCravings℠"
-				},
-				"areaServed": {
-					"@type": "Country",
-					"name": "{{ country.name|country(app.request.locale) }}"
-				},
-			  	"providerMobility": "dynamic"
-			}
-	</script>
-{%- endspaceless -%}
+<script type="application/ld+json">
+		{
+			"@context": "http://schema.org/",
+			"@type": "EventService",
+			"serviceType": "Party Organizer",
+			"provider": {
+				"@type": "Organization",
+				"name": "PartyCravings℠"
+			},
+			"areaServed": {
+				"@type": "Country",
+				"name": "{{- _country.name|country(app.request.locale) -}}"
+			},
+		  	"providerMobility": "dynamic"
+		}
+</script>

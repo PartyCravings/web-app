@@ -27,7 +27,7 @@
     <link rel="manifest" href="{{ asset('build/manifest-main.json') }}" />
     <!-- Page Manifest -->
     {% block indexing %}<meta name="robots" content="index, follow, all" />{% endblock %}
-    {% block inlinedCSS %}{% include 'homeCss.html.twig' %}{% endblock %}
+    {% block inlinedCSS %}{% include 'fragments/homeCss.html.twig' %}{% endblock %}
 
     {% block externalCSS %}
         <link rel="preload" href="{{ preload(asset('build/app.css'), {nopush: true}) }}" type="text/css" as="style" onload="this.rel='stylesheet'" />
@@ -40,7 +40,7 @@
         {% endblock %}
         {% block breadcrumbs %}
             {{ wo_render_breadcrumbs() }}
-        {% endblock }
+        {% endblock %}
     {% endjshrink %}
 
   </head>

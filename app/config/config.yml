@@ -16,18 +16,26 @@ parameters:
     knp_disqus.lorem.shortname: dolor-sid
     knp_disqus.ipsum.shortname: amet
 
+    cloudflare.api_key: 81cb7e037bfcb5fc4199afddc17b46cfbcfde
+    cloudflare.email: beethe36@gmail.com
+
     gcp_key: '%keys_dir%/storage-key.json'
     gcp_bucket: cravings
     gcp_bucket_url: 'https://%gcp_bucket%.storage.googleapis.com/default'
 
-    webpush.subject: http://elastic.live/
+    gmaps.api_key: AIzaSyBwp8jow1XJeQp3LHDQyeQMRNxhGrgEiN8
+
+    ganalytics.name: partyloG
+    ganalytics.account_id: UA-xxxxxx-xx
+
+    google_app_id: 99524646330-55lkia8drehg45b6bctgmkmo8h2l1u12.apps.googleusercontent.com
+    google_app_secret: MihbaS8xfqFwycZE7BvNXBV-
+
+    webpush.subject: https://partycravings.com/
     webpush.gcm: 314804067424
     webpush.publicKey: BF2bGmBZuhVIBofX58XY4COHAVrIWnGMqOXOaAJMHylBgLsXjvRnYd4I-vtmoHnjQk8PfDD_LalMXSnt9xgJzQg
     webpush.privateKey: lsFwvYdDZ_LtpZvTWYuKhwCLDvxNs5InAfldbbA8IGE
     webpush.pem: '%keys_dir%/private_key.pem'
-    
-    google_app_id: 99524646330-55lkia8drehg45b6bctgmkmo8h2l1u12.apps.googleusercontent.com
-    google_app_secret: MihbaS8xfqFwycZE7BvNXBV-
 
 framework:
     request:
@@ -251,8 +259,8 @@ google:
         session_auto_started: true
         trackers:
             default:
-                name: partyloG
-                accountId: UA-xxxxxx-xx
+                name: '%ganalytics.name%'
+                accountId: '%ganalytics.account_id%'
                 domain: '%hostname%'
                 setSiteSpeedSampleRate: 5
                 allowAnchor: true
@@ -297,12 +305,12 @@ ivory_ck_editor:
 #IvoryGoogleMapsBundle Configuration
 ivory_google_map:
     place_autocomplete:
-        api_key: AIzaSyBwp8jow1XJeQp3LHDQyeQMRNxhGrgEiN8
+        api_key: '%gmaps.api_key%'
         client: httplug.client.default
         message_factory: httplug.message_factory.default
     map:
         debug: "%kernel.debug%"
-        api_key: AIzaSyBwp8jow1XJeQp3LHDQyeQMRNxhGrgEiN8
+        api_key: '%gmaps.api_key%'
         language: "%locale%"
 
 #HttplugBundle Configuration

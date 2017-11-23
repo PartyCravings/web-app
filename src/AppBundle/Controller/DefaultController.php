@@ -131,8 +131,8 @@ class DefaultController extends AbstractController
                             UrlGeneratorInterface::ABSOLUTE_PATH
                         )
                         .'">'.ucfirst($node['title']).'</a>&nbsp;';
-                        }
                     }
+                }
                 )
         );
 
