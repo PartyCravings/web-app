@@ -40,6 +40,7 @@ class AppKernel extends Kernel
             new Minishlink\Bundle\WebPushBundle\MinishlinkWebPushBundle(),
             new Ivory\SerializerBundle\IvorySerializerBundle(),
             new Http\HttplugBundle\HttplugBundle(),
+            new Salva\JshrinkBundle\SalvaJshrinkBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

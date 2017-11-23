@@ -129,6 +129,11 @@ swiftmailer:
     password: '%mailer_password%'
     spool: { type: memory }
 
+#SalvaJshrinkBundle Configuration
+salva_jshrink:
+    enabled: true # if false {% jshrink %} tag will not compress the content
+    flaggedComments: false
+
 #FOSUserBundle Configuration
 fos_user:
     db_driver: orm # other valid values are 'mongodb' and 'couchdb'

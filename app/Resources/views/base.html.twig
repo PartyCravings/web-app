@@ -3,6 +3,7 @@
    common elements and decorates all the other templates.
    See https://symfony.com/doc/current/book/templating.html#template-inheritance-and-layouts
 #}
+{% spaceless %}
 <!DOCTYPE html>
 <html lang="{{ app.request.locale }}">
 
@@ -32,12 +33,14 @@
         <link rel="preload" href="{{ preload(asset('build/global.css'), {nopush: true}) }}" type="text/css" as="style" onload="this.rel='stylesheet'" />
     {% endblock %}
 
+    {% jshrink %}
     {% block richSnippets %}
         {% include 'snippets/organisation.jsonld.twig' %}
         {% include 'snippets/service-provider.jsonld.twig' %}
         {% include 'snippets/website.jsonld.twig' %}
         {{ wo_render_breadcrumbs() }}
-    {% endblock %} 
+    {% endblock %}
+    {% endjshrink %}
 
   </head>
         <body>
@@ -49,6 +52,7 @@
                 </div>
             {% endblock %}
 
+            {% jshrink %}
             {% block javascripts %}
                 <noscript>
                     <link href="{{ asset('build/app.css') }}" rel="stylesheet" type="text/css" />
@@ -95,8 +99,9 @@
                         $('.ui.sidebar').sidebar('toggle');
                       });
                     } //mobile device, initialise sidebar instead</script>
+                    {% include "GoogleBundle:Analytics:async.html.twig" %}
             {% endblock %}
-            {% include "GoogleBundle:Analytics:async.html.twig" %}
+            {% endjshrink %}
 
             {# it's not mandatory to set the timezone in localizeddate(). This is done to
            avoid errors when the 'intl' PHP extension is not available and the application
@@ -104,3 +109,4 @@
             <!-- Page rendered on {{ 'now'|date('long', 'UTC') }} -->
         </body>
 </html>
+{% endspaceless %}
