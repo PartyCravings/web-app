@@ -11,6 +11,11 @@ doctrine:
         result_cache_driver: apc
         query_cache_driver: apc
 
+framework:
+    assets:
+        base_urls:
+            - 'https://assets.partycravings.com'
+
 doctrine:
     dbal:
         driver: pdo_mysql
