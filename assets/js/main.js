@@ -4,10 +4,6 @@ require('offline-plugin/runtime').install();
 
 import axios from 'axios';
 
-if (window.top !== window.self) {
-window.top.location = window.self.location.href;
-}
-
 var visits = getCookie("visits");
 if (!visits) {
     var visits = 0;
