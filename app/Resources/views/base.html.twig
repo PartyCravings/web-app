@@ -30,8 +30,9 @@
     {% block inlinedCSS %}{% include 'fragments/homeCss.html.twig' %}{% endblock %}
 
     {% block externalCSS %}
-        <link data-cfasync="false" rel="preload" href="{{ preload(asset('build/app.css'), {nopush: true}) }}" type="text/css" as="style" onload="this.rel='stylesheet'" />
-        <link data-cfasync="false" rel="preload" href="{{ preload(asset('build/global.css'), {nopush: true}) }}" type="text/css" as="style" onload="this.rel='stylesheet'" />
+        <link rel="preload" href="{{ preload('https://fonts.googleapis.com/css?family=Quicksand:400,700,400italic,700italic&subset=latin', {crossorigin :true, nopush: true}) }}" type="text/css" as="style" onload="this.rel='stylesheet'" />
+        <link rel="preload" href="{{ preload(asset('build/app.css'), {nopush: true}) }}" type="text/css" as="style" onload="this.rel='stylesheet'" />
+        <link rel="preload" href="{{ preload(asset('build/global.css'), {nopush: true}) }}" type="text/css" as="style" onload="this.rel='stylesheet'" />
     {% endblock %}
 
     {% jshrink %}
