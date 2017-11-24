@@ -4,10 +4,10 @@
 	{% if file.mimetype matches '/^image.*/' %}
 
 		<a href="#" class="easyadmin-thumbnail" data-featherlight="#easyadmin-lightbox-{{ randomValue }}" data-featherlight-close-on-click="anywhere">
-			<img alt="{{ file.originalName }}" src="{{ asset(storage_link  ~ '/' ~ file.name) }}" />
+			<img alt="{{ file.originalName }}" src="{{ vich_uploader_asset(file, 'actualFile') }}" />
 		</a>
     	<div id="easyadmin-lightbox-{{ randomValue }}" class="easyadmin-lightbox">
-    		<img alt="{{ file.originalName }}" src="{{ asset(storage_link  ~ '/' ~ file.name) }}" />
+    		<img alt="{{ file.originalName }}" src="{{ vich_uploader_asset(file, 'actualFile') }}" />
     	</div>
     	<br/>
 
@@ -15,15 +15,15 @@
 	{% elseif file.mimetype matches '/^video.*/' %}
 
 		<a href="#" class="easyadmin-thumbnail" data-featherlight="#easyadmin-lightbox-{{ randomValue }}" data-featherlight-close-on-click="anywhere">
-			<video alt="{{ file.originalName }}" src="{{ asset(storage_link  ~ '/' ~ file.name) }}"></video>
+			<video alt="{{ file.originalName }}" src="{{ vich_uploader_asset(file, 'actualFile') }}"></video>
 		</a>
     	<div id="easyadmin-lightbox-{{ randomValue }}" class="easyadmin-lightbox">
-    		<video alt="{{ file.originalName }}" src="{{ asset(storage_link  ~ '/' ~ file.name) }}"></video>
+    		<video alt="{{ file.originalName }}" src="{{ vich_uploader_asset(file, 'actualFile') }}"></video>
     	</div>
     	<br/>
 		
 	{% else %}
-		<a href="{{ asset(storage_link  ~ '/' ~ file.name) }}">{{ file.originalName }}</a>
+		<a href="{{ vich_uploader_asset(file, 'actualFile') }}">{{ file.originalName }}</a>
 		<br/>
 	{% endif %}
 {% endfor %}

@@ -12,10 +12,10 @@
 				{% if category %}
 					{% set file =  category.uploadedFiles %}
 							{% if file is not null and file.mimetype matches '/^image.*/' %}
-								<div class="image"><img class="lazy" height="150" width="100%" data-u="image" alt="{{ file.originalName }}" src="data:image/svg+xml;base64, {{ file.silhouette|base64encode }}" data-src="{{ asset(storage_link  ~ '/' ~ file.name) }}"/></div>
+								<div class="image"><img class="lazy" height="150" width="100%" data-u="image" alt="{{ file.originalName }}" src="data:image/svg+xml;base64, {{ file.silhouette|base64encode }}" data-src="{{ vich_uploader_asset(file, 'actualFile') }}"/></div>
 							{% elseif file is not null and file.mimetype matches '/^video.*/' %}
 								<div class="image">
-									<div class="ui embed" height="150" width="100%" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="{{ asset(storage_link  ~ '/' ~ file.name) }}"></div>
+									<div class="ui embed" height="150" width="100%" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="{{ vich_uploader_asset(file, 'actualFile') }}"></div>
 								 </div>
 							{% endif %}
 				{% endif %}
@@ -42,10 +42,10 @@
 									  <div class="orange card">
 									  	{% set file =  service.uploadedFiles.0 %}
 										{% if file is not null and file.mimetype matches '/^image.*/' %}
-											<div class="image"><img class="lazy" alt="{{ file.originalName }}" src="data:image/svg+xml;base64, {{ file.silhouette|base64encode }}" data-src="{{ asset(storage_link  ~ '/' ~ file.name) }}"/></div>
+											<div class="image"><img class="lazy" alt="{{ file.originalName }}" src="data:image/svg+xml;base64, {{ file.silhouette|base64encode }}" data-src="{{ vich_uploader_asset(file, 'actualFile') }}"/></div>
 										{% elseif file is not null and file.mimetype matches '/^video.*/' %}
 											<div class="image">
-												<div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="{{ asset(storage_link  ~ '/' ~ file.name) }}"></div>
+												<div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="{{ vich_uploader_asset(file, 'actualFile') }}"></div>
 												
 											</div>
 										{% endif %}

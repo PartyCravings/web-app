@@ -11,10 +11,10 @@
 					{% for campaign in campaigns %}
 						{% set file =  campaign.uploadedFiles %}
 							{% if file is not null and file.mimetype matches '/^image.*/' %}
-								<div class="image"><img class="lazy" data-u="image" alt="{{ file.originalName }}" src="data:image/svg+xml;base64, {{ file.silhouette|base64encode }}" data-src="{{ asset(storage_link  ~ '/' ~ file.name) }}"/></div>
+								<div class="image"><img class="lazy" data-u="image" alt="{{ file.originalName }}" src="data:image/svg+xml;base64, {{ file.silhouette|base64encode }}" data-src="{{ vich_uploader_asset(file, 'actualFile') }}"/></div>
 							{% elseif file is not null and file.mimetype matches '/^video.*/' %}
 								<div class="image">
-									<div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="{{ asset(storage_link  ~ '/' ~ file.name) }}"></div>
+									<div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="{{ vich_uploader_asset(file, 'actualFile') }}"></div>
 								 </div>
 							{% endif %}
 					{% endfor %}
@@ -49,10 +49,10 @@
 					{% for campaign in campaigns %}
 						{% set file =  campaign.uploadedFiles %}
 							{% if file is not null and file.mimetype matches '/^image.*/' %}
-								<div class="image"><img class="lazy" data-u="image" alt="{{ file.originalName }}" src="data:image/svg+xml;base64, {{ file.silhouette|base64encode }}" data-src="{{ asset(storage_link  ~ '/' ~ file.name) }}"/></div>
+								<div class="image"><img class="lazy" data-u="image" alt="{{ file.originalName }}" src="data:image/svg+xml;base64, {{ file.silhouette|base64encode }}" data-src="{{ vich_uploader_asset(file, 'actualFile') }}"/></div>
 							{% elseif file is not null and file.mimetype matches '/^video.*/' %}
 								<div class="image">
-									<div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="{{ asset(storage_link  ~ '/' ~ file.name) }}"></div>
+									<div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="{{ vich_uploader_asset(file, 'actualFile') }}"></div>
 								 </div>
 							{% endif %}
 					{% endfor %}
@@ -96,10 +96,10 @@
 								<div class="card">
 									{% set file =  service.uploadedFiles.0 %}
 										{% if file is not null and file.mimetype matches '/^image.*/' %}
-											<div class="image"><img class="lazy" alt="{{ file.originalName }}" src="data:image/svg+xml;base64, {{ file.silhouette|base64encode }}" data-src="{{ asset(storage_link  ~ '/' ~ file.name) }}"/></div>
+											<div class="image"><img class="lazy" alt="{{ file.originalName }}" src="data:image/svg+xml;base64, {{ file.silhouette|base64encode }}" data-src="{{ vich_uploader_asset(file, 'actualFile') }}"/></div>
 										{% elseif file is not null and file.mimetype matches '/^video.*/' %}
 											<div class="image">
-												<div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="{{ asset(storage_link  ~ '/' ~ file.name) }}"></div>
+												<div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="{{ vich_uploader_asset(file, 'actualFile') }}"></div>
 												
 											</div>
 										{% endif %}
@@ -123,11 +123,11 @@
 							{% set file =  party.uploadedFiles.0 %}
 								{% if file is not null and file.mimetype matches '/^image.*/' %}
 									<div class="image">
-										<img class="lazy" alt="{{ file.originalName }}" src="data:image/svg+xml;base64, {{ file.silhouette|base64encode }}" data-src="{{ asset(storage_link  ~ '/' ~ file.name) }}"/>
+										<img class="lazy" alt="{{ file.originalName }}" src="data:image/svg+xml;base64, {{ file.silhouette|base64encode }}" data-src="{{ vich_uploader_asset(file, 'actualFile') }}"/>
 									</div>
 								{% elseif file is not null and file.mimetype matches '/^video.*/' %}
 									<div class="image">
-										<div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="{{ asset(storage_link  ~ '/' ~ file.name) }}"></div>		
+										<div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="{{ vich_uploader_asset(file, 'actualFile') }}"></div>		
 									</div>
 								{% endif %}
 								<div class="extra aligned center">
@@ -150,11 +150,11 @@
 							{% set file =  post.uploadedFiles %}
 								{% if file is not null and file.mimetype matches '/^image.*/' %}
 									<div class="image">
-										<img class="lazy" alt="{{ file.originalName }}" src="data:image/svg+xml;base64, {{ file.silhouette|base64encode }}" data-src="{{ asset(storage_link  ~ '/' ~ file.name) }}"/>
+										<img class="lazy" alt="{{ file.originalName }}" src="data:image/svg+xml;base64, {{ file.silhouette|base64encode }}" data-src="{{ vich_uploader_asset(file, 'actualFile') }}"/>
 									</div>
 								{% elseif file is not null and file.mimetype matches '/^video.*/' %}
 									<div class="image">
-										<div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="{{ asset(storage_link  ~ '/' ~ file.name) }}"></div>		
+										<div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="{{ vich_uploader_asset(file, 'actualFile') }}"></div>		
 									</div>
 								{% endif %}
 								<div class="extra aligned center">
