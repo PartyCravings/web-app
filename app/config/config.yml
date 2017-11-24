@@ -231,7 +231,7 @@ vich_uploader:
 
     mappings:
         service_files:
-            uri_prefix:         /uploads
+            uri_prefix: '%gcp_bucket_url%'
             upload_destination: gallery
             namer:              vich_uploader.namer_uniqid
 

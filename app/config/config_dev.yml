@@ -1,6 +1,9 @@
 imports:
     - { resource: config.yml }
 
+parameters:
+    gcp_bucket_url: /uploads
+
 framework:
     router:
         resource: '%kernel.project_dir%/app/config/routing_dev.yml'

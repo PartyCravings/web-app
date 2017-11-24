@@ -60,10 +60,3 @@ knp_gaufrette:
     filesystems:
         gallery:
             adapter: gallery
-
-#VichUploaderBundle Configuration
-vich_uploader:
-    mappings:
-        service_image:
-            uri_prefix: '%gcp_bucket_url%'
-            upload_destination: gallery
