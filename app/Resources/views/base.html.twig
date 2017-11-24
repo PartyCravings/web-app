@@ -24,7 +24,7 @@
     <link rel="search" type="application/opensearchdescription+xml" title="Party search" href="{{ url('site_wide_search_description') }}" />
     <!-- Preconnect for google fonts -->
     <link rel="preconnect" href="{{ preconnect('https://fonts.googleapis.com', { crossorigin :true } ) }}" crossorigin="crossorigin" />
-    <link rel="manifest" href="{{ asset('build/manifest-main.json') }}" />
+    <link rel="manifest" href="{{ app.request.uriForPath('/build/manifest-main.json') }}" />
     <!-- Page Manifest -->
     {% block indexing %}<meta name="robots" content="index, follow, all" />{% endblock %}
     {% block inlinedCSS %}{% include 'fragments/homeCss.html.twig' %}{% endblock %}
