@@ -1,0 +1,11 @@
+!function(t){function o(n){if(e[n])return e[n].exports;var s=e[n]={i:n,l:!1,exports:{}};return t[n].call(s.exports,s,s.exports,o),s.l=!0,s.exports}var e={};o.m=t,o.c=e,o.d=function(t,e,n){o.o(t,e)||Object.defineProperty(t,e,{configurable:!1,enumerable:!0,get:n})},o.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return o.d(e,"a",e),e},o.o=function(t,o){return Object.prototype.hasOwnProperty.call(t,o)},o.p="https://assets.partycravings.com/build/",o(o.s="2MSH")}({"2MSH":function(t,o){/*!
+ * jQuery lockfixed plugin
+ * http://www.directlyrics.com/code/lockfixed/
+ *
+ * Copyright 2012-2015 Yvo Schaap
+ * Released under the MIT license
+ * http://www.directlyrics.com/code/lockfixed/license.txt
+ *
+ * Date: Wed April 1 2015 12:00:01 GMT
+ */
+!function(t,o){t.extend({lockfixed:function(o,e){if(e&&e.offset?(e.offset.bottom=parseInt(e.offset.bottom,10),e.offset.top=parseInt(e.offset.top,10)):e.offset={bottom:100,top:0},(o=t(o))&&o.offset()){var n=o.css("position"),s=parseInt(o.css("marginTop"),10)||0,i=o.css("top"),r=o.offset().top,f=!1;(!0===e.forcemargin||navigator.userAgent.match(/\bMSIE (4|5|6)\./)||navigator.userAgent.match(/\bOS ([0-9])_/)||navigator.userAgent.match(/\bAndroid ([0-9])\./i))&&(f=!0),o.wrap("<div style='height:"+o.outerHeight()+"px;display:"+o.css("display")+"'></div>"),t(window).bind("DOMContentLoaded load scroll resize orientationchange lockfixed:pageupdate",o,function(p){if(!f||!document.activeElement||"INPUT"!==document.activeElement.nodeName){var a=0,a=o.outerHeight();p=o.outerWidth();var c=t(document).height()-e.offset.bottom,u=t(window).scrollTop();"fixed"===o.css("position")||f||(r=o.offset().top,i=o.css("top")),u>=r-(s||0)-e.offset.top?(a=c<u+a+s+e.offset.top&&a+e.offset.top>t(window).height()?u+a+s+e.offset.top-c:0,f?o.css({marginTop:parseInt(u-r-a,10)+2*e.offset.top+"px"}):o.css({position:"fixed",top:e.offset.top-a+"px",width:p+"px"})):o.css({position:n,top:i,width:p+"px",marginTop:(s&&!f?s:0)+"px"})}})}}})}(jQuery)}});

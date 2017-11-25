@@ -31,6 +31,10 @@ Encore
 
     .addEntry('sticklr', './assets/js/jquery.sticklr.js')
 
+    .addEntry('sticky', './assets/js/jquery.sticky.js')
+
+    .addEntry('lockfixed', './assets/js/jquery.sticky.lockfixed.min.js')
+
     // will output as web/build/global.css
     .addStyleEntry('global', './assets/css/global.scss')
 

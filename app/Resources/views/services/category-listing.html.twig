@@ -4,7 +4,7 @@
 	{% set currency = app.request.attributes.get('_country').defaultCurrency %}
 			<div class="ui grid">
 				<div class="ui four wide computer tablet sixteen wide mobile column">
-					<div class="ui container vertical menu" style="height: 85vh;">
+					<div id="sticky-sidebar" class="ui container vertical menu" style="height: 85vh;">
 						{{ tree|raw }}
 					</div>
 				</div>
@@ -20,6 +20,7 @@
 							{% endif %}
 				{% endif %}
 					<form>
+						<div class="ui container action input">
 							<select class="ui selection dropdown">
 								<option selected="selected" value="all">
 									{{ 'Location'|trans }}
@@ -33,6 +34,7 @@
 							<button class="ui center aligned primary button" >
 								{{ 'Filter'|trans }}<i class="right arrow icon"></i>
 							</button>
+						</div>
 					</form>
 					<div class="ui grid">
 						<div class="ui twelve wide computer tablet sixteen wide mobile column">
@@ -90,4 +92,19 @@
 						</div>
 					</div>
 				</div>
+{% endblock %}
+
+{% block javascripts %}
+	<script type="text/javascript" src="{{ asset('build/sticky.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('build/lockfixed.js') }}"></script>
+	<script type="text/javascript">
+	if (/Android|BlackBerry|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent) === false) {
+		$('#sticky-sidebar').stickThis({
+			  zindex: 1,
+			  top: 68,
+		  });
+		$.lockfixed("#map_canvas",{offset: {top: 68,}});
+	}
+		else{}
+	</script>
 {% endblock %}
