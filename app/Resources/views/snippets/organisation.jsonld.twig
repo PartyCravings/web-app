@@ -21,7 +21,7 @@
 						   {{- random(['+2348028184186', '+2348091115317']) -}}
 						{%- endif -%}",
 					"contactType" : "customer service",
-					"availableLanguage" : [{{- _country.defaultLanguage|language(app.request.locale) -}}],
+					"availableLanguage" : ["{{- _country.defaultLanguage|language(app.request.locale) -}}"],
 					"description": "Mobile Phone Number"
 				}{%- if not loop.last -%},{%- endif -%}
 				{%- endfor -%}
@@ -35,4 +35,4 @@
 			]
 			{%- endif -%}
 		}
-	</script>
+</script>
