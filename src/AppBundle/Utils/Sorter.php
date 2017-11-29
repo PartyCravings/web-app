@@ -76,7 +76,9 @@ class Sorter
             'childClose' => '',
             'nodeDecorator' => function ($node) use (&$generator) {
                 if ($node['lvl'] == 1 || $node['lvl'] == 2 ||  $node['lvl'] == 3) {
-                    return '<a href="'.$generator->generateUrl("service_category", array("slug"=>$node['slug'])).'">'.ucfirst($node['title']).'</a>&nbsp;';
+                    $link = $generator->generate('category_show', array('slug' => $node['slug']), UrlGeneratorInterface::ABSOLUTE_PATH);
+                    $name = ucfirst($node['title']);
+                    return "<a href=\"$link\">$name</a>&nbsp;";
                 }
             }
         ));

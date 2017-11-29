@@ -138,11 +138,11 @@
         <source>/party/{slug}</source>
         <target state="new">/party/{slug}</target>
       </trans-unit>
-      <trans-unit id="67d4e7aefd306d1d171bfb4b075d0dc9ad37210b" resname="service_category">
+      <trans-unit id="67d4e7aefd306d1d171bfb4b075d0dc9ad37210b" resname="category_show">
         <source>/services/category/{slug}</source>
         <target state="new">/services/category/{slug}</target>
       </trans-unit>
-      <trans-unit id="756e3c3570aefb5c42988e2b6a51acd3e4762c66" resname="service_index">
+      <trans-unit id="756e3c3570aefb5c42988e2b6a51acd3e4762c66" resname="category_index">
         <source>/services</source>
         <target state="new">/services</target>
       </trans-unit>

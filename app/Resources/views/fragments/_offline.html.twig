@@ -3,7 +3,7 @@
 	<div class="main">
 		<a class="logo-wrap" href="{{ url('homepage') }}">
 			<div class="logo">
-				<img alt="close" src="/logo.svg" />
+				<img alt="close" src="{{ asset('logo.svg') }}" />
 			</div>
 			<div class="logo-hexagon" id="hexagon">
 				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 726 628">
@@ -18,7 +18,7 @@
 				This website is now ready for offline usage <code><a href="{{ url('homepage') }}">go home</a></code>
 			</div>
 			<div class="offline-ready-close" id="offline-ready-close" role="button">
-				<img alt="close" src="/close.svg" />
+				<img alt="close" src="{{ asset('close.svg') }}" />
 			</div>
 		</div>
 	</div>
@@ -35,6 +35,4 @@
 	<script type="text/javascript" src="{{ asset('build/offline.js') }}"></script>
 {% endblock %}
 
-{% block indexing %}
-	<meta name="robots" content="noindex, nofollow, noarchive" />
-{% endblock %}
+{% block indexing %}noindex, nofollow, noarchive{% endblock %}

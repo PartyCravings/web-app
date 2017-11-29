@@ -15,7 +15,7 @@ use AppBundle\Entity\Country;
 /** Class NotificationController
  * @package AppBundle\Controller
  *
- * @Route("/notification",  name="notification")
+ * @Route("/notification")
  * @Method("POST")
  * @ParamConverter(
                     "_country",

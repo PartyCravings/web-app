@@ -35,8 +35,8 @@ class ServiceRepository extends \Doctrine\ORM\EntityRepository
 
         foreach ($searchTerms as $key => $term) {
             $queryBuilder
-                ->orWhere('p.name LIKE :t_'.$key)
-                ->setParameter('t_'.$key, '%'.$term.'%');
+                ->orWhere("p.name LIKE :t_$key")
+                ->setParameter("t_$key", "%$term%");
         }
         $query = $queryBuilder
                 ->innerJoin('p.category', 'f')

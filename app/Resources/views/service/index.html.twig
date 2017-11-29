@@ -1,5 +1,31 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}
+	{% if category is empty %}
+		{{ 'Category Index'|trans }}
+	{% else %}
+		{{ category.title }}
+	{% endif %}
+{% endblock %}
+
+{% block description %}
+	{% if category is empty %}
+		{{ 'Category Index'|trans }}
+	{% else %}
+		{{ category.description|striptags|easyadmin_truncate(170) }}
+	{% endif %}
+	{{ parent() }}
+{% endblock %}
+
+{% block inlinedCSS %}
+	{{ parent() }}
+	<style type="text/css">
+		#sticky-sidebar{
+			height: 85vh;
+		}
+	</style>
+{% endblock %}
+
 {% block content %}
 	{% set currency = app.request.attributes.get('_country').defaultCurrency %}
 		<div class="ui grid">
@@ -87,7 +113,7 @@
 												<div>{{ service.countRating }} {{ 'customer review(s)'|trans }}</div>
 											</div>
 											<div class="description">
-												<h5>{{ service.serviceDescriptions.description|easyadmin_truncate|md2html}}</h5>
+												<h5>{{ service.serviceDescriptions.description|striptags|easyadmin_truncate }}</h5>
 											{% for feature in service.features %}
 											<div class="row">
 												<i class="orange {{ feature.icon }} icon"></i>
@@ -124,15 +150,6 @@
 				</div>
 {% endblock %}
 
-{% block inlinedCSS %}
-	{{ parent() }}
-	<style type="text/css">
-		#sticky-sidebar{
-			height: 85vh;
-		}
-	</style>
-{% endblock %}
-
 {% block javascripts %}
 	{{ parent() }}
 	<script type="text/javascript" src="{{ asset('build/sticky.js') }}"></script>
@@ -144,7 +161,13 @@
 			  pushup: '#page-footer',
 			  debugmode:      false
 		  });
-		$.lockfixed("#map",{offset: {top: 78,}});
+		$.lockfixed("#map",
+			{
+				offset: {
+					top: 78
+				}, 
+				pushup: '#page-footer'
+			});
 	}
 		else{}
 	</script>

@@ -122,15 +122,9 @@ class DefaultController extends AbstractController
                 'childClose' => '',
                 'nodeDecorator' => function ($node) use (&$generator) {
                     if ($node['lvl'] == 1 || $node['isVisibleOnHome']) {
-                        return '<a href="'.
-                        $generator->generate(
-                            'service_category',
-                            array(
-                                'slug' => $node['slug']
-                                ),
-                            UrlGeneratorInterface::ABSOLUTE_PATH
-                        )
-                        .'">'.ucfirst($node['title']).'</a>&nbsp;';
+                        $link = $generator->generate('category_show', array('slug' => $node['slug']), UrlGeneratorInterface::ABSOLUTE_PATH);
+                        $name = ucfirst($node['title']);
+                        return "<a href=\"$link\">$name</a>&nbsp;";
                     }
                 }
                 )

@@ -9,17 +9,15 @@
 				{%- for contact in _country.contacts -%}
 				{
 					"@type" : "ContactPoint",
-					"telephone" : 
-						"{%- if contact.accountDetails -%}
-							{%- if accountDetails.accountDetails.address -%}
-								{{- contact.accountDetails.address.0.phone ?: random(['+2348028184186', '+2348091115317']) -}}
-							{%- else -%}
-								{{- random(['+2348028184186', '+2348091115317']) -}}
-							{%- endif -%}
-
-						{%- else -%}
-						   {{- random(['+2348028184186', '+2348091115317']) -}}
-						{%- endif -%}",
+					"telephone" : "{%- if contact.accountDetails -%}
+										{%- if accountDetails.accountDetails.address -%}
+											{{- contact.accountDetails.address.0.phone ?: random(['+2348028184186', '+2348091115317']) -}}
+										{%- else -%}
+											{{- random(['+2348028184186', '+2348091115317']) -}}
+										{%- endif -%}
+									{%- else -%}
+									   {{- random(['+2348028184186', '+2348091115317']) -}}
+									{%- endif -%}",
 					"contactType" : "customer service",
 					"availableLanguage" : ["{{- _country.defaultLanguage|language(app.request.locale) -}}"],
 					"description": "Mobile Phone Number"

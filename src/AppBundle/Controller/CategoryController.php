@@ -35,7 +35,7 @@ use AppBundle\Entity\Location;
 class CategoryController extends AbstractController
 {
     /**
-     * @Route("", name="service_index")
+     * @Route("", name="category_index")
      * @Template(":service:index.html.twig")
      * @Cache(smaxage=0)
      */
@@ -64,7 +64,7 @@ class CategoryController extends AbstractController
                     $page
                 );
         // Pass route name without any parameters
-        $breadcrumbs->addRouteItem('Services', 'service_index');
+        $breadcrumbs->addRouteItem('Category', 'category_index');
         $breadcrumbs->prependRouteItem('Home', 'homepage');
 
         return  array(
@@ -78,7 +78,7 @@ class CategoryController extends AbstractController
 
     /**
      * @Route("/{slug}",
-            name="service_category")
+            name="category_show")
      * @ParamConverter(
             "category",
             class="AppBundle:Category",
@@ -104,10 +104,10 @@ class CategoryController extends AbstractController
         $breadcrumbs->prependRouteItem($location, 'site_location_listing', ['slug'=>$location]);
         $node = $category;
         while ($node) {
-            $breadcrumbs->prependRouteItem($node->getTitle(), 'service_category', ['slug'=>$node->getSlug()]);
+            $breadcrumbs->prependRouteItem($node->getTitle(), 'category_show', ['slug'=>$node->getSlug()]);
             $node = $node->getParent();
         }
-        $breadcrumbs->prependRouteItem('Services', 'service_index');
+        $breadcrumbs->prependRouteItem('Category', 'category_index');
         $breadcrumbs->prependRouteItem('Home', 'homepage');
 
         $services = $em->getRepository(Service::class)->findAllByCategoryLocation($category, $location, $request->get('page', 1));

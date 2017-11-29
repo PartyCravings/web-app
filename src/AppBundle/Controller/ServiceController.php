@@ -74,13 +74,13 @@ class ServiceController extends AbstractController
         while ($node) {
             $breadcrumbs->prependRouteItem(
                         $node->getTitle(),
-                        'service_category',
+                        'category_show',
                 array('slug'=>$node->getSlug()
                     )
                 );
             $node = $node->getParent();
         }
-        $breadcrumbs->prependRouteItem('Services', 'service_index');
+        $breadcrumbs->prependRouteItem('Category', 'category_index');
         $breadcrumbs->prependRouteItem('Home', 'homepage');
 
         $recentParties = $em->getRepository('AppBundle:Party')->findPartiesByService($service);

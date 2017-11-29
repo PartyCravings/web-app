@@ -3,7 +3,7 @@
    common elements and decorates all the other templates.
    See https://symfony.com/doc/current/book/templating.html#template-inheritance-and-layouts
 #}
-{% spaceless %}
+{# {% spaceless %} #}
 <!DOCTYPE html>
 <html lang="{{ app.request.locale }}">
 
@@ -11,14 +11,15 @@
     <!--[if IE]>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=0.93, user-scalable=0" />
+    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" onload="scaleViewPort()" />
     <title>{% block title %}Manage that party you love{% endblock %} • PartyCravings℠</title>
+    <meta name="description" content="{% block description %}PartyCravings℠ helps manage that beloved party. All it takes to create that massive party today. All we do is connect you with people that matter the most {% endblock %}" />
+    <meta name="keywords" content="parties, events, birthday, wedding, vendor, meeting, venue, comedian, mc, artiste, musician, singer, celebration" />
+    <meta name="author" content="PartyCravings℠" />
+    <meta name="robots" content="{% block indexing %}index, follow, all{% endblock %}" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="PartyCravings℠" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="description" content="PartyCravings℠ helps manage that beloved party. All it takes to create that massive party today. All we do is connect you with people that matter the most" />
-    <meta name="keywords" content="party, events, birthday, wedding, vendor, meeting, venue, comedian, mc, artiste, musician, singer, celebration" />
-    <meta name="author" content="PartyCravings℠" />
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('apple-icon-57x57.png') }}" />
     <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('apple-icon-60x60.png') }}" />
     <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('apple-icon-72x72.png') }}" />
@@ -38,17 +39,39 @@
     <meta name="msapplication-TileImage" content="{{ asset('ms-icon-144x144.png') }}" />
     <meta name="theme-color" content="#FF8300" />
     <link rel="search" type="application/opensearchdescription+xml" title="Party search" href="{{ url('search_description') }}" />
-    {% block indexing %}<meta name="robots" content="index, follow, all" />{% endblock %}
-    {% block inlinedCSS %}{% include 'fragments/homeCss.html.twig' %}{% endblock %}
+    {% for locale in locales() -%}
+        <link rel="alternate" hreflang="{{ locale.code }}" href="{{ url(app.request.get('_route', 'homepage'),app.request.get('_route_params', [])|merge({_locale: locale.code})) }}" />
+    {% endfor %}
+    {% block inlinedCSS %}
+        <style id="antiClickjack"></style>
+        {% include 'fragments/homeCss.html.twig' %}
+    {% endblock %}
 
-    {% block externalCSS %}
+    {% block externalCSS -%}
         <link rel="preload" href="{{ preload('https://fonts.googleapis.com/css?family=Quicksand:400,700,400italic,700italic&subset=latin', {crossorigin :true, nopush: true}) }}" type="text/css" as="style" onload="this.rel='stylesheet'" />
         <link rel="preload" href="{{ preload(asset('build/app.css'), {nopush: true}) }}" type="text/css" as="style" onload="this.rel='stylesheet'" />
         <link rel="preload" href="{{ preload(asset('build/global.css'), {nopush: true}) }}" type="text/css" as="style" onload="this.rel='stylesheet'" />
-    {% endblock %}
+    {%- endblock %}
 
     {% jshrink %}
-        <script type="text/javascript">if (window.top !== window.self){window.top.location = window.self.location.href;}</script>
+        <script> 
+            function scaleViewPort(){
+                if (screen.width < 400) {
+                    var meta = document.getElementById('viewport');
+                    meta.setAttribute('content','initial-scale=0.9');
+            }
+        }
+        </script>
+        <script type="text/javascript">
+            var antiClickjack = document.getElementById("antiClickjack");
+            if (window.top !== window.self){
+                window.top.location = window.self.location.href;
+                antiClickjack.innerHTML = "body{display:none !important;}"
+            }
+        else {
+            antiClickjack.parentNode.removeChild(antiClickjack);
+        }
+        </script>
         {% include "GoogleBundle:Analytics:async.html.twig" %}
         {% block richSnippets %}
             {% include 'snippets/website.jsonld.twig' %}
@@ -126,4 +149,4 @@
             <!-- Page rendered on {{ 'now'|date('long', 'UTC') }} -->
         </body>
 </html>
-{% endspaceless %}
+{# {% endspaceless %} #}

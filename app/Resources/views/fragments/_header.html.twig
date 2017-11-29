@@ -53,13 +53,13 @@
                         {% for category in categories|slice(0, 4) %}
                             <a 
                                 class="item" 
-                                href="{{ url('service_category', {'slug':category.slug}) }}">
+                                href="{{ url('category_show', {'slug':category.slug}) }}">
                                 <h3>{{ category }}</h3>
                             </a>
                         {% endfor %}
                             <a 
                                 class="item" 
-                                href="{{ url('service_index') }}">
+                                href="{{ url('category_index') }}">
                                 <h3>{{ 'OTHERS'|trans }}</h3>
                             </a>
                     </div>

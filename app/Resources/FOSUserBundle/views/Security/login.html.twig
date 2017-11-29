@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}{{ 'security.login'|trans({}, 'FOSUserBundle') }}{% endblock %}
-{% block indexing %}<meta name="robots" content="noindex, nofollow" />{% endblock %}
+{% block indexing %}noindex, nofollow{% endblock %}
 {% block inlinedCSS %}{% include 'fragments/loginCss.html.twig' %}{% endblock %}
 
 {% block body %}
