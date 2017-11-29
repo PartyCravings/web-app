@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller\Category;
+namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -35,8 +35,8 @@ use AppBundle\Entity\Location;
 class CategoryController extends AbstractController
 {
     /**
-     * @Route("", name="site_services_index")
-     * @Template(":services:category-listing.html.twig")
+     * @Route("", name="service_index")
+     * @Template(":service:index.html.twig")
      * @Cache(smaxage=0)
      */
     public function indexAction(
@@ -64,8 +64,8 @@ class CategoryController extends AbstractController
                     $page
                 );
         // Pass route name without any parameters
-        $breadcrumbs->addRouteItem("Services", "site_services_index");
-        $breadcrumbs->prependRouteItem("Home", "homepage");
+        $breadcrumbs->addRouteItem('Services', 'service_index');
+        $breadcrumbs->prependRouteItem('Home', 'homepage');
 
         return  array(
                     'services'=> $services,
@@ -78,7 +78,7 @@ class CategoryController extends AbstractController
 
     /**
      * @Route("/{slug}",
-            name="site_services_categories")
+            name="service_category")
      * @ParamConverter(
             "category",
             class="AppBundle:Category",
@@ -88,7 +88,7 @@ class CategoryController extends AbstractController
                 "repository_method" = "findBySlug"
             }
         )
-     * @Template(":services:category-listing.html.twig")
+     * @Template(":service:index.html.twig")
      * @Cache(smaxage=86400)
      *
      */
@@ -104,11 +104,11 @@ class CategoryController extends AbstractController
         $breadcrumbs->prependRouteItem($location, 'site_location_listing', ['slug'=>$location]);
         $node = $category;
         while ($node) {
-            $breadcrumbs->prependRouteItem($node->getTitle(), 'site_services_categories', ['slug'=>$node->getSlug()]);
+            $breadcrumbs->prependRouteItem($node->getTitle(), 'service_category', ['slug'=>$node->getSlug()]);
             $node = $node->getParent();
         }
-        $breadcrumbs->prependRouteItem("Services", 'site_services_index');
-        $breadcrumbs->prependRouteItem("Home", "homepage");
+        $breadcrumbs->prependRouteItem('Services', 'service_index');
+        $breadcrumbs->prependRouteItem('Home', 'homepage');
 
         $services = $em->getRepository(Service::class)->findAllByCategoryLocation($category, $location, $request->get('page', 1));
         

@@ -138,15 +138,15 @@
         <source>/party/{slug}</source>
         <target state="new">/party/{slug}</target>
       </trans-unit>
-      <trans-unit id="67d4e7aefd306d1d171bfb4b075d0dc9ad37210b" resname="site_services_categories">
+      <trans-unit id="67d4e7aefd306d1d171bfb4b075d0dc9ad37210b" resname="service_category">
         <source>/services/category/{slug}</source>
         <target state="new">/services/category/{slug}</target>
       </trans-unit>
-      <trans-unit id="756e3c3570aefb5c42988e2b6a51acd3e4762c66" resname="site_services_index">
+      <trans-unit id="756e3c3570aefb5c42988e2b6a51acd3e4762c66" resname="service_index">
         <source>/services</source>
         <target state="new">/services</target>
       </trans-unit>
-      <trans-unit id="5db3c98782441a72a97496a96676e2b5f806f75a" resname="site_services_show">
+      <trans-unit id="5db3c98782441a72a97496a96676e2b5f806f75a" resname="service_show">
         <source>/services/{slug}</source>
         <target state="new">/services/{slug}</target>
       </trans-unit>

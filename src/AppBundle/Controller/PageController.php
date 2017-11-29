@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller\Pages;
+namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;

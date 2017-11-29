@@ -1,0 +1,299 @@
+{% if service.uploadedFiles is not empty %}
+		<div 
+			id="slider-top" 
+			style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:380px;overflow:hidden;visibility:hidden;">
+			{# Loading Screen #}
+			<div 
+				class="jssorl-009-spin" 
+				data-u="loading" 
+				style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
+				<img 
+					src="{{ asset('build/images/spin.svg') }}" 
+					style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" 
+					/>
+			</div>
+			{# Slides #}
+			<div 
+				data-u="slides" 
+				style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:380px;overflow:hidden;">
+				{% for file in service.uploadedFiles %}
+					<div class="image">
+						{% if file.mimetype matches '/^image.*/' %}
+							<img
+								class="lazy" 
+								alt="{{ file.originalName }}"
+								src="data:image/svg+xml;base64, {{ file.silhouette|base64encode }}"
+								data-src="{{ vich_uploader_asset(file, 'actualFile') }}"
+								/>
+						{% elseif file.mimetype matches '/^video.*/' or '/^audio.*/' %}
+							<div 
+								class="ui embed"
+								data-placeholder="{{ asset('images/demo-4.jpg') }}" 
+								data-url="{{ vich_uploader_asset(file, 'actualFile') }}">
+							</div>
+						{% endif %}
+					</div>
+				{% endfor %}
+			</div>
+			{# Bullet Navigator #}
+			<div 
+				class="jssorb057" 
+				data-autocenter="1" 
+				data-scale="0.5" 
+				data-scale-bottom="0.75" 
+				data-u="navigator" 
+				style="position:absolute;bottom:12px;right:12px;">
+				<div 
+					class="i" 
+					data-u="prototype" 
+					style="width:16px;height:16px;">
+					<svg style="position:absolute;top:0;left:0;width:100%;height:100%;" viewbox="0 0 16000 16000">
+						<circle class="b" cx="8000" cy="8000" r="5000"></circle>
+					</svg>
+				</div>
+			</div>
+			{# Arrow Navigator #}
+			<div 
+				class="jssora073" 
+				data-autocenter="2" 
+				data-scale="0.75" 
+				data-scale-left="0.75" 
+				data-u="arrowleft" 
+				style="width:50px;height:50px;top:0px;left:30px;">
+				<svg style="position:absolute;top:0;left:0;width:100%;height:100%;" viewbox="0 0 16000 16000">
+					<path class="a" d="M4037.7,8357.3l5891.8,5891.8c100.6,100.6,219.7,150.9,357.3,150.9s256.7-50.3,357.3-150.9 l1318.1-1318.1c100.6-100.6,150.9-219.7,150.9-357.3c0-137.6-50.3-256.7-150.9-357.3L7745.9,8000l4216.4-4216.4 c100.6-100.6,150.9-219.7,150.9-357.3c0-137.6-50.3-256.7-150.9-357.3l-1318.1-1318.1c-100.6-100.6-219.7-150.9-357.3-150.9 s-256.7,50.3-357.3,150.9L4037.7,7642.7c-100.6,100.6-150.9,219.7-150.9,357.3C3886.8,8137.6,3937.1,8256.7,4037.7,8357.3 L4037.7,8357.3z">
+					</path>
+				</svg>
+			</div>
+			<div 
+				class="jssora073" 
+				data-autocenter="2" 
+				data-scale="0.75" 
+				data-scale-right="0.75" 
+				data-u="arrowright" 
+				style="width:50px;height:50px;top:0px;right:30px;">
+				<svg style="position:absolute;top:0;left:0;width:100%;height:100%;" viewbox="0 0 16000 16000">
+					<path class="a" d="M11962.3,8357.3l-5891.8,5891.8c-100.6,100.6-219.7,150.9-357.3,150.9s-256.7-50.3-357.3-150.9 L4037.7,12931c-100.6-100.6-150.9-219.7-150.9-357.3c0-137.6,50.3-256.7,150.9-357.3L8254.1,8000L4037.7,3783.6 c-100.6-100.6-150.9-219.7-150.9-357.3c0-137.6,50.3-256.7,150.9-357.3l1318.1-1318.1c100.6-100.6,219.7-150.9,357.3-150.9 s256.7,50.3,357.3,150.9l5891.8,5891.8c100.6,100.6,150.9,219.7,150.9,357.3C12113.2,8137.6,12062.9,8256.7,11962.3,8357.3 L11962.3,8357.3z">
+					</path>
+				</svg>
+			</div>
+		</div>
+{% endif %}
+<div class="ui internally celled three column grid">
+	<div class="ui center aligned column">
+		<span><i class="big orange photo icon"></i> 2</span>
+	</div>
+	<div class="ui center aligned column">
+		<span><i class="big orange music icon"></i> 21</span>
+	</div>
+	<div class="ui center aligned column">
+		<span><i class="big orange film icon"></i> 0</span>
+	</div>
+</div>
+<div class="ui center aligned segment" style="background-color: #fff7e9;">
+	{{ wo_render_breadcrumbs({ viewTemplate: "snippets/breadcrumbs.html.twig" }) }}	
+</div>
+<h2 style="text-align: center;">{{ service }}</h2>
+<h3 style="text-align: center;">{{ service.address ?: service.vendor.address }}</h3>
+<div class="ui divided two column grid" style="padding-top: 30px;">
+	<div class="ui right aligned column">
+		<span class="ui star rating" data-rating="4"></span>&nbsp;
+		<span>
+			<b>{{ countRating }} {{ 'REVIEWS'|trans }}</b>
+		</span>
+	</div>
+	<div class="ui left aligned column">
+		<h4>14 VERIFIED BOOKINGS</h4>
+	</div>
+</div>
+<div class="ui segment" style="background-color: #fff7e9;">
+	<div class="ui grid">
+		<div class="ui center aligned five wide column">
+			<h4>{{ 'MEMBER SINCE'|trans }} {{ vendor.created ?: service.created|date('Y') }}</h4>
+		</div>
+		<div class="ui center aligned six wide column">
+			<h4>{{ service.hourlyRate }} {{ 'PER HOUR'|trans }}</h4>
+		</div>
+		<div class="ui center aligned five wide column">
+			<h4>{{ 'ONLINE PAYMENTS'|trans }}</h4>
+		</div>
+	</div>
+</div>
+<div class="ui stackable grid" style="padding-top: 10px;">
+	<div class="ui one wide column"></div>
+	<div class="ui ten wide computer fourteen wide mobile tablet column">
+		{% for feature in service.features %}
+			<div class="row">
+				<i class="orange {{ feature.icon}} icon"></i>
+				<span>{{ feature.name }}</span>
+			</div>
+		{% endfor %}
+		<div class="ui accordion" style="padding-top: 15px;">
+			<div class="ui active orange dividing header title">
+				<h3>{{ service.name }} {{ 'pictures and description'|trans }}</h3>
+			</div>
+			<div class="active content">
+				<p class="transition">
+					{{ service.serviceDescriptions.description|md2html }}
+				</p>
+			</div>
+			<div class="ui active orange dividing header title">
+				<h3>{{ 'Location'|trans }}</h3>
+			</div>
+			<div class="active content">
+				<div id="map" class="ui vertical segment">
+					{{ ivory_google_map_container(map) }}
+									
+					{% jshrink %}
+						{{ ivory_google_map_css(map) }}
+						{{ ivory_google_map_js(map) }}
+						{{ ivory_google_api([map]) }}
+					{% endjshrink %}
+				</div>
+			</div>
+			<div class="ui active orange dividing header title">
+				<h3>{{ 'Customer Reviews'|trans }}</h3>
+			</div>
+			<div class="content">
+				<div class="ui comments">
+					{% for review in service.reviews %}
+						<div class="comment">
+							<a class="avatar">
+								<img 
+                                    alt="{{ review.createdBy }}" 
+                                    class="ui avatar image" 
+                                    src="{{ preload(gravatar(review.createdBy.email, null, null, null, true), {nopush: true}) }}" 
+                                    />
+							</a>
+							<div class="content">
+								<a class="author">{{ review.createdBy }}</a>
+								<div class="metadata">
+									<div 
+										class="ui star rating" 
+										data-rating="{{ review.rating }}" 
+										data-max-rating="5"></div>
+								</div>
+								<div class="text">
+									<p>{{ review.content|md2html }}</p>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+					<form class="ui reply form">
+						<div class="field">
+							<textarea></textarea>
+						</div>
+						<button 
+							name="add review" 
+							class="ui primary submit labeled icon button">
+							<i class="icon edit"></i>{{ 'Add Review'|trans }}
+						</button>
+					</form>
+				</div>
+			</div>
+			<div class="ui active orange dividing header title">
+				<h3>Notable Events</h3>
+			</div>
+			<div class="content">
+				{% if recerntParties is not empty %}
+				<div class="ui four cards">
+					{% for party in recentParties %}
+						<div class="green card">
+							{% set file =  party.uploadedFiles %}
+								{% if file is not null %}
+									<div class="image">
+										{% if file.mimetype matches '/^image.*/' %}
+											<img
+												class="lazy" 
+												alt="{{ file.originalName }}"
+												src="data:image/svg+xml;base64, {{ file.silhouette|base64encode }}"
+												data-src="{{ vich_uploader_asset(file, 'actualFile') }}"
+												/>
+										{% elseif file.mimetype matches '/^video.*/' or '/^audio.*/' %}
+											<div 
+												class="ui embed"
+												data-placeholder="{{ asset('images/demo-4.jpg') }}" 
+												data-url="{{ vich_uploader_asset(file, 'actualFile') }}">
+											</div>
+										{% endif %}
+									</div>
+								{% endif %}
+								<div class="extra aligned center">
+									<a href="{{ url('party_show', {'slug':party.slug})}}">
+										<h4>{{ party.title }}</h4>
+									</a>
+	                            	{% if party.createdBy is not null %}<span>by {{ party.createdBy }}</span>{% endif %}
+	                            	<time datetime="{{ party.created|date('Y-m-d') }}">{{ party.created|date('F j, Y') }}</time>
+											
+								</div>
+						</div>
+					{% endfor %}
+				</div>
+			{% else %}
+				{{ 'This party has not been booked yet'|trans }}
+			{% endif %}
+			</div>
+						<div class="ui active orange dividing header title">
+								<h3>Rates</h3>
+						</div>
+						<div class="content">
+							<p class="transition">
+								A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.
+							</p>
+						</div>
+						<div class="ui active orange dividing header title">
+								<h3>Similar Services</h3>
+						</div>
+						<div class="content">
+							<p class="transition">
+								A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="ui four wide computer sixteen wide mobile tablet column">
+					<div class="ui segment" id="sticky-service-form" style="height: 85.5vh;">
+						<form class="ui form">
+							<div class="field">
+								<label>Capacity</label> <input name="capacity" type="number">
+							</div>
+							<div class="field">
+								<label>Example</label> <select class="ui dropdown" name="dropdown">
+									<option value="">
+										Select
+									</option>
+									<option value="male">
+										Choice 1
+									</option>
+									<option value="female">
+										Choice 2
+									</option>
+								</select>
+							</div>
+							<div class="inline field">
+								<div class="ui checkbox">
+									<input name="checkbox" type="checkbox"> <label>Checkbox</label>
+								</div>
+							</div>
+							<div class="ui orange submit button">
+								Submit
+							</div>
+							<div class="ui error message"></div>
+						</form>
+					</div>
+				</div>
+				<div class="ui one wide column"></div>
+
+{% block inlinedCSS %}
+	{{ parent() }}
+	<style type="text/css">
+		#sticky-service-form{
+			height: 85.5vh;
+			}
+		#map{
+			display: block;
+		}
+	</style>
+{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}

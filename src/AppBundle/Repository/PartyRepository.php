@@ -2,6 +2,8 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Entity\Service;
+
 /**
  * PartyRepository
  *
@@ -17,6 +19,22 @@ class PartyRepository extends \Doctrine\ORM\EntityRepository
         return $this->createQueryBuilder('p')
             ->where('p.date >= :date')
             ->setParameter('date', new \DateTime('+ 2 days'))
+            ->orderBy('p.created', 'DESC')
+            ->setMaxResults(self::HOME_MAX_PARTIES)
+            ->getQuery()
+            ->useQueryCache(true)
+            ->useResultCache(true)
+            ->getResult();
+    }
+
+    public function findPartiesByService(Service $service) :array
+    {
+        return $this->createQueryBuilder('p')
+            ->join('p.orders', 'm')
+            ->addSelect('m')
+            ->join('m.orderDatas', 'n')
+            ->addSelect('n')
+            ->where('n.service = :service')
             ->orderBy('p.created', 'DESC')
             ->setMaxResults(self::HOME_MAX_PARTIES)
             ->getQuery()

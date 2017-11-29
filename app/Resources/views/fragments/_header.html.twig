@@ -1,98 +1,171 @@
 {% block header %}
     <div class="item">
-    <div class="ui floating dropdown labeled search icon button">
-        <i class="orange world icon"></i><input class="search" autocomplete="off" tabindex="0"><span class="text">
-        {% for locale in locales() %}
-            {% if app.request.locale == locale.code %}
-                {{ locale.name|capitalize }}
-            {% endif %}
-        {% endfor %}</span>
-        <div class="menu transition hidden" tabindex="-1">
-          {% for locale in locales() %}
-            <div class="item{% if app.request.locale == locale.code %} active selected{% else %}{% endif %}"><a style="color: black;" href="{{ url(app.request.get('_croute', 'homepage'), app.request.get('_croute_params', [])|merge({_locale: locale.code})) }}">{{ locale.name|capitalize }}</a></div>
-    {% endfor %}
+        <div class="ui floating dropdown labeled search icon button">
+            <i class="orange world icon"></i>
+            <input class="search" autocomplete="off" tabindex="0" />
+                <span class="text">
+                    {% for locale in locales() %}
+                        {% if app.request.locale == locale.code %}
+                            {{ locale.name|capitalize }}
+                        {% endif %}
+                    {% endfor %}
+                </span>
+                <div class="menu transition hidden" tabindex="-1">
+                    {% for locale in locales() %}
+                        <div class="item
+                            {%- if app.request.locale == locale.code %} active selected{% endif %}">
+                                <a 
+                                    style="color: black;" 
+                                    href="{{ url(
+                                                app.request.get('_croute', 'homepage'),
+                                                app.request.get('_croute_params', [])|merge({_locale: locale.code})
+                                                ) }}">
+                                    {{ locale.name|capitalize }}
+                                </a>
+                        </div>
+                    {% endfor %}
+                </div>
         </div>
-      </div>
-  </div>
-    <div class="item">
-        <a href="{{ url('fos_user_registration_register') }}" rel="nofollow"><b>{{ 'security.login.signup'|trans({}, 'FOSUserBundle') }}</b></a>
     </div>
     <div class="item">
-        <a href="{{ url('fos_user_security_login') }}" rel="nofollow"><b>{{ 'security.login'|trans({}, 'FOSUserBundle') }}</b></a>
-    </div>{{ tree|raw }}
-</div>
+        <a 
+            href="{{ url('fos_user_registration_register') }}" 
+            rel="nofollow">
+            <h5>{{ 'security.login.signup'|trans({}, 'FOSUserBundle') }}</h5>
+        </a>
+    </div>
+    <div class="item">
+        <a 
+            href="{{ url('fos_user_security_login') }}" 
+            rel="nofollow">
+            <h5>{{ 'security.login'|trans({}, 'FOSUserBundle') }}</h5>
+        </a>
+    </div>
+    {{ tree|raw }}
+</div>{#! Do NOT remove!, closes opening sidebar div #}
     <div class="pusher" id="content">
-        <!--All the divs-->
         <div class="ui center aligned grid" style="padding-top: 20px;">
-            <!--All the top header bar divs-->
-            <div class="row" id="top-bar">
-                <h1 style="font-size:2.4em;">PartyCravings Inc.</h1>
-            </div>
-            <div class="computer only row">
-                <!--All the stacked top categories with unknown number-->
-                <div class="ui secondary menu" style=" font-size: 1.2em;">
-                    {% for category in categories|slice(0, 4) %}
-                        <a class="item" href="{{ url('site_services_categories', {'slug':category.slug}) }}">{{ category }}</a>
-                    {% endfor %}
-                    <a class="item" href="{{ url('site_services_index') }}">{{ 'OTHERS'|trans }}</a>
+            <h1 style="font-size:2.4em;">PartyCravings Inc.</h1>
+            {% if categories is not empty %}
+                <div class="computer only row">
+                    {# All the stacked top categories with unknown number #}
+                    <div class="ui secondary menu" style="font-size: 1.2em;">
+                        {% for category in categories|slice(0, 4) %}
+                            <a 
+                                class="item" 
+                                href="{{ url('service_category', {'slug':category.slug}) }}">
+                                <h3>{{ category }}</h3>
+                            </a>
+                        {% endfor %}
+                            <a 
+                                class="item" 
+                                href="{{ url('service_index') }}">
+                                <h3>{{ 'OTHERS'|trans }}</h3>
+                            </a>
+                    </div>
                 </div>
-            </div>
+            {% endif %}
             <header class="ui sticky row borderless menu">
                 <div class="ui grid">
                     <div class="computer only row">
-                        <div align="right" class="three wide column">
+                        <div class="three wide column" style="text-align: right;">
                             <div class="ui dropdown">
                                 <div class="text" style="position: relative; top: 50%; transform: translateY(50%);">
-                                    {{ 'Need help ?'|trans }}
-                                </div><i class="dropdown icon" style="position: relative; top: 50%; transform: translateY(90%);"></i>
+                                    <span>{{ 'Need help ?'|trans }}</span>
+                                    <i class="dropdown icon"></i>
+                                </div>
                                 <div class="menu">
                                     {% if _country.infoMail is not null %}
-                                    <div class="item">
-                                        <i class="inverted orange mail icon"></i><a href="mailto:{{ _country.infoMail }}">{{ _country.infoMail }}</a>
-                                    </div>
-                                {% endif %}
+                                        <div class="item">
+                                            <i class="inverted orange mail icon"></i>
+                                            <a href="mailto:{{ _country.infoMail }}">{{ _country.infoMail }}</a>
+                                        </div>
+                                    {% endif %}
                                     {% if _country.phone is not null %}
-                                    <div class="item">
-                                        <i class="inverted orange whatsapp icon"></i><a href="https://web.whatsapp.com//send?text=How can we help you!&phone={{ _country.phone }}">{{ _country.phone }}</a>
-                                    </div>
-                                {% endif %}
+                                        <div class="item">
+                                            <i class="inverted orange whatsapp icon"></i>
+                                            <a href="https://web.whatsapp.com//send?text=How can we help you!&phone={{ _country.phone }}">
+                                                {{ _country.phone }}
+                                            </a>
+                                        </div>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
                         <div class="ui eight wide column">
                             <form>
                                 <div class="ui container action input">
-                                    <input name="query" placeholder="{{ 'What are you looking for?'|trans }}" type="text"> <select class="ui selection dropdown" name="category">
-                                        <option value="">
-                                            {{ 'All Categories'|trans }}
-                                        </option>
-                                        {% for category in categories %}
-                                            <option value="foods">
-                                                {{ category }}
-                                            </option>
-                                        {% endfor %}
-                                    </select><button class="ui orange button" type="submit"><i class="search icon"></i></button>
+                                    <input 
+                                        name="query" 
+                                        placeholder="{{ 'What are you looking for?'|trans }}" 
+                                        type="text" 
+                                        />
+                                        {% if categories is not empty %}
+                                            <select class="ui selection dropdown" name="category">
+                                                <option value="">
+                                                    {{ 'All Categories'|trans }}
+                                                </option>
+                                                {% for category in categories %}
+                                                    <option value="foods">
+                                                        {{ category }}
+                                                    </option>
+                                                {% endfor %}
+                                            </select>
+                                        {% endif %}
+                                    <button name="search" class="ui orange button" type="submit">
+                                        <i class="search icon"></i>
+                                    </button>
                                 </div>
                             </form>
                         </div>
                         <div class="ui three wide column">
-                            <a class="ui circular orange right labeled icon button" name="party now"><i class="right arrow icon"></i>{{ 'PARTY NOW'|trans }}</a>
+                            <a name="party now" class="ui circular orange right labeled icon button">
+                                <i class="right arrow icon"></i>
+                                {{ 'PARTY NOW'|trans }}
+                            </a>
                         </div>
                         <div class="ui two wide column">
-                            <img alt="john doe" class="ui avatar image" src="{{ preload(gravatar('xx', null, null, null, true), {nopush: true}) }}"> <a href="{{ url('fos_user_security_logout') }}" rel="nofollow">{{ 'security.login'|trans({}, 'FOSUserBundle') }}</a>
+                            <img 
+                                alt="john doe" 
+                                class="ui avatar image" 
+                                src="{{ preload(gravatar('xx', null, null, null, true), {nopush: true}) }}" 
+                                />
+                            <a 
+                                href="{{ url('fos_user_security_logout') }}" 
+                                rel="nofollow">
+                                {{ 'security.login'|trans({}, 'FOSUserBundle') }}
+                            </a>
                         </div>
                     </div>
                     <div class="ui tablet mobile only row">
                         <div class="ui top attached">
-                            <button class="ui orange toggle button" name="menu"><i class="sidebar icon"></i></button>
+                            <button name="menu" class="ui orange toggle button">
+                                <i class="sidebar icon"></i>
+                            </button>
                         </div>
                         <form>
                             <div class="ui action input">
-                                <input name="query" placeholder="{{ 'What are you looking for?'|trans }}" type="text"> <button class="ui orange mini button"><i class="search icon"></i></button>
+                                <input 
+                                    name="query" 
+                                    placeholder="{{ 'What are you looking for?'|trans }}" 
+                                    type="text"
+                                    />
+                                <button name="search" class="ui orange mini button">
+                                    <i class="search icon"></i>
+                                </button>
                             </div>
                         </form>
                         <div class="ui right floated image">
-                            <a href="{{ url('fos_user_security_logout') }}" rel="nofollow"><img alt="john doe" class="ui avatar image" src="{{ preload(gravatar('xx', null, null, null, true), {nopush: true}) }}" style="position: relative; top: 50%; transform: translateY(-50%);"></a>
+                            <a 
+                                href="{{ url('fos_user_security_logout') }}" 
+                                rel="nofollow">
+                                <img 
+                                    alt="john doe" 
+                                    class="ui avatar image" 
+                                    src="{{ preload(gravatar('xx', null, null, null, true), {nopush: true}) }}" 
+                                    style="position: relative; top: 50%; transform: translateY(-50%);" 
+                                    />
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,151 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+	{% set currency = app.request.attributes.get('_country').defaultCurrency %}
+		<div class="ui grid">
+			<div class="ui four wide computer tablet sixteen wide mobile column">
+				<div id="sticky-sidebar" class="ui container vertical menu">
+					{{ tree|raw }}
+				</div>
+			</div>
+			<div class="ui twelve wide computer tablet sixteen wide mobile container column">
+				{% if category %}
+					{% set file =  category.uploadedFiles %}
+						{% if file is not null %}
+							<div class="image">
+								{% if file.mimetype matches '/^image.*/' %}
+									<img
+										class="lazy" 
+										alt="{{ file.originalName }}"
+										src="data:image/svg+xml;base64, {{ file.silhouette|base64encode }}"
+										data-src="{{ vich_uploader_asset(file, 'actualFile') }}"
+										/>
+								{% elseif file.mimetype matches '/^video.*/' or '/^audio.*/' %}
+									<div 
+										class="ui embed"
+										data-placeholder="{{ asset('images/demo-4.jpg') }}" 
+										data-url="{{ vich_uploader_asset(file, 'actualFile') }}">
+									</div>
+								{% endif %}
+								</div>
+						{% endif %}
+				{% endif %}
+				<form>
+					<div class="ui container action input">
+						<select class="ui selection dropdown">
+							<option selected="selected" value="all">
+								{{ 'Location'|trans }}
+							</option>
+							{% if locationtree is iterable %}
+								{% for location in locationtree %}
+									<option value="{{ location.slug }}">{{ location }}</option>
+								{% endfor %}
+							{% endif %}
+						</select>
+						<button class="ui center aligned primary button" >
+							{{ 'Filter'|trans }}<i class="right arrow icon"></i>
+						</button>
+					</div>
+				</form>
+				<div class="ui grid">
+					<div class="ui twelve wide computer tablet sixteen wide mobile column">
+						<div class="ui stackable two cards fluid" style="padding-top: 10px;">
+							{% for service in services %}
+								<div class="orange card">
+									{% set file =  service.uploadedFiles.0 %}
+										{% if file is not null %}
+											<div class="image">
+												{% if file.mimetype matches '/^image.*/' %}
+													<img
+														class="lazy" 
+														alt="{{ file.originalName }}"
+														src="data:image/svg+xml;base64, {{ file.silhouette|base64encode }}"
+														data-src="{{ vich_uploader_asset(file, 'actualFile') }}"
+														/>
+												{% elseif file.mimetype matches '/^video.*/' or '/^audio.*/' %}
+													<div 
+														class="ui embed"
+														data-placeholder="{{ asset('images/demo-4.jpg') }}" 
+														data-url="{{ vich_uploader_asset(file, 'actualFile') }}">
+													</div>
+												{% endif %}
+											</div>
+										{% endif %}
+										<div class="content">
+											<div class="header">
+												<a href="{{ url('service_show', {'slug':service.slug})}}">
+													<h2>{{ service.name}}</h2>
+												</a>
+											</div>
+											<div class="meta">
+												<div 
+													style="padding-top:10px;" 
+													class="ui star rating" 
+													data-rating="{{ service.averageRating }}" 
+													data-max-rating="5">
+												</div>
+												<div>{{ service.countRating }} {{ 'customer review(s)'|trans }}</div>
+											</div>
+											<div class="description">
+												<h5>{{ service.serviceDescriptions.description|easyadmin_truncate|md2html}}</h5>
+											{% for feature in service.features %}
+											<div class="row">
+												<i class="orange {{ feature.icon }} icon"></i>
+												<span>{{ feature.name }}</span>
+											</div>
+										{% endfor %}
+										  </div>
+										</div>
+										<div class="extra content">
+										  <span class="right floated">
+											<a class="ui circular primary button" href="{{ url('service_show', {'slug':service.slug})}}" hreflang="{{ app.request.locale }}">{{ 'More details'|trans }}</a>
+										  </span>
+										  <span class="left floated"><i class="money icon"></i>
+										  	
+										  		{{ currency }} {{ service.serviceDescriptions.hourlyPrice }} {{ 'Hourly'|trans }}</span>
+										</div>
+									  </div>
+									{% endfor %}
+									</div>
+								</div>
+							<div class="ui four wide computer tablet sixteen wide mobile column">
+								<div id="map" class="ui vertical segment">
+									{{ ivory_google_map_container(map) }}
+									
+									{% jshrink %}
+										{{ ivory_google_map_css(map) }}
+										{{ ivory_google_map_js(map) }}
+										{{ ivory_google_api([map]) }}
+									{% endjshrink %}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+{% endblock %}
+
+{% block inlinedCSS %}
+	{{ parent() }}
+	<style type="text/css">
+		#sticky-sidebar{
+			height: 85vh;
+		}
+	</style>
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script type="text/javascript" src="{{ asset('build/sticky.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('build/lockfixed.js') }}"></script>
+	<script type="text/javascript">
+	if (/Android|BlackBerry|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent) === false) {
+		$('#sticky-sidebar').stickThis({
+			  top: 78,
+			  pushup: '#page-footer',
+			  debugmode:      false
+		  });
+		$.lockfixed("#map",{offset: {top: 78,}});
+	}
+		else{}
+	</script>
+{% endblock %}

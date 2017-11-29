@@ -17,7 +17,7 @@ class UploadListener
 
     public function onUpload(PostChunkUploadEvent $event)
     {
-        if($event->isLast()){
+        if ($event->isLast()) {
             $file = $event->getChunk();
             
             $object = new File();

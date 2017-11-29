@@ -247,10 +247,11 @@ noxlogic_rate_limit:
 
 #WhiteOctoberBreadcrumbsBundle Configuration
 white_october_breadcrumbs:
-    separator:          '>'
     viewTemplate: snippets/breadcrumbs.jsonld.twig
     itemClass: section
     listClass: ui breadcrumb
+    separatorClass:     right chevron icon divider
+    listId:             wo-breadcrumbs
 
 #AntiMattrGoogleBundle
 google:

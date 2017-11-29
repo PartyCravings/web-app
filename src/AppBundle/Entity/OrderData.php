@@ -31,6 +31,14 @@ class OrderData
     private $orderStatus;
 
     /**
+     * @var Orders
+     *
+     * @ORM\ManyToOne(targetEntity="Orders", inversedBy="orderDatas")
+     *
+     */
+    private $order;
+
+    /**
      * @var Service
      *
      * @Assert\NotBlank(message="orderdata.service.blank")

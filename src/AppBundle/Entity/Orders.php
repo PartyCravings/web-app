@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\IpTraceable\Traits\IpTraceableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Orders
@@ -35,7 +36,7 @@ class Orders
      *
      * @Assert\Valid
      * @Assert\NotBlank(message="order.orderDatas.blank")
-     * @ORM\ManyToMany(targetEntity="OrderData")
+     * @ORM\OneToMany(targetEntity="OrderData", mappedBy="order")
      * @ORM\JoinColumn(nullable=false)
      */
     private $orderDatas;
@@ -181,7 +182,7 @@ class Orders
      */
     public function __construct()
     {
-        $this->orderDatas = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->orderDatas = new ArrayCollection();
     }
 
     /**

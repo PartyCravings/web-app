@@ -64,19 +64,19 @@ class Sorter
         $tree = $this->em->getRepository('AppBundle:Category')->childrenHierarchy($category, false, array('decorate' => true,
             'rootOpen' => function ($tree) {
                 if (count($tree) && ($tree[0]['lvl'] == 0)) {
-                    return '<div class="item">';
+                    return '<li class="item">';
                 }
             },
             'rootClose' => function ($child) {
                 if (count($child) && ($child[0]['lvl'] == 0)) {
-                    return '</div>';
+                    return '</li>';
                 }
             },
             'childOpen' => '',
             'childClose' => '',
             'nodeDecorator' => function ($node) use (&$generator) {
                 if ($node['lvl'] == 1 || $node['lvl'] == 2 ||  $node['lvl'] == 3) {
-                    return '<a href="'.$generator->generateUrl("site_services_categories", array("slug"=>$node['slug'])).'">'.ucfirst($node['title']).'</a>&nbsp;';
+                    return '<a href="'.$generator->generateUrl("service_category", array("slug"=>$node['slug'])).'">'.ucfirst($node['title']).'</a>&nbsp;';
                 }
             }
         ));

@@ -1,12 +1,13 @@
 CACHE MANIFEST
-#ver:2017-11-25 22:51:56
+#ver:2017-11-29 09:02:43
 #plugin:4.8.4
 
 CACHE:
 /
+/offline
 
 NETWORK:
 *
 
 FALLBACK:
-/ /
+/ /offline

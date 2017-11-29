@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+	<div class="main">
+		<a class="logo-wrap" href="{{ url('homepage') }}">
+			<div class="logo">
+				<img alt="close" src="/logo.svg" />
+			</div>
+			<div class="logo-hexagon" id="hexagon">
+				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 726 628">
+					<polygon points="723,314 543,625.769145 183,625.769145 3,314 183,2.230855 543,2.230855 723,314" fill="transparent" stroke="white" stroke-width="4"/>
+				</svg>
+			</div>
+		</a>
+		<div class="title">PartyCravings Inc.</div>
+		<div class="sub-title">{{ 'Network status'|trans }}</div>
+		<div class="offline-ready" id="offline-ready">
+			<div>
+				This website is now ready for offline usage <code><a href="{{ url('homepage') }}">go home</a></code>
+			</div>
+			<div class="offline-ready-close" id="offline-ready-close" role="button">
+				<img alt="close" src="/close.svg" />
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block title %}{{ 'Network status'|trans }}{% endblock %}
+
+{% block externalCSS %}
+	<link rel="stylesheet" type="text/css" href="{{ asset('build/offline.css') }}">
+{% endblock %}
+
+{% block inlinedCSS %}{% endblock %}
+
+{% block javascripts %}
+	<script type="text/javascript" src="{{ asset('build/offline.js') }}"></script>
+{% endblock %}
+
+{% block indexing %}
+	<meta name="robots" content="noindex, nofollow, noarchive" />
+{% endblock %}

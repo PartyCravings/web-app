@@ -1,21 +1,15 @@
 <?php
 
-namespace AppBundle\Controller\Services;
+namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
-use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
 use WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs;
-use AppBundle\Utils\LocationTools;
-use AppBundle\Utils\Sorter;
 use AppBundle\Entity\Service;
-use AppBundle\Entity\Country;
-use AppBundle\Entity\Category;
-use AppBundle\Entity\Location;
 
 /**
  * Class ServiceController
@@ -38,7 +32,7 @@ class ServiceController extends AbstractController
     /**
      * @Route(
                  "/{slug}",
-                 name="site_services_show"
+                 name="service_show"
              )
      * @ParamConverter(
                          "service",
@@ -59,17 +53,38 @@ class ServiceController extends AbstractController
                 etag="'Service' ~ service.id ~ service.serviceDescriptions.updated.format('Y-m-d')"
             )
      */
-    public function showAction(Service $service, Breadcrumbs $breadcrumbs) :void
+    public function showAction(Service $service, Breadcrumbs $breadcrumbs, EntityManagerInterface $em) :array
     {
-        $location = $service->getLocation();
-        $breadcrumbs->prependRouteItem($service->getName(), 'site_services_show', ['slug'=>$service->getSlug()]);
-        $breadcrumbs->prependRouteItem($location->getName(), 'site_location_listing', ['slug'=>$location->getSlug()]);
+        $address = $service->getAddress() ?: $service->getVendor()->getAddress();
+        $breadcrumbs->prependRouteItem(
+                        $service->getName(),
+                        'service_show',
+                            array(
+                                'slug'=>$service->getSlug()
+                    )
+                );
+        $breadcrumbs->prependRouteItem(
+                        $address->getLocation(),
+                        'site_location_listing',
+                            array(
+                                'slug'=>$location->getSlug()
+                            )
+                        );
         $node = $service->getCategory();
         while ($node) {
-            $breadcrumbs->prependRouteItem($node->getTitle(), 'site_services_categories', ['slug'=>$node->getSlug()]);
+            $breadcrumbs->prependRouteItem(
+                        $node->getTitle(),
+                        'service_category',
+                array('slug'=>$node->getSlug()
+                    )
+                );
             $node = $node->getParent();
         }
-        $breadcrumbs->prependRouteItem("Services", "site_services_index");
-        $breadcrumbs->prependRouteItem("Home", "homepage");
+        $breadcrumbs->prependRouteItem('Services', 'service_index');
+        $breadcrumbs->prependRouteItem('Home', 'homepage');
+
+        $recentParties = $em->getRepository('AppBundle:Party')->findPartiesByService($service);
+
+        return array('service' => $service, 'recentParties' => $recentParties);
     }
 }

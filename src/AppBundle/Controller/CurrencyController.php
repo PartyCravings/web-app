@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller\Currency;
+namespace AppBundle\Controller;
 
 use LogicException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;

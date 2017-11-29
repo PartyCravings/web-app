@@ -83,7 +83,7 @@ class DefaultController extends AbstractController
     /**
      * @Route(
                 "/header",
-                name="sitewide_header"
+                name="header"
             )
      * @ParamConverter(
                     "categories",
@@ -110,12 +110,12 @@ class DefaultController extends AbstractController
                 'decorate' => true,
                 'rootOpen' => function ($tree) {
                     if (count($tree) && ($tree[0]['lvl'] == 0)) {
-                        return '<div class="item">';
+                        return '<li class="item">';
                     }
                 },
                 'rootClose' => function ($child) {
                     if (count($child) && ($child[0]['lvl'] == 0)) {
-                        return '</div>';
+                        return '</li>';
                     }
                 },
                 'childOpen' => '',
@@ -124,7 +124,7 @@ class DefaultController extends AbstractController
                     if ($node['lvl'] == 1 || $node['isVisibleOnHome']) {
                         return '<a href="'.
                         $generator->generate(
-                            'site_services_categories',
+                            'service_category',
                             array(
                                 'slug' => $node['slug']
                                 ),
@@ -142,7 +142,7 @@ class DefaultController extends AbstractController
     /**
      * @Route(
                 "/footer" ,
-                name="sitewide_footer"
+                name="footer"
             )
      * @Template(
                     ":fragments:_footer.html.twig"
@@ -169,5 +169,19 @@ class DefaultController extends AbstractController
             '_country' => $_country,
             'similarCountries'=> $similarCountries
         );
+    }
+
+    /**
+     * @Route(
+                "/offline" ,
+                name="offline"
+            )
+     * @Template(
+                    ":fragments:_offline.html.twig"
+            )
+     * @Cache(smaxage=1)
+     */
+    public function offlineAction(Country $_country, EntityManagerInterface $em) :void
+    {
     }
 }

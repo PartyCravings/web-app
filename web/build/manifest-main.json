@@ -4,14 +4,40 @@
   "start_url": "/",
   "icons": [
     {
-      "src": "/build/images/256.png",
-      "sizes": "256x256",
-      "type": "image/png"
+      "src": "/android-icon-36x36.png",
+      "sizes": "36x36",
+      "type": "image/png",
+      "density": "0.75"
     },
     {
-      "src": "/build/images/512.png",
-      "sizes": "512x512",
-      "type": "image/png"
+      "src": "/android-icon-48x48.png",
+      "sizes": "48x48",
+      "type": "image/png",
+      "density": "1.0"
+    },
+    {
+      "src": "/android-icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "density": "1.5"
+    },
+    {
+      "src": "/android-icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "density": "2.0"
+    },
+    {
+      "src": "/android-icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "density": "3.0"
+    },
+    {
+      "src": "/android-icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "density": "4.0"
     }
   ],
   "background_color": "#FF8300",
@@ -42,6 +68,8 @@
   "/build/images/zoom.png": "/build/images/zoom.37ba8a0c.png",
   "/build/img.js": "/build/img.9a48835f361bbb93552b.js",
   "/build/lockfixed.js": "/build/lockfixed.20b7c205d9ceb5efc61f.js",
+  "/build/offline.css": "/build/offline.979750ccc083c59e0313d36781d33647.css",
+  "/build/offline.js": "/build/offline.9ea097de8353a139c753.js",
   "/build/slider.js": "/build/slider.45882ff14c9bd0cf4fd2.js",
   "/build/sticklr.js": "/build/sticklr.21843070fa9742f90d01.js",
   "/build/sticky.js": "/build/sticky.903c5a9e111e1cd75456.js"

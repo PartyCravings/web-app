@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller\Search;
+namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -68,7 +68,7 @@ class SearchController extends AbstractController
     /**
      * @Route(
      			"/opensearch.xml",
-     			name="site_wide_search_description",
+     			name="search_description",
      			defaults={"_format":"xml"}
      		)
      * @Cache(smaxage=0)

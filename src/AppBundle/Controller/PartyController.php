@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller\Party;
+namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -33,7 +33,7 @@ use AppBundle\Entity\Location;
 class PartyController extends AbstractController
 {
     /**
-     * @Route("", name="site_party_index")
+     * @Route("", name="party_index")
      * @Template(":services:index.html.twig")
      * @Cache(smaxage=0)
      */
@@ -61,7 +61,7 @@ class PartyController extends AbstractController
     /**
      * @Route(
                  "/{slug}",
-                 name="site_party_show"
+                 name="party_show"
              )
      * @ParamConverter(
                          "service",

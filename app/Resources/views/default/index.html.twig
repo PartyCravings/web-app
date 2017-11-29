@@ -2,76 +2,160 @@
 
 {% block content %}
 		{% if campaigns is not empty %}
-			<div id="slider-top" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:380px;overflow:hidden;visibility:hidden;">
-				<!-- Loading Screen -->
-						<div class="jssorl-009-spin" data-u="loading" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
-								<img src="{{ asset('build/images/spin.svg') }}" style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;">
-						</div>
-				<div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:380px;overflow:hidden;">
+			<div id="slider-top" 
+				style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:380px;overflow:hidden;visibility:hidden;">
+				{# Loading Screen #}
+				<div 
+					class="jssorl-009-spin" 
+					data-u="loading" 
+					style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
+					<img 
+						src="{{ asset('build/images/spin.svg') }}" 
+						style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;"
+						/>
+				</div>
+				{# Slides #}
+				<div 
+					data-u="slides" 
+					style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:380px;overflow:hidden;">
 					{% for campaign in campaigns %}
 						{% set file =  campaign.uploadedFiles %}
-							{% if file is not null and file.mimetype matches '/^image.*/' %}
-								<div class="image"><img class="lazy" data-u="image" alt="{{ file.originalName }}" src="data:image/svg+xml;base64, {{ file.silhouette|base64encode }}" data-src="{{ vich_uploader_asset(file, 'actualFile') }}"/></div>
-							{% elseif file is not null and file.mimetype matches '/^video.*/' %}
+							{% if file is not null %}
 								<div class="image">
-									<div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="{{ vich_uploader_asset(file, 'actualFile') }}"></div>
-								 </div>
+									{% if file.mimetype matches '/^image.*/' %}
+										<img
+											class="lazy" 
+											alt="{{ file.originalName }}"
+											src="data:image/svg+xml;base64, {{ file.silhouette|base64encode }}"
+											data-src="{{ vich_uploader_asset(file, 'actualFile') }}"
+											/>
+									{% elseif file.mimetype matches '/^video.*/' or '/^audio.*/' %}
+										<div 
+											class="ui embed"
+											data-placeholder="{{ asset('images/demo-4.jpg') }}" 
+											data-url="{{ vich_uploader_asset(file, 'actualFile') }}">
+										</div>
+									{% endif %}
+								</div>
 							{% endif %}
 					{% endfor %}
 				</div>
-				<!-- Bullet Navigator -->
-				<div class="jssorb057" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75" data-u="navigator" style="position:absolute;bottom:12px;right:12px;">
-					<div class="i" data-u="prototype" style="width:16px;height:16px;">
+				{# Bullet Navigator #}
+				<div 
+					class="jssorb057" 
+					data-autocenter="1" 
+					data-scale="0.5" 
+					data-scale-bottom="0.75" 
+					data-u="navigator" 
+					style="position:absolute;bottom:12px;right:12px;">
+					<div 
+						class="i" 
+						data-u="prototype" 
+						style="width:16px;height:16px;">
 						<svg style="position:absolute;top:0;left:0;width:100%;height:100%;" viewBox="0 0 16000 16000">
 							<circle class="b" cx="8000" cy="8000" r="5000"></circle>
 						</svg>
 					</div>
 				</div>
-				<!-- Arrow Navigator -->
-				<div class="jssora073" data-autocenter="2" data-scale="0.75" data-scale-left="0.75" data-u="arrowleft" style="width:50px;height:50px;top:0px;left:30px;">
+				{# Arrow Navigator #}
+				<div 
+					class="jssora073" 
+					data-autocenter="2" 
+					data-scale="0.75" 
+					data-scale-left="0.75" 
+					data-u="arrowleft" 
+					style="width:50px;height:50px;top:0px;left:30px;">
 					<svg style="position:absolute;top:0;left:0;width:100%;height:100%;" viewBox="0 0 16000 16000">
 						<path class="a" d="M4037.7,8357.3l5891.8,5891.8c100.6,100.6,219.7,150.9,357.3,150.9s256.7-50.3,357.3-150.9 l1318.1-1318.1c100.6-100.6,150.9-219.7,150.9-357.3c0-137.6-50.3-256.7-150.9-357.3L7745.9,8000l4216.4-4216.4 c100.6-100.6,150.9-219.7,150.9-357.3c0-137.6-50.3-256.7-150.9-357.3l-1318.1-1318.1c-100.6-100.6-219.7-150.9-357.3-150.9 s-256.7,50.3-357.3,150.9L4037.7,7642.7c-100.6,100.6-150.9,219.7-150.9,357.3C3886.8,8137.6,3937.1,8256.7,4037.7,8357.3 L4037.7,8357.3z"></path>
 					</svg>
 				</div>
-				<div class="jssora073" data-autocenter="2" data-scale="0.75" data-scale-right="0.75" data-u="arrowright" style="width:50px;height:50px;top:0px;right:30px;">
+				<div 
+					class="jssora073" 
+					data-autocenter="2" 
+					data-scale="0.75" 
+					data-scale-right="0.75" 
+					data-u="arrowright" 
+					style="width:50px;height:50px;top:0px;right:30px;">
 					<svg style="position:absolute;top:0;left:0;width:100%;height:100%;" viewBox="0 0 16000 16000">
 						<path class="a" d="M11962.3,8357.3l-5891.8,5891.8c-100.6,100.6-219.7,150.9-357.3,150.9s-256.7-50.3-357.3-150.9 L4037.7,12931c-100.6-100.6-150.9-219.7-150.9-357.3c0-137.6,50.3-256.7,150.9-357.3L8254.1,8000L4037.7,3783.6 c-100.6-100.6-150.9-219.7-150.9-357.3c0-137.6,50.3-256.7,150.9-357.3l1318.1-1318.1c100.6-100.6,219.7-150.9,357.3-150.9 s256.7,50.3,357.3,150.9l5891.8,5891.8c100.6,100.6,150.9,219.7,150.9,357.3C12113.2,8137.6,12062.9,8256.7,11962.3,8357.3 L11962.3,8357.3z"></path>
 					</svg>
 				</div>
 			</div>
-			<!-- #endregion Jssor Slider End -->
-			<div id="slider-bottom" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:150px;overflow:hidden;visibility:hidden;">
-				<!-- Loading Screen -->
-						<div class="jssorl-009-spin" data-u="loading" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
-								<img src="{{ asset('build/images/spin.svg') }}" style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;">
-						</div>
-				<div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:150px;overflow:hidden;">
+
+			<div 
+				id="slider-bottom" 
+				style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:150px;overflow:hidden;visibility:hidden;">
+				{# Loading Screen #}
+				<div 
+					class="jssorl-009-spin" 
+					data-u="loading" 
+					style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
+					<img 
+						src="{{ asset('build/images/spin.svg') }}" 
+						style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;"
+						/>
+				</div>
+				<div 
+					data-u="slides" 
+					style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:150px;overflow:hidden;">
 					{% for campaign in campaigns %}
 						{% set file =  campaign.uploadedFiles %}
-							{% if file is not null and file.mimetype matches '/^image.*/' %}
-								<div class="image"><img class="lazy" data-u="image" alt="{{ file.originalName }}" src="data:image/svg+xml;base64, {{ file.silhouette|base64encode }}" data-src="{{ vich_uploader_asset(file, 'actualFile') }}"/></div>
-							{% elseif file is not null and file.mimetype matches '/^video.*/' %}
+							{% if file is not null %}
 								<div class="image">
-									<div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="{{ vich_uploader_asset(file, 'actualFile') }}"></div>
-								 </div>
+									{% if file.mimetype matches '/^image.*/' %}
+										<img
+											class="lazy" 
+											alt="{{ file.originalName }}"
+											src="data:image/svg+xml;base64, {{ file.silhouette|base64encode }}"
+											data-src="{{ vich_uploader_asset(file, 'actualFile') }}"
+											/>
+									{% elseif file.mimetype matches '/^video.*/' or '/^audio.*/' %}
+										<div 
+											class="ui embed"
+											data-placeholder="{{ asset('images/demo-4.jpg') }}" 
+											data-url="{{ vich_uploader_asset(file, 'actualFile') }}">
+										</div>
+									{% endif %}
+								</div>
 							{% endif %}
 					{% endfor %}
 				</div>
-				<!-- Bullet Navigator -->
-				<div class="jssorb057" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75" data-u="navigator" style="position:absolute;bottom:12px;right:12px;">
-					<div class="i" data-u="prototype" style="width:16px;height:16px;">
+				{# Bullet Navigator #}
+				<div 
+					class="jssorb057" 
+					data-autocenter="1" 
+					data-scale="0.5" 
+					data-scale-bottom="0.75" 
+					data-u="navigator" 
+					style="position:absolute;bottom:12px;right:12px;">
+					<div 
+						class="i" 
+						data-u="prototype" 
+						style="width:16px;height:16px;">
 						<svg style="position:absolute;top:0;left:0;width:100%;height:100%;" viewBox="0 0 16000 16000">
 							<circle class="b" cx="8000" cy="8000" r="5000"></circle>
 						</svg>
 					</div>
 				</div>
-				<!-- Arrow Navigator -->
-				<div class="jssora073" data-autocenter="2" data-scale="0.75" data-scale-left="0.75" data-u="arrowleft" style="width:50px;height:50px;top:0px;left:30px;">
+				{# Arrow Navigator #}
+				<div 
+					class="jssora073" 
+					data-autocenter="2" 
+					data-scale="0.75" 
+					data-scale-left="0.75" 
+					data-u="arrowleft" 
+					style="width:50px;height:50px;top:0px;left:30px;">
 					<svg style="position:absolute;top:0;left:0;width:100%;height:100%;" viewBox="0 0 16000 16000">
 						<path class="a" d="M4037.7,8357.3l5891.8,5891.8c100.6,100.6,219.7,150.9,357.3,150.9s256.7-50.3,357.3-150.9 l1318.1-1318.1c100.6-100.6,150.9-219.7,150.9-357.3c0-137.6-50.3-256.7-150.9-357.3L7745.9,8000l4216.4-4216.4 c100.6-100.6,150.9-219.7,150.9-357.3c0-137.6-50.3-256.7-150.9-357.3l-1318.1-1318.1c-100.6-100.6-219.7-150.9-357.3-150.9 s-256.7,50.3-357.3,150.9L4037.7,7642.7c-100.6,100.6-150.9,219.7-150.9,357.3C3886.8,8137.6,3937.1,8256.7,4037.7,8357.3 L4037.7,8357.3z"></path>
 					</svg>
 				</div>
-				<div class="jssora073" data-autocenter="2" data-scale="0.75" data-scale-right="0.75" data-u="arrowright" style="width:50px;height:50px;top:0px;right:30px;">
+				<div 
+					class="jssora073" 
+					data-autocenter="2" 
+					data-scale="0.75" 
+					data-scale-right="0.75" 
+					data-u="arrowright" 
+					style="width:50px;height:50px;top:0px;right:30px;">
 					<svg style="position:absolute;top:0;left:0;width:100%;height:100%;" viewBox="0 0 16000 16000">
 						<path class="a" d="M11962.3,8357.3l-5891.8,5891.8c-100.6,100.6-219.7,150.9-357.3,150.9s-256.7-50.3-357.3-150.9 L4037.7,12931c-100.6-100.6-150.9-219.7-150.9-357.3c0-137.6,50.3-256.7,150.9-357.3L8254.1,8000L4037.7,3783.6 c-100.6-100.6-150.9-219.7-150.9-357.3c0-137.6,50.3-256.7,150.9-357.3l1318.1-1318.1c100.6-100.6,219.7-150.9,357.3-150.9 s256.7,50.3,357.3,150.9l5891.8,5891.8c100.6,100.6,150.9,219.7,150.9,357.3C12113.2,8137.6,12062.9,8256.7,11962.3,8357.3 L11962.3,8357.3z"></path>
 					</svg>
@@ -83,8 +167,8 @@
 				<div class="ui orange dividing header">
 					<div class="ui top attached inverted tabular menu" style="background-color: #fff7e9;">
 						{% for campaign in campaigns|slice(0, 4)  %}
-							<a class="{% if loop.first %}active{% endif %} orange item" data-tab="{{ campaign.id }}" style="color: black;">
-								{{ campaign.titlle }}
+							<a class="{% if loop.first %}active{% endif %} orange item" data-tab="{{ campaign.id }}">
+								{{ campaign.title }}
 							</a>
 						{% endfor %}
 					</div>
@@ -95,17 +179,33 @@
 							{% for service in campaign.services|slice(0, 8) %}
 								<div class="card">
 									{% set file =  service.uploadedFiles.0 %}
-										{% if file is not null and file.mimetype matches '/^image.*/' %}
-											<div class="image"><img class="lazy" alt="{{ file.originalName }}" src="data:image/svg+xml;base64, {{ file.silhouette|base64encode }}" data-src="{{ vich_uploader_asset(file, 'actualFile') }}"/></div>
-										{% elseif file is not null and file.mimetype matches '/^video.*/' %}
+										{% if file is not null %}
 											<div class="image">
-												<div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="{{ vich_uploader_asset(file, 'actualFile') }}"></div>
-												
+												{% if file.mimetype matches '/^image.*/' %}
+													<img
+														class="lazy" 
+														alt="{{ file.originalName }}"
+														src="data:image/svg+xml;base64, {{ file.silhouette|base64encode }}"
+														data-src="{{ vich_uploader_asset(file, 'actualFile') }}"
+														/>
+												{% elseif file.mimetype matches '/^video.*/' or '/^audio.*/' %}
+													<div 
+														class="ui embed"
+														data-placeholder="{{ asset('images/demo-4.jpg') }}" 
+														data-url="{{ vich_uploader_asset(file, 'actualFile') }}">
+													</div>
+												{% endif %}
 											</div>
 										{% endif %}
 										<div class="extra aligned center">
-											<a href="{{ url('site_services_show', {'slug':service.slug})}}" hreflang="{{ app.request.locale }}"><h4>{{ service.name }}</h4></a>
-											<div class="ui star rating" data-rating="{{ service.averageRating }}" data-max-rating="5"></div>
+											<a	href="{{ url('service_show', {'slug':service.slug}) }}">
+												<h4>{{ service.name }}</h4>
+											</a>
+											<div 
+												class="ui star rating" 
+												data-rating="{{ service.averageRating }}" 
+												data-max-rating="5">
+											</div>
 										</div>
 								</div>
 							{% endfor %}
@@ -116,45 +216,67 @@
 		{% endif %}
 		{% if parties is not empty %}
 			<div class="ui container">
-				<h2 align="center" style="font-size:2.2em;">{{ 'UPCOMING PARTIES'|trans }}</h2>
+				<h2 style="font-size:2.2em; text-align: center;">{{ 'UPCOMING PARTIES'|trans }}</h2>
 				<div class="ui doubling three cards fluid">
 					{% for party in parties %}
 						<div class="card">
 							{% set file =  party.uploadedFiles.0 %}
-								{% if file is not null and file.mimetype matches '/^image.*/' %}
+								{% if file is not null %}
 									<div class="image">
-										<img class="lazy" alt="{{ file.originalName }}" src="data:image/svg+xml;base64, {{ file.silhouette|base64encode }}" data-src="{{ vich_uploader_asset(file, 'actualFile') }}"/>
-									</div>
-								{% elseif file is not null and file.mimetype matches '/^video.*/' %}
-									<div class="image">
-										<div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="{{ vich_uploader_asset(file, 'actualFile') }}"></div>		
+										{% if file.mimetype matches '/^image.*/' %}
+											<img
+												class="lazy" 
+												alt="{{ file.originalName }}"
+												src="data:image/svg+xml;base64, {{ file.silhouette|base64encode }}"
+												data-src="{{ vich_uploader_asset(file, 'actualFile') }}"
+												/>
+										{% elseif file.mimetype matches '/^video.*/' or '/^audio.*/' %}
+											<div 
+												class="ui embed"
+												data-placeholder="{{ asset('images/demo-4.jpg') }}" 
+												data-url="{{ vich_uploader_asset(file, 'actualFile') }}">
+											</div>
+										{% endif %}
 									</div>
 								{% endif %}
 								<div class="extra aligned center">
-									<a href="{{ url('site_party_show', {'slug':party.slug})}}" hreflang="{{ app.request.locale }}"><h4>{{ post.title }}</h4></a>
-                              		{% if party.createdBy is not null %}<span>by {{ party.createdBy }}</span>{% endif %}
-                              		<time datetime="{{ party.created.format('Y-m-d') }}">{{ party.created.format('F j, Y') }}</time>
+									<a href="{{ url('site_party_show', {'slug':party.slug})}}">
+										<h4>{{ post.title }}</h4>
+									</a>
+                              		{% if party.createdBy is not null %}
+                              			<span>by {{ party.createdBy }}</span>
+                              		{% endif %}
+                              		<time datetime="{{ party.created|date('Y-m-d') }}">{{ party.created|date('F j, Y') }}</time>
 										
 								</div>
 						</div>
 					{% endfor %}
 				</div>
-			</div><br/>
+			</div>
 		{% endif %}
 		{% if posts is not empty %}
 			<div class="ui container">
-				<h2 align="center">{{ 'FROM THE BLOG'|trans }}</h2>
+				<h2 style="text-align: center;">{{ 'FROM THE BLOG'|trans }}</h2>
 				<div class="ui three cards fluid">
 					{% for post in posts %}
 						<div class="card">
 							{% set file =  post.uploadedFiles %}
-								{% if file is not null and file.mimetype matches '/^image.*/' %}
+								{% if file is not null %}
 									<div class="image">
-										<img class="lazy" alt="{{ file.originalName }}" src="data:image/svg+xml;base64, {{ file.silhouette|base64encode }}" data-src="{{ vich_uploader_asset(file, 'actualFile') }}"/>
-									</div>
-								{% elseif file is not null and file.mimetype matches '/^video.*/' %}
-									<div class="image">
-										<div class="ui embed" data-placeholder="{{ asset('images/demo-4.jpg') }}" data-url="{{ vich_uploader_asset(file, 'actualFile') }}"></div>		
+										{% if file.mimetype matches '/^image.*/' %}
+											<img
+												class="lazy" 
+												alt="{{ file.originalName }}"
+												src="data:image/svg+xml;base64, {{ file.silhouette|base64encode }}"
+												data-src="{{ vich_uploader_asset(file, 'actualFile') }}"
+												/>
+										{% elseif file.mimetype matches '/^video.*/' or '/^audio.*/' %}
+											<div 
+												class="ui embed"
+												data-placeholder="{{ asset('images/demo-4.jpg') }}" 
+												data-url="{{ vich_uploader_asset(file, 'actualFile') }}">
+											</div>
+										{% endif %}
 									</div>
 								{% endif %}
 								<div class="extra aligned center">
@@ -175,24 +297,23 @@
 	{% if campaigns is not empty %}
 		<script src="{{ preload(asset('build/slider.js'), {nopush: true}) }}" type="text/javascript"></script>
 		<script type="text/javascript">
-				var sliderOptions = {
-			  $AutoPlay: 1,
-			  $AutoPlaySteps: 4,
-			  $SlideDuration: 12000,
-			  $SlideWidth: 200,
-			  $SlideSpacing: 3,
-			  $Cols: 5,
-			  $Align: 390,
-			  $ArrowNavigatorOptions: {
-			    $Class: $JssorArrowNavigator$,
-			    $Steps: 5
-			  },
-			  $BulletNavigatorOptions: {
-			    $Class: $JssorBulletNavigator$
-			  }
-			};
+			var sliderOptions = {
+					  $AutoPlay: 1,
+					  $AutoPlaySteps: 4,
+					  $SlideDuration: 12000,
+					  $SlideWidth: 200,
+					  $SlideSpacing: 3,
+					  $Cols: 5,
+					  $Align: 390,
+					  $ArrowNavigatorOptions: {
+					    $Class: $JssorArrowNavigator$,
+					    $Steps: 5
+					  },
+					  $BulletNavigatorOptions: {
+					    $Class: $JssorBulletNavigator$
+					  }
+					};
 			var slider1 = new $JssorSlider$("slider-bottom", sliderOptions);
-			/*#region responsive code begin*/
 			var win_width = $(window).width();
 			var win_height = $(window).height();
 			var MAX_WIDTH = (win_height < win_width) ? win_width : win_height;
@@ -211,27 +332,26 @@
 			$(window).bind("load", ScaleSlider1);
 			$(window).bind("resize", ScaleSlider1);
 			$(window).bind("orientationchange", ScaleSlider1);
-			/*#endregion responsive code end*/
+
 			var slideshowTransitions = [{
-			  $Duration: 5000,
-			  $Opacity: 2
-			}];
+				  $Duration: 5000,
+				  $Opacity: 2
+				}];
 			var options = {
-			  $AutoPlay: 1,
-			  $SlideshowOptions: {
-			    $Class: $JssorSlideshowRunner$,
-			    $Transitions: slideshowTransitions,
-			    $TransitionsOrder: 1
-			  },
-			  $ArrowNavigatorOptions: {
-			    $Class: $JssorArrowNavigator$
-			  },
-			  $BulletNavigatorOptions: {
-			    $Class: $JssorBulletNavigator$
-			  }
-			};
+				  $AutoPlay: 1,
+				  $SlideshowOptions: {
+				    $Class: $JssorSlideshowRunner$,
+				    $Transitions: slideshowTransitions,
+				    $TransitionsOrder: 1
+				  },
+				  $ArrowNavigatorOptions: {
+				    $Class: $JssorArrowNavigator$
+				  },
+				  $BulletNavigatorOptions: {
+				    $Class: $JssorBulletNavigator$
+				  }
+				};
 			var slider = new $JssorSlider$("slider-top", options);
-			/*#region responsive code begin*/
 			var win_width = $(window).width();
 			var win_height = $(window).height();
 			var MAX_WIDTH = (win_height < win_width) ? win_width : win_height;
@@ -250,7 +370,6 @@
 			$(window).bind("load", ScaleSlider);
 			$(window).bind("resize", ScaleSlider);
 			$(window).bind("orientationchange", ScaleSlider);
-			/*#endregion responsive code end*/
 		</script>
 	{% endif %}
 {% endblock %}
