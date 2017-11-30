@@ -295,7 +295,7 @@
 {% block javascripts %}
 	{{ parent() }}
 	{% if campaigns is not empty %}
-		<script src="{{ preload(asset('build/slider.js'), {nopush: true}) }}" type="text/javascript"></script>
+		<script src="{{ preload(asset('build/slider.js'), {nopush: true}) }}"></script>
 		<script type="text/javascript">
 			var sliderOptions = {
 					  $AutoPlay: 1,

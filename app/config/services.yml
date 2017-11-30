@@ -66,3 +66,8 @@ services:
     Google_Service_Storage:
         class: \Google_Service_Storage
         factory: ['AppBundle\Storage\GoogleCloudStorageServiceFactory', createService]
+
+    twig.extension.intl:
+        class: Twig_Extensions_Extension_Intl
+        tags:
+            - { name: twig.extension }

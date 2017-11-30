@@ -17,20 +17,11 @@
 	{{ parent() }}
 {% endblock %}
 
-{% block inlinedCSS %}
-	{{ parent() }}
-	<style type="text/css">
-		#sticky-sidebar{
-			height: 85vh;
-		}
-	</style>
-{% endblock %}
-
 {% block content %}
 	{% set currency = app.request.attributes.get('_country').defaultCurrency %}
 		<div class="ui grid">
 			<div class="ui four wide computer tablet sixteen wide mobile column">
-				<div id="sticky-sidebar" class="ui container vertical menu">
+				<div id="sticky-sidebar" class="ui container vertical menu" style="height: 85vh;">
 					{{ tree|raw }}
 				</div>
 			</div>
@@ -124,11 +115,11 @@
 										</div>
 										<div class="extra content">
 										  <span class="right floated">
-											<a class="ui circular primary button" href="{{ url('service_show', {'slug':service.slug})}}" hreflang="{{ app.request.locale }}">{{ 'More details'|trans }}</a>
+											<a class="ui circular primary button" href="{{ url('service_show', {'slug':service.slug})}}">{{ 'More details'|trans }}</a>
 										  </span>
 										  <span class="left floated"><i class="money icon"></i>
 										  	
-										  		{{ currency }} {{ service.serviceDescriptions.hourlyPrice }} {{ 'Hourly'|trans }}</span>
+										  		{{ service.serviceDescriptions.hourlyPrice|currency }} {{ 'Hourly'|trans }}</span>
 										</div>
 									  </div>
 									{% endfor %}

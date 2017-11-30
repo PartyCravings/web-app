@@ -67,7 +67,7 @@ class LocationController extends AbstractController
     {
         $node = $parent;
         while ($node) {
-            $breadcrumbs->prependRouteItem($node->getTitle(), 'site_location_listing', ['slug'=>$node->getSlug()]);
+            $breadcrumbs->prependRouteItem($node->getName(), 'site_location_listing', ['slug'=>$node->getSlug()]);
             $node = $node->getParent();
         }
         $breadcrumbs->prependRouteItem("Home", "homepage");

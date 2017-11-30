@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-	{{ service.title }}
+	{{ service.name }}
 {% endblock %}
 
 {% block description %}
@@ -14,9 +14,6 @@
 		#sticky-service-form{
 			height: 85.5vh;
 			}
-		#map{
-			display: block;
-		}
 	</style>
 {% endblock %}
 
@@ -42,6 +39,10 @@
 				<div 
 					data-u="slides" 
 					style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:380px;overflow:hidden;">
+					<div class="image"><img
+									alt="PartyCravings Inc."
+									src="{{ asset('images/logoedit.png') }}"
+									/></div>
 					{% for file in service.uploadedFiles %}
 						<div class="image">
 							{% if file.mimetype matches '/^image.*/' %}
@@ -105,15 +106,27 @@
 				</div>
 			</div>
 	{% endif %}
-	<div class="ui internally celled three column grid">
+	<div class="ui internally celled three column grid" style="padding-top: 10px;">
+		{% set images = 0 %}
+		{% set videos = 0 %}
+		{% set audios = 0 %}
+		{% for file in service.uploadedFiles %}
+			{% if file.mimetype matches '/^image.*/' %}
+				{% set images = images + 1 %}
+			{% elseif file.mimetype matches '/^video.*/' %}
+				{% set videos = videos + 1 %}
+			{% elseif file.mimetype matches '/^audio.*/' %} 
+				{% set audios = audios + 1 %}
+			{% endif %}
+		{% endfor %}
 		<div class="ui center aligned column">
-			<span><i class="big orange photo icon"></i> 2</span>
+			<span><i class="big orange photo icon"></i>{{ images }}</span>
 		</div>
 		<div class="ui center aligned column">
-			<span><i class="big orange music icon"></i> 21</span>
+			<span><i class="big orange music icon"></i>{{ audios }}</span>
 		</div>
 		<div class="ui center aligned column">
-			<span><i class="big orange film icon"></i> 0</span>
+			<span><i class="big orange film icon"></i>{{ videos }}</span>
 		</div>
 	</div>
 	<div class="ui center aligned segment" style="background-color: #fff7e9;">
@@ -123,22 +136,22 @@
 	<h3 style="text-align: center;">{{ 'from'|trans }} {{ service.address ?: service.vendor.address }}</h3>
 	<div class="ui divided two column grid" style="padding-top: 30px;">
 		<div class="ui right aligned column">
-			<span class="ui star rating" data-rating="4"></span>&nbsp;
+			<span class="ui star rating" data-rating="{{ service.averageRating }}" data-max-rating="5"></span>&nbsp;
 			<span>
-				<b>{{ countRating }} {{ 'REVIEWS'|trans }}</b>
+				<b>{{ service.countRating }} {{ 'REVIEWS'|trans }}</b>
 			</span>
 		</div>
 		<div class="ui left aligned column">
-			<h4>14 VERIFIED BOOKINGS</h4>
+			<h4>{{ recentParties|length }} {{ 'VERIFIED BOOKINGS'|trans }}</h4>
 		</div>
 	</div>
 	<div class="ui segment" style="background-color: #fff7e9;">
 		<div class="ui grid">
 			<div class="ui center aligned five wide column">
-				<h4>{{ 'MEMBER SINCE'|trans }} {{ vendor.created ?: service.created|date('Y') }}</h4>
+				<h4>{{ 'MEMBER SINCE'|trans }} {{ service.vendor ? service.vendor.created : service.created|date('Y') }}</h4>
 			</div>
 			<div class="ui center aligned six wide column">
-				<h4>{{ service.hourlyRate }} {{ 'PER HOUR'|trans }}</h4>
+				<h4>{{ service.serviceDescriptions.hourlyPrice|currency }} {{ 'PER HOUR'|trans }}</h4>
 			</div>
 			<div class="ui center aligned five wide column">
 				<h4>{{ 'ONLINE PAYMENTS'|trans }}</h4>
@@ -159,15 +172,13 @@
 					<h3>{{ service.name }} {{ 'pictures and description'|trans }}</h3>
 				</div>
 				<div class="active content">
-					<p class="transition">
-						{{ service.serviceDescriptions.description|md2html }}
-					</p>
+					{{ service.serviceDescriptions.description|md2html }}
 				</div>
 				<div class="ui active orange dividing header title">
 					<h3>{{ 'Location'|trans }}</h3>
 				</div>
 				<div class="active content">
-					<div id="map" class="ui vertical segment">
+					<div id="map" class="ui vertical segment" style="display: block;">
 						{{ ivory_google_map_container(map) }}
 										
 						{% jshrink %}
@@ -207,7 +218,10 @@
 						{% endfor %}
 						<form class="ui reply form">
 							<div class="field">
-								<textarea></textarea>
+								<div id="rate-service" class="ui massive heart rating" name="rating"  data-max-rating="5">
+								</div>
+								<br/>
+								<textarea name="content"></textarea>
 							</div>
 							<button 
 								name="add review" 
@@ -221,7 +235,7 @@
 					<h3>Notable Events</h3>
 				</div>
 				<div class="content">
-					{% if recerntParties is not empty %}
+					{% if recentParties is not empty %}
 					<div class="ui four cards">
 						{% for party in recentParties %}
 							<div class="green card">
@@ -309,5 +323,52 @@
 						</div>
 					</div>
 					<div class="ui one wide column"></div>
+	</div>
 
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	{% if service.uploadedFiles is not empty %}
+		<script src="{{ preload(asset('build/slider.js'), {nopush: true}) }}"></script>
+		<script type="text/javascript">
+			$('.ui.accordion').accordion();
+            var options = {
+              $AutoPlay: 1,
+              $SlideWidth: 720,
+              $Cols: 2,
+              $Align: 130,
+              $ArrowNavigatorOptions: {
+                $Class: $JssorArrowNavigator$
+              },
+              $BulletNavigatorOptions: {
+                $Class: $JssorBulletNavigator$
+              }
+            };
+
+            var slider = new $JssorSlider$("slider-top", options);
+
+            var win_width = $(window).width();
+			var win_height = $(window).height();
+			var MAX_WIDTH = (win_height < win_width) ? win_width : win_height;
+
+			function ScaleSlider2() {
+			  var containerElement = slider.$Elmt.parentNode;
+			  var containerWidth = containerElement.clientWidth;
+			  if (containerWidth) {
+			    var expectedWidth = Math.min(MAX_WIDTH || containerWidth, containerWidth);
+			    slider.$ScaleWidth(expectedWidth);
+			  } else {
+			    window.setTimeout(ScaleSlider2, 30);
+			  }
+			}
+
+            ScaleSlider2();
+
+            $(window).bind("load", ScaleSlider2);
+            $(window).bind("resize", ScaleSlider2);
+            $(window).bind("orientationchange", ScaleSlider2);
+            $('#rate-service').rating();
+		</script>
+	{% endif %}
 {% endblock %}

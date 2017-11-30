@@ -42,8 +42,8 @@
     {% for locale in locales() -%}
         <link rel="alternate" hreflang="{{ locale.code }}" href="{{ url(app.request.get('_route', 'homepage'),app.request.get('_route_params', [])|merge({_locale: locale.code})) }}" />
     {% endfor %}
+    <style id="antiClickjack"></style>
     {% block inlinedCSS %}
-        <style id="antiClickjack"></style>
         {% include 'fragments/homeCss.html.twig' %}
     {% endblock %}
 
@@ -65,8 +65,8 @@
         <script type="text/javascript">
             var antiClickjack = document.getElementById("antiClickjack");
             if (window.top !== window.self){
+                antiClickjack.innerHTML = "body{display:none !important;}";
                 window.top.location = window.self.location.href;
-                antiClickjack.innerHTML = "body{display:none !important;}"
             }
         else {
             antiClickjack.parentNode.removeChild(antiClickjack);
@@ -109,8 +109,8 @@
                         crossorigin :true,
                         nopush: true
                     }) }}"></script>
-                    <script src="{{ preload(asset('build/app.js'), {nopush: true}) }}" type="text/javascript"></script>
-                    <script src="{{ preload(asset('build/sticklr.js'), {nopush: true}) }}" type="text/javascript"></script>
+                    <script src="{{ preload(asset('build/app.js'), {nopush: true}) }}"></script>
+                    <script src="{{ preload(asset('build/sticklr.js'), {nopush: true}) }}"></script>
                     <script type='text/javascript'>window.vapidPublicKey = '{{ vapidPublicKey }}';</script>
                     <script type="text/javascript">
                         $('.ui.checkbox').checkbox();

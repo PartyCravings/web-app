@@ -16,6 +16,9 @@ use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
 use Symfony\Component\Intl\Intl;
+use NumberFormatter;
+use Symfony\Component\HttpFoundation\RequestStack;
+use AppBundle\Entity\Country;
 
 /**
  * This Twig extension adds a new 'md2html' filter to easily transform Markdown
@@ -38,13 +41,22 @@ class AppExtension extends AbstractExtension
 
     private $locales;
 
+    private $currency;
+
+    private $locale;
+
+    private $requestStack;
+
     public function __construct(
         array $locales,
-        Markdown $parser
+        Markdown $parser,
+        RequestStack $requestStack
 
     ) {
         $this->parser = $parser;
         $this->localeCodes = $locales;
+        $this->requestStack = $requestStack;
+        $this->locale = $requestStack->getCurrentRequest() ? $requestStack->getCurrentRequest()->get('_locale') : 'en';
     }
 
     /**
@@ -57,6 +69,7 @@ class AppExtension extends AbstractExtension
             new TwigFilter('base64encode', [$this, 'base64encode'], ['is_safe' => ['html']]),
             new TwigFilter('country', [$this, 'countryFilter']),
             new TwigFilter('language', [$this, 'languageFilter']),
+            new TwigFilter('currency', [$this, 'currencyFilter']),
             new TwigFilter('json_decode', [$this, 'jsonDecode'], ['is_safe' => ['html']])
         ];
     }
@@ -71,9 +84,25 @@ class AppExtension extends AbstractExtension
         ];
     }
 
-    public function languageFilter(string $language, string $locale = 'en') : ?string
+    public function languageFilter(string $language) : ?string
     {
-        return Intl::getLanguageBundle()->getLanguageName($language, null, $locale);
+        return Intl::getLanguageBundle()->getLanguageName($language, null, $this->locale);
+    }
+
+    public function currencyFilter(float $amount) : ?string
+    {
+        $request = $this->requestStack->getCurrentRequest();
+
+        $country = $request->get('_country');
+
+        if ($country instanceof Country) {
+            $currency = $country->getDefaultCurrency() ? $country->getDefaultCurrency()->getIsoCode() : 'USD';
+        } else {
+            $currency = 'USD';
+        }
+        $fmt = new NumberFormatter($this->locale, NumberFormatter::CURRENCY);
+        $fmt->setAttribute(NumberFormatter::MAX_FRACTION_DIGITS, 2);
+        return $fmt->formatCurrency($amount, $currency);
     }
 
     /**
@@ -94,9 +123,9 @@ class AppExtension extends AbstractExtension
         return base64_encode($content);
     }
 
-    public function countryFilter(string $countryCode, string $locale = 'en') : ?string
+    public function countryFilter(string $countryCode) : ?string
     {
-        return Intl::getRegionBundle()->getCountryName($countryCode, $locale);
+        return Intl::getRegionBundle()->getCountryName($countryCode, $this->locale);
     }
 
     /**

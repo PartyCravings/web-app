@@ -139,8 +139,6 @@ class Category
     private $country;
 
     /**
-     * @var Service
-     *
      * @ORM\OneToMany(targetEntity="Service", mappedBy="category")
      */
     private $services;
@@ -549,40 +547,6 @@ class Category
     public function getCountry()
     {
         return $this->country;
-    }
-
-    /**
-     * Add service
-     *
-     * @param \AppBundle\Entity\Service $service
-     *
-     * @return Category
-     */
-    public function addService(\AppBundle\Entity\Service $service)
-    {
-        $this->services[] = $service;
-
-        return $this;
-    }
-
-    /**
-     * Remove service
-     *
-     * @param \AppBundle\Entity\Service $service
-     */
-    public function removeService(\AppBundle\Entity\Service $service)
-    {
-        $this->services->removeElement($service);
-    }
-
-    /**
-     * Get services
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getServices()
-    {
-        return $this->services;
     }
 
     /**

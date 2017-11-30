@@ -9,6 +9,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Doctrine\ORM\EntityManagerInterface;
 use WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs;
+use AppBundle\Entity\Country;
+use AppBundle\Utils\LocationTools;
 use AppBundle\Entity\Service;
 
 /**
@@ -44,16 +46,16 @@ class ServiceController extends AbstractController
                          }
                      )
      * @Template(
-                     ":services:show.html.twig",
+                     ":service:show.html.twig",
                      vars={"service"}
                  )
      * @Cache(
                 smaxage=0,
-                lastmodified="service.updated",
-                etag="'Service' ~ service.id ~ service.serviceDescriptions.updated.format('Y-m-d')"
+                lastmodified="service.getServiceDescriptions().getUpdated()",
+                etag="'Service' ~ service.getId() ~ service.getServiceDescriptions().getUpdated().format('Y-m-d')"
             )
      */
-    public function showAction(Service $service, Breadcrumbs $breadcrumbs, EntityManagerInterface $em) :array
+    public function showAction(Country $_country,Service $service, Breadcrumbs $breadcrumbs, LocationTools $locationTools,EntityManagerInterface $em) :array
     {
         $address = $service->getAddress() ?: $service->getVendor()->getAddress();
         $breadcrumbs->prependRouteItem(
@@ -67,7 +69,7 @@ class ServiceController extends AbstractController
                         $address->getLocation(),
                         'site_location_listing',
                             array(
-                                'slug'=>$location->getSlug()
+                                'slug'=>$address->getLocation()->getSlug()
                             )
                         );
         $node = $service->getCategory();
@@ -85,6 +87,7 @@ class ServiceController extends AbstractController
 
         $recentParties = $em->getRepository('AppBundle:Party')->findPartiesByService($service);
 
-        return array('service' => $service, 'recentParties' => $recentParties);
+        return array('service' => $service, 'recentParties' => $recentParties, 'map'=> $locationTools->generateMap(
+            [$service]) );
     }
 }

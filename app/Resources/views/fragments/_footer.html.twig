@@ -41,7 +41,7 @@
                 <h3>{{ 'OTHER COUNTRIES'|trans }}</h3>
                 {% for country in similarCountries %}
                     <div class="row">
-                        <a href="{{ path('homepage') }}">{{ country.name|country(app.request.locale) }}</a>
+                        <a href="{{ path('homepage') }}">{{ country.name|country }}</a>
                     </div>
                 {% endfor %}
                 <h3>PartyCravings Inc.</h3>

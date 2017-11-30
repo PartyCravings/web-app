@@ -35,6 +35,7 @@ class PartyRepository extends \Doctrine\ORM\EntityRepository
             ->join('m.orderDatas', 'n')
             ->addSelect('n')
             ->where('n.service = :service')
+            ->setParameter('service', $service)
             ->orderBy('p.created', 'DESC')
             ->setMaxResults(self::HOME_MAX_PARTIES)
             ->getQuery()

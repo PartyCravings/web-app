@@ -3,6 +3,8 @@
 namespace AppBundle\Repository;
 
 use AppBundle\Entity\Location;
+use AppBundle\Utils\Sorter;
+use Pagerfanta\Pagerfanta;
 
 /**
  * LocationRepository
@@ -12,6 +14,8 @@ use AppBundle\Entity\Location;
  */
 class LocationRepository extends \Doctrine\ORM\EntityRepository
 {
+    const NUM_ITEMS = 20;
+
     public function findLocationByParent(string $location, $parent): ?Location
     {
         return $this->createQueryBuilder('p')
@@ -41,7 +45,7 @@ class LocationRepository extends \Doctrine\ORM\EntityRepository
         return Sorter::createPaginator($query, $page, self::NUM_ITEMS);
     }
 
-    public function findAllByParent(Category $parent, int $page) :Pagerfanta
+    public function findAllByParent(Location $parent, int $page) :Pagerfanta
     {
         $query = $this->createQueryBuilder('p')
             ->where('p.isEnabled = true')
@@ -60,7 +64,7 @@ class LocationRepository extends \Doctrine\ORM\EntityRepository
         return $this->createQueryBuilder('p')
                 ->andWhere('p.isEnabled = true')
                 ->andWhere('p.slug = :slug')
-                ->setParameter($slug)
+                ->setParameter('slug', $slug)
                 ->getQuery()
                 ->useQueryCache(true)
                 ->useResultCache(true)

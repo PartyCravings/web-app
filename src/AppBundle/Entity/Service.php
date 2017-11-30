@@ -50,8 +50,8 @@ class Service
      * @var ServiceDescriptions
      *
      * @Assert\Valid
-     * @ORM\OneToOne(targetEntity="ServiceDescriptions", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\OneToOne(targetEntity="ServiceDescriptions", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      */
     private $serviceDescriptions;
 
@@ -73,7 +73,8 @@ class Service
      * @var Address
      *
      * @Assert\Valid
-     * @ORM\ManyToOne(targetEntity="Address",cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Address", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $address;
 
@@ -96,7 +97,8 @@ class Service
     /**
      * @var EmbeddedFile[]|ArrayCollection
      *
-     * @ORM\ManyToMany(targetEntity="Files", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="Files", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $uploadedFiles;
 
@@ -143,11 +145,11 @@ class Service
 
     public function getAverageRating()
     {
-        try {
-            return intdiv(array_sum($this->reviews), count($this->reviews));
-        } catch (DivisionByZeroError $e) {
-            return 0;
+        $rating = 0;
+        if (count($this->reviews)) {
+            $rating = @intdiv(array_sum(array_column($this->reviews, 'rating')), count($this->reviews));
         }
+        return $rating;
     }
 
     public function getMinimumRating()
