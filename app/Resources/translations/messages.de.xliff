@@ -1,127 +1,190 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2017-11-23T09:13:17Z" source-language="en" target-language="de" datatype="plaintext" original="not.available">
+  <file date="2017-11-30T04:41:12Z" source-language="en" target-language="de" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
     </header>
     <body>
+      <trans-unit id="172c39b0287edaa35d2de95e9589ebfab26f2bf8" resname="Add Review">
+        <source>Add Review</source>
+        <target state="new">Add Review</target>
+        <jms:reference-file line="229">/Resources/views/service/show.html.twig</jms:reference-file>
+      </trans-unit>
       <trans-unit id="1fd266c217d796db7382651498389bb639d8eaa2" resname="All Categories">
         <source>All Categories</source>
         <target state="new">All Categories</target>
-        <jms:reference-file line="67">/Resources/views/fragments/_header.html.twig</jms:reference-file>
+        <jms:reference-file line="106">/Resources/views/fragments/_header.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5f3acad4a21d449234ab01bc3043a3b878c708db" resname="Category Index">
+        <source>Category Index</source>
+        <target state="new">Category Index</target>
+        <jms:reference-file line="13">/Resources/views/service/index.html.twig</jms:reference-file>
+        <jms:reference-file line="5">/Resources/views/service/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="eae81bba49cd9961aa76265f1dd4c7faa0e224da" resname="Customer Reviews">
+        <source>Customer Reviews</source>
+        <target state="new">Customer Reviews</target>
+        <jms:reference-file line="192">/Resources/views/service/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="bcf31aed685d326ec3c0b7b6e880bc9f6716a390" resname="FROM THE BLOG">
         <source>FROM THE BLOG</source>
         <target state="new">FROM THE BLOG</target>
-        <jms:reference-file line="236">/Resources/views/default/index.html.twig</jms:reference-file>
+        <jms:reference-file line="259">/Resources/views/default/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="d7decf1aa22b02ae8abf9a96849ee423eee838e4" resname="Filter">
         <source>Filter</source>
         <target state="new">Filter</target>
-        <jms:reference-file line="39">/Resources/views/services/category-listing.html.twig</jms:reference-file>
+        <jms:reference-file line="63">/Resources/views/service/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="d9362548c29bcbda2523d50af3ccc0f3e6cc33ea" resname="Hourly">
         <source>Hourly</source>
         <target state="new">Hourly</target>
-        <jms:reference-file line="78">/Resources/views/services/category-listing.html.twig</jms:reference-file>
+        <jms:reference-file line="122">/Resources/views/service/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="d219c68101f532de10add2cf42fb9dbeca73d3be" resname="Location">
         <source>Location</source>
         <target state="new">Location</target>
-        <jms:reference-file line="30">/Resources/views/services/category-listing.html.twig</jms:reference-file>
+        <jms:reference-file line="54">/Resources/views/service/index.html.twig</jms:reference-file>
+        <jms:reference-file line="178">/Resources/views/service/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="b8e385941565b7601d85e6e4f293d33a178035f0" resname="Lorel ipsum dolo... - reason">
         <source>Lorel ipsum dolo... - reason</source>
         <target state="new">Lorel ipsum dolo... - reason</target>
-        <jms:reference-file line="16">/Resources/views/fragments/_footer.html.twig</jms:reference-file>
+        <jms:reference-file line="33">/Resources/views/fragments/_footer.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="cc5eee8bba53f1ca4c58f53a7742386b00290bb7" resname="MEMBER SINCE">
+        <source>MEMBER SINCE</source>
+        <target state="new">MEMBER SINCE</target>
+        <jms:reference-file line="151">/Resources/views/service/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="473710d327804e484c1863690d91c3751e2c7c98" resname="More details">
         <source>More details</source>
         <target state="new">More details</target>
-        <jms:reference-file line="74">/Resources/views/services/category-listing.html.twig</jms:reference-file>
+        <jms:reference-file line="118">/Resources/views/service/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="f53538db4d8b0ccca9a6be884e23d7740b7a4a33" resname="NEWSLETTER">
         <source>NEWSLETTER</source>
         <target state="new">NEWSLETTER</target>
-        <jms:reference-file line="58">/Resources/views/fragments/_footer.html.twig</jms:reference-file>
+        <jms:reference-file line="78">/Resources/views/fragments/_footer.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="a0ee80157d3d3d43b4440b11da6fefbee622fe67" resname="Need help ?">
         <source>Need help ?</source>
         <target state="new">Need help ?</target>
-        <jms:reference-file line="46">/Resources/views/fragments/_header.html.twig</jms:reference-file>
+        <jms:reference-file line="74">/Resources/views/fragments/_header.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c5308e66942e2f7d7df852c970b3a057e00c1ecf" resname="Network status">
+        <source>Network status</source>
+        <target state="new">Network status</target>
+        <jms:reference-file line="15">/Resources/views/fragments/_offline.html.twig</jms:reference-file>
+        <jms:reference-file line="26">/Resources/views/fragments/_offline.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9a1aea1631b73f0e2990f0d917086cdaf87889ce" resname="ONLINE PAYMENTS">
+        <source>ONLINE PAYMENTS</source>
+        <target state="new">ONLINE PAYMENTS</target>
+        <jms:reference-file line="157">/Resources/views/service/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="0b8d4819f0793c13b4b876bc7aadd4bbdef420b4" resname="OTHER COUNTRIES">
         <source>OTHER COUNTRIES</source>
         <target state="new">OTHER COUNTRIES</target>
-        <jms:reference-file line="23">/Resources/views/fragments/_footer.html.twig</jms:reference-file>
+        <jms:reference-file line="41">/Resources/views/fragments/_footer.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="dee9889ad644e6e58468f0ff85f3a57aa76cfbd9" resname="OTHERS">
         <source>OTHERS</source>
         <target state="new">OTHERS</target>
-        <jms:reference-file line="37">/Resources/views/fragments/_header.html.twig</jms:reference-file>
+        <jms:reference-file line="63">/Resources/views/fragments/_header.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="e22d55e5b68cefda044cdb44e648d61ff7205147" resname="OUR TOP BRANDS">
         <source>OUR TOP BRANDS</source>
         <target state="new">OUR TOP BRANDS</target>
-        <jms:reference-file line="5">/Resources/views/fragments/_footer.html.twig</jms:reference-file>
+        <jms:reference-file line="4">/Resources/views/fragments/_footer.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="5d53ff178146dd1541cca0d004d76033d534fc17" resname="PAGES">
         <source>PAGES</source>
         <target state="new">PAGES</target>
-        <jms:reference-file line="46">/Resources/views/fragments/_footer.html.twig</jms:reference-file>
-        <jms:reference-file line="52">/Resources/views/fragments/_footer.html.twig</jms:reference-file>
+        <jms:reference-file line="62">/Resources/views/fragments/_footer.html.twig</jms:reference-file>
+        <jms:reference-file line="70">/Resources/views/fragments/_footer.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="80f7b9d3dc54e4a1b4e0db4a0422cee226e720f6" resname="PARTY NOW">
         <source>PARTY NOW</source>
         <target state="new">PARTY NOW</target>
-        <jms:reference-file line="79">/Resources/views/fragments/_header.html.twig</jms:reference-file>
+        <jms:reference-file line="124">/Resources/views/fragments/_header.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a11d891633881c11bebe19dfa851a144932db099" resname="PER HOUR">
+        <source>PER HOUR</source>
+        <target state="new">PER HOUR</target>
+        <jms:reference-file line="154">/Resources/views/service/show.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="25f26024ee798ab68b99337a9dd25c2f01bae95a" resname="REVIEWS">
+        <source>REVIEWS</source>
+        <target state="new">REVIEWS</target>
+        <jms:reference-file line="141">/Resources/views/service/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="3ae5a4f21ea0626bab5ac6472de6e1415aaa416a" resname="Subscribe to our newsletter">
         <source>Subscribe to our newsletter</source>
         <target state="new">Subscribe to our newsletter</target>
-        <jms:reference-file line="60">/Resources/views/fragments/_footer.html.twig</jms:reference-file>
+        <jms:reference-file line="80">/Resources/views/fragments/_footer.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e724ac1f7ae8fe484f02a0e43ad51a3c9eddb4ac" resname="This party has not been booked yet">
+        <source>This party has not been booked yet</source>
+        <target state="new">This party has not been booked yet</target>
+        <jms:reference-file line="273">/Resources/views/service/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="974fc164f6e733e3ff3b6ef39af48d5d04ea76f3" resname="UPCOMING PARTIES">
         <source>UPCOMING PARTIES</source>
         <target state="new">UPCOMING PARTIES</target>
-        <jms:reference-file line="209">/Resources/views/default/index.html.twig</jms:reference-file>
+        <jms:reference-file line="219">/Resources/views/default/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="015c5129b829173dfe6dfa4efea1d5147e0e683a" resname="VERIFIED BOOKINGS">
+        <source>VERIFIED BOOKINGS</source>
+        <target state="new">VERIFIED BOOKINGS</target>
+        <jms:reference-file line="145">/Resources/views/service/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="ffca59bc5b7dadbd212670e6b6a56cc99bdf495f" resname="What are you looking for?">
         <source>What are you looking for?</source>
         <target state="new">What are you looking for?</target>
-        <jms:reference-file line="65">/Resources/views/fragments/_header.html.twig</jms:reference-file>
-        <jms:reference-file line="91">/Resources/views/fragments/_header.html.twig</jms:reference-file>
+        <jms:reference-file line="100">/Resources/views/fragments/_header.html.twig</jms:reference-file>
+        <jms:reference-file line="150">/Resources/views/fragments/_header.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="dd960e096f72ccc66a7350525efff560cad2a4f2" resname="Why choose PartyCravings?">
         <source>Why choose PartyCravings?</source>
         <target state="new">Why choose PartyCravings?</target>
-        <jms:reference-file line="15">/Resources/views/fragments/_footer.html.twig</jms:reference-file>
+        <jms:reference-file line="32">/Resources/views/fragments/_footer.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="0978f3c6f4185eb6e220f6723aa8a226432d475c" resname="Your email address...">
         <source>Your email address...</source>
         <target state="new">Your email address...</target>
-        <jms:reference-file line="65">/Resources/views/fragments/_footer.html.twig</jms:reference-file>
+        <jms:reference-file line="88">/Resources/views/fragments/_footer.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="971bfb299329f8ef3f134f89ed4a53f1793498e0" resname="customer review(s)">
         <source>customer review(s)</source>
         <target state="new">customer review(s)</target>
-        <jms:reference-file line="63">/Resources/views/services/category-listing.html.twig</jms:reference-file>
+        <jms:reference-file line="104">/Resources/views/service/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0b1e95cfd9775191a7224d0a218ae79187e80c1d" resname="from">
+        <source>from</source>
+        <target state="new">from</target>
+        <jms:reference-file line="136">/Resources/views/service/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="8bb4d180102e5a3e5a94308ba747791fb45d46d5" resname="newsletter.signup.failed">
         <source>newsletter.signup.failed</source>
         <target state="new">newsletter.signup.failed</target>
-        <jms:reference-file line="79">/../src/AppBundle/Controller/Notifications/NotificationController.php</jms:reference-file>
+        <jms:reference-file line="79">/../src/AppBundle/Controller/NotificationController.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="58086f4144c510d3d8f9d2f6255538b8ee1ded86" resname="newsletter.signup.success">
         <source>newsletter.signup.success</source>
         <target state="new">newsletter.signup.success</target>
-        <jms:reference-file line="77">/../src/AppBundle/Controller/Notifications/NotificationController.php</jms:reference-file>
+        <jms:reference-file line="77">/../src/AppBundle/Controller/NotificationController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="8f98d7ea624697f0fe17d2e0d143e1f47dfa8562" resname="pictures and description">
+        <source>pictures and description</source>
+        <target state="new">pictures and description</target>
+        <jms:reference-file line="172">/Resources/views/service/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="c9dbc1b936a26837ac67c89d47eca568591c3186" resname="rights.reserved">
         <source>rights.reserved</source>
         <target state="new">rights.reserved</target>
-        <jms:reference-file line="41">/Resources/views/fragments/_footer.html.twig</jms:reference-file>
+        <jms:reference-file line="58">/Resources/views/fragments/_footer.html.twig</jms:reference-file>
       </trans-unit>
     </body>
   </file>

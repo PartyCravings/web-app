@@ -20,8 +20,9 @@ parameters:
     cloudflare.email: beethe36@gmail.com
 
     gcp_key: '%keys_dir%/storage-key.json'
-    gcp_bucket: cravings
-    gcp_bucket_url: 'https://%gcp_bucket%.storage.googleapis.com/default'
+    gcp_bucket: storage.partycravings.com
+    #gcp_bucket_url: 'https://%gcp_bucket%.storage.googleapis.com/default'
+    gcp_bucket_url: 'https://storage.partycravings.com/default'
 
     gmaps.api_key: AIzaSyBwp8jow1XJeQp3LHDQyeQMRNxhGrgEiN8
 

@@ -20,7 +20,7 @@ class ServiceRepository extends \Doctrine\ORM\EntityRepository
 {
     const NUM_ITEMS = 20;
 
-    public function findBySearchQuery(string $rawQuery, string $category, Country $country, int $page): Pagerfanta
+    public function findBySearchQuery(string $rawQuery, string $category, Country $country = null, int $page = 1): Pagerfanta
     {
         $searchTerms = Sorter::buildTree(
             Sorter::sanitizeString(
@@ -31,7 +31,7 @@ class ServiceRepository extends \Doctrine\ORM\EntityRepository
                 ->where('f.title = :category')
                 ->setParameter('category', $category)
                 ->andWhere('f.country = :country')
-                ->setParameter('country', $country);
+                ->setParameter('country', $country ?: !null);
 
         foreach ($searchTerms as $key => $term) {
             $queryBuilder

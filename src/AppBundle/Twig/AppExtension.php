@@ -16,7 +16,7 @@ use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
 use Symfony\Component\Intl\Intl;
-use NumberFormatter;
+use Symfony\Component\Intl\NumberFormatter\NumberFormatter;
 use Symfony\Component\HttpFoundation\RequestStack;
 use AppBundle\Entity\Country;
 
@@ -100,9 +100,7 @@ class AppExtension extends AbstractExtension
         } else {
             $currency = 'USD';
         }
-        $fmt = new NumberFormatter($this->locale, NumberFormatter::CURRENCY);
-        $fmt->setAttribute(NumberFormatter::MAX_FRACTION_DIGITS, 2);
-        return $fmt->formatCurrency($amount, $currency);
+        return twig_localized_currency_filter($amount, $currency, $this->locale);
     }
 
     /**

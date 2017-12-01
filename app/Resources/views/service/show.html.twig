@@ -151,7 +151,7 @@
 				<h4>{{ 'MEMBER SINCE'|trans }} {{ service.vendor ? service.vendor.created : service.created|date('Y') }}</h4>
 			</div>
 			<div class="ui center aligned six wide column">
-				<h4>{{ service.serviceDescriptions.hourlyPrice|currency }} {{ 'PER HOUR'|trans }}</h4>
+				<h4>{{ service.serviceDescriptions.dailyPrice|currency }} {{ 'PER DAY'|trans }}</h4>
 			</div>
 			<div class="ui center aligned five wide column">
 				<h4>{{ 'ONLINE PAYMENTS'|trans }}</h4>
@@ -277,18 +277,80 @@
 									<h3>Rates</h3>
 							</div>
 							<div class="content">
-								<p class="transition">
-									A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.
-								</p>
+								<h4>{{ service.serviceDescriptions.dailyPrice|currency }} {{ 'PER DAY'|trans }}</h4>
 							</div>
+							{% set similarServices = [] %}
+
+							{% for likeService in likeServices %}
+								{% if likeService.id != service.id %}
+									{% set similarServices = similarServices|merge([likeService]) %}
+								{% endif %}
+							{% endfor %}
+							{% if similarServices is not empty %}
 							<div class="ui active orange dividing header title">
 									<h3>Similar Services</h3>
 							</div>
 							<div class="content">
-								<p class="transition">
-									A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.
-								</p>
+								<div class="ui three cards">
+									{% for similarService in similarServices|slice(0,5) %}
+										<div class="ui green card">
+											{% set file =  similarService.uploadedFiles.0 %}
+										{% if file is not null %}
+											<div class="image">
+												{% if file.mimetype matches '/^image.*/' %}
+													<img
+														class="lazy" 
+														alt="{{ file.originalName }}"
+														src="data:image/svg+xml;base64, {{ file.silhouette|base64encode }}"
+														data-src="{{ vich_uploader_asset(file, 'actualFile') }}"
+														/>
+												{% elseif file.mimetype matches '/^video.*/' or '/^audio.*/' %}
+													<div 
+														class="ui embed"
+														data-placeholder="{{ asset('images/demo-4.jpg') }}" 
+														data-url="{{ vich_uploader_asset(file, 'actualFile') }}">
+													</div>
+												{% endif %}
+											</div>
+										{% endif %}
+										<div class="content">
+											<div class="header">
+												<a href="{{ url('service_show', {'slug':similarService.slug})}}">
+													<h2>{{ similarService.name}}</h2>
+												</a>
+											</div>
+											<div class="meta">
+												<div 
+													style="padding-top:10px;" 
+													class="ui star rating" 
+													data-rating="{{ similarService.averageRating }}" 
+													data-max-rating="5">
+												</div>
+												<div>{{ similarService.countRating }} {{ 'customer review(s)'|trans }}</div>
+											</div>
+											<div class="description">
+												<h5>{{ similarService.serviceDescriptions.description|striptags|easyadmin_truncate(30) }}</h5>
+											{% for feature in similarService.features %}
+											<div class="row">
+												<i class="orange {{ feature.icon }} icon"></i>
+												<span>{{ feature.name }}</span>
+											</div>
+										{% endfor %}
+										  </div>
+										</div>
+										<div class="extra content">
+										  <span class="right floated">
+											<a class="ui circular primary button" href="{{ url('service_show', {'slug':similarService.slug})}}">{{ 'More details'|trans }}</a>
+										  </span>
+										  <span class="left floated"><i class="money icon"></i>
+										  	
+										  		{{ similarService.serviceDescriptions.dailyPrice|currency }} {{ 'Daily'|trans }}</span>
+										</div>
+										</div>
+									{% endfor %}
+								</div>
 							</div>
+							{% endif %}
 						</div>
 					</div>
 					<div class="ui four wide computer sixteen wide mobile tablet column">

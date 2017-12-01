@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2017-11-23T09:18:01Z" source-language="en" target-language="zh" datatype="plaintext" original="not.available">
+  <file date="2017-11-30T04:40:57Z" source-language="en" target-language="zh" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -30,6 +30,14 @@
         <source>/blog/search</source>
         <target state="new">/blog/search</target>
       </trans-unit>
+      <trans-unit id="0a16b489f5e8008c80e0b5c42e377b7e88631d04" resname="category_index">
+        <source>/category</source>
+        <target state="new">/category</target>
+      </trans-unit>
+      <trans-unit id="a6bb81d764284df9503cece57c0cf50d6f1d9fe2" resname="category_show">
+        <source>/category/{slug}</source>
+        <target state="new">/category/{slug}</target>
+      </trans-unit>
       <trans-unit id="a6e16f3e10b1f3c0c000316fc88e81d5066bfe98" resname="comment_new">
         <source>/blog/comment/{postSlug}/new</source>
         <target state="new">/blog/comment/{postSlug}/new</target>
@@ -37,6 +45,10 @@
       <trans-unit id="7c67bb5767d93378c2ad10ef33814b323302fe56" resname="easyadmin">
         <source>/admin/</source>
         <target state="new">/admin/</target>
+      </trans-unit>
+      <trans-unit id="d7eb6b340a11a367a1bec55e4a421d949214759f" resname="footer">
+        <source>/footer</source>
+        <target state="new">/footer</target>
       </trans-unit>
       <trans-unit id="3e7a1eb65964daab6c8503cea70e628e3f933ce0" resname="fos_user_change_password">
         <source>/profile/change-password</source>
@@ -94,6 +106,10 @@
         <source>/logout</source>
         <target>/登出</target>
       </trans-unit>
+      <trans-unit id="594fd1615a341c77829e83ed988f137e1ba96231" resname="header">
+        <source>/header</source>
+        <target state="new">/header</target>
+      </trans-unit>
       <trans-unit id="568be0fa2023d1a447e7bd150dda7068ece26898" resname="homepage">
         <source>/</source>
         <target>/</target>
@@ -126,29 +142,29 @@
         <source>/notification/unregister</source>
         <target state="new">/notification/unregister</target>
       </trans-unit>
-      <trans-unit id="1bf898578ed7638eef32be37300b2c6df1df7444" resname="site_location_listing">
-        <source>/location/{slug}</source>
-        <target state="new">/location/{slug}</target>
+      <trans-unit id="d1ffda5dc9903c9a42d66636aea9405e311c6f85" resname="offline">
+        <source>/offline</source>
+        <target state="new">/offline</target>
       </trans-unit>
-      <trans-unit id="7d28a3c635617ab1698d35af614b43bc53f84559" resname="site_party_index">
+      <trans-unit id="4f4b2266c13a03dabc86c08d966a3d8efacde117" resname="party_index">
         <source>/party</source>
         <target state="new">/party</target>
       </trans-unit>
-      <trans-unit id="d9c1278ef4e1187ee70d4657eddeb753777c317d" resname="site_party_show">
+      <trans-unit id="087235d79e604ce93f270a77cd85e0fbd6d3bdde" resname="party_show">
         <source>/party/{slug}</source>
         <target state="new">/party/{slug}</target>
       </trans-unit>
-      <trans-unit id="67d4e7aefd306d1d171bfb4b075d0dc9ad37210b" resname="category_show">
-        <source>/services/category/{slug}</source>
-        <target state="new">/services/category/{slug}</target>
+      <trans-unit id="445cd0fc1dc1c08625f78e07e2db070dd67f3e7a" resname="search_description">
+        <source>/search/opensearch.xml</source>
+        <target state="new">/search/opensearch.xml</target>
       </trans-unit>
-      <trans-unit id="756e3c3570aefb5c42988e2b6a51acd3e4762c66" resname="category_index">
-        <source>/services</source>
-        <target state="new">/services</target>
-      </trans-unit>
-      <trans-unit id="5db3c98782441a72a97496a96676e2b5f806f75a" resname="service_show">
+      <trans-unit id="2af90c510004d399b14737e9266a58f1572485cc" resname="service_show">
         <source>/services/{slug}</source>
         <target state="new">/services/{slug}</target>
+      </trans-unit>
+      <trans-unit id="1bf898578ed7638eef32be37300b2c6df1df7444" resname="site_location_listing">
+        <source>/location/{slug}</source>
+        <target state="new">/location/{slug}</target>
       </trans-unit>
       <trans-unit id="4dfd1ff926234ce9fb20e59642ab6414c886694e" resname="site_show_page">
         <source>/pages/{slug}</source>
@@ -157,18 +173,6 @@
       <trans-unit id="c9d25764d578ccc100712c4a3a4c11b4cd35dfa4" resname="site_wide_search">
         <source>/search</source>
         <target state="new">/search</target>
-      </trans-unit>
-      <trans-unit id="1d32093eec18a36d668e521a1538137bfc217778" resname="site_wide_search_description">
-        <source>/search/opensearch.xml</source>
-        <target state="new">/search/opensearch.xml</target>
-      </trans-unit>
-      <trans-unit id="8929b5206dc87d88fe1236377c93a3101425892b" resname="sitewide_footer">
-        <source>/footer</source>
-        <target state="new">/footer</target>
-      </trans-unit>
-      <trans-unit id="5a5f1e52a6b1bc4439aaafeda25f671d1ad3a273" resname="sitewide_header">
-        <source>/header</source>
-        <target state="new">/header</target>
       </trans-unit>
       <trans-unit id="52af677d345656e1568386984025978ac378c674" resname="store_currency_nav">
         <source>/currency/nav</source>

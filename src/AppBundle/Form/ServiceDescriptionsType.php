@@ -17,8 +17,8 @@ class ServiceDescriptionsType extends AbstractType
     {
         $builder
                 ->add('description', CKEditorType::class)
-                ->add('hourlyPrice')
-                ->add('hourlyDiscount');
+                ->add('dailyPrice')
+                ->add('dailyDiscount');
     }
     
     /**

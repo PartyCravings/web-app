@@ -37,16 +37,16 @@ class ServiceDescriptions
      * @var float
      *
      * @Assert\NotBlank(message="service.price.blank")
-     * @ORM\Column(name="hourly_price", type="float")
+     * @ORM\Column(name="daily_price", type="float")
      */
-    private $hourlyPrice;
+    private $dailyPrice;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="hourly_discount", type="float", nullable=true)
+     * @ORM\Column(name="daily_discount", type="float", nullable=true)
      */
-    private $hourlyDiscount;
+    private $dailyDiscount;
 
     /**
      * @Gedmo\Timestampable(on="update")
@@ -95,51 +95,51 @@ class ServiceDescriptions
     }
 
     /**
-     * Set hourlyPrice
+     * Set dailyPrice
      *
-     * @param float $hourlyPrice
+     * @param float $dailyPrice
      *
      * @return ServiceDescriptions
      */
-    public function setHourlyPrice($hourlyPrice)
+    public function setDailyPrice($dailyPrice)
     {
-        $this->hourlyPrice = $hourlyPrice;
+        $this->dailyPrice = $dailyPrice;
 
         return $this;
     }
 
     /**
-     * Get hourlyPrice
+     * Get dailyPrice
      *
      * @return float
      */
-    public function getHourlyPrice()
+    public function getDailyPrice()
     {
-        return $this->hourlyPrice;
+        return $this->dailyPrice;
     }
 
     /**
-     * Set hourlyDiscount
+     * Set dailyDiscount
      *
-     * @param float $hourlyDiscount
+     * @param float $dailyDiscount
      *
      * @return ServiceDescriptions
      */
-    public function setHourlyDiscount($hourlyDiscount)
+    public function setDailyDiscount($dailyDiscount)
     {
-        $this->hourlyDiscount = $hourlyDiscount;
+        $this->dailyDiscount = $dailyDiscount;
 
         return $this;
     }
 
     /**
-     * Get hourlyDiscount
+     * Get dailyDiscount
      *
      * @return float
      */
-    public function getHourlyDiscount()
+    public function getDailyDiscount()
     {
-        return $this->hourlyDiscount;
+        return $this->dailyDiscount;
     }
 
     /**

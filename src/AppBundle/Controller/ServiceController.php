@@ -55,7 +55,7 @@ class ServiceController extends AbstractController
                 etag="'Service' ~ service.getId() ~ service.getServiceDescriptions().getUpdated().format('Y-m-d')"
             )
      */
-    public function showAction(Country $_country,Service $service, Breadcrumbs $breadcrumbs, LocationTools $locationTools,EntityManagerInterface $em) :array
+    public function showAction(Country $_country, Service $service, Breadcrumbs $breadcrumbs, LocationTools $locationTools, EntityManagerInterface $em) :array
     {
         $address = $service->getAddress() ?: $service->getVendor()->getAddress();
         $breadcrumbs->prependRouteItem(
@@ -87,7 +87,10 @@ class ServiceController extends AbstractController
 
         $recentParties = $em->getRepository('AppBundle:Party')->findPartiesByService($service);
 
+        $similarServices = $em->getRepository(Service::class)->findBySearchQuery($service->getName(), $service->getCategory());
+
         return array('service' => $service, 'recentParties' => $recentParties, 'map'=> $locationTools->generateMap(
-            [$service]) );
+            [$service]
+        ), 'likeServices' => $similarServices );
     }
 }

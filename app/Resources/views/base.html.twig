@@ -48,21 +48,20 @@
     {% endblock %}
 
     {% block externalCSS -%}
-        <link rel="preload" href="{{ preload('https://fonts.googleapis.com/css?family=Quicksand:400,700,400italic,700italic&subset=latin', {crossorigin :true, nopush: true}) }}" type="text/css" as="style" onload="this.rel='stylesheet'" />
-        <link rel="preload" href="{{ preload(asset('build/app.css'), {nopush: true}) }}" type="text/css" as="style" onload="this.rel='stylesheet'" />
-        <link rel="preload" href="{{ preload(asset('build/global.css'), {nopush: true}) }}" type="text/css" as="style" onload="this.rel='stylesheet'" />
+        <link rel="preload"  data-cfasync="false" href="{{ preload('https://fonts.googleapis.com/css?family=Quicksand:400,700,400italic,700italic&subset=latin', {crossorigin :true, nopush: true}) }}" type="text/css" as="style" onload="this.rel='stylesheet'" />
+        <link rel="preload"  data-cfasync="false" href="{{ preload(asset('build/app.css'), {nopush: true}) }}" type="text/css" as="style" onload="this.rel='stylesheet'" />
+        <link rel="preload"  data-cfasync="false" href="{{ preload(asset('build/global.css'), {nopush: true}) }}" type="text/css" as="style" onload="this.rel='stylesheet'" />
     {%- endblock %}
 
     {% jshrink %}
-        <script> 
+        <script type="text/javascript">
             function scaleViewPort(){
                 if (screen.width < 400) {
                     var meta = document.getElementById('viewport');
-                    meta.setAttribute('content','initial-scale=0.9');
+                    var scale = screen.width/400;
+                    meta.setAttribute('content','initial-scale='+scale+' width=device-width, user-scalable=0');
             }
         }
-        </script>
-        <script type="text/javascript">
             var antiClickjack = document.getElementById("antiClickjack");
             if (window.top !== window.self){
                 antiClickjack.innerHTML = "body{display:none !important;}";
