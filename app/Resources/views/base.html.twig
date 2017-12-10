@@ -3,7 +3,6 @@
    common elements and decorates all the other templates.
    See https://symfony.com/doc/current/book/templating.html#template-inheritance-and-layouts
 #}
-{# {% spaceless %} #}
 <!DOCTYPE html>
 <html lang="{{ app.request.locale }}">
 
@@ -63,11 +62,10 @@
             }
         }
             var antiClickjack = document.getElementById("antiClickjack");
-            if (window.top !== window.self){
-                antiClickjack.innerHTML = "body{display:none !important;}";
-                window.top.location = window.self.location.href;
-            }
-        else {
+        if (window.top !== window.self){
+            antiClickjack.innerHTML = "body{display:none !important;}";
+            window.top.location = window.self.location.href;
+        } else {
             antiClickjack.parentNode.removeChild(antiClickjack);
         }
         </script>
@@ -84,8 +82,14 @@
         <body>
             {% block body %}
                 <div class="ui vertical inverted orange sidebar menu">
-                    {{ render_esi(url('header', {'_croute' : app.request.get('_route'), '_croute_params' : app.request.get('_route_params')})) }}
-                        {% block content %}{% endblock %}
+                    {{ render_esi(
+                            url('header',
+                                {
+                                    '_croute' : app.request.get('_route'),
+                                    '_croute_params' : app.request.get('_route_params')
+                                })
+                    ) }}
+                    {% block content %}{% endblock %}
                     {{ render_esi(url('footer')) }}
                 </div>
             {% endblock %}
@@ -125,18 +129,17 @@
                           duration: 300
                         });
                         $('header').visibility({
-                                type: 'fixed'
-                              });
+                            type: 'fixed'
+                        });
                         if (/Android|BlackBerry|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent) === false) {
-                          $('#example-1').sticklr({
-                            showOn: 'hover',
-                            stickTo: 'right',
-                          });
-                        } //run sticklr, not a mobile device
-                        else {
-                          $('.toggle.button').click(function() {
-                            $('.ui.sidebar').sidebar('toggle');
-                          });
+                            $('#example-1').sticklr({
+                                showOn: 'hover',
+                                stickTo: 'right',
+                            });
+                        } else {
+                            $('.toggle.button').click(function() {
+                                $('.ui.sidebar').sidebar('toggle');
+                            });
                         } //mobile device, initialise sidebar instead
                         </script>
                 {% endblock %}
@@ -148,4 +151,3 @@
             <!-- Page rendered on {{ 'now'|date('long', 'UTC') }} -->
         </body>
 </html>
-{# {% endspaceless %} #}

@@ -124,7 +124,7 @@ class DefaultController extends AbstractController
                     if ($node['lvl'] == 1 || $node['isVisibleOnHome']) {
                         $link = $generator->generate('category_show', array('slug' => $node['slug']), UrlGeneratorInterface::ABSOLUTE_PATH);
                         $name = ucfirst($node['title']);
-                        return "<a href=\"$link\">$name</a>&nbsp;";
+                        return "<a href=\"$link\">{$name}</a>";
                     }
                 }
                 )

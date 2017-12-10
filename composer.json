@@ -24,7 +24,6 @@
     "require": {
         "php": "7.1.*",
         "ext-gd": "*",
-        "ext-event": "*",
         "ext-intl": "*",
         "ext-mbstring": "*",
         "cloudflare/sdk": "^1.0",

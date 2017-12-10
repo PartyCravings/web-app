@@ -78,7 +78,7 @@ class Sorter
                 if ($node['lvl'] == 1 || $node['lvl'] == 2 ||  $node['lvl'] == 3) {
                     $link = $generator->generate('category_show', array('slug' => $node['slug']), UrlGeneratorInterface::ABSOLUTE_PATH);
                     $name = ucfirst($node['title']);
-                    return "<a href=\"$link\">$name</a>&nbsp;";
+                    return "<a href=\"{$link}\">$name</a>";
                 }
             }
         ));
