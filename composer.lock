@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "46c1aa09104e9607caafa3ed92b72db7",
+    "content-hash": "bdecf5d7ae955df77151edf9469621e5",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -3572,56 +3572,6 @@
             "time": "2016-06-20T17:11:22+00:00"
         },
         {
-            "name": "m6web/php-process-manager-bundle",
-            "version": "v1.2.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/M6Web/PhpProcessManagerBundle.git",
-                "reference": "b39cc569c0c4c9e02261ed89d50a22c876a04290"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/M6Web/PhpProcessManagerBundle/zipball/b39cc569c0c4c9e02261ed89d50a22c876a04290",
-                "reference": "b39cc569c0c4c9e02261ed89d50a22c876a04290",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.5|^7.0",
-                "react/react": "^0.4",
-                "symfony/symfony": "^2.7|^3.0"
-            },
-            "require-dev": {
-                "atoum/atoum": "^2.1",
-                "m6web/coke": "^2.1",
-                "m6web/symfony2-coding-standard": "^3.1"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "M6Web\\Bundle\\PhpProcessManagerBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "M6Web",
-                    "email": "opensource@m6web.fr",
-                    "homepage": "http://tech.m6web.fr/"
-                }
-            ],
-            "description": "Php Process Manger bundle",
-            "keywords": [
-                "bundle",
-                "performance",
-                "process manager",
-                "reactphp"
-            ],
-            "time": "2016-06-23T15:50:08+00:00"
-        },
-        {
             "name": "mdanter/ecc",
             "version": "v0.4.4",
             "source": {
@@ -4322,6 +4272,56 @@
                 "maps"
             ],
             "time": "2017-11-30T04:36:15+00:00"
+        },
+        {
+            "name": "partycravings/php-process-manager-bundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PartyCravings/PhpProcessManagerBundle.git",
+                "reference": "ea7e5ffff9211b56aef24a97d0df26f0c33b935e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PartyCravings/PhpProcessManagerBundle/zipball/ea7e5ffff9211b56aef24a97d0df26f0c33b935e",
+                "reference": "ea7e5ffff9211b56aef24a97d0df26f0c33b935e",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5|^7.0",
+                "react/react": "^0.4",
+                "symfony/symfony": "^2.7|^3.0"
+            },
+            "require-dev": {
+                "atoum/atoum": "^2.1",
+                "m6web/coke": "^2.1",
+                "m6web/symfony2-coding-standard": "^3.1"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "M6Web\\Bundle\\PhpProcessManagerBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "M6Web",
+                    "email": "opensource@m6web.fr",
+                    "homepage": "http://tech.m6web.fr/"
+                }
+            ],
+            "description": "Php Process Manger bundle",
+            "keywords": [
+                "bundle",
+                "performance",
+                "process manager",
+                "reactphp"
+            ],
+            "time": "2017-12-12T10:21:58+00:00"
         },
         {
             "name": "php-http/cache-plugin",
@@ -9289,7 +9289,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "knplabs/knp-disqus-bundle": 20,
-        "partycravings/google-bundle": 20
+        "partycravings/google-bundle": 20,
+        "partycravings/php-process-manager-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
