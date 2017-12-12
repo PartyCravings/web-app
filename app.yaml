@@ -5,7 +5,7 @@ env: flex
 runtime_config:
   document_root: web
   front_controller_file: app.php
-  composer_flags: --optimize-autoloader
+  composer_flags: --no-dev --optimize-autoloader
   whitelist_functions: proc_open, proc_close
   nginx_conf_include: nginx-app.conf
   supervisord_conf_addition: additional-supervisord.conf
