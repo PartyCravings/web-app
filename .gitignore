@@ -17,6 +17,6 @@
 /web/bundles/
 /node_modules/
 ppm.json
-ppm/
+php-pm/
 .ppm/
 /web/uploads/

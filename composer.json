@@ -48,6 +48,7 @@
         "knplabs/knp-disqus-bundle": "dev-master",
         "knplabs/knp-gaufrette-bundle": "^0.4.0",
         "liuggio/excelbundle": "^2.1",
+        "m6web/php-process-manager-bundle": "^1.2",
         "minishlink/web-push-bundle": "^1.4",
         "noxlogic/ratelimit-bundle": "^1.7",
         "ornicar/gravatar-bundle": "^1.1",

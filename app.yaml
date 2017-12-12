@@ -10,6 +10,7 @@ runtime_config:
   nginx_conf_include: nginx-app.conf
   supervisord_conf_addition: additional-supervisord.conf
   php_ini_override: php.ini
+  nginx_conf_http_include: nginx-http.conf
 
 # [START overrides]
 env_variables:
