@@ -28,3 +28,8 @@ automatic_scaling:
   cool_down_period_sec: 120 # default value
   cpu_utilization:
     target_utilization: 0.8
+
+resources:
+  cpu: 1
+  memory_gb: 0.6
+  disk_size_gb: 10
