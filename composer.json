@@ -25,6 +25,7 @@
         "php": "7.1.*",
         "ext-gd": "*",
         "ext-intl": "*",
+        "ext-pcntl": "*",
         "ext-mbstring": "*",
         "cloudflare/sdk": "^1.0",
         "doctrine/doctrine-bundle": "^1.6",
