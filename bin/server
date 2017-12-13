@@ -1,0 +1,182 @@
+#!/usr/bin/env php
+<?php
+
+use AppBundle\Utils\Server;
+use AppBundle\Utils\StrongerNativeSessionStorage;
+use Symfony\Component\HttpFoundation\Request;
+use Psr\Http\Message\ServerRequestInterface;
+use React\EventLoop\Factory;
+use React\Http\Response;
+
+require __DIR__.'/../vendor/autoload.php';
+
+// if you don't want to setup permissions the proper way, just uncomment the following PHP line
+// read https://symfony.com/doc/current/setup.html#checking-symfony-application-configuration-and-setup
+// for more information
+//umask(0000);
+
+set_time_limit(0);
+
+$kernel = new AppKernel('prod', false);
+
+// When using the HttpCache, you need to call the method in your front controller instead of relying on the configuration parameter
+Request::enableHttpMethodParameterOverride();
+Request::setTrustedProxies(
+    // the IP address (or range) of your proxy
+    ['127.0.0.1', '10.0.0.0/8'],
+
+    // trust *all* "X-Forwarded-*" headers
+    Request::HEADER_X_FORWARDED_ALL
+
+    // or, if your proxy instead uses the "Forwarded" header
+    // Request::HEADER_FORWARDED
+
+    // or, if you're using AWS ELB
+    // Request::HEADER_X_FORWARDED_AWS_ELB
+);
+Server::bindAndCall(function() use ($kernel) {
+        // init bundles
+        $kernel->initializeBundles();
+
+        // init container
+        $kernel->initializeContainer();
+    }, $kernel);
+
+//now we can modify the container
+$nativeStorage = new StrongerNativeSessionStorage(
+        $kernel->getContainer()->getParameter('session.storage.options'),
+        $kernel->getContainer()->has('session.handler') ? $kernel->getContainer()->get('session.handler'): null,
+        $kernel->getContainer()->get('session.storage.metadata_bag')
+    );
+$kernel->getContainer()->set('session.storage.native', $nativeStorage);
+
+Server::bindAndCall(function() use ($kernel) {
+        foreach ($kernel->getBundles() as $bundle) {
+                $bundle->setContainer($kernel->container);
+                $bundle->boot();
+            }
+
+            $kernel->booted = true;
+        }, $kernel);
+$kernel = new AppCache($kernel);
+
+$callback = function (ServerRequestInterface $request) use ($kernel) {
+
+    Server::hijackProperty($kernel, 'startTime', microtime(true));
+
+    $method = $request->getMethod();
+    $headers = $request->getHeaders();
+    $query = $request->getQueryParams();
+    $cookies = $request->getCookieParams();
+    $content = $request->getParsedBody();
+
+    $server = $request->getServerParams();
+    $server['REQUEST_URI'] = (string)$request->getUri();
+
+    $post = [];
+
+    if (
+        in_array(strtoupper($method), array('POST', 'PUT', 'DELETE', 'PATCH')) &&
+        isset($headers['Content-Type']) && 
+        (0 === strpos($headers['Content-Type'], 'application/x-www-form-urlencoded')
+    )) {
+        parse_str($content, $post);
+    }
+
+    $session_set = false;
+
+
+    foreach ($cookies as $name => $value) {
+        if ($name === session_name()) {
+            session_id($value);
+            $session_set = true;
+        }
+    }
+
+    if (!$session_set && session_id()) {
+        // session id already set from the last round but not obtained
+        // from the cookie header, so generate a new one, since php is
+        // not doing it automatically with session_start() if session
+        // has already been started.
+        session_id(Server::generateSessionId());
+    }
+
+    $sfRequest = new Symfony\Component\HttpFoundation\Request(
+        $query,
+        $post,
+        $request->getAttributes(),
+        $cookies,
+        $request->getUploadedFiles(),
+        $server,
+        $content
+    );
+        
+    $sfRequest->setMethod($method);
+
+    $sfRequest->headers->replace($headers);
+
+    $sfResponse = $kernel->handle($sfRequest);
+     // end active session
+    if (PHP_SESSION_ACTIVE === session_status()) {
+        session_write_close();
+        session_unset(); // reset $_SESSION
+    }
+
+    $headers = [];
+
+    foreach (headers_list() as $header) {
+        if (false !== $pos = strpos($header, ':')) {
+            $name = substr($header, 0, $pos);
+            $value = trim(substr($header, $pos + 1));
+
+            if (isset($headers[$name])) {
+                if (!is_array($headers[$name])) {
+                    $headers[$name] = [$headers[$name]];
+                }
+
+                $headers[$name][] = $value;
+            } else {
+                $headers[$name] = $value;
+            }
+        }
+    }
+
+    // after reading all headers we need to reset it, so next request
+    // operates on a clean header.
+    header_remove();
+
+    $headers = array_merge($headers, $sfResponse->headers->allPreserveCase());
+    $cookies = [];
+
+    /**
+     * Process cookies and set them
+     * @var Cookie $cookie 
+     */
+    foreach ($sfResponse->headers->getCookies() as $cookie) {
+
+        $cookieHeader = sprintf('%s=%s', $cookie->getName(), $cookie->getValue());
+        $cookieHeader .= $cookie->getPath() ? '; Path=' . $cookie->getPath() : null;
+        $cookieHeader .= $cookie->getDomain() ? '; Domain=' . $cookie->getDomain() : null;
+        $cookieHeader .= $cookie->getExpiresTime() ? '; Expires=' . gmdate('D, d-M-Y H:i:s', $cookie->getExpiresTime()). ' GMT' : null;
+        $cookieHeader .= $cookie->isSecure() ? '; Secure' : null;
+        $cookieHeader .= $cookie->isHttpOnly() ? '; HttpOnly' : null;
+        $cookies[] = $cookieHeader;
+    }
+
+    $headers['Set-Cookie'] = isset($headers['Set-Cookie']) ? array_merge((array)$headers['Set-Cookie'], $cookies) : $cookies;
+    $headers['X-Powered-By'] = 'Terminator/Genisys';
+
+    $kernel->terminate($sfRequest, $sfResponse);
+
+    return new Response(
+        $sfResponse->getStatusCode(),
+        $headers,
+        $sfResponse->getContent()
+    );
+};
+
+$loop = React\EventLoop\Factory::create();
+$http = new React\Http\Server($callback);
+$socket = new React\Socket\Server(getenv('SERVER-PORT') ?: 1337, $loop);
+$http->listen($socket);
+$loop->run();

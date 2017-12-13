@@ -41,7 +41,6 @@ class AppKernel extends Kernel
             new Ivory\SerializerBundle\IvorySerializerBundle(),
             new Http\HttplugBundle\HttplugBundle(),
             new Salva\JshrinkBundle\SalvaJshrinkBundle(),
-            new M6Web\Bundle\PhpProcessManagerBundle\M6WebPhpProcessManagerBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
