@@ -61,12 +61,14 @@ Server::bindAndCall(function() use ($kernel) {
 $kernel = new AppCache($kernel);
 
 $callback = function (ServerRequestInterface $request) use ($kernel) {
-    ini_set('memory_limit', '128M');
-    Server::hijackProperty($kernel, 'startTime', microtime(true));
+    $mem_usage = memory_get_usage (true)/(1024*1024);
+
+    if (100 <= $mem_usage) {
+        die('MAX MEMORY EXCEEDED');
+    }
 
     $method = $request->getMethod();
     $headers = $request->getHeaders();
-    $query = $request->getQueryParams();
     $cookies = $request->getCookieParams();
     $content = $request->getParsedBody();
 
@@ -102,7 +104,7 @@ $callback = function (ServerRequestInterface $request) use ($kernel) {
     }
 
     $sfRequest = new Symfony\Component\HttpFoundation\Request(
-        $query,
+        $request->getQueryParams(),
         $post,
         $request->getAttributes(),
         $cookies,
@@ -146,27 +148,10 @@ $callback = function (ServerRequestInterface $request) use ($kernel) {
     header_remove();
 
     $headers = array_merge($headers, $sfResponse->headers->allPreserveCase());
-    $cookies = [];
-
-    /**
-     * Process cookies and set them
-     * @var Cookie $cookie 
-     */
-    foreach ($sfResponse->headers->getCookies() as $cookie) {
-
-        $cookieHeader = sprintf('%s=%s', $cookie->getName(), $cookie->getValue());
-        $cookieHeader .= $cookie->getPath() ? '; Path=' . $cookie->getPath() : null;
-        $cookieHeader .= $cookie->getDomain() ? '; Domain=' . $cookie->getDomain() : null;
-        $cookieHeader .= $cookie->getExpiresTime() ? '; Expires=' . gmdate('D, d-M-Y H:i:s', $cookie->getExpiresTime()). ' GMT' : null;
-        $cookieHeader .= $cookie->isSecure() ? '; Secure' : null;
-        $cookieHeader .= $cookie->isHttpOnly() ? '; HttpOnly' : null;
-        $cookies[] = $cookieHeader;
-    }
-
-    $headers['Set-Cookie'] = isset($headers['Set-Cookie']) ? array_merge((array)$headers['Set-Cookie'], $cookies) : $cookies;
     $headers['X-Powered-By'] = 'Terminator/Genisys';
 
     $kernel->terminate($sfRequest, $sfResponse);
+    gc_collect_cycles();
 
     return new Response(
         $sfResponse->getStatusCode(),
