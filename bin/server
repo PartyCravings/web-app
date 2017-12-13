@@ -61,7 +61,7 @@ Server::bindAndCall(function() use ($kernel) {
 $kernel = new AppCache($kernel);
 
 $callback = function (ServerRequestInterface $request) use ($kernel) {
-
+    ini_set('memory_limit', '128M');
     Server::hijackProperty($kernel, 'startTime', microtime(true));
 
     $method = $request->getMethod();
