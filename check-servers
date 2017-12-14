@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 for ixx in {5500..5503}; do
-	status='lsof -i :'ixx;
+	status='lsof -i :'ixx
 	if [[ status != 0 ]]; then
 		SERVERPORT=ixx nohup php bin/server &
 	fi
