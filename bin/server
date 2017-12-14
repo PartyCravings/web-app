@@ -162,6 +162,6 @@ $callback = function (ServerRequestInterface $request) use ($kernel) {
 
 $loop = React\EventLoop\Factory::create();
 $http = new React\Http\Server($callback);
-$socket = new React\Socket\Server(getenv('SERVER-PORT') ?: 1337, $loop);
+$socket = new React\Socket\Server(getenv('SERVERPORT') ?: 1337, $loop);
 $http->listen($socket);
 $loop->run();
