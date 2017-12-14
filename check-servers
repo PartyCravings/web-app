@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-for ixx in {5500..5503}; do
+for ixx in {5500..5507}; do
 
 	status=lsof -i :${ixx}
 	if [ status != 0 ]; then
