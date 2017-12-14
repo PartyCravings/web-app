@@ -7,7 +7,7 @@ runtime_config:
   front_controller_file: app.php
   composer_flags: --no-dev --optimize-autoloader
   nginx_conf_include: nginx-app.conf
-  supervisord_conf_addition: my-additional-supervisord.conf
+  supervisord_conf_addition: additional-supervisord.conf
   php_ini_override: php.ini
   nginx_conf_http_include: nginx-http.conf
 
