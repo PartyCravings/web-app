@@ -1,9 +1,9 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 
 for (( ixx = 5500; ixx < 5508; ixx++ )); do
 	status='lsof -i :'ixx;
-	if [[ status == 1 ]]; then
+	if [[ status != 0 ]]; then
 		SERVERPORT=ixx nohup php bin/server &
 	fi
 done
