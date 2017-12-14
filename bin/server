@@ -151,7 +151,6 @@ $callback = function (ServerRequestInterface $request) use ($kernel) {
     $headers['X-Powered-By'] = 'Terminator/Genisys';
 
     $kernel->terminate($sfRequest, $sfResponse);
-    gc_collect_cycles();
 
     return new Response(
         $sfResponse->getStatusCode(),
