@@ -1,9 +1,8 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 for ixx in $(seq 5500 5507); do
 
-	status=lsof -i :${ixx}
-	if [ status != 0 ]; then
-		SERVERPORT=${ixx} nohup php bin/server &
-	fi
+	(echo > /dev/tcp/127.0.0.1/${ixx}) >/dev/null 2>&1 && \
+    echo "It's up" || SERVERPORT=${ixx} php bin/server &
+
 done
