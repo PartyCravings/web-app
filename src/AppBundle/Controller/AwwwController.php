@@ -23,7 +23,7 @@ class AwwwController extends AbstractController //Purposely named to match first
     }
 
     /**
-     * @Route("/{req}", name="redirect", requirements={"req": ".+"})
+     * @Route("/{req}", name="redirect", host="www.%hostname%", requirements={"req": ".+"})
      * @Template(":default:countries.html.twig")
      */
     public function redirectAction(Request $request, EntityManagerInterface $em) :void
