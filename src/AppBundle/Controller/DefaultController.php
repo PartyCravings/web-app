@@ -22,7 +22,7 @@ class DefaultController extends AbstractController
 
     /**
      * @Route("/sitemap.xml", name="country_sitemap", defaults={"page": "1", "_format"="xml"})
-     * @Template(":default:country_sitemap.{_format}.twig")
+     * @Template(":default:country_sitemap.xml.twig")
      * @Cache(smaxage=7200)
      */
     public function countrySitemapAction(Country $_country, Request $request, EntityManagerInterface $em) :array
