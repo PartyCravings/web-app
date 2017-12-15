@@ -5,7 +5,7 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-  {% if app.request.get('page') == 1 %}
+  {% if not app.request.get('page') >= 2 %}
     <url>
       <loc>{{ url('homepage') }}</loc>
       <changefreq>daily</changefreq>
