@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  {% if app.request.page == 1 %}
+    <url>
+      <loc>{{ url('homepage') }}</loc>
+      <changefreq>daily</changefreq>
+      <priority>1.00</priority>
+    </url>
+  {% endif %}
+
+  {% for category in categories %}
+    <url>
+      <loc>{{ url('category_show', {'slug':category.slug}) }}</loc>
+      <changefreq>weekly</changefreq>
+      <priority>0.80</priority>
+    </url>
+  {% endfor %}
+  {% for service in services %}
+    <url>
+      <loc>{{ url('service_show', {'slug':service.slug}) }}</loc>
+      <changefreq>weekly</changefreq>
+      <priority>0.60</priority>
+    </url>
+  {% endfor %}
+
+</urlset>
+{% if services.haveToPaginate or categories.haveToPaginate %}
+<sitemapindex 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/siteindex.xsd"
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <sitemap>
+      <loc>{{ url('country_sitemap', {'page': app.request.page + 1 }) }}</loc>
+  </sitemap>
+</sitemapindex>
+{% endif %}

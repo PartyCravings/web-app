@@ -40,5 +40,4 @@ class StrongerNativeSessionStorage extends \Symfony\Component\HttpFoundation\Ses
 
         return $isRegenerated;
     }
-
 }

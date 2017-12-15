@@ -11,4 +11,3 @@ php bin/console translation:extract zh --config=app --output-format=xliff
 
 #For OAuth
 You need to add check endpoints for each and every locale, since the project has full localization enabled!
-php php-pm/bin/ppm start --bootstrap=symfony --app-env=prod --cgi-path=/usr/bin/php --port=8082 --workers=20 --debug=0

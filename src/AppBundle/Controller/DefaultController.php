@@ -15,91 +15,43 @@ use WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs;
 use AppBundle\Entity\Country;
 
 /**
- * Class DefaultController
- * @package AppBundle\Controller
- *
- * @ParamConverter(
-                    "_country",
-                    class="AppBundle:Country",
-                    options=
-                    {
-                        "id" = "_country",
-                        "repository_method" = "findByName"
-                    }
-                )
+ * @ParamConverter("_country", class="AppBundle:Country", options={"id"="_country", "repository_method"="findByName"})
  */
 class DefaultController extends AbstractController
 {
-    /**
-     * @Route(
-                "/",
-                name="homepage"
-            )
-     * @ParamConverter(
-                    "campaigns",
-                    class="AppBundle:Campaigns",
-                    options=
-                    {
-                        "id" = "_country",
-                        "repository_method" = "getHomeCampaigns"
-                    }
-                )
-     * @ParamConverter(
-                    "posts",
-                    class="AppBundle:Post",
-                    options=
-                    {
-                        "id" = "_country",
-                        "repository_method" = "findHomePosts"
-                    }
-                )
 
-    * @ParamConverter(
-                    "parties",
-                    class="AppBundle:Party",
-                    options=
-                    {
-                        "id" = "_country",
-                        "repository_method" = "findHomeParties"
-                    }
-                )
-     * @Cache(smaxage=1)
-     * @Template(
-                    ":default:index.html.twig",
-                    vars= {
-                            "campaigns",
-                            "posts",
-                            "parties"
-                        }
-            )
-     * @param array $campaigns
-     * @param array $posts
+    /**
+     * @Route("/sitemap.xml", name="country_sitemap", defaults={"page": "1", "_format"="xml"})
+     * @Template(":default:country_sitemap.{_format}.twig")
+     * @Cache(smaxage=7200)
+     */
+    public function countrySitemapAction(Country $_country, Request $request, EntityManagerInterface $em) :array
+    {
+        $page = $request->get('page', 1);
+        $categories = $em->getRepository('AppBundle:Category')->findAllByCountry($_country, $page, 10000);
+        $services = $em->getRepository('AppBundle:Service')->findAllByCountry($page, $_country, 10000);
+        return array('categories'=> $categories, 'services' => $services, 'country'=> $_country);
+    }
+
+
+    /**
+     * @Route("/", name="homepage")
+     * @ParamConverter("campaigns", class="AppBundle:Campaigns", options={"id"="_country", "repository_method"= "getHomeCampaigns"})
+     * @ParamConverter("posts", class="AppBundle:Post", options={"id"="_country", "repository_method" = "findHomePosts"})
+    * @ParamConverter("parties", class="AppBundle:Party", options={"id" = "_country", "repository_method" = "findHomeParties"})
+     * @Cache(smaxage=86400)
+     * @Template(":default:index.html.twig", vars={"campaigns","posts","parties"})
      */
     public function indexAction(array $campaigns, array $posts, Breadcrumbs $breadcrumbs) :void
     {
-        $breadcrumbs->prependRouteItem("Home", "homepage");
+        $breadcrumbs->prependRouteItem('Home', 'homepage');
     }
 
     /**
-     * @Route(
-                "/header",
-                name="header"
-            )
-     * @ParamConverter(
-                    "categories",
-                    class="AppBundle:Category",
-                    options=
-                    {
-                        "id" = "_country",
-                        "repository_method" = "findHeaderCategories"
-                    }
-                )
-     * @Template(
-                    ":fragments:_header.html.twig"
-                    )
-     * @Cache(smaxage=1)
-     * @param EntityManagerInterface $em
-     * @return array
+     * @Route("/header", name="header")
+     * @ParamConverter("categories", class="AppBundle:Category", options={"id"="_country","repository_method" = "findHeaderCategories"})
+     * @Template(":fragments:_header.html.twig")
+     * @Cache(smaxage=86400)
      */
     public function headerAction(Request $request, Country $_country, array $categories, EntityManagerInterface $em, UrlGeneratorInterface $generator) :array
     {
@@ -134,24 +86,13 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route(
-                "/footer" ,
-                name="footer"
-            )
-     * @Template(
-                    ":fragments:_footer.html.twig"
-            )
-     * @Cache(
-                smaxage=1,
-                lastmodified="_country.getUpdated()",
-                etag="'Country' ~ _country.getId() ~ _country.getUpdated().format('Y-m-d')"
-            )
-     * @param \AppBundle\Entity\Country $_country
-     * @return array
+     * @Route("/footer" , name="footer")
+     * @Template(":fragments:_footer.html.twig")
+     * @ParamConverter("similarCountries", class="AppBundle:Country", options={"id"="_country", "repository_method"= "findSimilarCountries"})
+     * @Cache(smaxage=86400, lastmodified="_country.getUpdated()", etag="'Country' ~ _country.getId() ~ _country.getUpdated().format('Y-m-d')")
      */
-    public function footerAction(Country $_country, EntityManagerInterface $em) :array
+    public function footerAction(Country $_country, array $similarCountries) :array
     {
-        $similarCountries = $em->getRepository(Country::class)->findSimilarCountries($_country);
         $form = $this->createFormBuilder(null, array('csrf_protection' => false))
             ->setAction($this->generateUrl('notification_newsletter_register'))
             ->setMethod('POST')
@@ -163,19 +104,5 @@ class DefaultController extends AbstractController
             '_country' => $_country,
             'similarCountries'=> $similarCountries
         );
-    }
-
-    /**
-     * @Route(
-                "/offline" ,
-                name="offline"
-            )
-     * @Template(
-                    ":fragments:_offline.html.twig"
-            )
-     * @Cache(smaxage=1)
-     */
-    public function offlineAction(Country $_country, EntityManagerInterface $em) :void
-    {
     }
 }

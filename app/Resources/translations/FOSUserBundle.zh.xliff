@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2017-11-30T04:40:57Z" source-language="en" target-language="zh" datatype="plaintext" original="not.available">
+  <file date="2017-12-15T02:08:32Z" source-language="en" target-language="zh" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -9,61 +9,61 @@
       <trans-unit id="96db66047fa3c65e3da15476cda3055150f4f208" resname="security.login">
         <source>security.login</source>
         <target>登 录</target>
-        <jms:reference-file line="11">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
-        <jms:reference-file line="3">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
-        <jms:reference-file line="136">/Resources/views/fragments/_header.html.twig</jms:reference-file>
-        <jms:reference-file line="41">/Resources/views/fragments/_header.html.twig</jms:reference-file>
+        <jms:reference-file line="11">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\FOSUserBundle\views\Security\login.html.twig\</jms:reference-file>
+        <jms:reference-file line="3">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\FOSUserBundle\views\Security\login.html.twig\</jms:reference-file>
+        <jms:reference-file line="136">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\fragments\_header.html.twig\</jms:reference-file>
+        <jms:reference-file line="41">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\fragments\_header.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="8382dbe5697785768e635f737f51a8ad8e2ee1f5" resname="security.login.forgot">
         <source>security.login.forgot</source>
         <target>忘记密码？</target>
-        <jms:reference-file line="41">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
+        <jms:reference-file line="41">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\FOSUserBundle\views\Security\login.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="b8c582e89ccd74559fa6988d8deef0058f8e243b" resname="security.login.new">
         <source>security.login.new</source>
         <target>新到 PartyCravings?</target>
-        <jms:reference-file line="14">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
+        <jms:reference-file line="14">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\FOSUserBundle\views\Security\login.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="84c74da90e8ad699931ced5c703165fde1aeeec9" resname="security.login.or">
         <source>security.login.or</source>
         <target>或</target>
-        <jms:reference-file line="50">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
+        <jms:reference-file line="50">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\FOSUserBundle\views\Security\login.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="62d5564c383b885ff0de25abd24a41080499970b" resname="security.login.password">
         <source>security.login.password</source>
         <target>密码</target>
-        <jms:reference-file line="31">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
+        <jms:reference-file line="31">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\FOSUserBundle\views\Security\login.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="d074ed9a0eb75b7f17ef2274c21d4c3d12d91634" resname="security.login.remember_me">
         <source>security.login.remember_me</source>
         <target>记住我</target>
-        <jms:reference-file line="38">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
+        <jms:reference-file line="38">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\FOSUserBundle\views\Security\login.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="7844ea9899b333798ba135aa70abf6de484adaf6" resname="security.login.signup">
         <source>security.login.signup</source>
         <target>报名</target>
-        <jms:reference-file line="14">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
-        <jms:reference-file line="34">/Resources/views/fragments/_header.html.twig</jms:reference-file>
+        <jms:reference-file line="14">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\FOSUserBundle\views\Security\login.html.twig\</jms:reference-file>
+        <jms:reference-file line="34">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\fragments\_header.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="79c180ac5e987e195d1dfeda857a114ed692d07f" resname="security.login.submit">
         <source>security.login.submit</source>
         <target>登录</target>
-        <jms:reference-file line="43">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
+        <jms:reference-file line="43">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\FOSUserBundle\views\Security\login.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="64e1b2aaf6156a7e34a13fbc38801e89478efff8" resname="security.login.username">
         <source>security.login.username</source>
         <target>电邮</target>
-        <jms:reference-file line="26">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
+        <jms:reference-file line="26">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\FOSUserBundle\views\Security\login.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="b1e53e02c007e924bf00db715a77a11d8c47d0bd" resname="security.login.withfacebook">
         <source>security.login.withfacebook</source>
         <target>继续使用 Facebook</target>
-        <jms:reference-file line="59">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
+        <jms:reference-file line="59">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\FOSUserBundle\views\Security\login.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="ad45591622ebb5ae776a54abfa3fea40c774ef88" resname="security.login.withgoogle">
         <source>security.login.withgoogle</source>
         <target>继续使用 Google +</target>
-        <jms:reference-file line="65">/Resources/FOSUserBundle/views/Security/login.html.twig</jms:reference-file>
+        <jms:reference-file line="65">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\FOSUserBundle\views\Security\login.html.twig\</jms:reference-file>
       </trans-unit>
     </body>
   </file>

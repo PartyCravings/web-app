@@ -9,6 +9,7 @@ parameters:
     locale: en
     app_locales: [en, de, zh]
     hostname: partycravings.com
+    env(hostname): '%hostname%'
     keys_dir: '%kernel.root_dir%/config/keys'
 
     knp_disqus.api_key: YOUR_PUBLIC_API_KEY

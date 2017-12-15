@@ -33,6 +33,16 @@ class CountryRepository extends \Doctrine\ORM\EntityRepository
             ->getOneOrNullResult();
     }
 
+    public function findAll() : array
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.isEnabled = true')
+            ->getQuery()
+            ->useQueryCache(true)
+            ->useResultCache(true)
+            ->getResult();
+    }
+
     public function findSimilarCountries(Country $country) : array
     {
         $region = strtok($country->getTimezone(), '/');

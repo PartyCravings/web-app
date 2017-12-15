@@ -76,7 +76,6 @@ $callback = function (ServerRequestInterface $request) use ($kernel) {
     $server['REQUEST_URI'] = (string)$request->getUri();
 
     $post = [];
-
     if (
         in_array(strtoupper($method), array('POST', 'PUT', 'DELETE', 'PATCH')) &&
         isset($headers['Content-Type']) && 
@@ -85,17 +84,13 @@ $callback = function (ServerRequestInterface $request) use ($kernel) {
         parse_str($content, $post);
     }
 
-    $session_set = false;
-
-
     foreach ($cookies as $name => $value) {
         if ($name === session_name()) {
             session_id($value);
             $session_set = true;
         }
     }
-
-    if (!$session_set && session_id()) {
+    if (!isset($session_set) && session_id()) {
         // session id already set from the last round but not obtained
         // from the cookie header, so generate a new one, since php is
         // not doing it automatically with session_start() if session
@@ -103,7 +98,7 @@ $callback = function (ServerRequestInterface $request) use ($kernel) {
         session_id(Server::generateSessionId());
     }
 
-    $sfRequest = new Symfony\Component\HttpFoundation\Request(
+    $request = new Request(
         $request->getQueryParams(),
         $post,
         $request->getAttributes(),
@@ -111,21 +106,18 @@ $callback = function (ServerRequestInterface $request) use ($kernel) {
         $request->getUploadedFiles(),
         $server,
         $content
-    );
-        
-    $sfRequest->setMethod($method);
+    );    
+    $request->setMethod($method);
+    $request->headers->replace($headers);
 
-    $sfRequest->headers->replace($headers);
-
-    $sfResponse = $kernel->handle($sfRequest);
+    $response = $kernel->handle($request);
      // end active session
     if (PHP_SESSION_ACTIVE === session_status()) {
         session_write_close();
         session_unset(); // reset $_SESSION
     }
 
-    $headers = [];
-
+    $headers = ['X-Powered-By'=> 'Terminator/Genisys'];
     foreach (headers_list() as $header) {
         if (false !== $pos = strpos($header, ':')) {
             $name = substr($header, 0, $pos);
@@ -142,20 +134,16 @@ $callback = function (ServerRequestInterface $request) use ($kernel) {
             }
         }
     }
-
     // after reading all headers we need to reset it, so next request
     // operates on a clean header.
     header_remove();
+    $headers = array_merge($headers, $response->headers->allPreserveCase());
 
-    $headers = array_merge($headers, $sfResponse->headers->allPreserveCase());
-    $headers['X-Powered-By'] = 'Terminator/Genisys';
-
-    $kernel->terminate($sfRequest, $sfResponse);
-
+    $kernel->terminate($request, $response);
     return new Response(
-        $sfResponse->getStatusCode(),
+        $response->getStatusCode(),
         $headers,
-        $sfResponse->getContent()
+        $response->getContent()
     );
 };
 

@@ -18,10 +18,3 @@ JMSTranslationBundle_ui:
 
 _main:
     resource: routing.yml
-
-
-#EasyAdminBundle Routes
-easy_admin_bundle:
-    resource: "@EasyAdminBundle/Controller/AdminController.php"
-    type:     annotation
-    prefix:   /admin

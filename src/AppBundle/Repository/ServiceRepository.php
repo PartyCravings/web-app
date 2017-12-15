@@ -49,11 +49,13 @@ class ServiceRepository extends \Doctrine\ORM\EntityRepository
         return Sorter::createPaginator($query, $page, self::NUM_ITEMS);
     }
 
-    public function findAllByCountry(int $page) :Pagerfanta
+    public function findAllByCountry(int $page, Country $country = null, $limit = self::NUM_ITEMS) :Pagerfanta
     {
         $query = $this->createQueryBuilder('p')
                 ->andWhere('p.isEnabled =  true')
                 ->innerJoin('p.category', 'f')
+                ->andWhere('f.country = :country')
+                ->setParameter('country', $country ?: !null)
                 ->leftJoin('p.reviews', 'k')
                 ->addSelect('k')
                 ->orderBy('p.created', 'DESC')
@@ -61,7 +63,7 @@ class ServiceRepository extends \Doctrine\ORM\EntityRepository
                 ->useQueryCache(true)
                 ->useResultCache(true);
 
-        return Sorter::createPaginator($query, $page, self::NUM_ITEMS);
+        return Sorter::createPaginator($query, $page, $limit);
     }
 
     public function findBySlug(string $slug) : ?Service

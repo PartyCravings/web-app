@@ -346,7 +346,7 @@ class Country
      */
     public function setSubdomain($subdomain)
     {
-        $this->subdomain = strtolower($subdomain.'.partycravings.com');
+        $this->subdomain = strtolower($subdomain.'.'.getenv('hostname'));
 
         return $this;
     }

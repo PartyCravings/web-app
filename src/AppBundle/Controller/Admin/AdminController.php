@@ -24,7 +24,6 @@ class AdminController extends BaseAdminController
 {
     public function createNewAccountEntity()
     {
-        dump($this->config);
         return new Account();
     }
 

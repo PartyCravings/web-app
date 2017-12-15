@@ -33,7 +33,7 @@ class CategoryRepository extends \Gedmo\Tree\Entity\Repository\NestedTreeReposit
             ->getResult();
     }
 
-    public function findAllByCountry($country, int $page) :Pagerfanta
+    public function findAllByCountry($country, int $page, $limit = self::NUM_ITEMS) :Pagerfanta
     {
         $query = $this->createQueryBuilder('p')
             ->where('p.parent = false')
@@ -45,7 +45,7 @@ class CategoryRepository extends \Gedmo\Tree\Entity\Repository\NestedTreeReposit
             ->useQueryCache(true)
             ->useResultCache(true);
 
-        return Sorter::createPaginator($query, $page, self::NUM_ITEMS);
+        return Sorter::createPaginator($query, $page, $limit);
     }
 
     public function findAllByParent(Category $parent, int $page) :Pagerfanta
