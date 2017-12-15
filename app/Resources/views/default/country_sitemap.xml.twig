@@ -5,13 +5,11 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-  {% if not app.request.get('page') >= 2 %}
-    <url>
-      <loc>{{ url('homepage') }}</loc>
-      <changefreq>daily</changefreq>
-      <priority>1.00</priority>
-    </url>
-  {% endif %}
+  <url>
+    <loc>{{ url('homepage') }}</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.00</priority>
+  </url>
 
   {% for category in categories %}
     <url>
