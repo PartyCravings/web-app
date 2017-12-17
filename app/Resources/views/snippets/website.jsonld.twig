@@ -5,7 +5,7 @@
             "url": "{{- url('homepage') -}}",
             "potentialAction": {
             "@type": "SearchAction",
-            "target": "{{- url('site_wide_search', { "query": "SEARCH" })|replace({ "SEARCH": "{query}"}) -}}",
+            "target": "{{- url('search', { "query": "SEARCH" })|replace({ "SEARCH": "{query}"}) -}}",
             "query-input": "required name=query"
             }
         }

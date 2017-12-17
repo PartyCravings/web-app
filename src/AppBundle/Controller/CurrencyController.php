@@ -12,10 +12,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 /**
- * Class ControllerCurrency
- *
- * @Route(
- *      path = "/currency")
+ * @Route("currency")
  */
 class CurrencyController extends AbstractController
 {

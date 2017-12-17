@@ -21,6 +21,7 @@ security:
                 csrf_token_generator: security.csrf.token_manager
                 check_path:     fos_user_security_check
                 use_forward: true
+                require_previous_session: false
 
             oauth:
                 resource_owners:

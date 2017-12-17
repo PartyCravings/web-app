@@ -93,6 +93,14 @@ class Pages
     private $updatedBy;
 
     /**
+     * @var Pages
+     *
+     * Many Countries have Many Pages.
+     * @ORM\ManyToMany(targetEntity="Country", mappedBy="pages")
+     */
+    private $countries;
+
+    /**
      * @ORM\OneToMany(
      *   targetEntity="PageTranslation",
      *   mappedBy="object",
@@ -107,6 +115,7 @@ class Pages
     public function __construct()
     {
         $this->translations = new ArrayCollection();
+        $this->countries = new ArrayCollection();
     }
 
     public function __toString()
@@ -349,5 +358,39 @@ class Pages
     public function getTranslations()
     {
         return $this->translations;
+    }
+
+    /**
+     * Add country
+     *
+     * @param \AppBundle\Entity\Country $country
+     *
+     * @return Pages
+     */
+    public function addCountry(\AppBundle\Entity\Country $country)
+    {
+        $this->countries[] = $country;
+
+        return $this;
+    }
+
+    /**
+     * Remove country
+     *
+     * @param \AppBundle\Entity\Country $country
+     */
+    public function removeCountry(\AppBundle\Entity\Country $country)
+    {
+        $this->countries->removeElement($country);
+    }
+
+    /**
+     * Get countries
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCountries()
+    {
+        return $this->countries;
     }
 }

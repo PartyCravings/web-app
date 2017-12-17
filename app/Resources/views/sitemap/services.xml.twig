@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <url>
+    <loc>{{ app.request.scheme ~'://' ~ country.subdomain }}{{ path('homepage') }}</loc>
+    {% if country.hostname %}
+    	<xml:link
+    		rel="canonical"
+  			href="{{ app.request.scheme ~'://' ~ country.hostname }}{{ path('homepage') }}" />
+  	{% endif %}
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  {% for page in pages %}
+  	<url>
+  		<loc>{{ app.request.scheme ~'://' ~ country.subdomain }}{{ path('service_show') }}</loc>
+  		{% if country.hostname %}
+  			<xml:link
+          rel="canonical"
+          href="{{ app.request.scheme ~'://' ~ country.hostname }}{{ path('service_show') }}" />
+  		{% endif %}
+  		<changefreq>weekly</changefreq>
+  		<priority>0.4</priority>
+  	</url>
+  {% endfor %}
+</urlset>

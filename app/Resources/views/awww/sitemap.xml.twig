@@ -5,11 +5,11 @@
       xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   {% for country in countries %}
    <sitemap>
-      <loc>{{ app.request.scheme ~'://' ~ country.subdomain }}{{ path('country_sitemap') }}</loc>
+      <loc>{{ app.request.scheme ~'://' ~ country.subdomain }}{{ path('sitemap_country') }}</loc>
       {% if country.hostname %}
       <xml:link
         rel="canonical"
-        href="{{ app.request.scheme ~'://' ~ country.hostname }}{{ path('country_sitemap') }}" />
+        href="{{ app.request.scheme ~'://' ~ country.hostname }}{{ path('sitemap_country') }}" />
       {% endif %}
   </sitemap>
   {% endfor %}

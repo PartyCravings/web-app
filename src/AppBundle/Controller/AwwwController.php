@@ -15,7 +15,7 @@ class AwwwController extends AbstractController //Purposely named to match first
     /**
      * @Route("/sitemap.xml", name="sitemap", host="www.%hostname%", defaults={"page": "1", "_format"="xml"})
      * @ParamConverter("countries", class="AppBundle:Country", options={"id"="_country", "repository_method"= "findAll"})
-     * @Template(":default:sitemap.xml.twig", vars={"countries"})
+     * @Template(":awww:sitemap.xml.twig", vars={"countries"})
      * @Cache(smaxage=86400)
      */
     public function sitemapAction() :void
@@ -24,20 +24,21 @@ class AwwwController extends AbstractController //Purposely named to match first
 
     /**
      * @Route("/{req}", name="redirect", host="www.%hostname%", requirements={"req": ".+"})
-     * @Template(":default:countries.html.twig")
+     * @Template(":awww:countries.html.twig")
      */
-    public function redirectAction(Request $request, EntityManagerInterface $em) :void
+    public function redirectAction(Request $request, EntityManagerInterface $em) :array
     {
         $path = $request->getBasePath();
-        $countryName = $request->headers->get('HTTP_CF_IPCOUNTRY');
+        $countryName = $request->server->get('HTTP_CF_IPCOUNTRY');
         /*if ('XX' == $countryName || empty($countryName)) {
             $countryName = geoip_country_code_by_name($request->getClientIp());
         }*/
-        $country = $em->getRepository(Country::class)->findByName($country);
+        $country = $em->getRepository(Country::class)->findByName($countryName);
         if ($country) {
             $uri = $request->getScheme().'://'.$country->hostname ?: $country->subdomain.'/'.$path;
             $this->redirect($uri);
         }
+        return array('countries' => $em->getRepository(Country::class)->findAll());
     }
 
     /**

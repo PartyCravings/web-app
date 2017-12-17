@@ -15,20 +15,9 @@ use AppBundle\Entity\Location;
 use AppBundle\Entity\Country;
 
 /**
- * Class LocationController
- * @package AppBundle\Controller
- *
- * @Route("/location")
- * @ParamConverter(
-                    "_country",
-                    class="AppBundle:Country",
-                    options=
-                    {
-                        "id" = "_country",
-                        "repository_method" = "findByName"
-                    }
-                )
-*/
+ * @Route("location")
+ * @ParamConverter("_country", class="AppBundle:Country", options={"id"="_country", "repository_method"="findByName"})
+ */
 class LocationController extends AbstractController
 {
     /*

@@ -1,0 +1,10 @@
+{% block body %}
+	<h1>We could not determine your country</h1>
+	<h2>please select your country</h2>
+	{% for country in countries %}
+		<h3>{{ app.request.scheme ~'://' ~ country.hostname ?: country.subdomain }}{{ path('homepage') }}</h3>
+	{% endfor %}
+
+{% endblock %}
+{% block indexing %}noindex, follow, all{% endblock %}
+{% block title %}{{ 'Choose your country'|trans }}{% endblock %}

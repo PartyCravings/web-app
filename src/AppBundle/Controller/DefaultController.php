@@ -19,26 +19,11 @@ use AppBundle\Entity\Country;
  */
 class DefaultController extends AbstractController
 {
-
-    /**
-     * @Route("/sitemap.xml", name="country_sitemap", defaults={"page": "1", "_format"="xml"})
-     * @Template(":default:country_sitemap.xml.twig")
-     * @Cache(smaxage=7200)
-     */
-    public function countrySitemapAction(Country $_country, Request $request, EntityManagerInterface $em) :array
-    {
-        $page = $request->get('page', 1);
-        $categories = $em->getRepository('AppBundle:Category')->findAllByCountry($_country, $page, 10000);
-        $services = $em->getRepository('AppBundle:Service')->findAllByCountry($page, $_country, 10000);
-        return array('categories'=> $categories, 'services' => $services, 'country'=> $_country);
-    }
-
-
     /**
      * @Route("/", name="homepage")
      * @ParamConverter("campaigns", class="AppBundle:Campaigns", options={"id"="_country", "repository_method"= "getHomeCampaigns"})
      * @ParamConverter("posts", class="AppBundle:Post", options={"id"="_country", "repository_method" = "findHomePosts"})
-    * @ParamConverter("parties", class="AppBundle:Party", options={"id" = "_country", "repository_method" = "findHomeParties"})
+     * @ParamConverter("parties", class="AppBundle:Party", options={"id" = "_country", "repository_method" = "findHomeParties"})
      * @Cache(smaxage=86400)
      * @Template(":default:index.html.twig", vars={"campaigns","posts","parties"})
      */

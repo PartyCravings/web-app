@@ -12,20 +12,10 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use AppBundle\Entity\Subscriber;
 use AppBundle\Entity\Country;
 
-/** Class NotificationController
- * @package AppBundle\Controller
- *
+/**
  * @Route("/notification")
  * @Method("POST")
- * @ParamConverter(
-                    "_country",
-                    class="AppBundle:Country",
-                    options=
-                    {
-                        "id" = "_country",
-                        "repository_method" = "findByName"
-                    }
-                )
+ * @ParamConverter("countries", class="AppBundle:Country", options={"id"="_country", "repository_method"= "findAll"})
  */
 class NotificationController extends AbstractController
 {
@@ -54,6 +44,21 @@ class NotificationController extends AbstractController
     }
 
     /**
+     * @Route("/unregister", name="notification_unregister")
+     */
+    public function unregisterAction(Request $request, EntityManagerInterface $em)
+    {
+        $data = json_decode($request->getContent(), true);
+        $subscriber = $em->getRepository(Subscriber::class)->findOneBy(['endpoint' => $data['endpoint']]);
+        if (!$subscriber) {
+            throw $this->createNotFoundException('Not found');
+        }
+        $em->remove($subscriber);
+        $em->flush();
+        return  $this->json(array("removed" => true));
+    }
+
+    /**
      * @Route("/newsletter", name="notification_newsletter_register")
      */
     public function newsletterAction(Country $_country, Request $request, EntityManagerInterface $em)
@@ -68,9 +73,7 @@ class NotificationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $email = $form->getData()['email'];
-
             $account = $em->getRepository('AppBundle::Account')->findOneByEmail($email);
-
             if ($account) {
                 $account->getAccountDetails()->setNewsletterSigned(true);
                 $em->flush();
@@ -78,24 +81,7 @@ class NotificationController extends AbstractController
             } else {
                 $this->addFlash('failure', $translator->trans('newsletter.signup.failed'));
             }
-
             return $this->redirect($request->getReferer());
         }
-    }
-
-    /**
-     * @Route("/unregister", name="notification_unregister")
-     */
-    public function unregisterAction(Request $request, EntityManagerInterface $em)
-    {
-        $data = json_decode($request->getContent(), true);
-
-        $subscriber = $em->getRepository(Subscriber::class)->findOneBy(['endpoint' => $data['endpoint']]);
-        if (!$subscriber) {
-            throw $this->createNotFoundException('Not found');
-        }
-        $em->remove($subscriber);
-        $em->flush();
-        return  $this->json(array("removed" => true));
     }
 }

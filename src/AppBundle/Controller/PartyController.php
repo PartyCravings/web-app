@@ -16,20 +16,9 @@ use AppBundle\Entity\Category;
 use AppBundle\Entity\Location;
 
 /**
- * Class ServiceController
- * @package AppBundle\Controller
- *
  * @Route("party")
- * @ParamConverter(
-                    "_country",
-                    class="AppBundle:Country",
-                    options=
-                    {
-                        "id" = "_country",
-                        "repository_method" = "findByName"
-                    }
-                )
-*/
+ * @ParamConverter("_country", class="AppBundle:Country", options={"id"="_country", "repository_method"="findByName"})
+ */
 class PartyController extends AbstractController
 {
     /**
@@ -85,14 +74,14 @@ class PartyController extends AbstractController
     public function showAction(Service $service, Breadcrumbs $breadcrumbs) :void
     {
         $location = $service->getLocation();
-        $breadcrumbs->prependRouteItem($service->getName(), 'site_services_show', ['slug'=>$service->getSlug()]);
+        $breadcrumbs->prependRouteItem($service->getName(), 'service_show', ['slug'=>$service->getSlug()]);
         $breadcrumbs->prependRouteItem($location->getName(), 'site_location_listing', ['slug'=>$location->getSlug()]);
         $node = $service->getCategory();
         while ($node) {
-            $breadcrumbs->prependRouteItem($node->getTitle(), 'site_services_categories', ['slug'=>$node->getSlug()]);
+            $breadcrumbs->prependRouteItem($node->getTitle(), 'category_show', ['slug'=>$node->getSlug()]);
             $node = $node->getParent();
         }
-        $breadcrumbs->prependRouteItem("Services", "site_services_index");
-        $breadcrumbs->prependRouteItem("Home", "homepage");
+        $breadcrumbs->prependRouteItem('Services', 'category_index');
+        $breadcrumbs->prependRouteItem('Home', 'homepage');
     }
 }

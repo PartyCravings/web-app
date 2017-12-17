@@ -168,7 +168,7 @@ class Country
      * @var Pages
      *
      * Many Countries have Many Pages.
-     * @ORM\ManyToMany(targetEntity="Pages")
+     * @ORM\ManyToMany(targetEntity="Pages", inversedBy="countries")
      */
     private $pages;
 
@@ -632,40 +632,6 @@ class Country
     }
 
     /**
-     * Add page
-     *
-     * @param \AppBundle\Entity\Pages $page
-     *
-     * @return Country
-     */
-    public function addPage(\AppBundle\Entity\Pages $page)
-    {
-        $this->pages[] = $page;
-
-        return $this;
-    }
-
-    /**
-     * Remove page
-     *
-     * @param \AppBundle\Entity\Pages $page
-     */
-    public function removePage(\AppBundle\Entity\Pages $page)
-    {
-        $this->pages->removeElement($page);
-    }
-
-    /**
-     * Get pages
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getPages()
-    {
-        return $this->pages;
-    }
-
-    /**
      * Add socialLink
      *
      * @param \AppBundle\Entity\SocialLink $socialLink
@@ -803,5 +769,39 @@ class Country
     public function getPhone()
     {
         return $this->phone;
+    }
+
+    /**
+     * Add page
+     *
+     * @param \AppBundle\Entity\Pages $page
+     *
+     * @return Country
+     */
+    public function addPage(\AppBundle\Entity\Pages $page)
+    {
+        $this->pages[] = $page;
+
+        return $this;
+    }
+
+    /**
+     * Remove page
+     *
+     * @param \AppBundle\Entity\Pages $page
+     */
+    public function removePage(\AppBundle\Entity\Pages $page)
+    {
+        $this->pages->removeElement($page);
+    }
+
+    /**
+     * Get pages
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPages()
+    {
+        return $this->pages;
     }
 }

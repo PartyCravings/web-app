@@ -173,4 +173,28 @@ class OrderData
     {
         return $this->service;
     }
+
+    /**
+     * Set order
+     *
+     * @param \AppBundle\Entity\Orders $order
+     *
+     * @return OrderData
+     */
+    public function setOrder(\AppBundle\Entity\Orders $order = null)
+    {
+        $this->order = $order;
+
+        return $this;
+    }
+
+    /**
+     * Get order
+     *
+     * @return \AppBundle\Entity\Orders
+     */
+    public function getOrder()
+    {
+        return $this->order;
+    }
 }

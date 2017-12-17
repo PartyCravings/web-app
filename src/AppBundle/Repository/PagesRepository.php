@@ -3,6 +3,7 @@
 namespace AppBundle\Repository;
 
 use AppBundle\Entity\Pages;
+use AppBundle\Entity\Country;
 
 /**
  * PagesRepository
@@ -12,7 +13,7 @@ use AppBundle\Entity\Pages;
  */
 class PagesRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function findByCountry(string $slug) : ?Pages
+    public function findBySlug(string $slug) : ?Pages
     {
         return $this->createQueryBuilder('p')
             ->andWhere('p.isEnabled = true')
@@ -22,5 +23,21 @@ class PagesRepository extends \Doctrine\ORM\EntityRepository
             ->useQueryCache(true)
             ->useResultCache(true)
             ->getOneOrNullResult();
+    }
+
+    public function findAllByCountry(Country $country = null, int $page, $limit = self::NUM_ITEMS) :Pagerfanta
+    {
+        $query = $this->createQueryBuilder('p')
+                ->andWhere('p.isEnabled =  true')
+                ->leftJoin('p.country', 'f')
+                ->addSelect('f')
+                ->andWhere('f = :country')
+                ->setParameter('country', $country ?: !null)
+                ->orderBy('p.created', 'DESC')
+                ->getQuery()
+                ->useQueryCache(true)
+                ->useResultCache(true);
+
+        return Sorter::createPaginator($query, $page, $limit);
     }
 }

@@ -18,19 +18,8 @@ use AppBundle\Entity\Category;
 use AppBundle\Entity\Location;
 
 /**
- * Class CategoryController
- * @package AppBundle\Controller
- *
  * @Route("category")
- * @ParamConverter(
-                    "_country",
-                    class="AppBundle:Country",
-                    options=
-                    {
-                        "id" = "_country",
-                        "repository_method" = "findByName"
-                    }
-                )
+ * @ParamConverter("countries", class="AppBundle:Country", options={"id"="_country", "repository_method"= "findAll"})
 */
 class CategoryController extends AbstractController
 {
@@ -61,6 +50,7 @@ class CategoryController extends AbstractController
 
         $services = $em->getRepository(Service::class)
                 ->findAllByCountry(
+                    $_country,
                     $page
                 );
         // Pass route name without any parameters

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/siteindex.xsd"
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      {% for page in 0..catpages %}
+        <sitemap>
+          <loc>{{ app.request.scheme ~'://' ~ country.subdomain }}{{ path('sitemap_categories', {'page':page}) }}</loc>
+          {% if country.hostname %}
+            <xml:link
+              rel="canonical"
+              href="{{ app.request.scheme ~'://' ~ country.hostname }}{{ path('sitemap_categories', {'page':page}) }}" />
+          {% endif %}
+        </sitemap>
+      {% endfor %}
+      {% for page in 0..serpages %}
+        <sitemap>
+          <loc>{{ app.request.scheme ~'://' ~ country.subdomain }}{{ path('sitemap_services', {'page':page}) }}</loc>
+          {% if country.hostname %}
+            <xml:link
+              rel="canonical"
+              href="{{ app.request.scheme ~'://' ~ country.hostname }}{{ path('sitemap_services', {'page':page}) }}" />
+          {% endif %}
+        </sitemap>
+      {% endfor %}
+      {% for page in 0..infpages %}
+        <sitemap>
+          <loc>{{ app.request.scheme ~'://' ~ country.subdomain }}{{ path('sitemap_pages', {'page':page}) }}</loc>
+          {% if country.hostname %}
+            <xml:link
+              rel="canonical"
+              href="{{ app.request.scheme ~'://' ~ country.hostname }}{{ path('sitemap_pages', {'page':page}) }}" />
+          {% endif %}
+        </sitemap>
+      {% endfor %}
+</sitemapindex>

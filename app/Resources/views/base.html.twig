@@ -37,7 +37,7 @@
     <meta name="msapplication-TileColor" content="#FF8300" />
     <meta name="msapplication-TileImage" content="{{ asset('ms-icon-144x144.png') }}" />
     <meta name="theme-color" content="#FF8300" />
-    <link rel="search" type="application/opensearchdescription+xml" title="Party search" href="{{ url('search_description') }}" />
+    <link rel="search" type="application/opensearchdescription+xml" title="PartyCravings" href="{{ url('search_description') }}" />
     {% for locale in locales() -%}
         <link rel="alternate" hreflang="{{ locale.code }}" href="{{ url(app.request.get('_route', 'homepage'),app.request.get('_route_params', [])|merge({_locale: locale.code})) }}" />
     {% endfor %}

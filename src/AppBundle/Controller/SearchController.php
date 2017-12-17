@@ -13,33 +13,21 @@ use WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs;
 use AppBundle\Entity\Country;
 
 /**
- * Class SearchController
- * @package AppBundle\Controller
- *
  * @Route("search")
- * @ParamConverter(
-                    "country",
-                    class="AppBundle:Country",
-                    options=
-                    {
-                        "id" = "_country",
-                        "repository_method" = "findByName"
-                    }
-                )
- *
+ * @ParamConverter("_country", class="AppBundle:Country", options={"id"="_country", "repository_method"="findByName"})
  */
 class SearchController extends AbstractController
 {
     /**
-     * @Route("", name="site_wide_search")
+     * @Route("", name="search")
      * @Cache(smaxage=0)
      * @Template(":search:search.html.twig")
      */
     public function searchAction(Request $request, EntityManagerInterface $em, Country $country, Breadcrumbs $breadcrumbs)
     {
         // Pass "_demo" route name without any parameters
-        $breadcrumbs->addRouteItem("Search", "site_wide_search");
-        $breadcrumbs->prependRouteItem("Home", "homepage");
+        $breadcrumbs->addRouteItem('Search', 'search');
+        $breadcrumbs->prependRouteItem('Home', 'homepage');
 
         $results = array();
         $services = $em->getRepository('AppBundle:Service')
@@ -66,15 +54,11 @@ class SearchController extends AbstractController
     }
 
     /**
-     * @Route(
-     			"/opensearch.xml",
-     			name="search_description",
-     			defaults={"_format":"xml"}
-     		)
-     * @Cache(smaxage=0)
+     * @Route("/opensearch.xml", name="search_description",	defaults={"_format":"xml"})
+     * @Cache(smaxage=2592000)
      * @Template(":search:opensearch.xml.twig")
      */
-    public function describeAction()
+    public function describeAction() :void
     {
     }
 }

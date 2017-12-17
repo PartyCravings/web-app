@@ -49,7 +49,7 @@ class ServiceRepository extends \Doctrine\ORM\EntityRepository
         return Sorter::createPaginator($query, $page, self::NUM_ITEMS);
     }
 
-    public function findAllByCountry(int $page, Country $country = null, $limit = self::NUM_ITEMS) :Pagerfanta
+    public function findAllByCountry(Country $country = null, int $page, $limit = self::NUM_ITEMS) :Pagerfanta
     {
         $query = $this->createQueryBuilder('p')
                 ->andWhere('p.isEnabled =  true')
