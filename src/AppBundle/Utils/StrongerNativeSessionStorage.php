@@ -2,7 +2,7 @@
 
 namespace AppBundle\Utils;
 
-use AppBundle\Utils\Server;
+use AppBundle\Utils\ServerUtils;
 
 /**
  * Since PHP-PM needs to generate its session ids on its own due to the fact that session_destroy()
@@ -24,7 +24,7 @@ class StrongerNativeSessionStorage extends \Symfony\Component\HttpFoundation\Ses
         if ($isRegenerated = parent::regenerate($destroy, $lifetime)) {
             $params = session_get_cookie_params();
 
-            session_id(Server::generateSessionId());
+            session_id(ServerUtils::generateSessionId());
 
             setcookie(
                 session_name(),

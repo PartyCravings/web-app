@@ -1,9 +1,11 @@
 #!/usr/bin/env php
 <?php
-use AppBundle\Utils\Server;
+use AppBundle\Utils\ServerUtils;
 use AppBundle\Utils\StrongerNativeSessionStorage;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\StreamedResponse as SymfonyStreamedResponse;
+use Symfony\Component\HttpFoundation\Session;
+use Symfony\Component\HttpFoundation\Cookie;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 use Psr\Http\Message\ServerRequestInterface;
 use RingCentral\Psr7;
 use React\EventLoop\Factory;
@@ -15,7 +17,7 @@ require __DIR__.'/../vendor/autoload.php';
 // for more information
 //umask(0000);
 set_time_limit(0);
-$kernel = new AppKernel('dev', false);
+$kernel = new AppKernel('dev', true);
 // When using the HttpCache, you need to call the method in your front controller instead of relying on the configuration parameter
 Request::enableHttpMethodParameterOverride();
 Request::setTrustedProxies(
@@ -28,7 +30,7 @@ Request::setTrustedProxies(
     // or, if you're using AWS ELB
     // Request::HEADER_X_FORWARDED_AWS_ELB
 );
-Server::bindAndCall(function() use ($kernel) {
+ServerUtils::bindAndCall(function() use ($kernel) {
         // init bundles
         $kernel->initializeBundles();
         // init container
@@ -41,138 +43,61 @@ $nativeStorage = new StrongerNativeSessionStorage(
         $kernel->getContainer()->get('session.storage.metadata_bag')
     );
 $kernel->getContainer()->set('session.storage.native', $nativeStorage);
-Server::bindAndCall(function() use ($kernel) {
+ServerUtils::bindAndCall(function() use ($kernel) {
         foreach ($kernel->getBundles() as $bundle) {
                 $bundle->setContainer($kernel->container);
                 $bundle->boot();
             }
             $kernel->booted = true;
         }, $kernel);
+
+$container = $kernel->getContainer();
 $kernel = new AppCache($kernel);
+
 $callback = function (ServerRequestInterface $request) use ($kernel) {
     $mem_usage = memory_get_peak_usage(true)/(1024*1024);
     if (55 <= $mem_usage) {
         die('MAX MEMORY EXCEEDED');
     }
+
     $method = $request->getMethod();
     $headers = $request->getHeaders();
-    $_COOKIE = $request->getCookieParams();
     $content = $request->getParsedBody();
     $server = $request->getServerParams();
     $server['REQUEST_URI'] = (string)$request->getUri();
+
+    $_COOKIE = $request->getCookieParams();
     $_POST =(array)$content;
     $_GET = $request->getQueryParams();
     $_FILES = $request->getUploadedFiles();
-
     $_SERVER = array_merge($_SERVER, $server);
+    
 
-    $session_set = false;
-    foreach ($_COOKIE as $name => $value) {
-        if ($name === session_name()) {
-            session_id($value);
-            $session_set = true;
-        }
-    }
-    if (!$session_set && session_id()) {
-        // session id already set from the last round but not obtained
-        // from the cookie header, so generate a new one, since php is
-        // not doing it automatically with session_start() if session
-        // has already been started.
-        session_start();
-        session_id(Server::generateSessionId());
-    }
-    $request = new Request(
-        $_GET,
-        $_POST,
-        $request->getAttributes(),
-        $_COOKIE,
-        $_FILES,
-        $_SERVER,
-        $content
-    );    
+    $request = Request::createFromGlobals();
     $request->setMethod($method);
     $request->headers->replace($headers);
     $response = $kernel->handle($request);
-     // end active session
-    if (PHP_SESSION_ACTIVE === session_status()) {
-        session_write_close();
-        session_unset(); // reset $_SESSION
-    }
-    $headers = ['X-Powered-By'=> 'Terminator/Genisys'];
-    foreach (headers_list() as $header) {
-        if (false !== $pos = strpos($header, ':')) {
-            $name = substr($header, 0, $pos);
-            $value = trim(substr($header, $pos + 1));
-            if (isset($headers[$name])) {
-                if (!is_array($headers[$name])) {
-                    $headers[$name] = [$headers[$name]];
-                }
-                $headers[$name][] = $value;
-            } else {
-                $headers[$name] = $value;
-            }
-        }
-    }
+
+    $headers = $response->headers->allPreserveCase();
     // after reading all headers we need to reset it, so next request
     // operates on a clean header.
-    header_remove();
-    $headers = array_merge($headers, $response->headers->allPreserveCase());
+    $headers['X-Powered-By'] = 'Terminator/Genisys';
+    $psrResponse = new Psr7\Response($response->getStatusCode(), $headers);
 
-    $cookies = [];
-    /** @var Cookie $cookie */
-        foreach ($response->headers->getCookies() as $cookie) {
-            $cookieHeader = sprintf('%s=%s', $cookie->getName(), $cookie->getValue());
+    // get contents
+    ob_start();
+    if ($response instanceof StreamedResponse) {
+        $response->sendContent();
+        $content = @ob_get_clean();
+    }
+    else {
+        $content = $response->getContent();
+        @ob_end_flush();
+    }
+    $psrResponse = $psrResponse->withBody(Psr7\stream_for($content));
+    $kernel->terminate($request, $response);
 
-            if ($cookie->getPath()) {
-                $cookieHeader .= '; Path=' . $cookie->getPath();
-            }
-            if ($cookie->getDomain()) {
-                $cookieHeader .= '; Domain=' . $cookie->getDomain();
-            }
-
-            if ($cookie->getExpiresTime()) {
-                $cookieHeader .= '; Expires=' . gmdate('D, d-M-Y H:i:s', $cookie->getExpiresTime()). ' GMT';
-            }
-
-            if ($cookie->isSecure()) {
-                $cookieHeader .= '; Secure';
-            }
-            if ($cookie->isHttpOnly()) {
-                $cookieHeader .= '; HttpOnly';
-            }
-
-            $cookies[] = $cookieHeader;
-        }
-
-        if (isset($headers['Set-Cookie'])) {
-            $headers['Set-Cookie'] = array_merge((array)$headers['Set-Cookie'], $cookies);
-        } else {
-            $headers['Set-Cookie'] = $cookies;
-        }
-
-        $psrResponse = new Psr7\Response($response->getStatusCode(), $headers);
-
-        // get contents
-        ob_start();
-        if ($response instanceof SymfonyStreamedResponse) {
-            $response->sendContent();
-            $content = @ob_get_clean();
-        }
-        else {
-            ob_start();
-            $content = $response->getContent();
-            @ob_end_flush();
-        }
-
-        if (!isset($headers['Content-Length'])) {
-            $psrResponse = $psrResponse->withAddedHeader('Content-Length', strlen($content));
-        }
-
-        $psrResponse = $psrResponse->withBody(Psr7\stream_for($content));
-
-        $kernel->terminate($request, $response);
-
-        return $psrResponse;
+    return $psrResponse;
 };
 $loop = React\EventLoop\Factory::create();
 $http = new React\Http\Server($callback);

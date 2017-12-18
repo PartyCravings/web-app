@@ -23,7 +23,7 @@ class ClosureHelper
  * Nitty gritty helper methods to hijack objects. Useful to reset properties that would otherwise run amok
  * and result in memory leaks.
  */
-class Server
+class ServerUtils
 {
     /**
      * Executes a function in the context of an object. This basically bypasses the private/protected check of PHP.
@@ -53,7 +53,7 @@ class Server
     public static function hijackProperty($object, $propertyName, $newValue)
     {
         $closure = (new ClosureHelper())->getPropertyAccessor($propertyName, $newValue);
-        Server::bindAndCall($closure, $object);
+        ServerUtils::bindAndCall($closure, $object);
     }
 
     /**
