@@ -1,18 +1,27 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Country;
+use AppBundle\Entity\Location;
+use Doctrine\ORM\EntityManagerInterface;
+use Pagerfanta\Pagerfanta;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Request;
-use Doctrine\ORM\EntityManagerInterface;
 use WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs;
-use Pagerfanta\Pagerfanta;
-use AppBundle\Entity\Location;
-use AppBundle\Entity\Country;
 
 /**
  * @Route("location")
@@ -25,11 +34,11 @@ class LocationController extends AbstractController
      * @Template(":location:index.html.twig")
      * @Cache(smaxage=0)
      */
-    public function indexAction(Country $_country, Breadcrumbs $breadcrumbs, EntityManagerInterface $em) :Pagerfanta
+    public function indexAction(Country $_country, Breadcrumbs $breadcrumbs, EntityManagerInterface $em): Pagerfanta
     {
         // Pass "_demo" route name without any parameters
-        $breadcrumbs->addRouteItem("Location", "site_location_index");
-        $breadcrumbs->prependRouteItem("Home", "homepage");
+        $breadcrumbs->addRouteItem('Location', 'site_location_index');
+        $breadcrumbs->prependRouteItem('Home', 'homepage');
 
         return $em->getRepository(Location::class)
                 ->findAllByCountry(
@@ -52,23 +61,24 @@ class LocationController extends AbstractController
         )
      * @Cache(smaxage=0)
      */
-    public function childAction(Request $request, Location $parent, Breadcrumbs $breadcrumbs, EntityManagerInterface $em) :array
+    public function childAction(Request $request, Location $parent, Breadcrumbs $breadcrumbs, EntityManagerInterface $em): array
     {
         $node = $parent;
         while ($node) {
-            $breadcrumbs->prependRouteItem($node->getName(), 'site_location_listing', ['slug'=>$node->getSlug()]);
+            $breadcrumbs->prependRouteItem($node->getName(), 'site_location_listing', ['slug' => $node->getSlug()]);
             $node = $node->getParent();
         }
-        $breadcrumbs->prependRouteItem("Home", "homepage");
+        $breadcrumbs->prependRouteItem('Home', 'homepage');
 
         $locations = $em->getRepository(Location::class)
                     ->findAllByParent(
                         $parent,
                         $request->get('page', 1)
                     );
-        return array(
-            'locations'=> $locations,
-            'parent' => $parent
-        );
+
+        return [
+            'locations' => $locations,
+            'parent' => $parent,
+        ];
     }
 }

@@ -17,7 +17,7 @@ $kernel = new AppCache($kernel);
 Request::enableHttpMethodParameterOverride();
 Request::setTrustedProxies(
     // the IP address (or range) of your proxy
-    ['127.0.0.1', '10.0.0.0/8'],
+    ['127.0.0.1', '172.0.0.0/8'],
 
     // trust *all* "X-Forwarded-*" headers
     Request::HEADER_X_FORWARDED_ALL

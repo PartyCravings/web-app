@@ -1,22 +1,31 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\IpTraceable\Traits\IpTraceableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * Orders
+ * Orders.
  *
  * @ORM\Table(name="orders")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\OrdersRepository")
  */
 class Orders
 {
-    /**
+    /*
      * Hook ip-traceable behavior
      * updates createdFromIp, updatedFromIp fields
      */
@@ -177,8 +186,9 @@ class Orders
     {
         return $this->orderDatas;
     }
+
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -186,7 +196,7 @@ class Orders
     }
 
     /**
-     * Get id
+     * Get id.
      *
      * @return guid
      */
@@ -196,7 +206,7 @@ class Orders
     }
 
     /**
-     * Set paymentMethod
+     * Set paymentMethod.
      *
      * @param string $paymentMethod
      *
@@ -210,7 +220,7 @@ class Orders
     }
 
     /**
-     * Get paymentMethod
+     * Get paymentMethod.
      *
      * @return string
      */
@@ -220,7 +230,7 @@ class Orders
     }
 
     /**
-     * Set paymentMethodData
+     * Set paymentMethodData.
      *
      * @param string $paymentMethodData
      *
@@ -234,7 +244,7 @@ class Orders
     }
 
     /**
-     * Get paymentMethodData
+     * Get paymentMethodData.
      *
      * @return string
      */
@@ -244,7 +254,7 @@ class Orders
     }
 
     /**
-     * Set paymentMethodKey
+     * Set paymentMethodKey.
      *
      * @param string $paymentMethodKey
      *
@@ -258,7 +268,7 @@ class Orders
     }
 
     /**
-     * Get paymentMethodKey
+     * Get paymentMethodKey.
      *
      * @return string
      */
@@ -268,7 +278,7 @@ class Orders
     }
 
     /**
-     * Set totalDiscounts
+     * Set totalDiscounts.
      *
      * @param float $totalDiscounts
      *
@@ -282,7 +292,7 @@ class Orders
     }
 
     /**
-     * Get totalDiscounts
+     * Get totalDiscounts.
      *
      * @return float
      */
@@ -292,7 +302,7 @@ class Orders
     }
 
     /**
-     * Set totalDiscountsTaxIncl
+     * Set totalDiscountsTaxIncl.
      *
      * @param float $totalDiscountsTaxIncl
      *
@@ -306,7 +316,7 @@ class Orders
     }
 
     /**
-     * Get totalDiscountsTaxIncl
+     * Get totalDiscountsTaxIncl.
      *
      * @return float
      */
@@ -316,7 +326,7 @@ class Orders
     }
 
     /**
-     * Set totalDiscountsTaxExcl
+     * Set totalDiscountsTaxExcl.
      *
      * @param float $totalDiscountsTaxExcl
      *
@@ -330,7 +340,7 @@ class Orders
     }
 
     /**
-     * Get totalDiscountsTaxExcl
+     * Get totalDiscountsTaxExcl.
      *
      * @return float
      */
@@ -340,7 +350,7 @@ class Orders
     }
 
     /**
-     * Set totalPaid
+     * Set totalPaid.
      *
      * @param float $totalPaid
      *
@@ -354,7 +364,7 @@ class Orders
     }
 
     /**
-     * Get totalPaid
+     * Get totalPaid.
      *
      * @return float
      */
@@ -364,7 +374,7 @@ class Orders
     }
 
     /**
-     * Set totalPaidTaxIncl
+     * Set totalPaidTaxIncl.
      *
      * @param float $totalPaidTaxIncl
      *
@@ -378,7 +388,7 @@ class Orders
     }
 
     /**
-     * Get totalPaidTaxIncl
+     * Get totalPaidTaxIncl.
      *
      * @return float
      */
@@ -388,7 +398,7 @@ class Orders
     }
 
     /**
-     * Set totalPaidTaxExcl
+     * Set totalPaidTaxExcl.
      *
      * @param float $totalPaidTaxExcl
      *
@@ -402,7 +412,7 @@ class Orders
     }
 
     /**
-     * Get totalPaidTaxExcl
+     * Get totalPaidTaxExcl.
      *
      * @return float
      */
@@ -412,7 +422,7 @@ class Orders
     }
 
     /**
-     * Set totalPaidReal
+     * Set totalPaidReal.
      *
      * @param float $totalPaidReal
      *
@@ -426,7 +436,7 @@ class Orders
     }
 
     /**
-     * Get totalPaidReal
+     * Get totalPaidReal.
      *
      * @return float
      */
@@ -436,7 +446,7 @@ class Orders
     }
 
     /**
-     * Set totalCost
+     * Set totalCost.
      *
      * @param float $totalCost
      *
@@ -450,7 +460,7 @@ class Orders
     }
 
     /**
-     * Get totalCost
+     * Get totalCost.
      *
      * @return float
      */
@@ -460,7 +470,7 @@ class Orders
     }
 
     /**
-     * Set invoiceId
+     * Set invoiceId.
      *
      * @param string $invoiceId
      *
@@ -474,7 +484,7 @@ class Orders
     }
 
     /**
-     * Get invoiceId
+     * Get invoiceId.
      *
      * @return string
      */
@@ -484,7 +494,7 @@ class Orders
     }
 
     /**
-     * Set comment
+     * Set comment.
      *
      * @param string $comment
      *
@@ -498,7 +508,7 @@ class Orders
     }
 
     /**
-     * Get comment
+     * Get comment.
      *
      * @return string
      */
@@ -508,7 +518,7 @@ class Orders
     }
 
     /**
-     * Set created
+     * Set created.
      *
      * @param \DateTime $created
      *
@@ -522,7 +532,7 @@ class Orders
     }
 
     /**
-     * Get created
+     * Get created.
      *
      * @return \DateTime
      */
@@ -532,7 +542,7 @@ class Orders
     }
 
     /**
-     * Set updated
+     * Set updated.
      *
      * @param \DateTime $updated
      *
@@ -546,7 +556,7 @@ class Orders
     }
 
     /**
-     * Get updated
+     * Get updated.
      *
      * @return \DateTime
      */
@@ -556,7 +566,7 @@ class Orders
     }
 
     /**
-     * Add orderData
+     * Add orderData.
      *
      * @param \AppBundle\Entity\OrderData $orderData
      *
@@ -570,7 +580,7 @@ class Orders
     }
 
     /**
-     * Remove orderData
+     * Remove orderData.
      *
      * @param \AppBundle\Entity\OrderData $orderData
      */
@@ -580,7 +590,7 @@ class Orders
     }
 
     /**
-     * Get orderDatas
+     * Get orderDatas.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -590,7 +600,7 @@ class Orders
     }
 
     /**
-     * Set account
+     * Set account.
      *
      * @param \AppBundle\Entity\Account $account
      *
@@ -604,7 +614,7 @@ class Orders
     }
 
     /**
-     * Get account
+     * Get account.
      *
      * @return \AppBundle\Entity\Account
      */
@@ -614,7 +624,7 @@ class Orders
     }
 
     /**
-     * Set party
+     * Set party.
      *
      * @param \AppBundle\Entity\Party $party
      *
@@ -628,7 +638,7 @@ class Orders
     }
 
     /**
-     * Get party
+     * Get party.
      *
      * @return \AppBundle\Entity\Party
      */
@@ -638,7 +648,7 @@ class Orders
     }
 
     /**
-     * Set coupon
+     * Set coupon.
      *
      * @param \AppBundle\Entity\Coupon $coupon
      *
@@ -652,7 +662,7 @@ class Orders
     }
 
     /**
-     * Get coupon
+     * Get coupon.
      *
      * @return \AppBundle\Entity\Coupon
      */
@@ -662,7 +672,7 @@ class Orders
     }
 
     /**
-     * Set updatedBy
+     * Set updatedBy.
      *
      * @param \AppBundle\Entity\Account $updatedBy
      *
@@ -676,7 +686,7 @@ class Orders
     }
 
     /**
-     * Get updatedBy
+     * Get updatedBy.
      *
      * @return \AppBundle\Entity\Account
      */

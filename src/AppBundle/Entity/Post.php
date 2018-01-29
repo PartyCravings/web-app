@@ -12,10 +12,9 @@
 namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PostRepository")
@@ -23,7 +22,6 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class Post
 {
-
     /**
      * @var string
      *
@@ -118,9 +116,8 @@ class Post
         return $this->title;
     }
 
-
     /**
-     * Get id
+     * Get id.
      *
      * @return guid
      */
@@ -130,7 +127,7 @@ class Post
     }
 
     /**
-     * Set title
+     * Set title.
      *
      * @param string $title
      *
@@ -144,7 +141,7 @@ class Post
     }
 
     /**
-     * Get title
+     * Get title.
      *
      * @return string
      */
@@ -154,7 +151,7 @@ class Post
     }
 
     /**
-     * Set slug
+     * Set slug.
      *
      * @param string $slug
      *
@@ -168,7 +165,7 @@ class Post
     }
 
     /**
-     * Get slug
+     * Get slug.
      *
      * @return string
      */
@@ -178,7 +175,7 @@ class Post
     }
 
     /**
-     * Set summary
+     * Set summary.
      *
      * @param string $summary
      *
@@ -192,7 +189,7 @@ class Post
     }
 
     /**
-     * Get summary
+     * Get summary.
      *
      * @return string
      */
@@ -202,7 +199,7 @@ class Post
     }
 
     /**
-     * Set content
+     * Set content.
      *
      * @param string $content
      *
@@ -216,7 +213,7 @@ class Post
     }
 
     /**
-     * Get content
+     * Get content.
      *
      * @return string
      */
@@ -226,7 +223,7 @@ class Post
     }
 
     /**
-     * Set created
+     * Set created.
      *
      * @param \DateTime $created
      *
@@ -240,7 +237,7 @@ class Post
     }
 
     /**
-     * Get created
+     * Get created.
      *
      * @return \DateTime
      */
@@ -250,7 +247,7 @@ class Post
     }
 
     /**
-     * Set createdBy
+     * Set createdBy.
      *
      * @param \AppBundle\Entity\Account $createdBy
      *
@@ -264,7 +261,7 @@ class Post
     }
 
     /**
-     * Get createdBy
+     * Get createdBy.
      *
      * @return \AppBundle\Entity\Account
      */
@@ -274,7 +271,7 @@ class Post
     }
 
     /**
-     * Remove tag
+     * Remove tag.
      *
      * @param \AppBundle\Entity\Tag $tag
      */
@@ -284,7 +281,7 @@ class Post
     }
 
     /**
-     * Get tags
+     * Get tags.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -294,7 +291,7 @@ class Post
     }
 
     /**
-     * Set uploadedFiles
+     * Set uploadedFiles.
      *
      * @param \AppBundle\Entity\Files $uploadedFiles
      *
@@ -308,7 +305,7 @@ class Post
     }
 
     /**
-     * Get uploadedFiles
+     * Get uploadedFiles.
      *
      * @return \AppBundle\Entity\Files
      */

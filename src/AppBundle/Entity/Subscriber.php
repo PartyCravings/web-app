@@ -1,12 +1,21 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * Subscriber
+ * Subscriber.
  *
  * @ORM\Table(name="subscriber")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\SubscriberRepository")
@@ -84,10 +93,8 @@ class Subscriber
         return $this->account;
     }
 
-
-
     /**
-     * Get id
+     * Get id.
      *
      * @return guid
      */
@@ -97,7 +104,7 @@ class Subscriber
     }
 
     /**
-     * Set endpoint
+     * Set endpoint.
      *
      * @param string $endpoint
      *
@@ -111,7 +118,7 @@ class Subscriber
     }
 
     /**
-     * Get endpoint
+     * Get endpoint.
      *
      * @return string
      */
@@ -121,7 +128,7 @@ class Subscriber
     }
 
     /**
-     * Set browserKey
+     * Set browserKey.
      *
      * @param string $browserKey
      *
@@ -135,7 +142,7 @@ class Subscriber
     }
 
     /**
-     * Get browserKey
+     * Get browserKey.
      *
      * @return string
      */
@@ -145,7 +152,7 @@ class Subscriber
     }
 
     /**
-     * Set authSecret
+     * Set authSecret.
      *
      * @param string $authSecret
      *
@@ -159,7 +166,7 @@ class Subscriber
     }
 
     /**
-     * Get authSecret
+     * Get authSecret.
      *
      * @return string
      */
@@ -169,7 +176,7 @@ class Subscriber
     }
 
     /**
-     * Set created
+     * Set created.
      *
      * @param \DateTime $created
      *
@@ -183,7 +190,7 @@ class Subscriber
     }
 
     /**
-     * Get created
+     * Get created.
      *
      * @return \DateTime
      */
@@ -193,7 +200,7 @@ class Subscriber
     }
 
     /**
-     * Set deletedAt
+     * Set deletedAt.
      *
      * @param \DateTime $deletedAt
      *
@@ -207,7 +214,7 @@ class Subscriber
     }
 
     /**
-     * Get deletedAt
+     * Get deletedAt.
      *
      * @return \DateTime
      */
@@ -217,9 +224,9 @@ class Subscriber
     }
 
     /**
-     * Set isEnabled
+     * Set isEnabled.
      *
-     * @param boolean $isEnabled
+     * @param bool $isEnabled
      *
      * @return Subscriber
      */
@@ -231,9 +238,9 @@ class Subscriber
     }
 
     /**
-     * Get isEnabled
+     * Get isEnabled.
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsEnabled()
     {
@@ -241,7 +248,7 @@ class Subscriber
     }
 
     /**
-     * Set account
+     * Set account.
      *
      * @param \AppBundle\Entity\Account $account
      *
@@ -255,7 +262,7 @@ class Subscriber
     }
 
     /**
-     * Get account
+     * Get account.
      *
      * @return \AppBundle\Entity\Account
      */
@@ -265,7 +272,7 @@ class Subscriber
     }
 
     /**
-     * Set country
+     * Set country.
      *
      * @param \AppBundle\Entity\Country $country
      *
@@ -279,7 +286,7 @@ class Subscriber
     }
 
     /**
-     * Get country
+     * Get country.
      *
      * @return \AppBundle\Entity\Country
      */

@@ -1,21 +1,30 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\IpTraceable\Traits\IpTraceableEntity;
-use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * AccountDetails
+ * AccountDetails.
  *
  * @ORM\Table(name="account_details")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\AccountDetailsRepository")
  */
 class AccountDetails
 {
-    /**
+    /*
      * Hook ip-traceable behavior
      * updates createdFromIp, updatedFromIp fields
      */
@@ -73,7 +82,6 @@ class AccountDetails
      */
     private $wishlist;
 
-
     public function __construct()
     {
         $this->addresses = new ArrayCollection();
@@ -86,7 +94,7 @@ class AccountDetails
     }
 
     /**
-     * Get id
+     * Get id.
      *
      * @return guid
      */
@@ -96,7 +104,7 @@ class AccountDetails
     }
 
     /**
-     * Set birthday
+     * Set birthday.
      *
      * @param date_immutable $birthday
      *
@@ -110,7 +118,7 @@ class AccountDetails
     }
 
     /**
-     * Get birthday
+     * Get birthday.
      *
      * @return date_immutable
      */
@@ -120,7 +128,7 @@ class AccountDetails
     }
 
     /**
-     * Set firstname
+     * Set firstname.
      *
      * @param string $firstname
      *
@@ -134,7 +142,7 @@ class AccountDetails
     }
 
     /**
-     * Get firstname
+     * Get firstname.
      *
      * @return string
      */
@@ -144,7 +152,7 @@ class AccountDetails
     }
 
     /**
-     * Set lastname
+     * Set lastname.
      *
      * @param string $lastname
      *
@@ -158,7 +166,7 @@ class AccountDetails
     }
 
     /**
-     * Get lastname
+     * Get lastname.
      *
      * @return string
      */
@@ -168,9 +176,9 @@ class AccountDetails
     }
 
     /**
-     * Set newsletterSigned
+     * Set newsletterSigned.
      *
-     * @param boolean $newsletterSigned
+     * @param bool $newsletterSigned
      *
      * @return AccountDetails
      */
@@ -182,9 +190,9 @@ class AccountDetails
     }
 
     /**
-     * Get newsletterSigned
+     * Get newsletterSigned.
      *
-     * @return boolean
+     * @return bool
      */
     public function getNewsletterSigned()
     {
@@ -192,7 +200,7 @@ class AccountDetails
     }
 
     /**
-     * Add address
+     * Add address.
      *
      * @param \AppBundle\Entity\Address $address
      *
@@ -206,7 +214,7 @@ class AccountDetails
     }
 
     /**
-     * Remove address
+     * Remove address.
      *
      * @param \AppBundle\Entity\Address $address
      */
@@ -216,7 +224,7 @@ class AccountDetails
     }
 
     /**
-     * Get addresses
+     * Get addresses.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -226,7 +234,7 @@ class AccountDetails
     }
 
     /**
-     * Add wishlist
+     * Add wishlist.
      *
      * @param \AppBundle\Entity\Service $wishlist
      *
@@ -240,7 +248,7 @@ class AccountDetails
     }
 
     /**
-     * Remove wishlist
+     * Remove wishlist.
      *
      * @param \AppBundle\Entity\Service $wishlist
      */
@@ -250,7 +258,7 @@ class AccountDetails
     }
 
     /**
-     * Get wishlist
+     * Get wishlist.
      *
      * @return \Doctrine\Common\Collections\Collection
      */

@@ -22,8 +22,7 @@ parameters:
 
     gcp_key: '%keys_dir%/storage-key.json'
     gcp_bucket: storage.partycravings.com
-    #gcp_bucket_url: 'https://%gcp_bucket%.storage.googleapis.com/default'
-    gcp_bucket_url: 'https://storage.partycravings.com/default'
+    gcp_bucket_url: 'https://storage.%hostname%/default'
 
     gmaps.api_key: AIzaSyBwp8jow1XJeQp3LHDQyeQMRNxhGrgEiN8
 
@@ -33,7 +32,7 @@ parameters:
     google_app_id: 99524646330-55lkia8drehg45b6bctgmkmo8h2l1u12.apps.googleusercontent.com
     google_app_secret: MihbaS8xfqFwycZE7BvNXBV-
 
-    webpush.subject: https://partycravings.com/
+    webpush.subject: https://%hostname%/
     webpush.gcm: 314804067424
     webpush.publicKey: BF2bGmBZuhVIBofX58XY4COHAVrIWnGMqOXOaAJMHylBgLsXjvRnYd4I-vtmoHnjQk8PfDD_LalMXSnt9xgJzQg
     webpush.privateKey: lsFwvYdDZ_LtpZvTWYuKhwCLDvxNs5InAfldbbA8IGE
@@ -60,6 +59,7 @@ framework:
     trusted_hosts: ~
     session:
         # https://symfony.com/doc/current/reference/configuration/framework.html#handler-id
+        name: TERMINATORID
         handler_id: session.handler.native_file
         save_path: '%kernel.project_dir%/var/sessions/%kernel.environment%'
     fragments: { path: /_fragment }

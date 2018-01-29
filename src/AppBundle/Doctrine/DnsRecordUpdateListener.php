@@ -1,14 +1,23 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Doctrine;
 
+use AppBundle\Entity\Country;
+use Cloudflare\API\Adapter\Guzzle;
+use Cloudflare\API\Auth\APIKey;
+use Cloudflare\API\Endpoints\DNS;
+use Cloudflare\API\Endpoints\Zones;
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Event\LifecycleEventArgs;
-use AppBundle\Entity\Country;
-use Cloudflare\API\Auth\APIKey;
-use Cloudflare\API\Endpoints\Zones;
-use Cloudflare\API\Endpoints\DNS;
-use Cloudflare\API\Adapter\Guzzle;
 use Doctrine\ORM\Event\PreUpdateEventArgs;
 use GuzzleHttp\Exception\ClientException;
 
@@ -17,7 +26,7 @@ class DnsRecordUpdateListener implements EventSubscriber
     public function __construct(
         string $email,
         string $apiKey,
-        string $hostname = 'partycravings.com'
+        string $hostname
 ) {
         $adapter = new Guzzle(
             new APIKey(
@@ -54,16 +63,16 @@ class DnsRecordUpdateListener implements EventSubscriber
                         array_column(
                             $records->result,
                                 'name'
-                            )
+                            ), true
                     );
 
-            $details = array(
-                    'name'=> $args->getNewValue('subdomain'),
+            $details = [
+                    'name' => $args->getNewValue('subdomain'),
                     'type' => 'CNAME',
                     'content' => $this->hostname,
                     'ttl' => 1,
-                    'proxied' => true
-                );
+                    'proxied' => true,
+                ];
             $this->dns->updateRecordDetails(
                     $zoneID,
                     $records->result[$key]->id,

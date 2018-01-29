@@ -1,14 +1,23 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Campaigns
+ * Campaigns.
  *
  * @ORM\Table(name="campaigns")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\CampaignsRepository")
@@ -112,7 +121,6 @@ class Campaigns
      */
     private $uploadedFiles;
 
-
     /**
      * Campaigns constructor.
      */
@@ -127,7 +135,7 @@ class Campaigns
     }
 
     /**
-     * Get id
+     * Get id.
      *
      * @return guid
      */
@@ -137,7 +145,7 @@ class Campaigns
     }
 
     /**
-     * Set description
+     * Set description.
      *
      * @param string $description
      *
@@ -151,7 +159,7 @@ class Campaigns
     }
 
     /**
-     * Get description
+     * Get description.
      *
      * @return string
      */
@@ -161,7 +169,7 @@ class Campaigns
     }
 
     /**
-     * Set endDate
+     * Set endDate.
      *
      * @param \DateTime $endDate
      *
@@ -175,7 +183,7 @@ class Campaigns
     }
 
     /**
-     * Get endDate
+     * Get endDate.
      *
      * @return \DateTime
      */
@@ -185,7 +193,7 @@ class Campaigns
     }
 
     /**
-     * Set startDate
+     * Set startDate.
      *
      * @param \DateTime $startDate
      *
@@ -199,7 +207,7 @@ class Campaigns
     }
 
     /**
-     * Get startDate
+     * Get startDate.
      *
      * @return \DateTime
      */
@@ -209,9 +217,9 @@ class Campaigns
     }
 
     /**
-     * Set isEnabled
+     * Set isEnabled.
      *
-     * @param boolean $isEnabled
+     * @param bool $isEnabled
      *
      * @return Campaigns
      */
@@ -223,9 +231,9 @@ class Campaigns
     }
 
     /**
-     * Get isEnabled
+     * Get isEnabled.
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsEnabled()
     {
@@ -233,7 +241,7 @@ class Campaigns
     }
 
     /**
-     * Set created
+     * Set created.
      *
      * @param \DateTime $created
      *
@@ -247,7 +255,7 @@ class Campaigns
     }
 
     /**
-     * Get created
+     * Get created.
      *
      * @return \DateTime
      */
@@ -257,7 +265,7 @@ class Campaigns
     }
 
     /**
-     * Set updated
+     * Set updated.
      *
      * @param \DateTime $updated
      *
@@ -271,7 +279,7 @@ class Campaigns
     }
 
     /**
-     * Get updated
+     * Get updated.
      *
      * @return \DateTime
      */
@@ -281,7 +289,7 @@ class Campaigns
     }
 
     /**
-     * Add service
+     * Add service.
      *
      * @param \AppBundle\Entity\Service $service
      *
@@ -295,7 +303,7 @@ class Campaigns
     }
 
     /**
-     * Remove service
+     * Remove service.
      *
      * @param \AppBundle\Entity\Service $service
      */
@@ -305,7 +313,7 @@ class Campaigns
     }
 
     /**
-     * Get services
+     * Get services.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -315,7 +323,7 @@ class Campaigns
     }
 
     /**
-     * Set imageUrl
+     * Set imageUrl.
      *
      * @param \AppBundle\Entity\Files $imageUrl
      *
@@ -329,7 +337,7 @@ class Campaigns
     }
 
     /**
-     * Get imageUrl
+     * Get imageUrl.
      *
      * @return \AppBundle\Entity\Files
      */
@@ -339,7 +347,7 @@ class Campaigns
     }
 
     /**
-     * Set createdBy
+     * Set createdBy.
      *
      * @param \AppBundle\Entity\Account $createdBy
      *
@@ -353,7 +361,7 @@ class Campaigns
     }
 
     /**
-     * Get createdBy
+     * Get createdBy.
      *
      * @return \AppBundle\Entity\Account
      */
@@ -363,7 +371,7 @@ class Campaigns
     }
 
     /**
-     * Set updatedBy
+     * Set updatedBy.
      *
      * @param \AppBundle\Entity\Account $updatedBy
      *
@@ -377,7 +385,7 @@ class Campaigns
     }
 
     /**
-     * Get updatedBy
+     * Get updatedBy.
      *
      * @return \AppBundle\Entity\Account
      */
@@ -387,7 +395,7 @@ class Campaigns
     }
 
     /**
-     * Set title
+     * Set title.
      *
      * @param string $title
      *
@@ -401,7 +409,7 @@ class Campaigns
     }
 
     /**
-     * Get title
+     * Get title.
      *
      * @return string
      */
@@ -411,7 +419,7 @@ class Campaigns
     }
 
     /**
-     * Set uploadedFiles
+     * Set uploadedFiles.
      *
      * @param \AppBundle\Entity\Files $uploadedFiles
      *
@@ -425,7 +433,7 @@ class Campaigns
     }
 
     /**
-     * Get uploadedFiles
+     * Get uploadedFiles.
      *
      * @return \AppBundle\Entity\Files
      */

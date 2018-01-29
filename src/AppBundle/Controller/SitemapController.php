@@ -1,14 +1,23 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use AppBundle\Entity\Country;
 use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @ParamConverter("_country", class="AppBundle:Country", options={"id"="_country", "repository_method"="findByName"})
@@ -22,12 +31,13 @@ class SitemapController extends AbstractController
      * @Template(":sitemap:country.xml.twig")
      * @Cache(smaxage=7200)
      */
-    public function countrySitemapAction(Country $_country, EntityManagerInterface $em) :array
+    public function countrySitemapAction(Country $_country, EntityManagerInterface $em): array
     {
         $cpages = $em->getRepository('AppBundle:Category')->findAllByCountry($_country, $page, self::MAX_NO_URLS)->getNbPages();
         $spages = $em->getRepository('AppBundle:Service')->findAllByCountry($_country, $page, self::MAX_NO_URLS)->getNbPages();
         $infpages = $em->getRepository('AppBundle:Pages')->findAllByCountry($_country, $page, self::MAX_NO_URLS)->getNbPages();
-        return array('catpages'=> $cpages, 'serpages' => $spages, 'infpages' => $infpages, 'country'=> $_country);
+
+        return ['catpages' => $cpages, 'serpages' => $spages, 'infpages' => $infpages, 'country' => $_country];
     }
 
     /**
@@ -35,10 +45,11 @@ class SitemapController extends AbstractController
      * @Template(":sitemap:categories.xml.twig")
      * @Cache(smaxage=7200)
      */
-    public function categorySitemapAction(Country $_country, int $page, EntityManagerInterface $em) :array
+    public function categorySitemapAction(Country $_country, int $page, EntityManagerInterface $em): array
     {
         $categories = $em->getRepository('AppBundle:Category')->findAllByCountry($_country, $page, self::MAX_NO_URLS);
-        return array('categories'=> $categories, 'country'=> $_country);
+
+        return ['categories' => $categories, 'country' => $_country];
     }
 
     /**
@@ -46,10 +57,11 @@ class SitemapController extends AbstractController
      * @Template(":sitemap:services.xml.twig")
      * @Cache(smaxage=7200)
      */
-    public function serviceSitemapAction(Country $_country, int $page, EntityManagerInterface $em) :array
+    public function serviceSitemapAction(Country $_country, int $page, EntityManagerInterface $em): array
     {
         $services = $em->getRepository('AppBundle:Service')->findAllByCountry($_country, $page, self::MAX_NO_URLS);
-        return array('services' => $services, 'country'=> $_country);
+
+        return ['services' => $services, 'country' => $_country];
     }
 
     /**
@@ -57,9 +69,10 @@ class SitemapController extends AbstractController
      * @Template(":sitemap:pages.xml.twig")
      * @Cache(smaxage=7200)
      */
-    public function pageSitemapAction(Country $_country, int $page, EntityManagerInterface $em) :array
+    public function pageSitemapAction(Country $_country, int $page, EntityManagerInterface $em): array
     {
         $pages = $em->getRepository('AppBundle:Pages')->findAllByCountry($_country, $page, self::MAX_NO_URLS);
-        return array('pages'=> $pages, 'country'=> $_country);
+
+        return ['pages' => $pages, 'country' => $_country];
     }
 }

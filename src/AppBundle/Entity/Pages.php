@@ -1,15 +1,24 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Symfony\Component\Validator\Constraints as Assert;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * Pages
+ * Pages.
  *
  * @ORM\Table(name="pages")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PagesRepository")
@@ -17,12 +26,12 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class Pages
 {
-    /**
+    /*
      * Hook SoftDeleteable behavior
      * updates deletedAt field
      */
     use SoftDeleteableEntity;
-    
+
     /**
      * @var string
      *
@@ -93,9 +102,9 @@ class Pages
     private $updatedBy;
 
     /**
-     * @var Pages
+     * @var pages
      *
-     * Many Countries have Many Pages.
+     * Many Countries have Many Pages
      * @ORM\ManyToMany(targetEntity="Country", mappedBy="pages")
      */
     private $countries;
@@ -110,7 +119,7 @@ class Pages
     private $translations;
 
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -123,9 +132,8 @@ class Pages
         return $this->title;
     }
 
-
     /**
-     * Get id
+     * Get id.
      *
      * @return guid
      */
@@ -135,7 +143,7 @@ class Pages
     }
 
     /**
-     * Set title
+     * Set title.
      *
      * @param string $title
      *
@@ -149,7 +157,7 @@ class Pages
     }
 
     /**
-     * Get title
+     * Get title.
      *
      * @return string
      */
@@ -159,7 +167,7 @@ class Pages
     }
 
     /**
-     * Set content
+     * Set content.
      *
      * @param string $content
      *
@@ -173,7 +181,7 @@ class Pages
     }
 
     /**
-     * Get content
+     * Get content.
      *
      * @return string
      */
@@ -183,7 +191,7 @@ class Pages
     }
 
     /**
-     * Set slug
+     * Set slug.
      *
      * @param string $slug
      *
@@ -197,7 +205,7 @@ class Pages
     }
 
     /**
-     * Get slug
+     * Get slug.
      *
      * @return string
      */
@@ -207,9 +215,9 @@ class Pages
     }
 
     /**
-     * Set isEnabled
+     * Set isEnabled.
      *
-     * @param boolean $isEnabled
+     * @param bool $isEnabled
      *
      * @return Pages
      */
@@ -221,9 +229,9 @@ class Pages
     }
 
     /**
-     * Get isEnabled
+     * Get isEnabled.
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsEnabled()
     {
@@ -231,7 +239,7 @@ class Pages
     }
 
     /**
-     * Set created
+     * Set created.
      *
      * @param \DateTime $created
      *
@@ -245,7 +253,7 @@ class Pages
     }
 
     /**
-     * Get created
+     * Get created.
      *
      * @return \DateTime
      */
@@ -255,7 +263,7 @@ class Pages
     }
 
     /**
-     * Set updated
+     * Set updated.
      *
      * @param \DateTime $updated
      *
@@ -269,7 +277,7 @@ class Pages
     }
 
     /**
-     * Get updated
+     * Get updated.
      *
      * @return \DateTime
      */
@@ -279,7 +287,7 @@ class Pages
     }
 
     /**
-     * Set createdBy
+     * Set createdBy.
      *
      * @param \AppBundle\Entity\Account $createdBy
      *
@@ -293,7 +301,7 @@ class Pages
     }
 
     /**
-     * Get createdBy
+     * Get createdBy.
      *
      * @return \AppBundle\Entity\Account
      */
@@ -303,7 +311,7 @@ class Pages
     }
 
     /**
-     * Set updatedBy
+     * Set updatedBy.
      *
      * @param \AppBundle\Entity\Account $updatedBy
      *
@@ -317,7 +325,7 @@ class Pages
     }
 
     /**
-     * Get updatedBy
+     * Get updatedBy.
      *
      * @return \AppBundle\Entity\Account
      */
@@ -327,7 +335,7 @@ class Pages
     }
 
     /**
-     * Add translation
+     * Add translation.
      *
      * @param \AppBundle\Entity\PageTranslation $translation
      *
@@ -341,7 +349,7 @@ class Pages
     }
 
     /**
-     * Remove translation
+     * Remove translation.
      *
      * @param \AppBundle\Entity\PageTranslation $translation
      */
@@ -351,7 +359,7 @@ class Pages
     }
 
     /**
-     * Get translations
+     * Get translations.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -361,7 +369,7 @@ class Pages
     }
 
     /**
-     * Add country
+     * Add country.
      *
      * @param \AppBundle\Entity\Country $country
      *
@@ -375,7 +383,7 @@ class Pages
     }
 
     /**
-     * Remove country
+     * Remove country.
      *
      * @param \AppBundle\Entity\Country $country
      */
@@ -385,7 +393,7 @@ class Pages
     }
 
     /**
-     * Get countries
+     * Get countries.
      *
      * @return \Doctrine\Common\Collections\Collection
      */

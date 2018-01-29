@@ -1,14 +1,23 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
-use Doctrine\Common\Collections\ArrayCollection;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * Account
+ * Account.
  *
  * @ORM\Table(name="account")
  * @Gedmo\SoftDeleteable(fieldName="deletedAt", timeAware=false)
@@ -57,7 +66,6 @@ class Account extends BaseUser
      * @var AccountDetails
      *
      * @ORM\OneToOne(targetEntity="AccountDetails")
-     *
      */
     private $accountDetails;
 
@@ -90,7 +98,7 @@ class Account extends BaseUser
     }
 
     /**
-     * Set facebookId
+     * Set facebookId.
      *
      * @param string $facebookId
      *
@@ -104,7 +112,7 @@ class Account extends BaseUser
     }
 
     /**
-     * Get facebookId
+     * Get facebookId.
      *
      * @return string
      */
@@ -114,7 +122,7 @@ class Account extends BaseUser
     }
 
     /**
-     * Set facebookAccessToken
+     * Set facebookAccessToken.
      *
      * @param string $facebookAccessToken
      *
@@ -128,7 +136,7 @@ class Account extends BaseUser
     }
 
     /**
-     * Get facebookAccessToken
+     * Get facebookAccessToken.
      *
      * @return string
      */
@@ -138,7 +146,7 @@ class Account extends BaseUser
     }
 
     /**
-     * Set googleId
+     * Set googleId.
      *
      * @param string $googleId
      *
@@ -152,7 +160,7 @@ class Account extends BaseUser
     }
 
     /**
-     * Get googleId
+     * Get googleId.
      *
      * @return string
      */
@@ -162,7 +170,7 @@ class Account extends BaseUser
     }
 
     /**
-     * Set googleAccessToken
+     * Set googleAccessToken.
      *
      * @param string $googleAccessToken
      *
@@ -176,7 +184,7 @@ class Account extends BaseUser
     }
 
     /**
-     * Get googleAccessToken
+     * Get googleAccessToken.
      *
      * @return string
      */
@@ -186,7 +194,7 @@ class Account extends BaseUser
     }
 
     /**
-     * Set deletedAt
+     * Set deletedAt.
      *
      * @param \DateTime $deletedAt
      *
@@ -200,7 +208,7 @@ class Account extends BaseUser
     }
 
     /**
-     * Get deletedAt
+     * Get deletedAt.
      *
      * @return \DateTime
      */
@@ -210,7 +218,7 @@ class Account extends BaseUser
     }
 
     /**
-     * Set accountDetails
+     * Set accountDetails.
      *
      * @param \AppBundle\Entity\AccountDetails $accountDetails
      *
@@ -224,7 +232,7 @@ class Account extends BaseUser
     }
 
     /**
-     * Get accountDetails
+     * Get accountDetails.
      *
      * @return \AppBundle\Entity\AccountDetails
      */
@@ -234,7 +242,7 @@ class Account extends BaseUser
     }
 
     /**
-     * Add preRegistration
+     * Add preRegistration.
      *
      * @param \AppBundle\Entity\PreRegistration $preRegistration
      *
@@ -248,7 +256,7 @@ class Account extends BaseUser
     }
 
     /**
-     * Remove preRegistration
+     * Remove preRegistration.
      *
      * @param \AppBundle\Entity\PreRegistration $preRegistration
      */
@@ -258,7 +266,7 @@ class Account extends BaseUser
     }
 
     /**
-     * Get preRegistrations
+     * Get preRegistrations.
      *
      * @return \Doctrine\Common\Collections\Collection
      */

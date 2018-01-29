@@ -1,28 +1,37 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Controller;
 
+use Doctrine\ORM\EntityManagerInterface;
 use LogicException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Doctrine\ORM\EntityManagerInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 /**
  * @Route("currency")
  */
 class CurrencyController extends AbstractController
 {
-
     /**
-     * Currency navigator
+     * Currency navigator.
+     *
+     * @throws LogicException No currencies available
      *
      * @return Response Response
      *
-     * @throws LogicException No currencies available
      *
      * @Route(
      *      path = "/nav",
@@ -53,13 +62,13 @@ class CurrencyController extends AbstractController
 
         return
             [
-                'currencies'     => $currencies,
+                'currencies' => $currencies,
                 'activeCurrency' => $activeCurrency,
             ];
     }
 
     /**
-     * Switch currency to new one
+     * Switch currency to new one.
      *
      * @param Request $request Request
      * @param string  $iso     Currency iso
@@ -78,7 +87,7 @@ class CurrencyController extends AbstractController
             ->getRepository('AppBundle:Currency')
             ->findOneBy([
                 'enabled' => true,
-                'iso'     => $iso,
+                'iso' => $iso,
             ]);
 
         if ($currency instanceof \AppBundle\Entity\Currency) {

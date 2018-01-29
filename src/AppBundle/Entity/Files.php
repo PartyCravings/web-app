@@ -1,15 +1,24 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Vich\UploaderBundle\Entity\File as VichFile;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Vich\UploaderBundle\Entity\File as VichFile;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * Files
+ * Files.
  *
  * @ORM\Table(name="files")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\FilesRepository")
@@ -50,9 +59,8 @@ class Files extends VichFile
         return $this->name;
     }
 
-
     /**
-     * Get id
+     * Get id.
      *
      * @return string
      */
@@ -90,7 +98,7 @@ class Files extends VichFile
     }
 
     /**
-     * Set updated
+     * Set updated.
      *
      * @param \DateTime $updated
      *
@@ -104,7 +112,7 @@ class Files extends VichFile
     }
 
     /**
-     * Get updated
+     * Get updated.
      *
      * @return \DateTime
      */
@@ -114,7 +122,7 @@ class Files extends VichFile
     }
 
     /**
-     * Set silhouette
+     * Set silhouette.
      *
      * @param string $silhouette
      *
@@ -128,7 +136,7 @@ class Files extends VichFile
     }
 
     /**
-     * Get silhouette
+     * Get silhouette.
      *
      * @return string
      */

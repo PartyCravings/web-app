@@ -1,12 +1,21 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * OrderData
+ * OrderData.
  *
  * @ORM\Table(name="order_data")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\OrderDataRepository")
@@ -34,7 +43,6 @@ class OrderData
      * @var Orders
      *
      * @ORM\ManyToOne(targetEntity="Orders", inversedBy="orderDatas")
-     *
      */
     private $order;
 
@@ -69,7 +77,7 @@ class OrderData
     }
 
     /**
-     * Get id
+     * Get id.
      *
      * @return guid
      */
@@ -79,7 +87,7 @@ class OrderData
     }
 
     /**
-     * Set startDate
+     * Set startDate.
      *
      * @param \DateTime $startDate
      *
@@ -93,7 +101,7 @@ class OrderData
     }
 
     /**
-     * Get startDate
+     * Get startDate.
      *
      * @return \DateTime
      */
@@ -103,7 +111,7 @@ class OrderData
     }
 
     /**
-     * Set endDate
+     * Set endDate.
      *
      * @param \DateTime $endDate
      *
@@ -117,7 +125,7 @@ class OrderData
     }
 
     /**
-     * Get endDate
+     * Get endDate.
      *
      * @return \DateTime
      */
@@ -127,7 +135,7 @@ class OrderData
     }
 
     /**
-     * Set orderStatus
+     * Set orderStatus.
      *
      * @param \AppBundle\Entity\OrderStatuses $orderStatus
      *
@@ -141,7 +149,7 @@ class OrderData
     }
 
     /**
-     * Get orderStatus
+     * Get orderStatus.
      *
      * @return \AppBundle\Entity\OrderStatuses
      */
@@ -151,7 +159,7 @@ class OrderData
     }
 
     /**
-     * Set service
+     * Set service.
      *
      * @param \AppBundle\Entity\Service $service
      *
@@ -165,7 +173,7 @@ class OrderData
     }
 
     /**
-     * Get service
+     * Get service.
      *
      * @return \AppBundle\Entity\Service
      */
@@ -175,7 +183,7 @@ class OrderData
     }
 
     /**
-     * Set order
+     * Set order.
      *
      * @param \AppBundle\Entity\Orders $order
      *
@@ -189,7 +197,7 @@ class OrderData
     }
 
     /**
-     * Get order
+     * Get order.
      *
      * @return \AppBundle\Entity\Orders
      */

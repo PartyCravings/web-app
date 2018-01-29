@@ -1,14 +1,23 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Vendor
+ * Vendor.
  *
  * @ORM\Table(name="vendor")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\VendorRepository")
@@ -76,7 +85,7 @@ class Vendor
      *
      * @ORM\Column(type="boolean")
      */
-    private $isEnabled =  true;
+    private $isEnabled = true;
 
     /**
      * @var Service
@@ -98,7 +107,7 @@ class Vendor
     }
 
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -106,7 +115,7 @@ class Vendor
     }
 
     /**
-     * Get id
+     * Get id.
      *
      * @return guid
      */
@@ -116,7 +125,7 @@ class Vendor
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
      *
@@ -130,7 +139,7 @@ class Vendor
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */
@@ -140,7 +149,7 @@ class Vendor
     }
 
     /**
-     * Set note
+     * Set note.
      *
      * @param string $note
      *
@@ -154,7 +163,7 @@ class Vendor
     }
 
     /**
-     * Get note
+     * Get note.
      *
      * @return string
      */
@@ -164,7 +173,7 @@ class Vendor
     }
 
     /**
-     * Set description
+     * Set description.
      *
      * @param string $description
      *
@@ -178,7 +187,7 @@ class Vendor
     }
 
     /**
-     * Get description
+     * Get description.
      *
      * @return string
      */
@@ -188,9 +197,9 @@ class Vendor
     }
 
     /**
-     * Set isEnabled
+     * Set isEnabled.
      *
-     * @param boolean $isEnabled
+     * @param bool $isEnabled
      *
      * @return Vendor
      */
@@ -202,9 +211,9 @@ class Vendor
     }
 
     /**
-     * Get isEnabled
+     * Get isEnabled.
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsEnabled()
     {
@@ -212,7 +221,7 @@ class Vendor
     }
 
     /**
-     * Set created
+     * Set created.
      *
      * @param \DateTime $created
      *
@@ -226,7 +235,7 @@ class Vendor
     }
 
     /**
-     * Get created
+     * Get created.
      *
      * @return \DateTime
      */
@@ -236,7 +245,7 @@ class Vendor
     }
 
     /**
-     * Set account
+     * Set account.
      *
      * @param \AppBundle\Entity\Account $account
      *
@@ -250,7 +259,7 @@ class Vendor
     }
 
     /**
-     * Get account
+     * Get account.
      *
      * @return \AppBundle\Entity\Account
      */
@@ -260,7 +269,7 @@ class Vendor
     }
 
     /**
-     * Set address
+     * Set address.
      *
      * @param \AppBundle\Entity\Address $address
      *
@@ -274,7 +283,7 @@ class Vendor
     }
 
     /**
-     * Get address
+     * Get address.
      *
      * @return \AppBundle\Entity\Address
      */
@@ -284,7 +293,7 @@ class Vendor
     }
 
     /**
-     * Add service
+     * Add service.
      *
      * @param \AppBundle\Entity\Service $service
      *
@@ -298,7 +307,7 @@ class Vendor
     }
 
     /**
-     * Remove service
+     * Remove service.
      *
      * @param \AppBundle\Entity\Service $service
      */
@@ -308,7 +317,7 @@ class Vendor
     }
 
     /**
-     * Get services
+     * Get services.
      *
      * @return \Doctrine\Common\Collections\Collection
      */

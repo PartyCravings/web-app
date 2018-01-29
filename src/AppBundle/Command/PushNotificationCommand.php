@@ -1,15 +1,23 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Command;
 
 use AppBundle\Entity\Subscriber;
-use Minishlink\WebPush\VAPID;
+use Minishlink\WebPush\WebPush;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Minishlink\WebPush\WebPush;
 
 class PushNotificationCommand extends ContainerAwareCommand
 {
@@ -25,20 +33,19 @@ class PushNotificationCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-
-        /** @var WebPush  $webPush */
-        $webPush = $this->getContainer()->get("minishlink_web_push");
+        /** @var WebPush $webPush */
+        $webPush = $this->getContainer()->get('minishlink_web_push');
 
         $em = $this->getContainer()->get('doctrine')->getManager();
-        $repository = $em->getRepository("AppBundle:Subscriber");
-        $subscribers = $repository->findBy(["enabled" => 1]);
+        $repository = $em->getRepository('AppBundle:Subscriber');
+        $subscribers = $repository->findBy(['enabled' => 1]);
 
         $notification = json_encode([
-            "icon" => "https://cdn1.iconfinder.com/data/icons/twitter-ui-colored/48/JD-24-128.png",
-            "title" => "this is a title",
-            "tag" => "SymfonyPushNotification",
-            "body" => "this is the body!!!",
-            "url" => "https://google.com/"
+            'icon' => 'https://cdn1.iconfinder.com/data/icons/twitter-ui-colored/48/JD-24-128.png',
+            'title' => 'this is a title',
+            'tag' => 'SymfonyPushNotification',
+            'body' => 'this is the body!!!',
+            'url' => 'https://google.com/',
         ]);
 
         /** @var Subscriber $subscriber */
@@ -48,9 +55,9 @@ class PushNotificationCommand extends ContainerAwareCommand
         }
         $responses = $webPush->flush();
         foreach ($responses as $response) {
-            switch ($response["success"]) {
+            switch ($response['success']) {
                 case false:
-                        $output->writeln($response["message"]);
+                        $output->writeln($response['message']);
                     break;
                 case true:
                     /// no need to bother the user with success ones

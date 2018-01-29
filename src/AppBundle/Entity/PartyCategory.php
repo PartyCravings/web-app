@@ -1,15 +1,24 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Category
+ * Category.
  *
  * @Gedmo\Tree(type="nested")
  * @ORM\Table(name="party_category")
@@ -18,7 +27,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class PartyCategory
 {
-    /**
+    /*
      * Hook SoftDeleteable behavior
      * updates deletedAt field
      */
@@ -82,7 +91,7 @@ class PartyCategory
      * @ORM\OrderBy({"lft" = "ASC"})
      */
     private $children;
-    
+
     /**
      * @var bool
      *
@@ -123,7 +132,6 @@ class PartyCategory
      */
     private $translations;
 
-
     public function __construct()
     {
         $this->children = new ArrayCollection();
@@ -135,9 +143,8 @@ class PartyCategory
         return $this->title;
     }
 
-
     /**
-     * Get id
+     * Get id.
      *
      * @return guid
      */
@@ -147,7 +154,7 @@ class PartyCategory
     }
 
     /**
-     * Set title
+     * Set title.
      *
      * @param string $title
      *
@@ -161,7 +168,7 @@ class PartyCategory
     }
 
     /**
-     * Get title
+     * Get title.
      *
      * @return string
      */
@@ -171,7 +178,7 @@ class PartyCategory
     }
 
     /**
-     * Set description
+     * Set description.
      *
      * @param string $description
      *
@@ -185,7 +192,7 @@ class PartyCategory
     }
 
     /**
-     * Get description
+     * Get description.
      *
      * @return string
      */
@@ -195,9 +202,9 @@ class PartyCategory
     }
 
     /**
-     * Set lft
+     * Set lft.
      *
-     * @param integer $lft
+     * @param int $lft
      *
      * @return PartyCategory
      */
@@ -209,9 +216,9 @@ class PartyCategory
     }
 
     /**
-     * Get lft
+     * Get lft.
      *
-     * @return integer
+     * @return int
      */
     public function getLft()
     {
@@ -219,9 +226,9 @@ class PartyCategory
     }
 
     /**
-     * Set lvl
+     * Set lvl.
      *
-     * @param integer $lvl
+     * @param int $lvl
      *
      * @return PartyCategory
      */
@@ -233,9 +240,9 @@ class PartyCategory
     }
 
     /**
-     * Get lvl
+     * Get lvl.
      *
-     * @return integer
+     * @return int
      */
     public function getLvl()
     {
@@ -243,9 +250,9 @@ class PartyCategory
     }
 
     /**
-     * Set rgt
+     * Set rgt.
      *
-     * @param integer $rgt
+     * @param int $rgt
      *
      * @return PartyCategory
      */
@@ -257,9 +264,9 @@ class PartyCategory
     }
 
     /**
-     * Get rgt
+     * Get rgt.
      *
-     * @return integer
+     * @return int
      */
     public function getRgt()
     {
@@ -267,9 +274,9 @@ class PartyCategory
     }
 
     /**
-     * Set isEnabled
+     * Set isEnabled.
      *
-     * @param boolean $isEnabled
+     * @param bool $isEnabled
      *
      * @return PartyCategory
      */
@@ -281,9 +288,9 @@ class PartyCategory
     }
 
     /**
-     * Get isEnabled
+     * Get isEnabled.
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsEnabled()
     {
@@ -291,7 +298,7 @@ class PartyCategory
     }
 
     /**
-     * Set created
+     * Set created.
      *
      * @param \DateTime $created
      *
@@ -305,7 +312,7 @@ class PartyCategory
     }
 
     /**
-     * Get created
+     * Get created.
      *
      * @return \DateTime
      */
@@ -315,7 +322,7 @@ class PartyCategory
     }
 
     /**
-     * Set updated
+     * Set updated.
      *
      * @param \DateTime $updated
      *
@@ -329,7 +336,7 @@ class PartyCategory
     }
 
     /**
-     * Get updated
+     * Get updated.
      *
      * @return \DateTime
      */
@@ -339,7 +346,7 @@ class PartyCategory
     }
 
     /**
-     * Set root
+     * Set root.
      *
      * @param \AppBundle\Entity\Category $root
      *
@@ -353,7 +360,7 @@ class PartyCategory
     }
 
     /**
-     * Get root
+     * Get root.
      *
      * @return \AppBundle\Entity\Category
      */
@@ -363,7 +370,7 @@ class PartyCategory
     }
 
     /**
-     * Set parent
+     * Set parent.
      *
      * @param \AppBundle\Entity\Category $parent
      *
@@ -377,7 +384,7 @@ class PartyCategory
     }
 
     /**
-     * Get parent
+     * Get parent.
      *
      * @return \AppBundle\Entity\Category
      */
@@ -387,7 +394,7 @@ class PartyCategory
     }
 
     /**
-     * Add child
+     * Add child.
      *
      * @param \AppBundle\Entity\Category $child
      *
@@ -401,7 +408,7 @@ class PartyCategory
     }
 
     /**
-     * Remove child
+     * Remove child.
      *
      * @param \AppBundle\Entity\Category $child
      */
@@ -411,7 +418,7 @@ class PartyCategory
     }
 
     /**
-     * Get children
+     * Get children.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -421,7 +428,7 @@ class PartyCategory
     }
 
     /**
-     * Set createdBy
+     * Set createdBy.
      *
      * @param \AppBundle\Entity\Account $createdBy
      *
@@ -435,7 +442,7 @@ class PartyCategory
     }
 
     /**
-     * Get createdBy
+     * Get createdBy.
      *
      * @return \AppBundle\Entity\Account
      */
@@ -445,7 +452,7 @@ class PartyCategory
     }
 
     /**
-     * Set updatedBy
+     * Set updatedBy.
      *
      * @param \AppBundle\Entity\Account $updatedBy
      *
@@ -459,7 +466,7 @@ class PartyCategory
     }
 
     /**
-     * Get updatedBy
+     * Get updatedBy.
      *
      * @return \AppBundle\Entity\Account
      */
@@ -469,7 +476,7 @@ class PartyCategory
     }
 
     /**
-     * Add translation
+     * Add translation.
      *
      * @param \AppBundle\Entity\PartyCategoryTranslation $translation
      *
@@ -483,7 +490,7 @@ class PartyCategory
     }
 
     /**
-     * Remove translation
+     * Remove translation.
      *
      * @param \AppBundle\Entity\PartyCategoryTranslation $translation
      */
@@ -493,7 +500,7 @@ class PartyCategory
     }
 
     /**
-     * Get translations
+     * Get translations.
      *
      * @return \Doctrine\Common\Collections\Collection
      */

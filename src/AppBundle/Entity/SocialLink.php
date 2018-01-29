@@ -1,12 +1,21 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * SocialLink
+ * SocialLink.
  *
  * @ORM\Table(name="social_link")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\SocialLinkRepository")
@@ -61,9 +70,8 @@ class SocialLink
         return $this->name;
     }
 
-
     /**
-     * Get id
+     * Get id.
      *
      * @return guid
      */
@@ -73,7 +81,7 @@ class SocialLink
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
      *
@@ -87,7 +95,7 @@ class SocialLink
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */
@@ -97,7 +105,7 @@ class SocialLink
     }
 
     /**
-     * Set link
+     * Set link.
      *
      * @param string $link
      *
@@ -111,7 +119,7 @@ class SocialLink
     }
 
     /**
-     * Get link
+     * Get link.
      *
      * @return string
      */
@@ -121,7 +129,7 @@ class SocialLink
     }
 
     /**
-     * Set icon
+     * Set icon.
      *
      * @param string $icon
      *
@@ -135,7 +143,7 @@ class SocialLink
     }
 
     /**
-     * Get icon
+     * Get icon.
      *
      * @return string
      */

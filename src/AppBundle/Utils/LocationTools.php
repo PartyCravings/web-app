@@ -1,13 +1,21 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Utils;
 
-use Doctrine\ORM\EntityManagerInterface;
-use AppBundle\Utils\Sorter;
-use AppBundle\Entity\Location;
 use AppBundle\Entity\Address;
-use Ivory\GoogleMap\Map;
+use AppBundle\Entity\Location;
+use Doctrine\ORM\EntityManagerInterface;
 use Ivory\GoogleMap\Base\Coordinate;
+use Ivory\GoogleMap\Map;
 use Ivory\GoogleMap\Overlay\Animation;
 use Ivory\GoogleMap\Overlay\Icon;
 use Ivory\GoogleMap\Overlay\Marker;
@@ -23,7 +31,6 @@ class LocationTools
      */
     private $em;
 
-
     /*
      * @param EntityManagerInterface $em
      *
@@ -33,14 +40,14 @@ class LocationTools
         $this->em = $em;
     }
 
-    public function buildLocationTree(Address $address) : ?Location
+    public function buildLocationTree(Address $address): ?Location
     {
         $address = $address->getAddress();
-        
+
         /**
-         * @var $sanitizedString contains the sanitized sting from the sorter
+         * @var contains      the sanitized sting from the sorter
          * @var $locationTree contains the tree built in reverse order
-         * with most significant location first
+         *                    with most significant location first
          */
         $sanitizedString = Sorter::sanitizeString($address);
         $locationTree = array_reverse(Sorter::buildTree($sanitizedString));
@@ -61,12 +68,13 @@ class LocationTools
                 $this->em->persist($parent);
             }
         }
+
         return $parent;
     }
 
-    public function generateLocationTree($location) :array
+    public function generateLocationTree($location): array
     {
-        $locationTree = array();
+        $locationTree = [];
 
         if (is_string($location)) {
             $location = $this->em->getRepository(Location::class)->findBySlug($location);
@@ -74,10 +82,11 @@ class LocationTools
                 $locationTree[] = $parent;
             }
         }
+
         return $locationTree;
     }
 
-    public function generateMap($services) :Map
+    public function generateMap($services): Map
     {
         $map = new Map();
         $map->setAutoZoom(true);
@@ -95,12 +104,13 @@ class LocationTools
             $map->getOverlayManager()->addMarker($marker);
         }
         $map->setStylesheetOptions(
-                array(
+                [
                     'display' => 'block',
                     'width' => '100%',
-                    'height' => '85vh'
-                )
+                    'height' => '85vh',
+                ]
             );
+
         return $map;
     }
 }

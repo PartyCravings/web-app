@@ -14,7 +14,7 @@ doctrine:
 framework:
     assets:
         base_urls:
-            - 'https://assets.partycravings.com'
+            - https://assets.partycravings.com
 
 doctrine:
     dbal:

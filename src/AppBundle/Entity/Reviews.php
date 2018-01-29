@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -7,7 +16,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Reviews
+ * Reviews.
  *
  * @ORM\Table(name="reviews")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ReviewsRepository")
@@ -84,9 +93,8 @@ class Reviews
         return $this->content;
     }
 
-
     /**
-     * Get id
+     * Get id.
      *
      * @return guid
      */
@@ -96,7 +104,7 @@ class Reviews
     }
 
     /**
-     * Set content
+     * Set content.
      *
      * @param string $content
      *
@@ -110,7 +118,7 @@ class Reviews
     }
 
     /**
-     * Get content
+     * Get content.
      *
      * @return string
      */
@@ -120,9 +128,9 @@ class Reviews
     }
 
     /**
-     * Set rating
+     * Set rating.
      *
-     * @param integer $rating
+     * @param int $rating
      *
      * @return Reviews
      */
@@ -134,9 +142,9 @@ class Reviews
     }
 
     /**
-     * Get rating
+     * Get rating.
      *
-     * @return integer
+     * @return int
      */
     public function getRating()
     {
@@ -144,7 +152,7 @@ class Reviews
     }
 
     /**
-     * Set created
+     * Set created.
      *
      * @param \DateTime $created
      *
@@ -158,7 +166,7 @@ class Reviews
     }
 
     /**
-     * Get created
+     * Get created.
      *
      * @return \DateTime
      */
@@ -168,7 +176,7 @@ class Reviews
     }
 
     /**
-     * Set createdBy
+     * Set createdBy.
      *
      * @param \AppBundle\Entity\Account $createdBy
      *
@@ -182,7 +190,7 @@ class Reviews
     }
 
     /**
-     * Get createdBy
+     * Get createdBy.
      *
      * @return \AppBundle\Entity\Account
      */
@@ -192,7 +200,7 @@ class Reviews
     }
 
     /**
-     * Set service
+     * Set service.
      *
      * @param \AppBundle\Entity\Service $service
      *
@@ -206,7 +214,7 @@ class Reviews
     }
 
     /**
-     * Get service
+     * Get service.
      *
      * @return \AppBundle\Entity\Service
      */

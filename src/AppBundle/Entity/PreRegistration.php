@@ -1,12 +1,21 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * PreRegistration
+ * PreRegistration.
  *
  * @ORM\Table(name="pre_registration")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PreRegistrationRepository")
@@ -41,16 +50,15 @@ class PreRegistration
      *
      * @ORM\Column(name="is_approved", type="boolean")
      */
-    private $isApproved =  true;
+    private $isApproved = true;
 
     public function __toString()
     {
         return $this->account;
     }
 
-
     /**
-     * Get id
+     * Get id.
      *
      * @return guid
      */
@@ -60,7 +68,7 @@ class PreRegistration
     }
 
     /**
-     * Set created
+     * Set created.
      *
      * @param \DateTime $created
      *
@@ -74,7 +82,7 @@ class PreRegistration
     }
 
     /**
-     * Get created
+     * Get created.
      *
      * @return \DateTime
      */
@@ -84,9 +92,9 @@ class PreRegistration
     }
 
     /**
-     * Set isApproved
+     * Set isApproved.
      *
-     * @param boolean $isApproved
+     * @param bool $isApproved
      *
      * @return PreRegistration
      */
@@ -98,9 +106,9 @@ class PreRegistration
     }
 
     /**
-     * Get isApproved
+     * Get isApproved.
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsApproved()
     {
@@ -108,7 +116,7 @@ class PreRegistration
     }
 
     /**
-     * Set account
+     * Set account.
      *
      * @param \AppBundle\Entity\Account $account
      *
@@ -122,7 +130,7 @@ class PreRegistration
     }
 
     /**
-     * Get account
+     * Get account.
      *
      * @return \AppBundle\Entity\Account
      */

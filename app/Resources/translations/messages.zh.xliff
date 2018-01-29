@@ -1,15 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2017-12-15T02:08:32Z" source-language="en" target-language="zh" datatype="plaintext" original="not.available">
+  <file date="2018-01-05T19:47:16Z" source-language="en" target-language="zh" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
     </header>
     <body>
+      <trans-unit id="5f349ae33b7c4c13cd43be683d6aab3e73083070" resname=" Daily">
+        <source> Daily</source>
+        <target state="new"> Daily</target>
+        <jms:reference-file line="300">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\show.html.twig\</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="fc465c57ee34942f29a4303e9a3b87a704fa1b51" resname=" PER DAY">
+        <source> PER DAY</source>
+        <target state="new"> PER DAY</target>
+        <jms:reference-file line="108">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\show.html.twig\</jms:reference-file>
+        <jms:reference-file line="232">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\show.html.twig\</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="06b0f5f69c3ee46be6c1932389f3618f8a896868" resname=" VERIFIED BOOKINGS">
+        <source> VERIFIED BOOKINGS</source>
+        <target state="new"> VERIFIED BOOKINGS</target>
+        <jms:reference-file line="100">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\show.html.twig\</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="be8a4f7327038bea25d2f2d2c3b3aa4cb8af87ee" resname=" customer review(s)">
+        <source> customer review(s)</source>
+        <target state="new"> customer review(s)</target>
+        <jms:reference-file line="279">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\show.html.twig\</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="8931ddc1bb77e1396c937c6fb66961152255ddc1" resname=" pictures and description">
+        <source> pictures and description</source>
+        <target state="new"> pictures and description</target>
+        <jms:reference-file line="121">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\show.html.twig\</jms:reference-file>
+      </trans-unit>
       <trans-unit id="172c39b0287edaa35d2de95e9589ebfab26f2bf8" resname="Add Review">
         <source>Add Review</source>
         <target state="new">Add Review</target>
-        <jms:reference-file line="229">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\show.html.twig\</jms:reference-file>
+        <jms:reference-file line="177">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\show.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="1fd266c217d796db7382651498389bb639d8eaa2" resname="All Categories">
         <source>All Categories</source>
@@ -22,16 +48,20 @@
         <jms:reference-file line="13">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\index.html.twig\</jms:reference-file>
         <jms:reference-file line="5">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\index.html.twig\</jms:reference-file>
       </trans-unit>
+      <trans-unit id="24699e18980c4567ef5078b77df8dfcfe77d3f2b" resname="Choose your country">
+        <source>Choose your country</source>
+        <target state="new">Choose your country</target>
+        <jms:reference-file line="10">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\awww\countries.html.twig\</jms:reference-file>
+      </trans-unit>
       <trans-unit id="eae81bba49cd9961aa76265f1dd4c7faa0e224da" resname="Customer Reviews">
         <source>Customer Reviews</source>
         <target state="new">Customer Reviews</target>
-        <jms:reference-file line="192">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\show.html.twig\</jms:reference-file>
+        <jms:reference-file line="140">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\show.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="728298d3dbf4fb2c355b2f052c982ba87532447e" resname="Daily">
         <source>Daily</source>
         <target state="new">Daily</target>
         <jms:reference-file line="122">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\index.html.twig\</jms:reference-file>
-        <jms:reference-file line="347">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\show.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="bcf31aed685d326ec3c0b7b6e880bc9f6716a390" resname="FROM THE BLOG">
         <source>FROM THE BLOG</source>
@@ -47,23 +77,23 @@
         <source>Location</source>
         <target state="new">Location</target>
         <jms:reference-file line="54">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\index.html.twig\</jms:reference-file>
-        <jms:reference-file line="178">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\show.html.twig\</jms:reference-file>
+        <jms:reference-file line="127">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\show.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="b8e385941565b7601d85e6e4f293d33a178035f0" resname="Lorel ipsum dolo... - reason">
         <source>Lorel ipsum dolo... - reason</source>
         <target state="new">Lorel ipsum dolo... - reason</target>
         <jms:reference-file line="33">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\fragments\_footer.html.twig\</jms:reference-file>
       </trans-unit>
-      <trans-unit id="cc5eee8bba53f1ca4c58f53a7742386b00290bb7" resname="MEMBER SINCE">
-        <source>MEMBER SINCE</source>
-        <target state="new">MEMBER SINCE</target>
-        <jms:reference-file line="151">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\show.html.twig\</jms:reference-file>
+      <trans-unit id="f7b2de720cf61f349f65d9e633ab047c383bbe30" resname="MEMBER SINCE ">
+        <source>MEMBER SINCE </source>
+        <target state="new">MEMBER SINCE </target>
+        <jms:reference-file line="105">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\show.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="473710d327804e484c1863690d91c3751e2c7c98" resname="More details">
         <source>More details</source>
         <target state="new">More details</target>
         <jms:reference-file line="118">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\index.html.twig\</jms:reference-file>
-        <jms:reference-file line="343">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\show.html.twig\</jms:reference-file>
+        <jms:reference-file line="295">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\show.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="f53538db4d8b0ccca9a6be884e23d7740b7a4a33" resname="NEWSLETTER">
         <source>NEWSLETTER</source>
@@ -84,7 +114,7 @@
       <trans-unit id="9a1aea1631b73f0e2990f0d917086cdaf87889ce" resname="ONLINE PAYMENTS">
         <source>ONLINE PAYMENTS</source>
         <target state="new">ONLINE PAYMENTS</target>
-        <jms:reference-file line="157">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\show.html.twig\</jms:reference-file>
+        <jms:reference-file line="110">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\show.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="0b8d4819f0793c13b4b876bc7aadd4bbdef420b4" resname="OTHER COUNTRIES">
         <source>OTHER COUNTRIES</source>
@@ -112,16 +142,10 @@
         <target state="new">PARTY NOW</target>
         <jms:reference-file line="124">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\fragments\_header.html.twig\</jms:reference-file>
       </trans-unit>
-      <trans-unit id="83b7429731f964afb6d803170d4b492e999ec4d4" resname="PER DAY">
-        <source>PER DAY</source>
-        <target state="new">PER DAY</target>
-        <jms:reference-file line="154">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\show.html.twig\</jms:reference-file>
-        <jms:reference-file line="280">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\show.html.twig\</jms:reference-file>
-      </trans-unit>
       <trans-unit id="25f26024ee798ab68b99337a9dd25c2f01bae95a" resname="REVIEWS">
         <source>REVIEWS</source>
         <target state="new">REVIEWS</target>
-        <jms:reference-file line="141">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\show.html.twig\</jms:reference-file>
+        <jms:reference-file line="98">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\show.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="3ae5a4f21ea0626bab5ac6472de6e1415aaa416a" resname="Subscribe to our newsletter">
         <source>Subscribe to our newsletter</source>
@@ -131,17 +155,12 @@
       <trans-unit id="e724ac1f7ae8fe484f02a0e43ad51a3c9eddb4ac" resname="This party has not been booked yet">
         <source>This party has not been booked yet</source>
         <target state="new">This party has not been booked yet</target>
-        <jms:reference-file line="273">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\show.html.twig\</jms:reference-file>
+        <jms:reference-file line="225">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\show.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="974fc164f6e733e3ff3b6ef39af48d5d04ea76f3" resname="UPCOMING PARTIES">
         <source>UPCOMING PARTIES</source>
         <target state="new">UPCOMING PARTIES</target>
         <jms:reference-file line="219">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\default\index.html.twig\</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="015c5129b829173dfe6dfa4efea1d5147e0e683a" resname="VERIFIED BOOKINGS">
-        <source>VERIFIED BOOKINGS</source>
-        <target state="new">VERIFIED BOOKINGS</target>
-        <jms:reference-file line="145">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\show.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="ffca59bc5b7dadbd212670e6b6a56cc99bdf495f" resname="What are you looking for?">
         <source>What are you looking for?</source>
@@ -163,27 +182,21 @@
         <source>customer review(s)</source>
         <target state="new">customer review(s)</target>
         <jms:reference-file line="104">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\index.html.twig\</jms:reference-file>
-        <jms:reference-file line="329">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\show.html.twig\</jms:reference-file>
       </trans-unit>
-      <trans-unit id="0b1e95cfd9775191a7224d0a218ae79187e80c1d" resname="from">
-        <source>from</source>
-        <target state="new">from</target>
-        <jms:reference-file line="136">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\show.html.twig\</jms:reference-file>
+      <trans-unit id="585af9b23226a08e1bbefe60f85a0144ed8130d0" resname="from ">
+        <source>from </source>
+        <target state="new">from </target>
+        <jms:reference-file line="94">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\show.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="8bb4d180102e5a3e5a94308ba747791fb45d46d5" resname="newsletter.signup.failed">
         <source>newsletter.signup.failed</source>
         <target state="new">newsletter.signup.failed</target>
-        <jms:reference-file line="79">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app/../src\AppBundle\Controller\NotificationController.php\</jms:reference-file>
+        <jms:reference-file line="93">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app/../src\AppBundle\Controller\NotificationController.php\</jms:reference-file>
       </trans-unit>
       <trans-unit id="58086f4144c510d3d8f9d2f6255538b8ee1ded86" resname="newsletter.signup.success">
         <source>newsletter.signup.success</source>
         <target state="new">newsletter.signup.success</target>
-        <jms:reference-file line="77">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app/../src\AppBundle\Controller\NotificationController.php\</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="8f98d7ea624697f0fe17d2e0d143e1f47dfa8562" resname="pictures and description">
-        <source>pictures and description</source>
-        <target state="new">pictures and description</target>
-        <jms:reference-file line="172">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app\Resources\views\service\show.html.twig\</jms:reference-file>
+        <jms:reference-file line="91">\..\..\..\..\..\..\C:/Users/Odusanya/Desktop/web-app/app/../src\AppBundle\Controller\NotificationController.php\</jms:reference-file>
       </trans-unit>
       <trans-unit id="c9dbc1b936a26837ac67c89d47eca568591c3186" resname="rights.reserved">
         <source>rights.reserved</source>

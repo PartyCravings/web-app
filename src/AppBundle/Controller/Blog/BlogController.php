@@ -30,15 +30,7 @@ use Symfony\Component\HttpFoundation\Response;
  * Controller used to manage blog contents in the public part of the site.
  *
  * @Route("/blog")
- * @ParamConverter(
-                    "_country",
-                    class="AppBundle:Country",
-                    options=
-                    {
-                        "id" = "_country",
-                        "repository_method" = "findByName"
-                    }
-                )
+ * @ParamConverter("_country", class="AppBundle:Country", options={"id"="_country", "repository_method"="findByName"})
  *
  * @author Ryan Weaver <weaverryan@gmail.com>
  * @author Javier Eguiluz <javier.eguiluz@gmail.com>

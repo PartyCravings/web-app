@@ -1,71 +1,107 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ 'security.login'|trans({}, 'FOSUserBundle') }}{% endblock %}
-{% block indexing %}noindex, nofollow{% endblock %}
-{% block inlinedCSS %}{% include 'fragments/loginCss.html.twig' %}{% endblock %}
+{% block title %}
+    {{ 'security.login'|trans({}, 'FOSUserBundle') }}
+{% endblock %}
+
+{% block indexing %}
+    noindex, nofollow
+{% endblock %}
+
+{% block inlinedCSS %}
+    {% include 'fragments/loginCss.html.twig' %}
+{% endblock %}
 
 {% block body %}
-        <br/>
-        <h1 id="sitename" style="padding-left:100px; font-size:2.4em;">PartyCravings Inc.</h1><br/>
-        <div class="row" align="center" style="padding-top: 60px; font-size: 4em;">
-            <span>{{ 'security.login'|trans({}, 'FOSUserBundle') }}</span>
-        </div><br/><br/>
-        <div class="row" align="center" style="font-size:1.3em;">
-            <span>{{ 'security.login.new'|trans({}, 'FOSUserBundle') }} <a href="{{ url('fos_user_registration_register') }}" style="color: orange;">{{ 'security.login.signup'|trans({}, 'FOSUserBundle') }}</a></span>
-        </div><br/><br/>
-        <div class="ui grid">
-            <div class="ui two wide computer only column"></div>
-            <div class="ui five wide computer sixteen wide tablet mobile container column">
-                {% block fos_user_content %} {% if error %}
-                    <div id="error" class="ui small error message">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    <br/>
+    <h1 class="login sitename">PartyCravings Inc.</h1>
+    <br/>
+    <div class="row login title">
+        <span>{{ 'security.login'|trans({}, 'FOSUserBundle') }}</span>
+    </div>
+    <br/>
+    <br/>
+    <div class="row login signup text">
+        <span>{{ 'security.login.new'|trans({}, 'FOSUserBundle') }} 
+            <a class="login signup link" href="{{ url('fos_user_registration_register') }}">
+                {{ 'security.login.signup'|trans({}, 'FOSUserBundle') }}
+            </a>
+        </span>
+    </div>
+    <br/>
+    <br/>
+    <div class="ui grid">
+        <div class="ui two wide computer only column"></div>
+        <div class="ui five wide computer sixteen wide tablet mobile container column">
+            {% block fos_user_content %}
+                {% if error %}
+                    <div id="error" class="ui small error message">
+                        {{ error.messageKey|trans(error.messageData, 'security') }}
+                    </div>
+                {% endif %}
+                <form action="{{ path("fos_user_security_check") }}" class="ui container form" method="post">
+                    {% if csrf_token %}
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
                     {% endif %}
-                    <form action="{{ path("fos_user_security_check") }}" class="ui container form" method="post">
-                        {% if csrf_token %}
-                        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" /> {% endif %}
-                        <div class="field">
-                            <label for="username" style="font-size: 1.3em;">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
-                            <input id="username" name="_username" placeholder="" value="{{ last_username }}" type="text" required="required" style=""/>
+                    <div class="field">
+                        <label class="login username label" for="username">
+                            {{ 'security.login.username'|trans({}, 'FOSUserBundle') }}
+                        </label>
+                        <input id="username" name="_username" value="{{ last_username }}" type="text" required="required"/>
+                    </div>
+                    <div class="field">
+                        <label class="login password label" for="password">
+                            {{ 'security.login.password'|trans({}, 'FOSUserBundle') }}
+                        </label>
+                        <input id="password" name="_password" type="password"/>
+                    </div>
+                    <div class="field">
+                        <div class="ui toggle checkbox">
+                            <input class="hidden" id="remember_me" name="_remember_me" tabindex="0" type="checkbox" checked="checked"/>
+                            <label for="remember_me">
+                                {{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}
+                            </label>
                         </div>
-
-                        <div class="field">
-                            <label for="password" style="font-size: 1.3em;">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
-                            <input id="password" name="_password" placeholder="" type="password"/>
-                        </div>
-
-                        <div class="field">
-                            <div class="ui toggle checkbox">
-                                <input class="hidden" id="remember_me" name="_remember_me" tabindex="0" type="checkbox" checked="checked"/>
-                                <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
-                            </div>
-                        </div>
-                        <a href="{{ url('fos_user_resetting_request') }}" style="color: orange;">{{ 'security.login.forgot'|trans({}, 'FOSUserBundle') }}</a>
-                        <div align="center">
-                        <button id="submit" class="ui circular orange button" style="font-size:1.5em; " type="submit">{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}</button>
-                        </div>
-                    </form>
-                    {% endblock fos_user_content %}
+                    </div>
+                    <a class="login resetting link" href="{{ url('fos_user_resetting_request') }}">
+                        {{ 'security.login.forgot'|trans({}, 'FOSUserBundle') }}
+                    </a>
+                    <div class="login button">
+                        <button id="submit" class="ui circular orange button submit" type="submit">
+                            {{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}
+                        </button>
+                    </div>
+                </form>
+            {% endblock fos_user_content %}
+        </div>
+        <div class="ui two wide computer only column">
+            <div class="ui vertical divider">
+                {{ 'security.login.or'|trans({}, 'FOSUserBundle') }}
             </div>
-            <div class="ui two wide computer only column">
-                <div class="ui vertical divider">
-                    {{ 'security.login.or'|trans({}, 'FOSUserBundle') }}
-                </div>
-            </div>
-            <div class="ui five wide computer center aligned sixteen wide tablet mobile column">
-                {% block hwi_oauth_content %}
+        </div>
+        <div class="ui five wide computer center aligned sixteen wide tablet mobile column">
+            {% block hwi_oauth_content %}
                 <br/>
                 <div class="ui labeled button" tabindex="0">
                     <div class="big ui blue button">
-                        <i class="facebook icon" style="font-size: 1.3em;"></i>
-                    </div><a class="ui basic blue label" href="{{ hwi_oauth_login_url('google') }}">{{ 'security.login.withfacebook'|trans({}, 'FOSUserBundle') }}</a>
-                </div><br/>
+                        <i class="facebook icon login social icon"></i>
+                    </div>
+                    <a class="ui basic blue label" href="{{ hwi_oauth_login_url('google') }}">
+                        {{ 'security.login.withfacebook'|trans({}, 'FOSUserBundle') }}
+                    </a>
+                </div>
+                <br/>
                 <br/>
                 <div class="ui labeled button" tabindex="0">
                     <div class="big ui red button">
-                        <i class="google icon" style="font-size: 1.3em;"></i>
-                    </div><a class="ui basic red label"  href="{{ hwi_oauth_login_url('google') }}">{{ 'security.login.withgoogle'|trans({}, 'FOSUserBundle') }}   </a>
+                        <i class="google icon login social icon"></i>
+                    </div>
+                    <a class="ui basic red label"  href="{{ hwi_oauth_login_url('google') }}">
+                        {{ 'security.login.withgoogle'|trans({}, 'FOSUserBundle') }}
+                    </a>
                 </div>
-                {% endblock hwi_oauth_content %}
-            </div>
-            <div class="ui two wide computer only column"></div>
+            {% endblock hwi_oauth_content %}
         </div>
+        <div class="ui two wide computer only column"></div>
+    </div>
 {% endblock %}

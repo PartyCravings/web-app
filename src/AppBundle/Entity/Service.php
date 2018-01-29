@@ -1,15 +1,24 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\Files as EmbeddedFile;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
-use Doctrine\Common\Collections\ArrayCollection;
-use AppBundle\Entity\Files as EmbeddedFile;
 
 /**
- * Service
+ * Service.
  *
  * @ORM\Table(name="service")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ServiceRepository")
@@ -115,9 +124,8 @@ class Service
      */
     private $created;
 
-
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -149,6 +157,7 @@ class Service
         if (count($this->reviews)) {
             $rating = @intdiv(array_sum(array_column($this->reviews, 'rating')), count($this->reviews));
         }
+
         return $rating;
     }
 
@@ -167,9 +176,8 @@ class Service
         return $this->name;
     }
 
-
     /**
-     * Get id
+     * Get id.
      *
      * @return guid
      */
@@ -179,7 +187,7 @@ class Service
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
      *
@@ -193,7 +201,7 @@ class Service
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */
@@ -203,7 +211,7 @@ class Service
     }
 
     /**
-     * Set slug
+     * Set slug.
      *
      * @param string $slug
      *
@@ -217,7 +225,7 @@ class Service
     }
 
     /**
-     * Get slug
+     * Get slug.
      *
      * @return string
      */
@@ -227,9 +235,9 @@ class Service
     }
 
     /**
-     * Set isEnabled
+     * Set isEnabled.
      *
-     * @param boolean $isEnabled
+     * @param bool $isEnabled
      *
      * @return Service
      */
@@ -241,9 +249,9 @@ class Service
     }
 
     /**
-     * Get isEnabled
+     * Get isEnabled.
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsEnabled()
     {
@@ -251,7 +259,7 @@ class Service
     }
 
     /**
-     * Set created
+     * Set created.
      *
      * @param \DateTime $created
      *
@@ -265,7 +273,7 @@ class Service
     }
 
     /**
-     * Get created
+     * Get created.
      *
      * @return \DateTime
      */
@@ -275,7 +283,7 @@ class Service
     }
 
     /**
-     * Set vendor
+     * Set vendor.
      *
      * @param \AppBundle\Entity\Vendor $vendor
      *
@@ -289,7 +297,7 @@ class Service
     }
 
     /**
-     * Get vendor
+     * Get vendor.
      *
      * @return \AppBundle\Entity\Vendor
      */
@@ -299,7 +307,7 @@ class Service
     }
 
     /**
-     * Set serviceDescriptions
+     * Set serviceDescriptions.
      *
      * @param \AppBundle\Entity\ServiceDescriptions $serviceDescriptions
      *
@@ -313,7 +321,7 @@ class Service
     }
 
     /**
-     * Get serviceDescriptions
+     * Get serviceDescriptions.
      *
      * @return \AppBundle\Entity\ServiceDescriptions
      */
@@ -323,7 +331,7 @@ class Service
     }
 
     /**
-     * Add campaign
+     * Add campaign.
      *
      * @param \AppBundle\Entity\Campaigns $campaign
      *
@@ -337,7 +345,7 @@ class Service
     }
 
     /**
-     * Remove campaign
+     * Remove campaign.
      *
      * @param \AppBundle\Entity\Campaigns $campaign
      */
@@ -347,7 +355,7 @@ class Service
     }
 
     /**
-     * Get campaigns
+     * Get campaigns.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -357,7 +365,7 @@ class Service
     }
 
     /**
-     * Set category
+     * Set category.
      *
      * @param \AppBundle\Entity\Category $category
      *
@@ -371,7 +379,7 @@ class Service
     }
 
     /**
-     * Get category
+     * Get category.
      *
      * @return \AppBundle\Entity\Category
      */
@@ -381,7 +389,7 @@ class Service
     }
 
     /**
-     * Set address
+     * Set address.
      *
      * @param \AppBundle\Entity\Address $address
      *
@@ -395,7 +403,7 @@ class Service
     }
 
     /**
-     * Get address
+     * Get address.
      *
      * @return \AppBundle\Entity\Address
      */
@@ -405,7 +413,7 @@ class Service
     }
 
     /**
-     * Add review
+     * Add review.
      *
      * @param \AppBundle\Entity\Reviews $review
      *
@@ -419,7 +427,7 @@ class Service
     }
 
     /**
-     * Remove review
+     * Remove review.
      *
      * @param \AppBundle\Entity\Reviews $review
      */
@@ -429,7 +437,7 @@ class Service
     }
 
     /**
-     * Get reviews
+     * Get reviews.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -439,7 +447,7 @@ class Service
     }
 
     /**
-     * Add feature
+     * Add feature.
      *
      * @param \AppBundle\Entity\Feature $feature
      *
@@ -453,7 +461,7 @@ class Service
     }
 
     /**
-     * Remove feature
+     * Remove feature.
      *
      * @param \AppBundle\Entity\Feature $feature
      */
@@ -463,7 +471,7 @@ class Service
     }
 
     /**
-     * Get features
+     * Get features.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -473,7 +481,7 @@ class Service
     }
 
     /**
-     * Add uploadedFile
+     * Add uploadedFile.
      *
      * @param \Vich\UploaderBundle\Entity\File $uploadedFile
      *
@@ -487,7 +495,7 @@ class Service
     }
 
     /**
-     * Remove uploadedFile
+     * Remove uploadedFile.
      *
      * @param \Vich\UploaderBundle\Entity\File $uploadedFile
      */

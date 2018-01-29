@@ -1,22 +1,31 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Party
+ * Party.
  *
  * @ORM\Table(name="party")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PartyRepository")
  */
 class Party
 {
-    /**
+    /*
      * Hook SoftDeleteable behavior
      * updates deletedAt field
      */
@@ -156,9 +165,8 @@ class Party
         return $this->title;
     }
 
-
     /**
-     * Get id
+     * Get id.
      *
      * @return guid
      */
@@ -168,7 +176,7 @@ class Party
     }
 
     /**
-     * Set title
+     * Set title.
      *
      * @param string $title
      *
@@ -182,7 +190,7 @@ class Party
     }
 
     /**
-     * Get title
+     * Get title.
      *
      * @return string
      */
@@ -192,7 +200,7 @@ class Party
     }
 
     /**
-     * Set slug
+     * Set slug.
      *
      * @param string $slug
      *
@@ -206,7 +214,7 @@ class Party
     }
 
     /**
-     * Get slug
+     * Get slug.
      *
      * @return string
      */
@@ -216,9 +224,9 @@ class Party
     }
 
     /**
-     * Set isPreregistered
+     * Set isPreregistered.
      *
-     * @param boolean $isPreregistered
+     * @param bool $isPreregistered
      *
      * @return Party
      */
@@ -230,9 +238,9 @@ class Party
     }
 
     /**
-     * Get isPreregistered
+     * Get isPreregistered.
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsPreregistered()
     {
@@ -240,7 +248,7 @@ class Party
     }
 
     /**
-     * Set description
+     * Set description.
      *
      * @param string $description
      *
@@ -254,7 +262,7 @@ class Party
     }
 
     /**
-     * Get description
+     * Get description.
      *
      * @return string
      */
@@ -264,7 +272,7 @@ class Party
     }
 
     /**
-     * Set created
+     * Set created.
      *
      * @param \DateTime $created
      *
@@ -278,7 +286,7 @@ class Party
     }
 
     /**
-     * Get created
+     * Get created.
      *
      * @return \DateTime
      */
@@ -288,7 +296,7 @@ class Party
     }
 
     /**
-     * Set updated
+     * Set updated.
      *
      * @param \DateTime $updated
      *
@@ -302,7 +310,7 @@ class Party
     }
 
     /**
-     * Get updated
+     * Get updated.
      *
      * @return \DateTime
      */
@@ -312,9 +320,9 @@ class Party
     }
 
     /**
-     * Set isEnabled
+     * Set isEnabled.
      *
-     * @param boolean $isEnabled
+     * @param bool $isEnabled
      *
      * @return Party
      */
@@ -326,9 +334,9 @@ class Party
     }
 
     /**
-     * Get isEnabled
+     * Get isEnabled.
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsEnabled()
     {
@@ -336,7 +344,7 @@ class Party
     }
 
     /**
-     * Add order
+     * Add order.
      *
      * @param \AppBundle\Entity\Orders $order
      *
@@ -350,7 +358,7 @@ class Party
     }
 
     /**
-     * Remove order
+     * Remove order.
      *
      * @param \AppBundle\Entity\Orders $order
      */
@@ -360,7 +368,7 @@ class Party
     }
 
     /**
-     * Get orders
+     * Get orders.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -370,7 +378,7 @@ class Party
     }
 
     /**
-     * Set category
+     * Set category.
      *
      * @param \AppBundle\Entity\PartyCategory $category
      *
@@ -384,7 +392,7 @@ class Party
     }
 
     /**
-     * Get category
+     * Get category.
      *
      * @return \AppBundle\Entity\PartyCategory
      */
@@ -394,7 +402,7 @@ class Party
     }
 
     /**
-     * Add preRegistration
+     * Add preRegistration.
      *
      * @param \AppBundle\Entity\PreRegistration $preRegistration
      *
@@ -408,7 +416,7 @@ class Party
     }
 
     /**
-     * Remove preRegistration
+     * Remove preRegistration.
      *
      * @param \AppBundle\Entity\PreRegistration $preRegistration
      */
@@ -418,7 +426,7 @@ class Party
     }
 
     /**
-     * Get preRegistration
+     * Get preRegistration.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -428,7 +436,7 @@ class Party
     }
 
     /**
-     * Set address
+     * Set address.
      *
      * @param \AppBundle\Entity\Address $address
      *
@@ -442,7 +450,7 @@ class Party
     }
 
     /**
-     * Get address
+     * Get address.
      *
      * @return \AppBundle\Entity\Address
      */
@@ -452,7 +460,7 @@ class Party
     }
 
     /**
-     * Add rsvp
+     * Add rsvp.
      *
      * @param \AppBundle\Entity\Account $rsvp
      *
@@ -466,7 +474,7 @@ class Party
     }
 
     /**
-     * Remove rsvp
+     * Remove rsvp.
      *
      * @param \AppBundle\Entity\Account $rsvp
      */
@@ -476,7 +484,7 @@ class Party
     }
 
     /**
-     * Get rsvp
+     * Get rsvp.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -486,7 +494,7 @@ class Party
     }
 
     /**
-     * Set createdBy
+     * Set createdBy.
      *
      * @param \AppBundle\Entity\Account $createdBy
      *
@@ -500,7 +508,7 @@ class Party
     }
 
     /**
-     * Get createdBy
+     * Get createdBy.
      *
      * @return \AppBundle\Entity\Account
      */
@@ -510,7 +518,7 @@ class Party
     }
 
     /**
-     * Set updatedBy
+     * Set updatedBy.
      *
      * @param \AppBundle\Entity\Account $updatedBy
      *
@@ -524,7 +532,7 @@ class Party
     }
 
     /**
-     * Get updatedBy
+     * Get updatedBy.
      *
      * @return \AppBundle\Entity\Account
      */
@@ -534,7 +542,7 @@ class Party
     }
 
     /**
-     * Set date
+     * Set date.
      *
      * @param \DateTime $date
      *
@@ -548,7 +556,7 @@ class Party
     }
 
     /**
-     * Get date
+     * Get date.
      *
      * @return \DateTime
      */
@@ -558,7 +566,7 @@ class Party
     }
 
     /**
-     * Add uploadedFile
+     * Add uploadedFile.
      *
      * @param \AppBundle\Entity\Files $uploadedFile
      *
@@ -572,7 +580,7 @@ class Party
     }
 
     /**
-     * Remove uploadedFile
+     * Remove uploadedFile.
      *
      * @param \AppBundle\Entity\Files $uploadedFile
      */
@@ -582,7 +590,7 @@ class Party
     }
 
     /**
-     * Get uploadedFiles
+     * Get uploadedFiles.
      *
      * @return \Doctrine\Common\Collections\Collection
      */

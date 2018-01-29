@@ -1,15 +1,24 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Utils;
 
 /**
  * Helper class to avoid creating closures in static context
- * See https://bugs.php.net/bug.php?id=64761
+ * See https://bugs.php.net/bug.php?id=64761.
  */
 class ClosureHelper
 {
     /**
-     * Return a closure that assigns a property value
+     * Return a closure that assigns a property value.
      */
     public function getPropertyAccessor($propertyName, $newValue)
     {
@@ -29,9 +38,9 @@ class ServerUtils
      * Executes a function in the context of an object. This basically bypasses the private/protected check of PHP.
      *
      * @param callable $fn
-     * @param object $newThis
-     * @param array $args
-     * @param string $bindClass
+     * @param object   $newThis
+     * @param array    $args
+     * @param string   $bindClass
      */
     public static function bindAndCall(callable $fn, $newThis, $args = [], $bindClass = null)
     {
@@ -44,16 +53,16 @@ class ServerUtils
     }
 
     /**
-     * Changes a property value of an object. (hijack because you can also change private/protected properties)
+     * Changes a property value of an object. (hijack because you can also change private/protected properties).
      *
      * @param object $object
      * @param string $propertyName
-     * @param mixed $newValue
+     * @param mixed  $newValue
      */
     public static function hijackProperty($object, $propertyName, $newValue)
     {
         $closure = (new ClosureHelper())->getPropertyAccessor($propertyName, $newValue);
-        ServerUtils::bindAndCall($closure, $object);
+        self::bindAndCall($closure, $object);
     }
 
     /**
@@ -61,7 +70,7 @@ class ServerUtils
      */
     public static function isWindows()
     {
-        return strtoupper(substr(PHP_OS, 0, 3)) === 'WIN';
+        return 'WIN' === mb_strtoupper(mb_substr(PHP_OS, 0, 3));
     }
 
     /**
@@ -80,22 +89,22 @@ class ServerUtils
     public static function getMaxMemory()
     {
         $memoryLimit = ini_get('memory_limit');
-        
+
         // if no limit
-        if (-1 == $memoryLimit) {
+        if (-1 === $memoryLimit) {
             return 134217728; //128 * 1024 * 1024 default 128mb
         }
-        
+
         // if set to exact byte
         if (is_numeric($memoryLimit)) {
             return (int) $memoryLimit;
         }
-        
+
         // if short hand version http://php.net/manual/en/faq.using.php#faq.using.shorthandbytes
-        return substr($memoryLimit, 0, -1) * [
+        return mb_substr($memoryLimit, 0, -1) * [
             'g' => 1073741824, //1024 * 1024 * 1024
             'm' => 1048576, //1024 * 1024
-            'k' => 1024
-        ][strtolower(substr($memoryLimit, -1))];
+            'k' => 1024,
+        ][mb_strtolower(mb_substr($memoryLimit, -1))];
     }
 }

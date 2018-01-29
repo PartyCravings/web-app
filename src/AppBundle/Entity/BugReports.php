@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -7,7 +16,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * BugReports
+ * BugReports.
  *
  * @ORM\Table(name="bug_reports")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\BugReportsRepository")
@@ -100,7 +109,7 @@ class BugReports
     }
 
     /**
-     * Get id
+     * Get id.
      *
      * @return guid
      */
@@ -110,9 +119,9 @@ class BugReports
     }
 
     /**
-     * Set errorCode
+     * Set errorCode.
      *
-     * @param integer $errorCode
+     * @param int $errorCode
      *
      * @return BugReports
      */
@@ -124,9 +133,9 @@ class BugReports
     }
 
     /**
-     * Get errorCode
+     * Get errorCode.
      *
-     * @return integer
+     * @return int
      */
     public function getErrorCode()
     {
@@ -134,7 +143,7 @@ class BugReports
     }
 
     /**
-     * Set type
+     * Set type.
      *
      * @param string $type
      *
@@ -148,7 +157,7 @@ class BugReports
     }
 
     /**
-     * Get type
+     * Get type.
      *
      * @return string
      */
@@ -158,7 +167,7 @@ class BugReports
     }
 
     /**
-     * Set subject
+     * Set subject.
      *
      * @param string $subject
      *
@@ -172,7 +181,7 @@ class BugReports
     }
 
     /**
-     * Get subject
+     * Get subject.
      *
      * @return string
      */
@@ -182,9 +191,9 @@ class BugReports
     }
 
     /**
-     * Set duplicate
+     * Set duplicate.
      *
-     * @param boolean $duplicate
+     * @param bool $duplicate
      *
      * @return BugReports
      */
@@ -196,9 +205,9 @@ class BugReports
     }
 
     /**
-     * Get duplicate
+     * Get duplicate.
      *
-     * @return boolean
+     * @return bool
      */
     public function getDuplicate()
     {
@@ -206,7 +215,7 @@ class BugReports
     }
 
     /**
-     * Set created
+     * Set created.
      *
      * @param \DateTime $created
      *
@@ -220,7 +229,7 @@ class BugReports
     }
 
     /**
-     * Get created
+     * Get created.
      *
      * @return \DateTime
      */
@@ -230,7 +239,7 @@ class BugReports
     }
 
     /**
-     * Set updated
+     * Set updated.
      *
      * @param \DateTime $updated
      *
@@ -244,7 +253,7 @@ class BugReports
     }
 
     /**
-     * Get updated
+     * Get updated.
      *
      * @return \DateTime
      */
@@ -254,7 +263,7 @@ class BugReports
     }
 
     /**
-     * Set createdBy
+     * Set createdBy.
      *
      * @param \AppBundle\Entity\Account $createdBy
      *
@@ -268,7 +277,7 @@ class BugReports
     }
 
     /**
-     * Get createdBy
+     * Get createdBy.
      *
      * @return \AppBundle\Entity\Account
      */
@@ -278,7 +287,7 @@ class BugReports
     }
 
     /**
-     * Set updatedBy
+     * Set updatedBy.
      *
      * @param \AppBundle\Entity\Account $updatedBy
      *
@@ -292,7 +301,7 @@ class BugReports
     }
 
     /**
-     * Get updatedBy
+     * Get updatedBy.
      *
      * @return \AppBundle\Entity\Account
      */

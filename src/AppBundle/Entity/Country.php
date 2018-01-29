@@ -1,16 +1,25 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Country
+ * Country.
  *
  * @ORM\Table(name="country")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\CountryRepository")
@@ -18,12 +27,12 @@ use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
  */
 class Country
 {
-    /**
+    /*
      * Hook SoftDeleteable behavior
      * updates deletedAt field
      */
     use SoftDeleteableEntity;
-    
+
     /**
      * @var string
      *
@@ -165,9 +174,9 @@ class Country
     private $updatedBy;
 
     /**
-     * @var Pages
+     * @var pages
      *
-     * Many Countries have Many Pages.
+     * Many Countries have Many Pages
      * @ORM\ManyToMany(targetEntity="Pages", inversedBy="countries")
      */
     private $pages;
@@ -179,7 +188,6 @@ class Country
      * @ORM\ManyToMany(targetEntity="SocialLink")
      */
     private $socialLinks;
-
 
     /**
      * @var Category
@@ -202,7 +210,6 @@ class Country
      */
     private $taxRate;
 
-
     public function __construct()
     {
         $this->pages = new ArrayCollection();
@@ -212,7 +219,7 @@ class Country
     }
 
     /**
-     * Get timezone
+     * Get timezone.
      *
      * @return \DateTimeZone
      */
@@ -222,7 +229,7 @@ class Country
     }
 
     /**
-     * Set dateDeleted
+     * Set dateDeleted.
      *
      * @param \DateTime $dateDeleted
      *
@@ -239,7 +246,7 @@ class Country
     }
 
     /**
-     * Set created
+     * Set created.
      *
      * @param \DateTime $created
      *
@@ -256,7 +263,7 @@ class Country
     }
 
     /**
-     * Set updated
+     * Set updated.
      *
      * @param \DateTime $updated
      *
@@ -278,7 +285,7 @@ class Country
     }
 
     /**
-     * Get id
+     * Get id.
      *
      * @return guid
      */
@@ -288,7 +295,7 @@ class Country
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
      *
@@ -297,14 +304,14 @@ class Country
     public function setName($name)
     {
         $this->name = $name;
-        
+
         $this->setSubdomain($name);
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */
@@ -314,7 +321,7 @@ class Country
     }
 
     /**
-     * Set hostname
+     * Set hostname.
      *
      * @param string $hostname
      *
@@ -328,7 +335,7 @@ class Country
     }
 
     /**
-     * Get hostname
+     * Get hostname.
      *
      * @return string
      */
@@ -338,7 +345,7 @@ class Country
     }
 
     /**
-     * Set subdomain
+     * Set subdomain.
      *
      * @param string $subdomain
      *
@@ -346,13 +353,13 @@ class Country
      */
     public function setSubdomain($subdomain)
     {
-        $this->subdomain = strtolower($subdomain.'.'.getenv('hostname'));
+        $this->subdomain = mb_strtolower($subdomain.'.'.getenv('hostname'));
 
         return $this;
     }
 
     /**
-     * Get subdomain
+     * Get subdomain.
      *
      * @return string
      */
@@ -362,7 +369,7 @@ class Country
     }
 
     /**
-     * Set defaultLocale
+     * Set defaultLocale.
      *
      * @param string $defaultLocale
      *
@@ -376,7 +383,7 @@ class Country
     }
 
     /**
-     * Get defaultLocale
+     * Get defaultLocale.
      *
      * @return string
      */
@@ -386,7 +393,7 @@ class Country
     }
 
     /**
-     * Set defaultLanguage
+     * Set defaultLanguage.
      *
      * @param string $defaultLanguage
      *
@@ -400,7 +407,7 @@ class Country
     }
 
     /**
-     * Get defaultLanguage
+     * Get defaultLanguage.
      *
      * @return string
      */
@@ -410,7 +417,7 @@ class Country
     }
 
     /**
-     * Set timezone
+     * Set timezone.
      *
      * @param string $timezone
      *
@@ -424,9 +431,9 @@ class Country
     }
 
     /**
-     * Set isEnabled
+     * Set isEnabled.
      *
-     * @param boolean $isEnabled
+     * @param bool $isEnabled
      *
      * @return Country
      */
@@ -438,9 +445,9 @@ class Country
     }
 
     /**
-     * Get isEnabled
+     * Get isEnabled.
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsEnabled()
     {
@@ -448,7 +455,7 @@ class Country
     }
 
     /**
-     * Get created
+     * Get created.
      *
      * @return \DateTime
      */
@@ -458,7 +465,7 @@ class Country
     }
 
     /**
-     * Get updated
+     * Get updated.
      *
      * @return \DateTime
      */
@@ -468,7 +475,7 @@ class Country
     }
 
     /**
-     * Set taxRate
+     * Set taxRate.
      *
      * @param float $taxRate
      *
@@ -482,7 +489,7 @@ class Country
     }
 
     /**
-     * Get taxRate
+     * Get taxRate.
      *
      * @return float
      */
@@ -492,7 +499,7 @@ class Country
     }
 
     /**
-     * Set defaultCurrency
+     * Set defaultCurrency.
      *
      * @param \AppBundle\Entity\Currency $defaultCurrency
      *
@@ -506,7 +513,7 @@ class Country
     }
 
     /**
-     * Get defaultCurrency
+     * Get defaultCurrency.
      *
      * @return \AppBundle\Entity\Currency
      */
@@ -516,7 +523,7 @@ class Country
     }
 
     /**
-     * Add currency
+     * Add currency.
      *
      * @param \AppBundle\Entity\Currency $currency
      *
@@ -530,7 +537,7 @@ class Country
     }
 
     /**
-     * Remove currency
+     * Remove currency.
      *
      * @param \AppBundle\Entity\Currency $currency
      */
@@ -540,7 +547,7 @@ class Country
     }
 
     /**
-     * Get currencies
+     * Get currencies.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -550,7 +557,7 @@ class Country
     }
 
     /**
-     * Add contact
+     * Add contact.
      *
      * @param \AppBundle\Entity\Account $contact
      *
@@ -564,7 +571,7 @@ class Country
     }
 
     /**
-     * Remove contact
+     * Remove contact.
      *
      * @param \AppBundle\Entity\Account $contact
      */
@@ -574,7 +581,7 @@ class Country
     }
 
     /**
-     * Get contacts
+     * Get contacts.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -584,7 +591,7 @@ class Country
     }
 
     /**
-     * Set createdBy
+     * Set createdBy.
      *
      * @param \AppBundle\Entity\Account $createdBy
      *
@@ -598,7 +605,7 @@ class Country
     }
 
     /**
-     * Get createdBy
+     * Get createdBy.
      *
      * @return \AppBundle\Entity\Account
      */
@@ -608,7 +615,7 @@ class Country
     }
 
     /**
-     * Set updatedBy
+     * Set updatedBy.
      *
      * @param \AppBundle\Entity\Account $updatedBy
      *
@@ -622,7 +629,7 @@ class Country
     }
 
     /**
-     * Get updatedBy
+     * Get updatedBy.
      *
      * @return \AppBundle\Entity\Account
      */
@@ -632,7 +639,7 @@ class Country
     }
 
     /**
-     * Add socialLink
+     * Add socialLink.
      *
      * @param \AppBundle\Entity\SocialLink $socialLink
      *
@@ -646,7 +653,7 @@ class Country
     }
 
     /**
-     * Remove socialLink
+     * Remove socialLink.
      *
      * @param \AppBundle\Entity\SocialLink $socialLink
      */
@@ -656,7 +663,7 @@ class Country
     }
 
     /**
-     * Get socialLinks
+     * Get socialLinks.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -666,7 +673,7 @@ class Country
     }
 
     /**
-     * Add category
+     * Add category.
      *
      * @param \AppBundle\Entity\Category $category
      *
@@ -680,7 +687,7 @@ class Country
     }
 
     /**
-     * Remove category
+     * Remove category.
      *
      * @param \AppBundle\Entity\Category $category
      */
@@ -690,7 +697,7 @@ class Country
     }
 
     /**
-     * Get categories
+     * Get categories.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -700,7 +707,7 @@ class Country
     }
 
     /**
-     * Set address
+     * Set address.
      *
      * @param \AppBundle\Entity\Address $address
      *
@@ -714,7 +721,7 @@ class Country
     }
 
     /**
-     * Get address
+     * Get address.
      *
      * @return \AppBundle\Entity\Address
      */
@@ -724,7 +731,7 @@ class Country
     }
 
     /**
-     * Set infoMail
+     * Set infoMail.
      *
      * @param string $infoMail
      *
@@ -738,7 +745,7 @@ class Country
     }
 
     /**
-     * Get infoMail
+     * Get infoMail.
      *
      * @return string
      */
@@ -748,7 +755,7 @@ class Country
     }
 
     /**
-     * Set phone
+     * Set phone.
      *
      * @param string $phone
      *
@@ -762,7 +769,7 @@ class Country
     }
 
     /**
-     * Get phone
+     * Get phone.
      *
      * @return string
      */
@@ -772,7 +779,7 @@ class Country
     }
 
     /**
-     * Add page
+     * Add page.
      *
      * @param \AppBundle\Entity\Pages $page
      *
@@ -786,7 +793,7 @@ class Country
     }
 
     /**
-     * Remove page
+     * Remove page.
      *
      * @param \AppBundle\Entity\Pages $page
      */
@@ -796,7 +803,7 @@ class Country
     }
 
     /**
-     * Get pages
+     * Get pages.
      *
      * @return \Doctrine\Common\Collections\Collection
      */

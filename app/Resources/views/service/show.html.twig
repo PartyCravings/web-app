@@ -1,400 +1,353 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}
-	{{ service.name }}
-{% endblock %}
-
-{% block description %}
-	{{ service.serviceDescriptions.description|striptags|easyadmin_truncate(170) }}
-{% endblock %}
-
-{% block inlinedCSS %}
-	{{ parent() }}
-	<style type="text/css">
-		#sticky-service-form{
-			height: 85.5vh;
-			}
-	</style>
-{% endblock %}
-
-{% block breadcrumbs %}
-{% endblock %}
-
 {% block content %}
-	{% if service.uploadedFiles is not empty %}
-			<div 
-				id="slider-top" 
-				style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:380px;overflow:hidden;visibility:hidden;">
-				{# Loading Screen #}
-				<div 
-					class="jssorl-009-spin" 
-					data-u="loading" 
-					style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
-					<img 
-						src="{{ asset('build/images/spin.svg') }}" 
-						style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" 
-						/>
-				</div>
-				{# Slides #}
-				<div 
-					data-u="slides" 
-					style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:380px;overflow:hidden;">
-					<div class="image"><img
-									alt="PartyCravings Inc."
-									src="{{ asset('images/logoedit.png') }}"
-									/></div>
-					{% for file in service.uploadedFiles %}
-						<div class="image">
-							{% if file.mimetype matches '/^image.*/' %}
-								<img
-									class="lazy" 
-									alt="{{ file.originalName }}"
-									src="data:image/svg+xml;base64, {{ file.silhouette|base64encode }}"
-									data-src="{{ vich_uploader_asset(file, 'actualFile') }}"
-									/>
-							{% elseif file.mimetype matches '/^video.*/' or '/^audio.*/' %}
-								<div 
-									class="ui embed"
-									data-placeholder="{{ asset('images/demo-4.jpg') }}" 
-									data-url="{{ vich_uploader_asset(file, 'actualFile') }}">
-								</div>
-							{% endif %}
-						</div>
-					{% endfor %}
-				</div>
-				{# Bullet Navigator #}
-				<div 
-					class="jssorb057" 
-					data-autocenter="1" 
-					data-scale="0.5" 
-					data-scale-bottom="0.75" 
-					data-u="navigator" 
-					style="position:absolute;bottom:12px;right:12px;">
-					<div 
-						class="i" 
-						data-u="prototype" 
-						style="width:16px;height:16px;">
-						<svg style="position:absolute;top:0;left:0;width:100%;height:100%;" viewbox="0 0 16000 16000">
-							<circle class="b" cx="8000" cy="8000" r="5000"></circle>
-						</svg>
-					</div>
-				</div>
-				{# Arrow Navigator #}
-				<div 
-					class="jssora073" 
-					data-autocenter="2" 
-					data-scale="0.75" 
-					data-scale-left="0.75" 
-					data-u="arrowleft" 
-					style="width:50px;height:50px;top:0px;left:30px;">
-					<svg style="position:absolute;top:0;left:0;width:100%;height:100%;" viewbox="0 0 16000 16000">
-						<path class="a" d="M4037.7,8357.3l5891.8,5891.8c100.6,100.6,219.7,150.9,357.3,150.9s256.7-50.3,357.3-150.9 l1318.1-1318.1c100.6-100.6,150.9-219.7,150.9-357.3c0-137.6-50.3-256.7-150.9-357.3L7745.9,8000l4216.4-4216.4 c100.6-100.6,150.9-219.7,150.9-357.3c0-137.6-50.3-256.7-150.9-357.3l-1318.1-1318.1c-100.6-100.6-219.7-150.9-357.3-150.9 s-256.7,50.3-357.3,150.9L4037.7,7642.7c-100.6,100.6-150.9,219.7-150.9,357.3C3886.8,8137.6,3937.1,8256.7,4037.7,8357.3 L4037.7,8357.3z">
-						</path>
-					</svg>
-				</div>
-				<div 
-					class="jssora073" 
-					data-autocenter="2" 
-					data-scale="0.75" 
-					data-scale-right="0.75" 
-					data-u="arrowright" 
-					style="width:50px;height:50px;top:0px;right:30px;">
-					<svg style="position:absolute;top:0;left:0;width:100%;height:100%;" viewbox="0 0 16000 16000">
-						<path class="a" d="M11962.3,8357.3l-5891.8,5891.8c-100.6,100.6-219.7,150.9-357.3,150.9s-256.7-50.3-357.3-150.9 L4037.7,12931c-100.6-100.6-150.9-219.7-150.9-357.3c0-137.6,50.3-256.7,150.9-357.3L8254.1,8000L4037.7,3783.6 c-100.6-100.6-150.9-219.7-150.9-357.3c0-137.6,50.3-256.7,150.9-357.3l1318.1-1318.1c100.6-100.6,219.7-150.9,357.3-150.9 s256.7,50.3,357.3,150.9l5891.8,5891.8c100.6,100.6,150.9,219.7,150.9,357.3C12113.2,8137.6,12062.9,8256.7,11962.3,8357.3 L11962.3,8357.3z">
-						</path>
-					</svg>
-				</div>
-			</div>
-	{% endif %}
-	<div class="ui internally celled three column grid" style="padding-top: 10px;">
-		{% set images = 0 %}
-		{% set videos = 0 %}
-		{% set audios = 0 %}
-		{% for file in service.uploadedFiles %}
-			{% if file.mimetype matches '/^image.*/' %}
-				{% set images = images + 1 %}
-			{% elseif file.mimetype matches '/^video.*/' %}
-				{% set videos = videos + 1 %}
-			{% elseif file.mimetype matches '/^audio.*/' %} 
-				{% set audios = audios + 1 %}
-			{% endif %}
-		{% endfor %}
-		<div class="ui center aligned column">
-			<span><i class="big orange photo icon"></i>{{ images }}</span>
-		</div>
-		<div class="ui center aligned column">
-			<span><i class="big orange music icon"></i>{{ audios }}</span>
-		</div>
-		<div class="ui center aligned column">
-			<span><i class="big orange film icon"></i>{{ videos }}</span>
-		</div>
-	</div>
-	<div class="ui center aligned segment" style="background-color: #fff7e9;">
-		{{ wo_render_breadcrumbs({ viewTemplate: "snippets/breadcrumbs.html.twig" }) }}	
-	</div>
-	<h2 style="text-align: center;">{{ service }}</h2>
-	<h3 style="text-align: center;">{{ 'from'|trans }} {{ service.address ?: service.vendor.address }}</h3>
-	<div class="ui divided two column grid" style="padding-top: 30px;">
-		<div class="ui right aligned column">
-			<span class="ui star rating" data-rating="{{ service.averageRating }}" data-max-rating="5"></span>&nbsp;
-			<span>
-				<b>{{ service.countRating }} {{ 'REVIEWS'|trans }}</b>
-			</span>
-		</div>
-		<div class="ui left aligned column">
-			<h4>{{ recentParties|length }} {{ 'VERIFIED BOOKINGS'|trans }}</h4>
-		</div>
-	</div>
-	<div class="ui segment" style="background-color: #fff7e9;">
-		<div class="ui grid">
-			<div class="ui center aligned five wide column">
-				<h4>{{ 'MEMBER SINCE'|trans }} {{ service.vendor ? service.vendor.created : service.created|date('Y') }}</h4>
-			</div>
-			<div class="ui center aligned six wide column">
-				<h4>{{ service.serviceDescriptions.dailyPrice|currency }} {{ 'PER DAY'|trans }}</h4>
-			</div>
-			<div class="ui center aligned five wide column">
-				<h4>{{ 'ONLINE PAYMENTS'|trans }}</h4>
-			</div>
-		</div>
-	</div>
-	<div class="ui stackable grid" style="padding-top: 10px;">
-		<div class="ui one wide column"></div>
-		<div class="ui ten wide computer fourteen wide mobile tablet column">
-			{% for feature in service.features %}
-				<div class="row">
-					<i class="orange {{ feature.icon}} icon"></i>
-					<span>{{ feature.name }}</span>
-				</div>
-			{% endfor %}
-			<div class="ui accordion" style="padding-top: 15px;">
-				<div class="ui active orange dividing header title">
-					<h3>{{ service.name }} {{ 'pictures and description'|trans }}</h3>
-				</div>
-				<div class="active content">
-					{{ service.serviceDescriptions.description|md2html }}
-				</div>
-				<div class="ui active orange dividing header title">
-					<h3>{{ 'Location'|trans }}</h3>
-				</div>
-				<div class="active content">
-					<div id="map" class="ui vertical segment" style="display: block;">
-						{{ ivory_google_map_container(map) }}
-										
-						{% jshrink %}
-							{{ ivory_google_map_css(map) }}
-							{{ ivory_google_map_js(map) }}
-							{{ ivory_google_api([map]) }}
-						{% endjshrink %}
-					</div>
-				</div>
-				<div class="ui active orange dividing header title">
-					<h3>{{ 'Customer Reviews'|trans }}</h3>
-				</div>
-				<div class="content">
-					<div class="ui comments">
-						{% for review in service.reviews %}
-							<div class="comment">
-								<a class="avatar">
-									<img 
-	                                    alt="{{ review.createdBy }}" 
-	                                    class="ui avatar image" 
-	                                    src="{{ preload(gravatar(review.createdBy.email, null, null, null, true), {nopush: true}) }}" 
-	                                    />
-								</a>
-								<div class="content">
-									<a class="author">{{ review.createdBy }}</a>
-									<div class="metadata">
-										<div 
-											class="ui star rating" 
-											data-rating="{{ review.rating }}" 
-											data-max-rating="5"></div>
-									</div>
-									<div class="text">
-										<p>{{ review.content|md2html }}</p>
-									</div>
-								</div>
-							</div>
-						{% endfor %}
-						<form class="ui reply form">
-							<div class="field">
-								<div id="rate-service" class="ui massive heart rating" name="rating"  data-max-rating="5">
-								</div>
-								<br/>
-								<textarea name="content"></textarea>
-							</div>
-							<button 
-								name="add review" 
-								class="ui primary submit labeled icon button">
-								<i class="icon edit"></i>{{ 'Add Review'|trans }}
-							</button>
-						</form>
-					</div>
-				</div>
-				<div class="ui active orange dividing header title">
-					<h3>Notable Events</h3>
-				</div>
-				<div class="content">
-					{% if recentParties is not empty %}
-					<div class="ui four cards">
-						{% for party in recentParties %}
-							<div class="green card">
-								{% set file =  party.uploadedFiles %}
-									{% if file is not null %}
-										<div class="image">
-											{% if file.mimetype matches '/^image.*/' %}
-												<img
-													class="lazy" 
-													alt="{{ file.originalName }}"
-													src="data:image/svg+xml;base64, {{ file.silhouette|base64encode }}"
-													data-src="{{ vich_uploader_asset(file, 'actualFile') }}"
-													/>
-											{% elseif file.mimetype matches '/^video.*/' or '/^audio.*/' %}
-												<div 
-													class="ui embed"
-													data-placeholder="{{ asset('images/demo-4.jpg') }}" 
-													data-url="{{ vich_uploader_asset(file, 'actualFile') }}">
-												</div>
-											{% endif %}
-										</div>
-									{% endif %}
-									<div class="extra aligned center">
-										<a href="{{ url('party_show', {'slug':party.slug})}}">
-											<h4>{{ party.title }}</h4>
-										</a>
-		                            	{% if party.createdBy is not null %}<span>by {{ party.createdBy }}</span>{% endif %}
-		                            	<time datetime="{{ party.created|date('Y-m-d') }}">{{ party.created|date('F j, Y') }}</time>
-												
-									</div>
-							</div>
-						{% endfor %}
-					</div>
-				{% else %}
-					{{ 'This party has not been booked yet'|trans }}
-				{% endif %}
-				</div>
-							<div class="ui active orange dividing header title">
-									<h3>Rates</h3>
-							</div>
-							<div class="content">
-								<h4>{{ service.serviceDescriptions.dailyPrice|currency }} {{ 'PER DAY'|trans }}</h4>
-							</div>
-							{% set similarServices = [] %}
-
-							{% for likeService in likeServices %}
-								{% if likeService.id != service.id %}
-									{% set similarServices = similarServices|merge([likeService]) %}
-								{% endif %}
-							{% endfor %}
-							{% if similarServices is not empty %}
-							<div class="ui active orange dividing header title">
-									<h3>Similar Services</h3>
-							</div>
-							<div class="content">
-								<div class="ui three cards">
-									{% for similarService in similarServices|slice(0,5) %}
-										<div class="ui green card">
-											{% set file =  similarService.uploadedFiles.0 %}
-										{% if file is not null %}
-											<div class="image">
-												{% if file.mimetype matches '/^image.*/' %}
-													<img
-														class="lazy" 
-														alt="{{ file.originalName }}"
-														src="data:image/svg+xml;base64, {{ file.silhouette|base64encode }}"
-														data-src="{{ vich_uploader_asset(file, 'actualFile') }}"
-														/>
-												{% elseif file.mimetype matches '/^video.*/' or '/^audio.*/' %}
-													<div 
-														class="ui embed"
-														data-placeholder="{{ asset('images/demo-4.jpg') }}" 
-														data-url="{{ vich_uploader_asset(file, 'actualFile') }}">
-													</div>
-												{% endif %}
-											</div>
-										{% endif %}
-										<div class="content">
-											<div class="header">
-												<a href="{{ url('service_show', {'slug':similarService.slug})}}">
-													<h2>{{ similarService.name}}</h2>
-												</a>
-											</div>
-											<div class="meta">
-												<div 
-													style="padding-top:10px;" 
-													class="ui star rating" 
-													data-rating="{{ similarService.averageRating }}" 
-													data-max-rating="5">
-												</div>
-												<div>{{ similarService.countRating }} {{ 'customer review(s)'|trans }}</div>
-											</div>
-											<div class="description">
-												<h5>{{ similarService.serviceDescriptions.description|striptags|easyadmin_truncate(30) }}</h5>
-											{% for feature in similarService.features %}
-											<div class="row">
-												<i class="orange {{ feature.icon }} icon"></i>
-												<span>{{ feature.name }}</span>
-											</div>
-										{% endfor %}
-										  </div>
-										</div>
-										<div class="extra content">
-										  <span class="right floated">
-											<a class="ui circular primary button" href="{{ url('service_show', {'slug':similarService.slug})}}">{{ 'More details'|trans }}</a>
-										  </span>
-										  <span class="left floated"><i class="money icon"></i>
-										  	
-										  		{{ similarService.serviceDescriptions.dailyPrice|currency }} {{ 'Daily'|trans }}</span>
-										</div>
-										</div>
-									{% endfor %}
-								</div>
-							</div>
-							{% endif %}
-						</div>
-					</div>
-					<div class="ui four wide computer sixteen wide mobile tablet column">
-						<div class="ui segment" id="sticky-service-form" style="height: 85.5vh;">
-							<form class="ui form">
-								<div class="field">
-									<label>Capacity</label> <input name="capacity" type="number">
-								</div>
-								<div class="field">
-									<label>Example</label> <select class="ui dropdown" name="dropdown">
-										<option value="">
-											Select
-										</option>
-										<option value="male">
-											Choice 1
-										</option>
-										<option value="female">
-											Choice 2
-										</option>
-									</select>
-								</div>
-								<div class="inline field">
-									<div class="ui checkbox">
-										<input name="checkbox" type="checkbox"> <label>Checkbox</label>
-									</div>
-								</div>
-								<div class="ui orange submit button">
-									Submit
-								</div>
-								<div class="ui error message"></div>
-							</form>
-						</div>
-					</div>
-					<div class="ui one wide column"></div>
-	</div>
+    {% if service.uploadedFiles is not empty %}
+        <div id="slider-top" class="service slider top">
+            {# Loading Screen #}
+            <div class="jssorl-009-spin service slider loading" data-u="loading">
+                <img alt="loading" class="service slider image" src="{{ asset('build/images/spin.svg') }}" />
+            </div>
+            {# Slides #}
+            <div data-u="slides" class="service slider slides">
+                {% for file in service.uploadedFiles %}
+                    <div class="image">
+                        {% if file.mimetype matches '/^image.*/' %}
+                            <img
+                                class="lazy" 
+                                alt="{{ file.originalName }}"
+                                src="{{ asset('images/logoedit.png') }}"
+                                data-src="{{ vich_uploader_asset(file, 'actualFile') }}"
+                                />
+                        {% elseif file.mimetype matches '/^video.*/' or '/^audio.*/' %}
+                            <div 
+                                class="ui embed"
+                                data-placeholder="{{ asset('images/logoedit.png') }}" 
+                                data-url="{{ vich_uploader_asset(file, 'actualFile') }}">
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+            {# Bullet Navigator #}
+            <div 
+                class="jssorb057 service slider bullet" 
+                data-autocenter="1" 
+                data-scale="0.5" 
+                data-scale-bottom="0.75" 
+                data-u="navigator">
+                <div 
+                    class="i service slider circle" 
+                    data-u="prototype">
+                    <svg class="service slider svg circle" viewbox="0 0 16000 16000">
+                        <circle class="b" cx="8000" cy="8000" r="5000"></circle>
+                    </svg>
+                </div>
+            </div>
+            {# Arrow Navigator #}
+            <div 
+                class="jssora073 service slider arrow left" 
+                data-autocenter="2" 
+                data-scale="0.75" 
+                data-scale-left="0.75" 
+                data-u="arrowleft">
+                <svg class="service slider svg arrow left" viewbox="0 0 16000 16000">
+                    <path class="a" d="M4037.7,8357.3l5891.8,5891.8c100.6,100.6,219.7,150.9,357.3,150.9s256.7-50.3,357.3-150.9 l1318.1-1318.1c100.6-100.6,150.9-219.7,150.9-357.3c0-137.6-50.3-256.7-150.9-357.3L7745.9,8000l4216.4-4216.4 c100.6-100.6,150.9-219.7,150.9-357.3c0-137.6-50.3-256.7-150.9-357.3l-1318.1-1318.1c-100.6-100.6-219.7-150.9-357.3-150.9 s-256.7,50.3-357.3,150.9L4037.7,7642.7c-100.6,100.6-150.9,219.7-150.9,357.3C3886.8,8137.6,3937.1,8256.7,4037.7,8357.3 L4037.7,8357.3z">
+                    </path>
+                </svg>
+            </div>
+            <div 
+                class="jssora073 service slider arrow right" 
+                data-autocenter="2" 
+                data-scale="0.75" 
+                data-scale-right="0.75" 
+                data-u="arrowright">
+                <svg class="service slider svg arrow right" viewbox="0 0 16000 16000">
+                    <path class="a" d="M11962.3,8357.3l-5891.8,5891.8c-100.6,100.6-219.7,150.9-357.3,150.9s-256.7-50.3-357.3-150.9 L4037.7,12931c-100.6-100.6-150.9-219.7-150.9-357.3c0-137.6,50.3-256.7,150.9-357.3L8254.1,8000L4037.7,3783.6 c-100.6-100.6-150.9-219.7-150.9-357.3c0-137.6,50.3-256.7,150.9-357.3l1318.1-1318.1c100.6-100.6,219.7-150.9,357.3-150.9 s256.7,50.3,357.3,150.9l5891.8,5891.8c100.6,100.6,150.9,219.7,150.9,357.3C12113.2,8137.6,12062.9,8256.7,11962.3,8357.3 L11962.3,8357.3z">
+                    </path>
+                </svg>
+            </div>
+        </div>
+    {% endif %}
+    <div class="ui internally celled three column grid service slider tab">
+        {% set audios, images, videos = 0, 0, 0 %}
+            {% for file in service.uploadedFiles %}
+                {% if file.mimetype matches '/^image.*/' %}
+                    {% set images = images + 1 %}
+                {% elseif file.mimetype matches '/^video.*/' %}
+                    {% set videos = videos + 1 %}
+                {% elseif file.mimetype matches '/^audio.*/' %} 
+                    {% set audios = audios + 1 %}
+                {% endif %}
+            {% endfor %}
+        <div class="ui center aligned column"><i class="big orange photo icon"></i>{{ images }}</div>
+        <div class="ui center aligned column"><i class="big orange music icon"></i>{{ audios }}</div>
+        <div class="ui center aligned column"><i class="big orange film icon"></i>{{ videos }}</div>
+    </div>
+    <div class="ui center aligned segment service breadcrumbs">
+        {{ wo_render_breadcrumbs({ viewTemplate: "snippets/breadcrumbs.html.twig" }) }} 
+    </div>
+    <h2 class="service name">{{ service }}</h2>
+    <h3 class="service name">{{ 'from '|trans }}{{ service.address ?: service.vendor.address }}</h3>
+    <div class="ui divided two column grid service rating">
+        <div class="ui right aligned column">
+            <span class="ui star rating" data-rating="{{ service.averageRating }}" data-max-rating="5"></span>&nbsp;
+            <span><b>{{ service.countRating }} {{ 'REVIEWS'|trans }}</b></span>
+        </div>
+        <div class="ui left aligned column"><h4>{{ recentParties|length }}{{ ' VERIFIED BOOKINGS'|trans }}</h4></div>
+    </div>
+    <div class="ui segment service breadcrumbs">
+        <div class="ui grid">
+            <div class="ui center aligned five wide column">
+                <h4>{{ 'MEMBER SINCE '|trans }}{{ service.vendor ? service.vendor.created : service.created|date('Y') }}</h4>
+            </div>
+            <div class="ui center aligned six wide column">
+                <h4>{{ service.serviceDescriptions.dailyPrice|currency }}{{ ' PER DAY'|trans }}</h4>
+            </div>
+            <div class="ui center aligned five wide column"><h4>{{ 'ONLINE PAYMENTS'|trans }}</h4></div>
+        </div>
+    </div>
+    <div class="ui stackable grid service features">
+        <div class="ui one wide column"></div>
+        <div class="ui ten wide computer fourteen wide mobile tablet column">
+            {% for feature in service.features %}
+                <div class="row"><i class="orange {{ feature.icon}} icon"></i><span>{{ feature.name }}</span></div>
+            {% endfor %}
+            <div class="ui accordion service accordions top">
+                <div class="ui active orange dividing header title">
+                    <h3>{{ service.name }}{{ ' pictures and description'|trans }}</h3>
+                </div>
+                <div class="active content">
+                    {{ service.serviceDescriptions.description|md2html }}
+                </div>
+                <div class="ui active orange dividing header title">
+                    <h3>{{ 'Location'|trans }}</h3>
+                </div>
+                <div class="active content">
+                    <div id="map" class="ui vertical segment">
+                        {{ ivory_google_map_container(map) }}                                       
+                        {% jshrink %}
+                            {{ ivory_google_map_css(map) }}
+                            {{ ivory_google_map_js(map) }}
+                            {{ ivory_google_api([map]) }}
+                        {% endjshrink %}
+                    </div>
+                </div>
+                <div class="ui active orange dividing header title">
+                    <h3>{{ 'Customer Reviews'|trans }}</h3>
+                </div>
+                <div class="content">
+                    <div class="ui comments">
+                        {% for review in service.reviews %}
+                            <div class="comment">
+                                <a class="avatar">
+                                    <img 
+                                        alt="{{ review.createdBy }}" 
+                                        class="ui avatar image" 
+                                        src="{{ preload(gravatar(review.createdBy.email, null, null, null, true), {nopush: true}) }}" 
+                                        />
+                                </a>
+                                <div class="content">
+                                    <a class="author">{{ review.createdBy }}</a>
+                                    <div class="metadata">
+                                        <div 
+                                            class="ui star rating" 
+                                            data-rating="{{ review.rating }}" 
+                                            data-max-rating="5"></div>
+                                    </div>
+                                    <div class="text">
+                                        <p>{{ review.content|md2html }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        <form class="ui reply form">
+                            <div class="field">
+                                <div id="rate-service" class="ui massive heart rating" name="rating"  data-max-rating="5">
+                                </div>
+                                <br/>
+                                <textarea name="content"></textarea>
+                            </div>
+                            <button 
+                                name="add review" 
+                                class="ui primary submit labeled icon button">
+                                <i class="icon edit"></i>{{ 'Add Review'|trans }}
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="ui active orange dividing header title">
+                    <h3>Notable Events</h3>
+                </div>
+                <div class="content">
+                    {% if recentParties is not empty %}
+                    <div class="ui four cards">
+                        {% for party in recentParties %}
+                            <div class="green card">
+                                {% set file =  party.uploadedFiles %}
+                                    {% if file is not null %}
+                                        <div class="image">
+                                            {% if file.mimetype matches '/^image.*/' %}
+                                                <img
+                                                    class="lazy" 
+                                                    alt="{{ file.originalName }}"
+                                                    src="{{ asset('images/logoedit.png') }}"
+                                                    data-src="{{ vich_uploader_asset(file, 'actualFile') }}"
+                                                    />
+                                            {% elseif file.mimetype matches '/^video.*/' or '/^audio.*/' %}
+                                                <div 
+                                                    class="ui embed"
+                                                    data-placeholder="{{ asset('images/logoedit.png') }}" 
+                                                    data-url="{{ vich_uploader_asset(file, 'actualFile') }}">
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    {% endif %}
+                                    <div class="extra aligned center">
+                                        <a href="{{ url('party_show', {'slug':party.slug})}}">
+                                            <h4>{{ party.title }}</h4>
+                                        </a>
+                                        {% if party.createdBy is not null %}
+                                            <span>by {{ party.createdBy }}</span>
+                                        {% endif %}
+                                        <time datetime="{{ party.created|date('Y-m-d') }}">
+                                            {{ party.created|date('F j, Y') }}
+                                        </time>
+                                                
+                                    </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ 'This party has not been booked yet'|trans }}
+                {% endif %}
+                </div>
+                <div class="ui active orange dividing header title">
+                    <h3>Rates</h3>
+                </div>
+                <div class="content">
+                    <h4>{{ service.serviceDescriptions.dailyPrice|currency }}{{ ' PER DAY'|trans }}</h4>
+                </div>
+                    {% set similarServices = [] %}
+                        {% for likeService in likeServices %}
+                            {% if likeService.id != service.id %}
+                                {% set similarServices = similarServices|merge([likeService]) %}
+                            {% endif %}
+                        {% endfor %}
+                        {% if similarServices is not empty %}
+                            <div class="ui active orange dividing header title">
+                                <h3>Similar Services</h3>
+                            </div>
+                            <div class="content">
+                                <div class="ui three cards">
+                                    {% for similarService in similarServices|slice(0,5) %}
+                                    <div class="ui green card">
+                                        {% set file =  similarService.uploadedFiles.0 %}
+                                        {% if file is not null %}
+                                            <div class="image">
+                                                {% if file.mimetype matches '/^image.*/' %}
+                                                    <img
+                                                        class="lazy" 
+                                                        alt="{{ file.originalName }}"
+                                                        src="{{ asset('images/logoedit.png') }}"
+                                                        data-src="{{ vich_uploader_asset(file, 'actualFile') }}" />
+                                                {% elseif file.mimetype matches '/^video.*/' or '/^audio.*/' %}
+                                                    <div 
+                                                        class="ui embed"
+                                                        data-placeholder="{{ asset('images/logoedit.png') }}" 
+                                                        data-url="{{ vich_uploader_asset(file, 'actualFile') }}">
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        {% endif %}
+                                        <div class="content">
+                                            <div class="header">
+                                                <a href="{{ url('service_show', {'slug':similarService.slug})}}">
+                                                    <h2>{{ similarService.name}}</h2>
+                                                </a>
+                                            </div>
+                                            <div class="meta">
+                                                <div 
+                                                    class="ui star rating service features" 
+                                                    data-rating="{{ similarService.averageRating }}" 
+                                                    data-max-rating="5">
+                                                </div>
+                                                <div>
+                                                    {{ similarService.countRating }}{{ ' customer review(s)'|trans }}
+                                                </div>
+                                            </div>
+                                            <div class="description">
+                                                <h5>{{ similarService.serviceDescriptions.description|striptags|easyadmin_truncate(30) }}
+                                                </h5>
+                                                {% for feature in similarService.features %}
+                                                    <div class="row">
+                                                        <i class="orange {{ feature.icon }} icon"></i>
+                                                        {{ feature.name }}
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="extra content">
+                                            <span class="right floated">
+                                                <a class="ui circular primary button" href="{{ url('service_show', {'slug':similarService.slug})}}">{{ 'More details'|trans }}</a>
+                                            </span>
+                                            <span class="left floated">
+                                                <i class="money icon"></i>
+                                                {{ similarService.serviceDescriptions.dailyPrice|currency }}
+                                                {{ ' Daily'|trans }}
+                                            </span>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="ui four wide computer sixteen wide mobile tablet column">
+                <div class="ui segment service form" id="sticky-service-form">
+                    <form class="ui form">
+                        <div class="field">
+                            <label>Capacity</label>
+                            <input name="capacity" type="number"/>
+                        </div>
+                        <div class="field">
+                            <label>Example</label>
+                            <select class="ui dropdown" name="dropdown">
+                                <option value="">
+                                    Select
+                                </option>
+                                <option value="male">
+                                    Choice 1
+                                </option>
+                                <option value="female">
+                                    Choice 2
+                                </option>
+                            </select>
+                        </div>
+                        <div class="inline field">
+                            <div class="ui checkbox">
+                                <input name="checkbox" type="checkbox"/>
+                                <label>Checkbox</label>
+                            </div>
+                        </div>
+                        <div class="ui orange submit button">
+                            Submit
+                        </div>
+                        <div class="ui error message"></div>
+                    </form>
+                </div>
+            </div>
+        <div class="ui one wide column"></div>
+    </div>
 
 {% endblock %}
 
 {% block javascripts %}
-	{{ parent() }}
-	{% if service.uploadedFiles is not empty %}
-		<script src="{{ preload(asset('build/slider.js'), {nopush: true}) }}"></script>
-		<script type="text/javascript">
-			$('.ui.accordion').accordion();
+    {{ parent() }}
+    {% if service.uploadedFiles is not empty %}
+        <script src="{{ preload(asset('build/slider.js'), {nopush: true}) }}"></script>
+        <script type="text/javascript">
+            $('.ui.accordion').accordion();
             var options = {
               $AutoPlay: 1,
               $SlideWidth: 720,
@@ -411,19 +364,19 @@
             var slider = new $JssorSlider$("slider-top", options);
 
             var win_width = $(window).width();
-			var win_height = $(window).height();
-			var MAX_WIDTH = (win_height < win_width) ? win_width : win_height;
+            var win_height = $(window).height();
+            var MAX_WIDTH = (win_height < win_width) ? win_width : win_height;
 
-			function ScaleSlider2() {
-			  var containerElement = slider.$Elmt.parentNode;
-			  var containerWidth = containerElement.clientWidth;
-			  if (containerWidth) {
-			    var expectedWidth = Math.min(MAX_WIDTH || containerWidth, containerWidth);
-			    slider.$ScaleWidth(expectedWidth);
-			  } else {
-			    window.setTimeout(ScaleSlider2, 30);
-			  }
-			}
+            function ScaleSlider2() {
+              var containerElement = slider.$Elmt.parentNode;
+              var containerWidth = containerElement.clientWidth;
+              if (containerWidth) {
+                var expectedWidth = Math.min(MAX_WIDTH || containerWidth, containerWidth);
+                slider.$ScaleWidth(expectedWidth);
+              } else {
+                window.setTimeout(ScaleSlider2, 30);
+              }
+            }
 
             ScaleSlider2();
 
@@ -431,6 +384,9 @@
             $(window).bind("resize", ScaleSlider2);
             $(window).bind("orientationchange", ScaleSlider2);
             $('#rate-service').rating();
-		</script>
-	{% endif %}
+        </script>
+    {% endif %}
 {% endblock %}
+{% block title %}{{ service.name }}{% endblock %}
+{% block description %}{{ service.serviceDescriptions.description|striptags|easyadmin_truncate(170) }}{% endblock %}
+{% block breadcrumbs %}{% endblock %}

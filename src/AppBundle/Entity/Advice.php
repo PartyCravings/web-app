@@ -1,12 +1,21 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Advice
+ * Advice.
  *
  * @ORM\Table(name="advice")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\AdviceRepository")
@@ -67,7 +76,7 @@ class Advice
     }
 
     /**
-     * Get id
+     * Get id.
      *
      * @return guid
      */
@@ -77,7 +86,7 @@ class Advice
     }
 
     /**
-     * Set content
+     * Set content.
      *
      * @param string $content
      *
@@ -91,7 +100,7 @@ class Advice
     }
 
     /**
-     * Get content
+     * Get content.
      *
      * @return string
      */
@@ -101,7 +110,7 @@ class Advice
     }
 
     /**
-     * Set startDate
+     * Set startDate.
      *
      * @param \DateTime $startDate
      *
@@ -115,7 +124,7 @@ class Advice
     }
 
     /**
-     * Get startDate
+     * Get startDate.
      *
      * @return \DateTime
      */
@@ -125,7 +134,7 @@ class Advice
     }
 
     /**
-     * Set endDate
+     * Set endDate.
      *
      * @param \DateTime $endDate
      *
@@ -139,7 +148,7 @@ class Advice
     }
 
     /**
-     * Get endDate
+     * Get endDate.
      *
      * @return \DateTime
      */
@@ -149,7 +158,7 @@ class Advice
     }
 
     /**
-     * Set country
+     * Set country.
      *
      * @param \AppBundle\Entity\Country $country
      *
@@ -163,7 +172,7 @@ class Advice
     }
 
     /**
-     * Get country
+     * Get country.
      *
      * @return \AppBundle\Entity\Country
      */

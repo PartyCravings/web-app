@@ -1,13 +1,22 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Notifications
+ * Notifications.
  *
  * @ORM\Table(name="notifications")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\NotificationsRepository")
@@ -81,7 +90,7 @@ class Notifications
     }
 
     /**
-     * Get id
+     * Get id.
      *
      * @return guid
      */
@@ -91,7 +100,7 @@ class Notifications
     }
 
     /**
-     * Set tStamp
+     * Set tStamp.
      *
      * @param \DateTime $tStamp
      *
@@ -105,7 +114,7 @@ class Notifications
     }
 
     /**
-     * Get tStamp
+     * Get tStamp.
      *
      * @return \DateTime
      */
@@ -115,7 +124,7 @@ class Notifications
     }
 
     /**
-     * Set subject
+     * Set subject.
      *
      * @param string $subject
      *
@@ -129,7 +138,7 @@ class Notifications
     }
 
     /**
-     * Get subject
+     * Get subject.
      *
      * @return string
      */
@@ -139,7 +148,7 @@ class Notifications
     }
 
     /**
-     * Set link
+     * Set link.
      *
      * @param string $link
      *
@@ -153,7 +162,7 @@ class Notifications
     }
 
     /**
-     * Get link
+     * Get link.
      *
      * @return string
      */
@@ -163,7 +172,7 @@ class Notifications
     }
 
     /**
-     * Set icon
+     * Set icon.
      *
      * @param string $icon
      *
@@ -177,7 +186,7 @@ class Notifications
     }
 
     /**
-     * Get icon
+     * Get icon.
      *
      * @return string
      */
@@ -187,7 +196,7 @@ class Notifications
     }
 
     /**
-     * Set country
+     * Set country.
      *
      * @param \AppBundle\Entity\Country $country
      *
@@ -201,7 +210,7 @@ class Notifications
     }
 
     /**
-     * Get country
+     * Get country.
      *
      * @return \AppBundle\Entity\Country
      */

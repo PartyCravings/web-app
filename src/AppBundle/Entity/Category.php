@@ -1,15 +1,24 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Category
+ * Category.
  *
  * @Gedmo\Tree(type="nested")
  * @ORM\Table(name="category")
@@ -17,7 +26,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Category
 {
-    /**
+    /*
      * Hook SoftDeleteable behavior
      * updates deletedAt field
      */
@@ -99,7 +108,7 @@ class Category
      * @ORM\OrderBy({"lft" = "ASC"})
      */
     private $children;
-    
+
     /**
      * @var bool
      *
@@ -157,7 +166,6 @@ class Category
      */
     private $uploadedFiles;
 
-
     public function __construct()
     {
         $this->children = new ArrayCollection();
@@ -170,7 +178,7 @@ class Category
     }
 
     /**
-     * Get id
+     * Get id.
      *
      * @return guid
      */
@@ -180,7 +188,7 @@ class Category
     }
 
     /**
-     * Set title
+     * Set title.
      *
      * @param string $title
      *
@@ -194,7 +202,7 @@ class Category
     }
 
     /**
-     * Get title
+     * Get title.
      *
      * @return string
      */
@@ -204,7 +212,7 @@ class Category
     }
 
     /**
-     * Set description
+     * Set description.
      *
      * @param string $description
      *
@@ -218,7 +226,7 @@ class Category
     }
 
     /**
-     * Get description
+     * Get description.
      *
      * @return string
      */
@@ -228,7 +236,7 @@ class Category
     }
 
     /**
-     * Set slug
+     * Set slug.
      *
      * @param string $slug
      *
@@ -242,7 +250,7 @@ class Category
     }
 
     /**
-     * Get slug
+     * Get slug.
      *
      * @return string
      */
@@ -252,9 +260,9 @@ class Category
     }
 
     /**
-     * Set lft
+     * Set lft.
      *
-     * @param integer $lft
+     * @param int $lft
      *
      * @return Category
      */
@@ -266,9 +274,9 @@ class Category
     }
 
     /**
-     * Get lft
+     * Get lft.
      *
-     * @return integer
+     * @return int
      */
     public function getLft()
     {
@@ -276,9 +284,9 @@ class Category
     }
 
     /**
-     * Set lvl
+     * Set lvl.
      *
-     * @param integer $lvl
+     * @param int $lvl
      *
      * @return Category
      */
@@ -290,9 +298,9 @@ class Category
     }
 
     /**
-     * Get lvl
+     * Get lvl.
      *
-     * @return integer
+     * @return int
      */
     public function getLvl()
     {
@@ -300,9 +308,9 @@ class Category
     }
 
     /**
-     * Set rgt
+     * Set rgt.
      *
-     * @param integer $rgt
+     * @param int $rgt
      *
      * @return Category
      */
@@ -314,9 +322,9 @@ class Category
     }
 
     /**
-     * Get rgt
+     * Get rgt.
      *
-     * @return integer
+     * @return int
      */
     public function getRgt()
     {
@@ -324,9 +332,9 @@ class Category
     }
 
     /**
-     * Set isEnabled
+     * Set isEnabled.
      *
-     * @param boolean $isEnabled
+     * @param bool $isEnabled
      *
      * @return Category
      */
@@ -338,9 +346,9 @@ class Category
     }
 
     /**
-     * Get isEnabled
+     * Get isEnabled.
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsEnabled()
     {
@@ -348,7 +356,7 @@ class Category
     }
 
     /**
-     * Set created
+     * Set created.
      *
      * @param \DateTime $created
      *
@@ -362,7 +370,7 @@ class Category
     }
 
     /**
-     * Get created
+     * Get created.
      *
      * @return \DateTime
      */
@@ -372,7 +380,7 @@ class Category
     }
 
     /**
-     * Set updated
+     * Set updated.
      *
      * @param \DateTime $updated
      *
@@ -386,7 +394,7 @@ class Category
     }
 
     /**
-     * Get updated
+     * Get updated.
      *
      * @return \DateTime
      */
@@ -396,7 +404,7 @@ class Category
     }
 
     /**
-     * Set root
+     * Set root.
      *
      * @param \AppBundle\Entity\Category $root
      *
@@ -410,7 +418,7 @@ class Category
     }
 
     /**
-     * Get root
+     * Get root.
      *
      * @return \AppBundle\Entity\Category
      */
@@ -420,7 +428,7 @@ class Category
     }
 
     /**
-     * Set parent
+     * Set parent.
      *
      * @param \AppBundle\Entity\Category $parent
      *
@@ -434,7 +442,7 @@ class Category
     }
 
     /**
-     * Get parent
+     * Get parent.
      *
      * @return \AppBundle\Entity\Category
      */
@@ -444,7 +452,7 @@ class Category
     }
 
     /**
-     * Add child
+     * Add child.
      *
      * @param \AppBundle\Entity\Category $child
      *
@@ -458,7 +466,7 @@ class Category
     }
 
     /**
-     * Remove child
+     * Remove child.
      *
      * @param \AppBundle\Entity\Category $child
      */
@@ -468,7 +476,7 @@ class Category
     }
 
     /**
-     * Get children
+     * Get children.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -478,7 +486,7 @@ class Category
     }
 
     /**
-     * Set createdBy
+     * Set createdBy.
      *
      * @param \AppBundle\Entity\Account $createdBy
      *
@@ -492,7 +500,7 @@ class Category
     }
 
     /**
-     * Get createdBy
+     * Get createdBy.
      *
      * @return \AppBundle\Entity\Account
      */
@@ -502,7 +510,7 @@ class Category
     }
 
     /**
-     * Set updatedBy
+     * Set updatedBy.
      *
      * @param \AppBundle\Entity\Account $updatedBy
      *
@@ -516,7 +524,7 @@ class Category
     }
 
     /**
-     * Get updatedBy
+     * Get updatedBy.
      *
      * @return \AppBundle\Entity\Account
      */
@@ -526,7 +534,7 @@ class Category
     }
 
     /**
-     * Set country
+     * Set country.
      *
      * @param \AppBundle\Entity\Country $country
      *
@@ -540,7 +548,7 @@ class Category
     }
 
     /**
-     * Get country
+     * Get country.
      *
      * @return \AppBundle\Entity\Country
      */
@@ -550,7 +558,7 @@ class Category
     }
 
     /**
-     * Set taxRate
+     * Set taxRate.
      *
      * @param \AppBundle\Entity\TaxRates $taxRate
      *
@@ -564,7 +572,7 @@ class Category
     }
 
     /**
-     * Get taxRate
+     * Get taxRate.
      *
      * @return \AppBundle\Entity\TaxRates
      */
@@ -574,9 +582,9 @@ class Category
     }
 
     /**
-     * Set isVisibleOnHome
+     * Set isVisibleOnHome.
      *
-     * @param boolean $isVisibleOnHome
+     * @param bool $isVisibleOnHome
      *
      * @return Category
      */
@@ -588,9 +596,9 @@ class Category
     }
 
     /**
-     * Get isVisibleOnHome
+     * Get isVisibleOnHome.
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsVisibleOnHome()
     {
@@ -598,7 +606,7 @@ class Category
     }
 
     /**
-     * Set uploadedFiles
+     * Set uploadedFiles.
      *
      * @param \AppBundle\Entity\Files $uploadedFiles
      *
@@ -612,7 +620,7 @@ class Category
     }
 
     /**
-     * Get uploadedFiles
+     * Get uploadedFiles.
      *
      * @return \AppBundle\Entity\Files
      */
@@ -622,7 +630,7 @@ class Category
     }
 
     /**
-     * Add service
+     * Add service.
      *
      * @param \AppBundle\Entity\Service $service
      *
@@ -636,7 +644,7 @@ class Category
     }
 
     /**
-     * Remove service
+     * Remove service.
      *
      * @param \AppBundle\Entity\Service $service
      */
@@ -646,7 +654,7 @@ class Category
     }
 
     /**
-     * Get services
+     * Get services.
      *
      * @return \Doctrine\Common\Collections\Collection
      */

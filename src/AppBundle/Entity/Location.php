@@ -1,14 +1,23 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Location
+ * Location.
  *
  * @Gedmo\Tree(type="nested")
  * @ORM\Table(name="location")
@@ -80,14 +89,13 @@ class Location
     private $children;
 
     /**
-    * @var Country
-    *
-    * @Assert\NotBlank(message="location.country.blank")
-    * @ORM\ManyToOne(targetEntity="Country")
-    * @ORM\JoinColumn(onDelete="CASCADE")
-    */
+     * @var Country
+     *
+     * @ORM\ManyToOne(targetEntity="Country")
+     * @ORM\JoinColumn(onDelete="CASCADE")
+     */
     private $country;
-    
+
     /**
      * @var bool
      *
@@ -119,7 +127,6 @@ class Location
      */
     private $updatedBy;
 
-
     public function __construct()
     {
         $this->children = new ArrayCollection();
@@ -131,7 +138,7 @@ class Location
     }
 
     /**
-     * Get id
+     * Get id.
      *
      * @return guid
      */
@@ -141,7 +148,7 @@ class Location
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
      *
@@ -155,7 +162,7 @@ class Location
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */
@@ -165,7 +172,7 @@ class Location
     }
 
     /**
-     * Set slug
+     * Set slug.
      *
      * @param string $slug
      *
@@ -179,7 +186,7 @@ class Location
     }
 
     /**
-     * Get slug
+     * Get slug.
      *
      * @return string
      */
@@ -189,9 +196,9 @@ class Location
     }
 
     /**
-     * Set lft
+     * Set lft.
      *
-     * @param integer $lft
+     * @param int $lft
      *
      * @return Location
      */
@@ -203,9 +210,9 @@ class Location
     }
 
     /**
-     * Get lft
+     * Get lft.
      *
-     * @return integer
+     * @return int
      */
     public function getLft()
     {
@@ -213,9 +220,9 @@ class Location
     }
 
     /**
-     * Set lvl
+     * Set lvl.
      *
-     * @param integer $lvl
+     * @param int $lvl
      *
      * @return Location
      */
@@ -227,9 +234,9 @@ class Location
     }
 
     /**
-     * Get lvl
+     * Get lvl.
      *
-     * @return integer
+     * @return int
      */
     public function getLvl()
     {
@@ -237,9 +244,9 @@ class Location
     }
 
     /**
-     * Set rgt
+     * Set rgt.
      *
-     * @param integer $rgt
+     * @param int $rgt
      *
      * @return Location
      */
@@ -251,9 +258,9 @@ class Location
     }
 
     /**
-     * Get rgt
+     * Get rgt.
      *
-     * @return integer
+     * @return int
      */
     public function getRgt()
     {
@@ -261,9 +268,9 @@ class Location
     }
 
     /**
-     * Set isEnabled
+     * Set isEnabled.
      *
-     * @param boolean $isEnabled
+     * @param bool $isEnabled
      *
      * @return Location
      */
@@ -275,9 +282,9 @@ class Location
     }
 
     /**
-     * Get isEnabled
+     * Get isEnabled.
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsEnabled()
     {
@@ -285,7 +292,7 @@ class Location
     }
 
     /**
-     * Set created
+     * Set created.
      *
      * @param \DateTime $created
      *
@@ -299,7 +306,7 @@ class Location
     }
 
     /**
-     * Get created
+     * Get created.
      *
      * @return \DateTime
      */
@@ -309,7 +316,7 @@ class Location
     }
 
     /**
-     * Set updated
+     * Set updated.
      *
      * @param \DateTime $updated
      *
@@ -323,7 +330,7 @@ class Location
     }
 
     /**
-     * Get updated
+     * Get updated.
      *
      * @return \DateTime
      */
@@ -333,7 +340,7 @@ class Location
     }
 
     /**
-     * Set root
+     * Set root.
      *
      * @param \AppBundle\Entity\Location $root
      *
@@ -347,7 +354,7 @@ class Location
     }
 
     /**
-     * Get root
+     * Get root.
      *
      * @return \AppBundle\Entity\Location
      */
@@ -357,7 +364,7 @@ class Location
     }
 
     /**
-     * Set parent
+     * Set parent.
      *
      * @param \AppBundle\Entity\Location $parent
      *
@@ -371,7 +378,7 @@ class Location
     }
 
     /**
-     * Get parent
+     * Get parent.
      *
      * @return \AppBundle\Entity\Location
      */
@@ -381,7 +388,7 @@ class Location
     }
 
     /**
-     * Add child
+     * Add child.
      *
      * @param \AppBundle\Entity\Location $child
      *
@@ -395,7 +402,7 @@ class Location
     }
 
     /**
-     * Remove child
+     * Remove child.
      *
      * @param \AppBundle\Entity\Location $child
      */
@@ -405,7 +412,7 @@ class Location
     }
 
     /**
-     * Get children
+     * Get children.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -415,7 +422,7 @@ class Location
     }
 
     /**
-     * Set country
+     * Set country.
      *
      * @param \AppBundle\Entity\Country $country
      *
@@ -429,7 +436,7 @@ class Location
     }
 
     /**
-     * Get country
+     * Get country.
      *
      * @return \AppBundle\Entity\Country
      */
@@ -439,7 +446,7 @@ class Location
     }
 
     /**
-     * Set createdBy
+     * Set createdBy.
      *
      * @param \AppBundle\Entity\Account $createdBy
      *
@@ -453,7 +460,7 @@ class Location
     }
 
     /**
-     * Get createdBy
+     * Get createdBy.
      *
      * @return \AppBundle\Entity\Account
      */
@@ -463,7 +470,7 @@ class Location
     }
 
     /**
-     * Set updatedBy
+     * Set updatedBy.
      *
      * @param \AppBundle\Entity\Account $updatedBy
      *
@@ -477,7 +484,7 @@ class Location
     }
 
     /**
-     * Get updatedBy
+     * Get updatedBy.
      *
      * @return \AppBundle\Entity\Account
      */

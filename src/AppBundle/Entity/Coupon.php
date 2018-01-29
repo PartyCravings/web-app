@@ -1,12 +1,21 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Coupon
+ * Coupon.
  *
  * @ORM\Table(name="coupon")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\CouponRepository")
@@ -64,9 +73,9 @@ class Coupon
     }
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -74,7 +83,7 @@ class Coupon
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
      *
@@ -88,7 +97,7 @@ class Coupon
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */
@@ -98,7 +107,7 @@ class Coupon
     }
 
     /**
-     * Set description
+     * Set description.
      *
      * @param string $description
      *
@@ -112,7 +121,7 @@ class Coupon
     }
 
     /**
-     * Get description
+     * Get description.
      *
      * @return string
      */
@@ -122,7 +131,7 @@ class Coupon
     }
 
     /**
-     * Set amount
+     * Set amount.
      *
      * @param float $amount
      *
@@ -136,7 +145,7 @@ class Coupon
     }
 
     /**
-     * Get amount
+     * Get amount.
      *
      * @return float
      */
@@ -146,7 +155,7 @@ class Coupon
     }
 
     /**
-     * Set discount
+     * Set discount.
      *
      * @param float $discount
      *
@@ -160,7 +169,7 @@ class Coupon
     }
 
     /**
-     * Get discount
+     * Get discount.
      *
      * @return float
      */
@@ -170,7 +179,7 @@ class Coupon
     }
 
     /**
-     * Set country
+     * Set country.
      *
      * @param \AppBundle\Entity\Country $country
      *
@@ -184,7 +193,7 @@ class Coupon
     }
 
     /**
-     * Get country
+     * Get country.
      *
      * @return \AppBundle\Entity\Country
      */

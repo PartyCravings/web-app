@@ -1,12 +1,21 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Feature
+ * Feature.
  *
  * @ORM\Table(name="feature")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\FeatureRepository")
@@ -67,7 +76,7 @@ class Feature implements \JsonSerializable
     }
 
     /**
-     * Get id
+     * Get id.
      *
      * @return guid
      */
@@ -77,7 +86,7 @@ class Feature implements \JsonSerializable
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
      *
@@ -91,7 +100,7 @@ class Feature implements \JsonSerializable
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */
@@ -101,7 +110,7 @@ class Feature implements \JsonSerializable
     }
 
     /**
-     * Set icon
+     * Set icon.
      *
      * @param string $icon
      *
@@ -115,7 +124,7 @@ class Feature implements \JsonSerializable
     }
 
     /**
-     * Get icon
+     * Get icon.
      *
      * @return string
      */

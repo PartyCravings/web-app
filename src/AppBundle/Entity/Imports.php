@@ -1,12 +1,21 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * Imports
+ * Imports.
  *
  * @ORM\Table(name="imports")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ImportsRepository")
@@ -49,9 +58,8 @@ class Imports
         return $this->modelId;
     }
 
-
     /**
-     * Get id
+     * Get id.
      *
      * @return guid
      */
@@ -61,9 +69,9 @@ class Imports
     }
 
     /**
-     * Set modelId
+     * Set modelId.
      *
-     * @param integer $modelId
+     * @param int $modelId
      *
      * @return Imports
      */
@@ -75,9 +83,9 @@ class Imports
     }
 
     /**
-     * Get modelId
+     * Get modelId.
      *
-     * @return integer
+     * @return int
      */
     public function getModelId()
     {
@@ -85,7 +93,7 @@ class Imports
     }
 
     /**
-     * Set modelType
+     * Set modelType.
      *
      * @param string $modelType
      *
@@ -99,7 +107,7 @@ class Imports
     }
 
     /**
-     * Get modelType
+     * Get modelType.
      *
      * @return string
      */
@@ -109,7 +117,7 @@ class Imports
     }
 
     /**
-     * Set tStamp
+     * Set tStamp.
      *
      * @param \DateTime $tStamp
      *
@@ -123,7 +131,7 @@ class Imports
     }
 
     /**
-     * Get tStamp
+     * Get tStamp.
      *
      * @return \DateTime
      */

@@ -1,26 +1,35 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Category;
+use AppBundle\Entity\Country;
+use AppBundle\Entity\Location;
+use AppBundle\Entity\Service;
+use AppBundle\Utils\LocationTools;
+use AppBundle\Utils\Sorter;
+use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Request;
-use Doctrine\ORM\EntityManagerInterface;
 use WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs;
-use AppBundle\Utils\LocationTools;
-use AppBundle\Utils\Sorter;
-use AppBundle\Entity\Service;
-use AppBundle\Entity\Country;
-use AppBundle\Entity\Category;
-use AppBundle\Entity\Location;
 
 /**
  * @Route("category")
- * @ParamConverter("countries", class="AppBundle:Country", options={"id"="_country", "repository_method"= "findAll"})
-*/
+ * @ParamConverter("_country", class="AppBundle:Country", options={"id"="_country", "repository_method"="findByName"})
+ */
 class CategoryController extends AbstractController
 {
     /**
@@ -35,11 +44,11 @@ class CategoryController extends AbstractController
         Breadcrumbs $breadcrumbs,
         LocationTools $locationTools,
         Sorter $sorter
-    ) :array {
+    ): array {
         $page = $request->get('page', 1);
 
         $categoryTree = '';
-        $categories =  $em->getRepository(Category::class)
+        $categories = $em->getRepository(Category::class)
                 ->findAllByCountry(
                     $_country,
                     $page
@@ -57,13 +66,13 @@ class CategoryController extends AbstractController
         $breadcrumbs->addRouteItem('Category', 'category_index');
         $breadcrumbs->prependRouteItem('Home', 'homepage');
 
-        return  array(
-                    'services'=> $services,
-                    'category'=> @((array)$categories->getIterator()[0]) ?: false,
-                    'tree'=> $categoryTree,
-                    'locationtree'=> $locationTools->generateLocationTree($request->get('location', !null)),
-                    'map'=> $locationTools->generateMap($services)
-                );
+        return  [
+                    'services' => $services,
+                    'category' => @((array) $categories->getIterator()[0]) ?: false,
+                    'tree' => $categoryTree,
+                    'locationtree' => $locationTools->generateLocationTree($request->get('location', !null)),
+                    'map' => $locationTools->generateMap($services),
+                ];
     }
 
     /**
@@ -80,7 +89,6 @@ class CategoryController extends AbstractController
         )
      * @Template(":service:index.html.twig")
      * @Cache(smaxage=86400)
-     *
      */
     public function categoryLocationAction(
         Category $category,
@@ -91,24 +99,23 @@ class CategoryController extends AbstractController
         Sorter $sorter
     ) {
         $location = $request->get('location', !null);
-        $breadcrumbs->prependRouteItem($location, 'site_location_listing', ['slug'=>$location]);
+        $breadcrumbs->prependRouteItem($location, 'site_location_listing', ['slug' => $location]);
         $node = $category;
         while ($node) {
-            $breadcrumbs->prependRouteItem($node->getTitle(), 'category_show', ['slug'=>$node->getSlug()]);
+            $breadcrumbs->prependRouteItem($node->getTitle(), 'category_show', ['slug' => $node->getSlug()]);
             $node = $node->getParent();
         }
         $breadcrumbs->prependRouteItem('Category', 'category_index');
         $breadcrumbs->prependRouteItem('Home', 'homepage');
 
         $services = $em->getRepository(Service::class)->findAllByCategoryLocation($category, $location, $request->get('page', 1));
-        
 
-        return array(
-                    'services'=> $services,
-                    'category'=> $category,
-                    'tree'=> $sorter->buildHtmlCategoryHierarchy($category),
-                    'locationtree'=> $locationTools->generateLocationTree($location),
-                    'map'=> $locationTools->generateMap($services)
-                );
+        return [
+                    'services' => $services,
+                    'category' => $category,
+                    'tree' => $sorter->buildHtmlCategoryHierarchy($category),
+                    'locationtree' => $locationTools->generateLocationTree($location),
+                    'map' => $locationTools->generateMap($services),
+                ];
     }
 }

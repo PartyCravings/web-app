@@ -11,14 +11,13 @@
 
 namespace AppBundle\Twig;
 
+use AppBundle\Entity\Country;
 use AppBundle\Utils\Markdown;
+use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\Intl\Intl;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
-use Symfony\Component\Intl\Intl;
-use Symfony\Component\Intl\NumberFormatter\NumberFormatter;
-use Symfony\Component\HttpFoundation\RequestStack;
-use AppBundle\Entity\Country;
 
 /**
  * This Twig extension adds a new 'md2html' filter to easily transform Markdown
@@ -51,7 +50,6 @@ class AppExtension extends AbstractExtension
         array $locales,
         Markdown $parser,
         RequestStack $requestStack
-
     ) {
         $this->parser = $parser;
         $this->localeCodes = $locales;
@@ -70,7 +68,7 @@ class AppExtension extends AbstractExtension
             new TwigFilter('country', [$this, 'countryFilter']),
             new TwigFilter('language', [$this, 'languageFilter']),
             new TwigFilter('currency', [$this, 'currencyFilter']),
-            new TwigFilter('json_decode', [$this, 'jsonDecode'], ['is_safe' => ['html']])
+            new TwigFilter('json_decode', [$this, 'jsonDecode'], ['is_safe' => ['html']]),
         ];
     }
 
@@ -84,12 +82,12 @@ class AppExtension extends AbstractExtension
         ];
     }
 
-    public function languageFilter(string $language) : ?string
+    public function languageFilter(string $language): ?string
     {
         return Intl::getLanguageBundle()->getLanguageName($language, null, $this->locale);
     }
 
-    public function currencyFilter(float $amount) : ?string
+    public function currencyFilter(float $amount): ?string
     {
         $request = $this->requestStack->getCurrentRequest();
 
@@ -100,6 +98,7 @@ class AppExtension extends AbstractExtension
         } else {
             $currency = 'USD';
         }
+
         return twig_localized_currency_filter($amount, $currency, $this->locale);
     }
 
@@ -111,9 +110,9 @@ class AppExtension extends AbstractExtension
         return $this->parser->toHtml($content);
     }
 
-    public function jsonDecode(string $json) :array
+    public function jsonDecode(string $json): array
     {
-        return (array)json_decode($json);
+        return (array) json_decode($json);
     }
 
     public function base64encode(string $content): ?string
@@ -121,7 +120,7 @@ class AppExtension extends AbstractExtension
         return base64_encode($content);
     }
 
-    public function countryFilter(string $countryCode) : ?string
+    public function countryFilter(string $countryCode): ?string
     {
         return Intl::getRegionBundle()->getCountryName($countryCode, $this->locale);
     }

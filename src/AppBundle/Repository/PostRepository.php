@@ -12,16 +12,13 @@
 namespace AppBundle\Repository;
 
 use AppBundle\Entity\Post;
-use Doctrine\ORM\EntityRepository;
-use Doctrine\ORM\Query;
-use Pagerfanta\Adapter\DoctrineORMAdapter;
-use Pagerfanta\Pagerfanta;
 use AppBundle\Utils\Sorter;
+use Doctrine\ORM\EntityRepository;
+use Pagerfanta\Pagerfanta;
 
 /**
  * This custom Doctrine repository contains some methods which are useful when
  * querying for blog post information.
- *
  */
 class PostRepository extends EntityRepository
 {
@@ -29,7 +26,7 @@ class PostRepository extends EntityRepository
 
     const MAX_HOME_POSTS = 3;
 
-    public function findHomePosts() :array
+    public function findHomePosts(): array
     {
         return $this->createQueryBuilder('p')
                 ->orderBy('p.created', 'DESC')

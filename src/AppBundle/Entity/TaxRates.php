@@ -1,13 +1,21 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * TaxRates
+ * TaxRates.
  *
  * @ORM\Table(name="tax_rates")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\TaxRatesRepository")
@@ -48,10 +56,8 @@ class TaxRates
         return $this->rate;
     }
 
-
-
     /**
-     * Get id
+     * Get id.
      *
      * @return guid
      */
@@ -61,7 +67,7 @@ class TaxRates
     }
 
     /**
-     * Set rate
+     * Set rate.
      *
      * @param float $rate
      *
@@ -75,7 +81,7 @@ class TaxRates
     }
 
     /**
-     * Get rate
+     * Get rate.
      *
      * @return float
      */
@@ -85,7 +91,7 @@ class TaxRates
     }
 
     /**
-     * Set ratePrefix
+     * Set ratePrefix.
      *
      * @param string $ratePrefix
      *
@@ -99,7 +105,7 @@ class TaxRates
     }
 
     /**
-     * Get ratePrefix
+     * Get ratePrefix.
      *
      * @return string
      */

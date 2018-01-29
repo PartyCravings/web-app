@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -7,7 +16,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Currency
+ * Currency.
  *
  * @ORM\Table(name="currency")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\CurrencyRepository")
@@ -93,7 +102,7 @@ class Currency
     }
 
     /**
-     * Get id
+     * Get id.
      *
      * @return guid
      */
@@ -103,7 +112,7 @@ class Currency
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
      *
@@ -117,7 +126,7 @@ class Currency
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */
@@ -127,7 +136,7 @@ class Currency
     }
 
     /**
-     * Set isoCode
+     * Set isoCode.
      *
      * @param string $isoCode
      *
@@ -141,7 +150,7 @@ class Currency
     }
 
     /**
-     * Get isoCode
+     * Get isoCode.
      *
      * @return string
      */
@@ -151,7 +160,7 @@ class Currency
     }
 
     /**
-     * Set symbol
+     * Set symbol.
      *
      * @param string $symbol
      *
@@ -165,7 +174,7 @@ class Currency
     }
 
     /**
-     * Get symbol
+     * Get symbol.
      *
      * @return string
      */
@@ -175,7 +184,7 @@ class Currency
     }
 
     /**
-     * Set rate
+     * Set rate.
      *
      * @param float $rate
      *
@@ -189,7 +198,7 @@ class Currency
     }
 
     /**
-     * Get rate
+     * Get rate.
      *
      * @return float
      */
@@ -199,9 +208,9 @@ class Currency
     }
 
     /**
-     * Set isEnabled
+     * Set isEnabled.
      *
-     * @param boolean $isEnabled
+     * @param bool $isEnabled
      *
      * @return Currency
      */
@@ -213,9 +222,9 @@ class Currency
     }
 
     /**
-     * Get isEnabled
+     * Get isEnabled.
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsEnabled()
     {
@@ -223,7 +232,7 @@ class Currency
     }
 
     /**
-     * Set created
+     * Set created.
      *
      * @param \DateTime $created
      *
@@ -237,7 +246,7 @@ class Currency
     }
 
     /**
-     * Get created
+     * Get created.
      *
      * @return \DateTime
      */
@@ -247,7 +256,7 @@ class Currency
     }
 
     /**
-     * Set updated
+     * Set updated.
      *
      * @param \DateTime $updated
      *
@@ -261,7 +270,7 @@ class Currency
     }
 
     /**
-     * Get updated
+     * Get updated.
      *
      * @return \DateTime
      */
@@ -271,7 +280,7 @@ class Currency
     }
 
     /**
-     * Set createdBy
+     * Set createdBy.
      *
      * @param \AppBundle\Entity\Account $createdBy
      *
@@ -285,7 +294,7 @@ class Currency
     }
 
     /**
-     * Get createdBy
+     * Get createdBy.
      *
      * @return \AppBundle\Entity\Account
      */
@@ -295,7 +304,7 @@ class Currency
     }
 
     /**
-     * Set updatedBy
+     * Set updatedBy.
      *
      * @param \AppBundle\Entity\Account $updatedBy
      *
@@ -309,7 +318,7 @@ class Currency
     }
 
     /**
-     * Get updatedBy
+     * Get updatedBy.
      *
      * @return \AppBundle\Entity\Account
      */

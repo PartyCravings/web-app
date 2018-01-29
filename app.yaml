@@ -29,6 +29,6 @@ automatic_scaling:
     target_utilization: 0.8
 
 resources:
-  cpu: 0.5
-  memory_gb: 0.6
+  cpu: 1
+  memory_gb: 1
   disk_size_gb: 10

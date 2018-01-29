@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -7,7 +16,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Address
+ * Address.
  *
  * @ORM\Table(name="address")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\AddressRepository")
@@ -74,11 +83,11 @@ class Address
     private $updated;
 
     /**
-    * @var Country
-    *
-    * @ORM\ManyToOne(targetEntity="Country")
-    * @ORM\JoinColumn(onDelete="CASCADE")
-    */
+     * @var Country
+     *
+     * @ORM\ManyToOne(targetEntity="Country")
+     * @ORM\JoinColumn(onDelete="CASCADE")
+     */
     private $country;
 
     /**
@@ -96,7 +105,7 @@ class Address
     }
 
     /**
-     * Get id
+     * Get id.
      *
      * @return guid
      */
@@ -106,7 +115,7 @@ class Address
     }
 
     /**
-     * Set address
+     * Set address.
      *
      * @param string $address
      *
@@ -120,7 +129,7 @@ class Address
     }
 
     /**
-     * Get address
+     * Get address.
      *
      * @return string
      */
@@ -130,7 +139,7 @@ class Address
     }
 
     /**
-     * Set postcode
+     * Set postcode.
      *
      * @param string $postcode
      *
@@ -144,7 +153,7 @@ class Address
     }
 
     /**
-     * Get postcode
+     * Get postcode.
      *
      * @return string
      */
@@ -154,7 +163,7 @@ class Address
     }
 
     /**
-     * Set phone
+     * Set phone.
      *
      * @param string $phone
      *
@@ -168,7 +177,7 @@ class Address
     }
 
     /**
-     * Get phone
+     * Get phone.
      *
      * @return string
      */
@@ -178,7 +187,7 @@ class Address
     }
 
     /**
-     * Set vatNumber
+     * Set vatNumber.
      *
      * @param string $vatNumber
      *
@@ -192,7 +201,7 @@ class Address
     }
 
     /**
-     * Get vatNumber
+     * Get vatNumber.
      *
      * @return string
      */
@@ -202,7 +211,7 @@ class Address
     }
 
     /**
-     * Set created
+     * Set created.
      *
      * @param \DateTime $created
      *
@@ -216,7 +225,7 @@ class Address
     }
 
     /**
-     * Get created
+     * Get created.
      *
      * @return \DateTime
      */
@@ -226,7 +235,7 @@ class Address
     }
 
     /**
-     * Set updated
+     * Set updated.
      *
      * @param \DateTime $updated
      *
@@ -240,7 +249,7 @@ class Address
     }
 
     /**
-     * Get updated
+     * Get updated.
      *
      * @return \DateTime
      */
@@ -250,7 +259,7 @@ class Address
     }
 
     /**
-     * Set country
+     * Set country.
      *
      * @param \AppBundle\Entity\Country $country
      *
@@ -264,7 +273,7 @@ class Address
     }
 
     /**
-     * Get country
+     * Get country.
      *
      * @return \AppBundle\Entity\Country
      */
@@ -274,7 +283,7 @@ class Address
     }
 
     /**
-     * Set location
+     * Set location.
      *
      * @param \AppBundle\Entity\Location $location
      *
@@ -288,7 +297,7 @@ class Address
     }
 
     /**
-     * Get location
+     * Get location.
      *
      * @return \AppBundle\Entity\Location
      */

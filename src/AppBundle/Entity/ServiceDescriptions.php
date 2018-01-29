@@ -1,14 +1,22 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * ServiceDescriptions
+ * ServiceDescriptions.
  *
  * @ORM\Table(name="service_descriptions")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\serviceDescriptionsRepository")
@@ -59,9 +67,8 @@ class ServiceDescriptions
         return $this->description;
     }
 
-
     /**
-     * Get id
+     * Get id.
      *
      * @return guid
      */
@@ -71,7 +78,7 @@ class ServiceDescriptions
     }
 
     /**
-     * Set description
+     * Set description.
      *
      * @param string $description
      *
@@ -85,7 +92,7 @@ class ServiceDescriptions
     }
 
     /**
-     * Get description
+     * Get description.
      *
      * @return string
      */
@@ -95,7 +102,7 @@ class ServiceDescriptions
     }
 
     /**
-     * Set dailyPrice
+     * Set dailyPrice.
      *
      * @param float $dailyPrice
      *
@@ -109,7 +116,7 @@ class ServiceDescriptions
     }
 
     /**
-     * Get dailyPrice
+     * Get dailyPrice.
      *
      * @return float
      */
@@ -119,7 +126,7 @@ class ServiceDescriptions
     }
 
     /**
-     * Set dailyDiscount
+     * Set dailyDiscount.
      *
      * @param float $dailyDiscount
      *
@@ -133,7 +140,7 @@ class ServiceDescriptions
     }
 
     /**
-     * Get dailyDiscount
+     * Get dailyDiscount.
      *
      * @return float
      */
@@ -143,7 +150,7 @@ class ServiceDescriptions
     }
 
     /**
-     * Set updated
+     * Set updated.
      *
      * @param \DateTime $updated
      *
@@ -157,7 +164,7 @@ class ServiceDescriptions
     }
 
     /**
-     * Get updated
+     * Get updated.
      *
      * @return \DateTime
      */

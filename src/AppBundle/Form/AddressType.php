@@ -1,11 +1,20 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Form;
 
+use Ivory\GoogleMapBundle\Form\Type\PlaceAutocompleteType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Ivory\GoogleMapBundle\Form\Type\PlaceAutocompleteType;
 
 class AddressType extends AbstractType
 {
@@ -17,23 +26,23 @@ class AddressType extends AbstractType
         $builder->add(
             'address',
             PlaceAutocompleteType::class,
-            array(
-                'attr' => array(
+            [
+                'attr' => [
                     'help' => 'service.address.help',
-                    'class' => 'form-control'
-                )
-            )
+                    'class' => 'form-control',
+                ],
+            ]
         );
     }
-    
+
     /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Address'
-        ));
+        $resolver->setDefaults([
+            'data_class' => 'AppBundle\Entity\Address',
+        ]);
     }
 
     /**
