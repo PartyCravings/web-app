@@ -43,9 +43,6 @@ monolog:
 #swiftmailer:
 #    delivery_addresses: ['me@example.com']
 
-#Noxlogic Rate Limit Bundle Configuration
-noxlogic_rate_limit:
-    enabled: false
 
 #HWIOAuth Bundle Configuration
 hwi_oauth:

@@ -1,3 +1,5 @@
+/app/Migrations/*
+!/app/Migrations
 /.web-server-pid
 /app/config/parameters.yml
 /build/

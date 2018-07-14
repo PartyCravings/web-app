@@ -25,7 +25,6 @@ class AppKernel extends Kernel
             new Vich\UploaderBundle\VichUploaderBundle(),
             new Ornicar\GravatarBundle\OrnicarGravatarBundle(),
             new Ivory\GoogleMapBundle\IvoryGoogleMapBundle(),
-            new Noxlogic\RateLimitBundle\NoxlogicRateLimitBundle(),
             new FOS\HttpCacheBundle\FOSHttpCacheBundle(),
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
             new EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle(),

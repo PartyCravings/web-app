@@ -246,10 +246,6 @@ ornicar_gravatar:
     size: 80
     default: mm
 
-#Noxlogic Rate Limit Bundle Configuration
-noxlogic_rate_limit:
-    enabled: false
-
 #WhiteOctoberBreadcrumbsBundle Configuration
 white_october_breadcrumbs:
     viewTemplate: snippets/breadcrumbs.jsonld.twig
