@@ -19,7 +19,7 @@ class SilhouetteCreationListener
     /**
      * @Deprecated , Use cropped JPGs of lower quality, 10%?
      */
-    public function onVichUploaderPreUpload(Event $event)
+    public function onVichUploaderPreUpload(Event $event) :void
     {
         /*$object = $event->getObject();
 

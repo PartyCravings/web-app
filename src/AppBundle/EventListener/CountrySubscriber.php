@@ -16,16 +16,14 @@ use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 
 class CountrySubscriber implements EventSubscriberInterface
 {
-    public function onKernelRequest(GetResponseEvent $event)
+    public function onKernelRequest(GetResponseEvent $event) :void
     {
         $request = $event->getRequest();
-
         $country = $request->getHost();
-
         $request->attributes->set('_country', $country);
     }
 
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents() :array
     {
         return [
             'kernel.request' => 'onKernelRequest',

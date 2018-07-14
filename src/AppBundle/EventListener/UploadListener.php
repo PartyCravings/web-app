@@ -24,7 +24,7 @@ class UploadListener
         $this->manager = $manager;
     }
 
-    public function onUpload(PostChunkUploadEvent $event)
+    public function onUpload(PostChunkUploadEvent $event) :void
     {
         if ($event->isLast()) {
             $file = $event->getChunk();
@@ -40,12 +40,9 @@ class UploadListener
 
             $session = $event->getRequest()->getSession();
 
-            $sessionVal = $session->get('files[]');
-            // Append value to retrieved array.
-            $sessionVal[] = $object;
-            // Set value back to session
-            $session->set('files[]', $sessionVal);
-            dump($object);
+            $files = $session->get('uploadedFiles', []);
+            $files[] = $object->getName();
+            $session->set('uploadedFiles', $files);
         }
     }
 }

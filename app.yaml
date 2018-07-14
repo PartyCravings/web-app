@@ -7,9 +7,10 @@ runtime_config:
   front_controller_file: app.php
   composer_flags: --no-dev --classmap-authoritative
   nginx_conf_include: nginx-app.conf
+  nginx_conf_http_include: nginx-http.conf
   supervisord_conf_addition: additional-supervisord.conf
   php_ini_override: php.ini
-  nginx_conf_http_include: nginx-http.conf
+  whitelist_functions: proc_open, proc_close
 
 # [START overrides]
 env_variables:
@@ -24,11 +25,10 @@ env_variables:
 automatic_scaling:
   min_num_instances: 1
   max_num_instances: 1000
-  cool_down_period_sec: 120 # default value
   cpu_utilization:
     target_utilization: 0.8
 
 resources:
-  cpu: 1
-  memory_gb: 1
+  cpu: 0.2
+  memory_gb: 0.6
   disk_size_gb: 10
