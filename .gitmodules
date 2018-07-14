@@ -1,4 +1,0 @@
-[submodule "php-pm"]
-	path = php-pm
-	url = https://github.com/php-pm/php-pm
-	branch = master
